@@ -1,0 +1,226 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Windows.Data;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using AxModelExercice;
+using AxModel;
+using AxTheme;
+using AxExerciceGenerator;
+
+namespace AxViewModel
+{
+    public class ExercicesReeducationMouvement : BlankViewModelBase
+    {
+        #region Fields
+        //private readonly ThemesModel db;
+        private readonly ObservableCollection<ThemeModel> themes;
+        public ObservableCollection<ExerciceReeducation> Exercices { get; set; }
+        private readonly ICollectionView collectionView;
+        private int _ItemCount;
+        private ExerciceJeuViewModel _selectedItem;
+        private bool ticktock = true;
+        private string difficulte;
+
+        #endregion
+
+        #region Constructors
+        /// <summary>
+        /// Initializes a new instance of the ReeducationKidWizardSelectExViewModel class.
+        /// </summary>
+        public ExercicesReeducationMouvement( ObservableCollection<ExerciceReeducation> Exercices) // TODO : chargement des themes en async !
+        {
+            this._ItemCount = 0;
+            //this.db = new ThemesModel();
+
+            this.Exercices = Exercices;
+            this.themes = new ObservableCollection<ThemeModel>();
+
+            //Parallel.ForEach(this.db.Themes, theme =>   // Bibliothèque parallèle de tâches, ForEach définit une boucle dans laquelle les itérations peuvent s’exécuter en parallèle
+            //{
+            //    this.themes.Add(new ThemeViewModel(theme));
+            //});
+            foreach (ThemeModel theme in GestionThemes.LoadAllReeducationTheme())
+            {
+                this.themes.Add(theme);
+            }
+
+            this.collectionView = CollectionViewSource.GetDefaultView(this.themes);
+            if (this.collectionView == null)
+                throw new NullReferenceException("collectionView");
+
+            this.collectionView.CurrentChanged += new EventHandler(this.OnCollectionViewCurrentChanged);    // création de l'évenement de changement de thème selectionné
+
+            if (IsInDesignMode)
+            {
+                // Code runs in Blend --> create design time data.
+            }
+            else
+            {
+                // Code runs "for real": Connect to service, etc...
+            }
+            // Subscribe to CollectionChanged event
+            Exercices.CollectionChanged += OnExercicesListChanged;
+            CreateCommands();
+            GetNomExercice("Discret statique");
+            Messenger.Default.Register<string>(this,"DifficulteMessage", GetDifficulte);
+        }
+
+        #endregion
+
+        #region Properties
+
+        public ObservableCollection<ThemeModel> Themes  // liste de Themes pour la ListBox
+        {
+            get { return this.themes; } // TODO : chargement des themes en async !
+        }
+
+        /// <summary>
+        /// The number of items in the list.
+        /// </summary>
+        public int ItemCount
+        {
+            get { return _ItemCount; }
+
+            set
+            {
+                _ItemCount = value;
+                RaisePropertyChanged("ItemCount");
+            }
+        }
+
+        private string nomExerciceSelectionne;
+
+        public ThemeModel SelectedTheme // Theme courant l'interface se bind dessus pour l'affichage
+        {
+            get
+            {
+                //ReaPlanExercices.Theme = (this.collectionView.CurrentItem as ThemeViewModel).Theme;
+                return this.collectionView.CurrentItem as ThemeModel;
+            }
+        }
+
+        private void OnCollectionViewCurrentChanged(object sender, EventArgs e)
+        {
+            RaisePropertyChanged("SelectedTheme");  // Notification du changement de Theme courant
+        }
+
+        #endregion
+
+        #region Methods
+
+        private void CreateCommands()
+        {
+            AddItem = new RelayCommand(AdItem, AdItem_CanExecute);
+            DeleteItem = new RelayCommand(DelItem, DelItem_CanExecute);
+            GetNomExerciceSelectionne = new RelayCommand<string>((p) => GetNomExercice(p));
+        }
+
+        private void GetNomExercice(string s)
+        {
+            nomExerciceSelectionne = s;
+        }
+        /// <summary>
+        /// Updates the ItemCount Property when the PositionList collection changes.
+        /// </summary>
+        private void OnExercicesListChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            // Update item count
+            this.ItemCount = this.Exercices.Count;
+            if (ItemCount != 0)
+            {
+
+            }
+            Messenger.Default.Send(true, "ReeducationViewModel");  // Message pour activer NextCommand
+        }
+
+        private void GetDifficulte(string s)
+        {
+            difficulte = s;
+        }
+
+        #endregion
+
+        #region RelayCommand
+        
+        public RelayCommand<string> GetNomExerciceSelectionne
+        {
+            get;
+            set;
+        }
+
+
+        public RelayCommand AddItem
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand DeleteItem
+        {
+            get;
+            private set;
+        }
+
+        #endregion
+
+        #region Actions
+
+        private void AdItem()
+        {
+            ExerciceJeu exJeu;
+            switch(nomExerciceSelectionne)
+            {
+                case "Discret statique": exJeu = ExerciceGenerator.GetExerciceJeu(SelectedTheme,difficulte);
+<<<<<<< HEAD
+=======
+                    exJeu.StaticDyn = false;
+>>>>>>> 8a1c5d2ba8081555af5402b4e595482b6cab7e50
+                    Exercices.Add(exJeu);
+                    break;
+
+                case "Discret dynamique": exJeu = ExerciceGenerator.GetExerciceJeu(SelectedTheme, difficulte);
+                    exJeu.StaticDyn = true;
+                    Exercices.Add(exJeu);
+                    break;
+
+                case "Discret cognitif": ;
+                    break;
+
+                case "Cyclique": ;
+                    break;
+
+                case "Complexe": ;
+                    break;
+
+                default :
+                    break;
+            }
+
+        }
+
+        private bool AdItem_CanExecute()
+        {
+            return (Exercices != null);
+        }
+
+        private void DelItem()
+        {
+            //var selectedItem = SelectedItem;
+            //this.ReaPlanExercices.Exercice.Remove(SelectedItem.Jeu);
+            //Exercices.Remove(selectedItem);
+        }
+
+        private bool DelItem_CanExecute()
+        {
+            //return (SelectedItem != null);
+            return true;
+        } 
+
+        #endregion
+    }
+}

@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="AxView.View.FormulaireInscriptionPatient"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:res="clr-namespace:AxLanguage;assembly=AxLanguage"
+             mc:Ignorable="d" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="BorderBrush" Value="Red"></Setter>
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors).CurrentItem.ErrorContent}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+        <Style x:Key="styleCalendar" TargetType="{x:Type Calendar}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Calendar}">
+                        <!-- Wrapping in ViewBox will enlarge calendar of that size.-->
+                        <Viewbox Height="400"
+                         Width="400">
+                            <CalendarItem x:Name="PART_CalendarItem"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"/>
+                        </Viewbox>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="DisplayMode" Value="Decade"/>
+        </Style>
+        <Style TargetType="{x:Type DatePickerTextBox}">
+            <Setter Property="Background" Value="AliceBlue" />
+            <Setter Property="Text" Value="{x:Static res:Languages.REAplan_Choisir_Date}" />
+            <Setter Property="Width" Value="145"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel Margin="0,115,0,0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Margin="0,0,0,15" Orientation="Horizontal">
+                <Label Content="{x:Static res:Languages.REAplan_Nom}" FontFamily="Arial" FontSize="21.333" Margin="0" Padding="0" />
+                <TextBox Margin="30,0,0,0" x:Name="textBox1" Text="{Binding NomPatient, Mode=TwoWay,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" FontSize="21.333" Padding="0" FontFamily="Arial" VerticalContentAlignment="Center" Width="300" Height="30" HorizontalAlignment="Right" />
+            </StackPanel>
+            <StackPanel Margin="0,0,0,15" Orientation="Horizontal">
+                <Label Content="{x:Static res:Languages.REAplan_Prenom}" x:Name="label2" FontFamily="Arial" FontSize="21.333" Margin="0" Padding="0" />
+                <TextBox Margin="0" x:Name="textBox2" Text="{Binding PrenomPatient, Mode=TwoWay,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" FontSize="21.333" Padding="0" FontFamily="Arial" Width="301" Height="30" VerticalContentAlignment="Center" HorizontalAlignment="Right" />
+            </StackPanel>
+            <!--<StackPanel Margin="0,0,0,15" Orientation="Horizontal">
+                <Label Content="{x:Static res:Languages.REAplan_IdNational}" x:Name="label5" FontFamily="Arial" FontSize="21.333" Margin="0" Padding="0" />
+                <TextBox Focusable="False" Text="{Binding IdDate, Mode=TwoWay,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" MaxLength="6" Margin="0" x:Name="textBox5" FontSize="21.333" Padding="0" FontFamily="Arial" Height="30" VerticalContentAlignment="Center" HorizontalAlignment="Right" UndoLimit="0" Width="108" />
+                <Label Content="-" x:Name="label5_Copy" FontFamily="Arial" FontSize="21.333" Margin="0" Padding="0" BorderThickness="5,0" />
+                <TextBox Text="{Binding ID1, Mode=TwoWay,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" MaxLength="3" Margin="0" x:Name="textBox5_Copy" FontSize="21.333" Padding="0" FontFamily="Arial" Height="30" VerticalContentAlignment="Center" HorizontalAlignment="Right" UndoLimit="3" Width="70" />
+                <Label Content="-" x:Name="label5_Copy1" FontFamily="Arial" FontSize="21.333" Margin="0" Padding="0" BorderThickness="5,0" />
+                <TextBox Text="{Binding ID2, Mode=TwoWay,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" MaxLength="2" Margin="0" x:Name="textBox5_Copy1" FontSize="21.333" Padding="0" FontFamily="Arial" Height="30" VerticalContentAlignment="Center" HorizontalAlignment="Right" UndoLimit="2" Width="53" />
+            </StackPanel>-->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                <Label VerticalAlignment="Center" Content="{x:Static res:Languages.REAplan_Naissance1}" x:Name="label3" FontFamily="Arial" FontSize="21.333" Margin="0" Padding="0,0,0,10" />
+                <DatePicker Margin="0,10" CalendarStyle="{StaticResource styleCalendar}" Height="35" HorizontalAlignment="Left" Name="datePicker1" Width="178" DisplayDateEnd="{Binding DateMax}" DisplayDateStart="{Binding DateMinimum}" SelectedDate="{Binding DateNaiss}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                <Label Content="{x:Static res:Languages.REAplan_Sexe}" x:Name="label4" FontFamily="Arial" FontSize="21.333" Margin="0" Padding="0" />
+                <RadioButton GroupName="1" IsChecked="{Binding Masculin, Mode=TwoWay}"  Margin="0" FontFamily="Arial Rounded MT" FontSize="18" Padding="0" HorizontalContentAlignment="Left" FontStretch="Normal" FlowDirection="LeftToRight" Content="{x:Static res:Languages.REAplan_Masculin}"/>
+                <RadioButton GroupName="1" IsChecked="{Binding Feminin, Mode=TwoWay}" FontFamily="Arial Rounded MT" FontSize="18" Content="{x:Static res:Languages.REAplan_Feminin}" Margin="15,0,0,0" Padding="0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                <Label Content="{x:Static res:Languages.REAplan_Taille_Patient}" x:Name="label11" FontFamily="Arial" FontSize="21.333" Margin="0" Padding="0" />
+                <TextBox Margin="27,0,0,0" x:Name="textBox4" Text="{Binding TaillePatient, Mode=TwoWay,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" FontSize="21.333" Width="50" Height="30" FontFamily="Arial" VerticalContentAlignment="Center" UndoLimit="3" />
+                <Label Content="cm" FontFamily="Arial" FontSize="21.333" x:Name="label12" Margin="10,0,0,0" Padding="0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                <Label Content="{x:Static res:Languages.REAplan_Poids_Patient}" x:Name="label6" FontFamily="Arial" FontSize="21.333" Margin="0" Padding="0" />
+                <TextBox Margin="0" x:Name="textBox3" Text="{Binding PoidPatient, Mode=TwoWay,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" FontSize="21.333" Width="50" Height="30" FontFamily="Arial" VerticalContentAlignment="Center" UndoLimit="3" />
+                <Label Content="kg" Margin="10,0,0,0" x:Name="label8" FontFamily="Arial" FontSize="21.333" Padding="0" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="0,30,0,0">
+                <Button Content="{Binding NomBoutton}"  Command="{Binding CmdSavePatient}" IsEnabled="{Binding CanUseBoutton}" FontSize="21.333" FontFamily="Arial" Padding="0" Width="300" Height="75" Margin="0,0,0,20"/>
+                <Button Content="{x:Static res:Languages.REAplan_Annuler}"  Command="{Binding DataContext.ChangeInternNavigation, RelativeSource={RelativeSource FindAncestor, AncestorLevel=2, AncestorType={x:Type UserControl}}}" CommandParameter="0" FontSize="21.333" FontFamily="Arial" Padding="0" Width="300" Height="75" />
+            </StackPanel>
+        </StackPanel>
+        </Grid>
+</UserControl>

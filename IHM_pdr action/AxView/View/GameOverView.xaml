@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="AxView.View.GameOverView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:res="clr-namespace:AxLanguage;assembly=AxLanguage"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="350" OpacityMask="{x:Null}" DataContext="{Binding MainP, Source={StaticResource Locator}}" Background="#6B000000" MinWidth="350" MinHeight="350">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label Content="{x:Static res:Languages.REAplan_Score}" FontSize="32" Foreground="White" HorizontalAlignment="Left" Name="labelScore1" VerticalContentAlignment="Center" Width="110" Margin="12,0,0,6" Height="52" VerticalAlignment="Bottom" Grid.Row="2" FontFamily="Courier New" FontWeight="Black" />
+        <Label Content="{Binding ScoreUi, Mode=OneWay}" FontSize="32" FontWeight="Black" Foreground="Gold" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Name="labelScore2" VerticalContentAlignment="Center" Width="172" Margin="0,0,12,6" Height="52" VerticalAlignment="Bottom" Grid.Row="2" FontFamily="Courier New" />
+        <Label Content="{x:Static res:Languages.REAplan_Temps}" FontSize="32" Foreground="White" HorizontalAlignment="Left" Name="labelTemps1" VerticalContentAlignment="Center" Width="110" Margin="12,0,0,12" Height="52" VerticalAlignment="Bottom" Grid.Row="3" FontFamily="Courier New" FontWeight="Black" />
+        <Label Content="{Binding TempsUi, Mode=OneWay}" FontSize="32" FontWeight="Black" Foreground="Gold" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Name="labelTemps2" VerticalContentAlignment="Center" Width="172" Margin="0,0,12,12" Height="52" VerticalAlignment="Bottom" Grid.Row="3" FontFamily="Courier New" />
+        <Label Content="{Binding SelectedPhrase, Mode=OneWay}" VerticalContentAlignment="Center" Foreground="White" HorizontalContentAlignment="Center" FontSize="72" FontFamily="Courier New" Grid.Row="0" Margin="6" FontWeight="Black" />
+        <Label Content="{Binding SelectedPrenom, Mode=OneWay}" VerticalContentAlignment="Center" Foreground="White" HorizontalContentAlignment="Center" FontSize="56" FontFamily="Courier New" Grid.Row="1" MinWidth="75" Margin="12" FontWeight="Black" />
+    </Grid>
+</UserControl>

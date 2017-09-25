@@ -1,0 +1,2299 @@
+﻿using GalaSoft.MvvmLight;
+using System.Windows.Threading;
+using System;
+using System.Collections.ObjectModel;
+using System.Windows.Media;
+using System.Media;
+using System.Windows;
+using System.Diagnostics;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+using GalaSoft.MvvmLight.Messaging;
+using AxModel.Helpers;
+using AxModel;
+using AxCommunication;
+using AxAction;
+using System.Collections.Generic;
+using AxError;
+using AxModelExercice;
+using AxModel.Message;
+using AxTheme;
+namespace AxViewModel
+{
+    /// <summary>
+    /// This class contains properties that a View can data bind to.
+    /// <para>
+    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
+    /// </para>
+    /// <para>
+    /// See http://www.galasoft.ch/mvvm/getstarted
+    /// </para>
+    /// </summary>
+    public class MainPViewModel : ViewModelBase
+    {
+        #region Fields
+
+        private SingletonReeducation ValeurReeducation = SingletonReeducation.getInstance();
+
+        
+        private readonly IMessageBoxService _messageBoxService;
+        private readonly ActionRobot _axrobot;
+
+        private PositionDataModel _positionUiBuffer;    // Buffer pour l'affichage des positions
+
+        private DispatcherTimer _dyn;           // Timer pour les cibles dynamiques
+        private DispatcherTimer _tictac;        // Timer de décompte pour le temps de jeu
+        private DispatcherTimer _mainLoop;      // Timer pour la boucle principale du jeu
+        private ExerciceJeu _copieExGame;   // Copie du Model de la partie en cours
+        private ThemeModel _copieExTheme;   // copie du theme pour l'exercice en cours
+        private string _fondUi;         // Image de fond pour les jeux
+        private byte _niveauUi;         // Niveau atteint par le joueur
+        private ulong _scoreUi;         // Score atteint par le joueur
+        private TimeSpan _tempsUi = TimeSpan.FromSeconds(0); // Temps restant
+        private int _tempsUiTotal;
+        private ulong _scoreUiTotal;   // Score Total
+        private TimeSpan _temps1S = TimeSpan.FromSeconds(1); // Temps ++
+        private ObservableCollection<UiCibleModel> _uiCibles = new ObservableCollection<UiCibleModel>();            // Liste de Cible à afficher
+        private ObservableCollection<UiChasseurModel> _uiChasseur = new ObservableCollection<UiChasseurModel>();    // Chasseur à afficher
+        private ObservableCollection<UiEx> _uiEx = new ObservableCollection<UiEx>();    // Ex à afficher
+        public DoubleCollection _positionRobotBaseStyle = new DoubleCollection();       // style de la courbe
+        private bool _gameOver;
+        private bool _trace;
+        private bool _fantome;
+        private bool _game;
+        private bool _gameUi;
+        private int ptc = 7;
+        private bool _UiexDent = false;
+        private bool _evaluation = false;
+        private bool _tonus = false;
+        private bool _evalson = false;
+        private bool ahahah = false;    // TODO : del !
+        private bool _dynamic = false;
+        private bool _pause = false;
+        private bool _ellliVis = false;
+        private double[] tempUiPos = new double[2];
+        private double tailleDetectX, tailleDetectY;
+        private int _defil;
+        private double _dynX, _dynY;                // Points pour le déplacement de l'ellipse
+
+        private bool test;
+        //Point _positionRobotLiveTete;
+        private PointCollection _positionRobotLive; // Collection de points pour le traçage à l'écran de la Polyline
+        private PointCollection _positionRobotBase; // Collection de points pour le traçage à l'écran de la Polyline
+
+        //private double[] positionXY={0,0};
+        private double _game_x_min = Constants.GAME_X_MIN;
+        private double _game_x_max = Constants.GAME_X_MAX;
+        private double _game_y_min = Constants.GAME_Y_MIN;
+        private double _game_y_max = Constants.GAME_Y_MAX;
+        private double rayon_polygone;
+        private double distCible;
+        private double nbrsCible;
+        private double angleCible;
+        private double position_centre_polygone_x; // X et Y
+        private double position_centre_polygone_y;
+        private int nb_segment_polygone;
+        private double theta, delta_teta;
+        private string _markerActif = "None";
+        private string _selectedPrenom;
+        private string _selectedPhrase = "Bravo belle partie";
+        private int _tailleDroite = 20;
+        public ObservableCollection<DataPositionRobot> DataPositionRobotsLive { get; set; }
+        public Collection<DataPositionRobot> DataPositionRobots { get; set; }
+        //public Collection<DataPositionRobot> DataPositionRobotsLiveTete { get; set; }
+        SoundPlayer player4 = new SoundPlayer("Resources/Sound/hit-default01.wav");   // Pour test
+        SoundPlayer playerRug = new SoundPlayer("Resources/Sound/bj01.wav");   // Pour test
+        //SoundPlayer playerRug = new SoundPlayer("Resources/Game/Sound/hit-default01.wav");   // Pour test
+        //SoundPlayer playerPomme = new SoundPlayer("Resources/Game/Sound/yop01.wav");   // Pour test
+        SoundPlayer playerPomme = new SoundPlayer("Resources/Sound/hit-default01.wav");   // Pour test
+        //SoundPlayer player4 = new SoundPlayer("Resources/sound/cow-moo1.wav");   // Pour test
+        private int sons = 0;
+        private List<ExerciceEvaluation> _exoEvalList;
+        private System.Timers.Timer _Loop;      // Timer pour l'affichage @50hz
+        #endregion
+
+        #region Constructors
+        /// <summary>
+        /// Initializes a new instance of the MainPViewModel class.
+        /// </summary>
+        public MainPViewModel(ActionRobot _axrob, IMessageBoxService _mbs)
+        {
+            try
+            {
+                _axrobot = _axrob;
+                _messageBoxService = _mbs;
+                InitMainP();                
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        #endregion
+
+        #region Properties
+
+		public bool EllliVis
+        {
+            get
+            {
+                return _ellliVis;
+            }
+            set
+            {
+                _ellliVis = value;
+                RaisePropertyChanged("EllliVis");
+            }
+        }
+
+        public double DynX
+        {
+            get
+            {
+                return _dynX;
+            }
+            set
+            {
+                _dynX = value;
+                RaisePropertyChanged("DynX");
+            }
+        }
+
+        public double DynY
+        {
+            get
+            {
+                return _dynY;
+            }
+            set
+            {
+                _dynY = value;
+                RaisePropertyChanged("DynY");
+            }
+        }
+
+        public bool Pause
+        {
+            get
+            {
+                return _pause;
+            }
+            set
+            {
+                _pause = value;
+                RaisePropertyChanged("Pause");
+            }
+        }
+
+        public string SelectedPrenom
+        {
+            get
+            {
+                return _selectedPrenom;
+            }
+            set
+            {
+                _selectedPrenom = value;
+                RaisePropertyChanged("SelectedPrenom");
+            }
+        }
+
+        public string SelectedPhrase
+        {
+            get
+            {
+                return _selectedPhrase;
+            }
+            set
+            {
+                _selectedPhrase = value;
+                RaisePropertyChanged("SelectedPhrase");
+            }
+        }
+
+        public DoubleCollection PositionRobotBaseStyle
+        {
+            get
+            {
+                return _positionRobotBaseStyle.Clone(); // create a new instance of DoubleCollection for binding
+            }
+            set
+            {
+                _positionRobotBaseStyle = value;
+                //RaisePropertyChanged("PositionRobotBaseStyle");
+            }
+        }
+
+        public ObservableCollection<UiCibleModel> UiCibles
+        {
+            get
+            {
+                return _uiCibles;
+            }
+        }
+
+        public ObservableCollection<UiChasseurModel> UiChasseur
+        {
+            get
+            {
+                return _uiChasseur;
+            }
+        }
+
+        public ObservableCollection<UiEx> UiEx  // pour exo
+        {
+            get
+            {
+                return _uiEx;
+            }
+        }
+
+        public PointCollection PositionRobotLive
+        {
+            get
+            {
+                return _positionRobotLive.Clone();  // create a new instance of PointCollection for binding
+            }
+            set
+            {
+                _positionRobotLive = value;
+            }
+        }
+
+        public PointCollection PositionRobotBase
+        {
+            get
+            {
+                return _positionRobotBase.Clone();  // create a new instance of PointCollection for binding
+            }
+            set
+            {
+                _positionRobotBase = value;
+            }
+        }
+
+        public string FondUi
+        {
+            get
+            {
+                return this._fondUi;
+            }
+            set
+            {
+                this._fondUi = value;
+                RaisePropertyChanged("FondUi");
+            }
+        }
+
+        public byte NiveauUi
+        {
+            get
+            {
+                return this._niveauUi;
+            }
+            set
+            {
+                this._niveauUi = value;
+                RaisePropertyChanged("NiveauUi");
+            }
+        }
+
+        public ulong ScoreUi
+        {
+            get
+            {
+                return this._scoreUi;
+            }
+            set
+            {
+                this._scoreUi = value;
+                RaisePropertyChanged("ScoreUi");
+
+                ValeurReeducation.Mouv = (double)ScoreUi;
+            }
+        }
+
+        public TimeSpan TempsUi
+        {
+            get
+            {
+                return this._tempsUi;
+            }
+            set
+            {
+                this._tempsUi = value;
+                RaisePropertyChanged("TempsUi");
+                RaisePropertyChanged("TempsUiP");
+
+                ValeurReeducation.Temps = (double)(TempsUi.Seconds+(TempsUi.Minutes*60));
+            }
+        }
+
+        public double TempsUiP
+        {
+            get
+            {
+                return this._tempsUi.TotalSeconds;
+            }
+            //set
+            //{
+            //    this._tempsUi. = value;
+            //    RaisePropertyChanged("TempsUiP");
+            //}
+        }
+
+        public int TempsUiTotal
+        {
+            get
+            {
+                return this._tempsUiTotal;
+            }
+            set
+            {
+                this._tempsUiTotal = value;
+                RaisePropertyChanged("TempsUiTotal");
+            }
+        }
+
+        public ulong ScoreUiTotal
+        {
+            get
+            {
+                return this._scoreUiTotal;
+            }
+            set
+            {
+                this._scoreUiTotal = value;
+                RaisePropertyChanged("ScoreUiTotal");
+			}
+        }
+
+        public bool PolyVis
+        {
+            get
+            {
+                return this._trace;
+            }
+            set
+            {
+                _trace = value;
+                RaisePropertyChanged("PolyVis");
+            }
+        }
+
+        public bool PolyVisBase
+        {
+            get
+            {
+                return this._fantome;
+            }
+            set
+            {
+                _fantome = value;
+                RaisePropertyChanged("PolyVisBase");
+            }
+        }
+
+        public bool GameOver
+        {
+            get
+            {
+                return this._gameOver;
+            }
+            set
+            {
+                this._gameOver = value;
+                RaisePropertyChanged("GameOver");
+            }
+        }
+
+        public bool Game
+        {
+            get
+            {
+                return this._game;
+            }
+            set
+            {
+                this._game = value;
+                RaisePropertyChanged("Game");
+            }
+        }
+
+        public bool GameUi
+        {
+            get
+            {
+                return this._gameUi;
+            }
+            set
+            {
+                this._gameUi = value;
+                RaisePropertyChanged("GameUi");
+            }
+        }
+
+        #endregion
+
+        #region Methods
+
+        private void InitMainP()
+        {
+            _positionUiBuffer = new PositionDataModel();
+
+            _positionRobotBase = new PointCollection();
+            _positionRobotLive = new PointCollection();
+            //_positionRobotLiveTete = new Point(500, 600);
+            _Loop = new System.Timers.Timer();
+            _Loop = new System.Timers.Timer(20);      // Create a timer with a twenty second interval. 50Hz
+            _Loop.Elapsed += new System.Timers.ElapsedEventHandler(OnMainLoopSequenceEvent);    // Hook up the Elapsed event for the timer.
+            _Loop.Enabled = true;
+
+            if (IsInDesignMode)
+            {
+                // Code runs in Blend --> create design time data.
+                this._trace = true;
+                this._fantome = true;
+                GameOver = false;
+                Game = false;
+                FondUi = "Resources\\Image\\Background\\AXI_LesAventuresDeRob-i_2.jpg";
+                _positionRobotLive.Add(new Point(50, 200));
+                _positionRobotLive.Add(new Point(500, 600));
+                _positionRobotBase.Add(new Point(250, 200));
+                _positionRobotBase.Add(new Point(1000, 600));
+            }
+            else
+            {
+                this._trace = false;
+                this._fantome = true;
+                GameOver = false;
+                Game = false;
+                FondUi = "Resources\\Image\\Background\\AXI_LesAventuresDeRob-i_2.jpg";
+                player4.LoadAsync();
+                playerRug.LoadAsync();
+                playerPomme.LoadAsync();
+                // Code runs "for real": Connect to service, etc...
+            }
+            this._mainLoop = new DispatcherTimer();
+            this._tictac = new DispatcherTimer();
+            this._dyn = new DispatcherTimer();
+            this._tictac.Tick += this.OnTimedEventDecompteTemps;
+            this._tictac.Interval = new TimeSpan(0, 0, 1); // 1 second
+            this._dyn.Tick += this.OnTimedEventDecompteTempsDyn;
+            this._dyn.Interval = new TimeSpan(0, 0, 0, 0, 500); // 500 ms
+            CreateMessages();
+            _axrobot.Pss.PositionDataReceived += new onPositionDataReceived(_portSerieService_PositionDataReceived);
+            //player4.PlayLooping();
+            Debug.Print("MainPViewModel OK");
+        }
+
+        private void CreateMessages()
+        {
+            Messenger.Default.Register<List<ExerciceGeneric>>(this, "NextExercice", NextExercice);    // abonnement aux messages envoyé par MainViewModel pour envoyer au µc
+            Messenger.Default.Register<List<ExerciceGeneric>>(this, "ReeducationKidWizardViewModel", UpdateGameMessage);     // abonnement aux messages envoyé par ReeducationKidWizard pour envoyer au µc
+            Messenger.Default.Register<List<ExerciceGeneric>>(this, "EvaluationViewModel", FentreUpdateExercicesMessage);    // abonnement aux messages envoyé par Evaluation pour envoyer au µc
+            Messenger.Default.Register<PositionDataModel>(this, "NewPosition", FenetreUpdateMessage);       // abonnement aux messages envoyé par MainViewModel pour afficher la position
+
+            //Messenger.Default.Register<ExerciceJeu>(this, "MainPViewModel", UpdateGameMessage);
+            Messenger.Default.Register<ACKDataModel>(this, "ACK_X_Dent", ACKMessage);
+            Messenger.Default.Register<bool>(this, "StartStopGame", UpdateStartStopMessage);
+            Messenger.Default.Register<bool>(this, "GamePause", UpdatePauseMessage);
+            Messenger.Default.Register<bool>(this, "GamePauseGui", UpdatePauseGuiMessage);
+            Messenger.Default.Register<RobotErrorMessage>(this, "NewRobotError", OnRobotError); // effectue si il y a une erreur robot
+            Messenger.Default.Register<string>(this, "StopRobot", ResetScreen);
+            //MessagesApp.ChangeStartStopGamesMessage.Register(this, UpdateStartStopMessage);
+            //MessagesApp.ChangeFenetresGamesMessage.Register(this, UpdateGameMessage);
+            //MessagesApp.ChangeFenetresExercicesMessage.Register(this, FentreUpdateExercicesMessage);
+            //MessagesApp.ChangeFenetresMessage.Register(this, FenetreUpdateMessage);
+            //MessagesApp.ChangeHomingEnd.Register(this, HomeUpdateMessage);
+        }
+
+        private void DemarrerMainLoop()
+        {
+            try
+            {
+                // create the timer used as the main loop
+                _mainLoop.Stop();
+                _mainLoop.Interval = TimeSpan.FromMilliseconds(4.0);
+
+                // wire up the events
+                _mainLoop.Tick += new EventHandler(mainLoop_Tick);
+
+                StartGame();
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private void ArreterMainLoop()
+        {
+            this._mainLoop.Stop();
+        }
+
+        void mainLoop_Tick(object sender, EventArgs e)
+        {
+            Update();
+        }
+
+        private void DemarrerDecompteTemps()
+        {
+            if (_dynamic == true)
+            {
+                this._dyn.Stop();
+                this._dyn.Start();
+            }
+            this._tictac.Stop();
+            this._tictac.Start();
+        }
+
+        private void ArreterDecompteTemps()
+        {
+            this._dyn.Stop();
+            this._tictac.Stop();
+            GameOver = true;
+        }
+
+        private void OnTimedEventDecompteTemps(object source, EventArgs args)
+        {
+            if (GameOver == false)
+            {
+                if (TempsUi.TotalSeconds < (_copieExGame.Temps * 60))
+                {
+                    TempsUi += TimeSpan.FromSeconds(1.0);
+                    //Debug.Print("Temps +1");
+                }
+                else
+                {
+                    Application.Current.Dispatcher.BeginInvoke(new Action(() => // ASYNC
+                    {
+                        Messenger.Default.Send(CommandCodes.STOPnv, "MessageCommand");
+                        Messenger.Default.Send<bool>(false, "StartStopGame");
+                    }), DispatcherPriority.Normal);
+                    GameOver = true;
+                    StopGame();
+                }
+            }
+            else
+            {
+                // fin du jeu affichage de l'overlay résumé
+            }
+        }
+
+        private void OnTimedEventDecompteTempsDyn(object source, EventArgs args)
+        {
+            bool _actif = false;
+            if (GameOver == false)
+            {
+                if (TempsUi.TotalSeconds < (_copieExGame.Temps * 60))
+                {
+                    //Application.Current.Dispatcher.BeginInvoke(new Action(() => // ASYNC
+                    //{
+                    if ((tempUiPos[0] > (_game_x_min + 1.0) && tempUiPos[0] <= _game_x_max) && _defil == 0)
+                    {
+                        tempUiPos[0] -= 1.0;
+                        UiCibles[0].X = (EchelleUtils.MiseEchelleXPosition(((tempUiPos[0]) * 100.0))) - (UiCibles[0].Width / 2.0);
+                        _actif = true;
+                    }
+                    else if ((tempUiPos[0] > _game_x_min && tempUiPos[0] < (_game_x_max - 1.0)) && _defil == 1)
+                    {
+                        tempUiPos[0] += 1.0;
+                        UiCibles[0].X = (EchelleUtils.MiseEchelleXPosition((tempUiPos[0] * 100.0))) - (UiCibles[0].Width / 2.0);
+                        _actif = true;
+                    }
+                    else if ((tempUiPos[1] > (_game_y_min + 1.0) && tempUiPos[1] <= _game_y_max) && _defil == 2)
+                    {
+                        tempUiPos[1] -= 1.0;
+                        UiCibles[0].Y = (EchelleUtils.MiseEchelleYPosition((tempUiPos[1] * 100.0))) - (UiCibles[0].Height / 2.0);
+                        _actif = true;
+                    }
+                    else if ((tempUiPos[1] > _game_y_min && tempUiPos[1] < (_game_y_max - 1.0)) && _defil == 3)
+                    {
+                        tempUiPos[1] += 1.0;
+                        UiCibles[0].Y = (EchelleUtils.MiseEchelleYPosition((tempUiPos[1] * 100.0))) - (UiCibles[0].Height / 2.0);
+                        _actif = true;
+                    }
+                    else
+                    {
+                        switch (_defil)
+                        {
+                            case 0: _defil = 1;
+                                break;
+                            case 1: _defil = 0;
+                                break;
+                            case 2: _defil = 3;
+                                break;
+                            case 3: _defil = 2;
+                                break;
+                            default: Debug.Print("Erreur Dyn !");
+                                break;
+                        }
+                    }
+                        if (_actif == true)
+                        {
+                            FrameExerciceDataModel newPositionGameExercice = new FrameExerciceDataModel();
+                            newPositionGameExercice.Data1 = (byte)tempUiPos[0];
+                            newPositionGameExercice.Data2 = (byte)tempUiPos[1];
+                            //UiCibles[2].X = UiCibles[0].X;
+                            //UiCibles[2].Y = UiCibles[0].Y;
+                            //Application.Current.Dispatcher.BeginInvoke(new Action(() => // ASYNC
+                            //{
+                            Messenger.Default.Send(newPositionGameExercice, "MainPViewModelDyn");  // Message envoyé à MainViewModel pour VisualisationViewModel & MainPViewModel
+                            //}), DispatcherPriority.Normal);
+                            //Point tPoint = new Point(0, 0);
+                            //tPoint = GameUtils.RandomCircleNumber(new Point(tempUiPos[0], tempUiPos[1]), 5.0, 65.0, 32.0, 50.0);   // en cm !!!
+                        }
+                }
+                else
+                {
+                    GameOver = true;
+                    StopGame();
+                }
+            }
+            else
+            {
+                // fin du jeu affichage de l'overlay résumé
+            }
+        }
+
+        private void StartGame()    // gestion start
+        {
+            _defil = _defil = GameUtils.RandomNumber(-2, 35) / 10;
+            Game = true;
+            //UiChasseur.Clear();
+            //UiCibles.Clear();
+            //UiEx.Clear();
+            GameOver = false;       // Fin du jeu à false
+            //CreateCibles();       // génération cibles
+            //CreateChasseur();     // génération chasseur
+            //DemarrerMainLoop();           // start timer main
+            DemarrerDecompteTemps();        // start timer 1sec
+        }
+
+        private void StopGame()     // gestion stop
+        {
+            UiChasseur.Clear();
+            UiCibles.Clear();
+            UiEx.Clear();
+            Game = false;
+            GameOver = true;
+            //ArreterMainLoop();        // stop timer main
+            ArreterDecompteTemps();     // stop timer 1sec
+            // stop robot
+            // afficher résumé overlay écran patient
+        }
+
+        void Update()
+        {
+            try
+            {
+                if (GameOver == false)
+                {
+                    // Mise à jour info jeu
+                    if (_uiCibles.Count < 1)
+                    {
+                        // générer une cible si en dynamique
+                        // générer les cibles si en statique
+                    }
+
+                    DetectCollisions();
+                }
+                else
+                {
+                    // ne rien faire
+                }
+
+                // générer
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private void InitGame()
+        {
+            UiEx.Clear();
+            Pause = false;
+            _dynamic = _copieExGame.StaticDyn;
+            GameOver = false;
+            _evaluation = false;
+            _tonus = false;
+            _UiexDent = false;
+            PolyVis = _copieExGame.Trace;
+            // Mise à jour des infos Ecran patient
+            NiveauUi = _copieExGame.Niveau;    // Niveau pour affichage
+            ScoreUi = 0U;       // score à 0 pour affichage
+            ScoreUiTotal = _copieExGame.Score;
+            TempsUi = TimeSpan.Zero; // Temps Max pour affichage
+            TempsUiTotal = _copieExGame.Temps * 60;
+            // Mise à jour du fond
+            if (_dynamic == true)
+            {
+                FondUi = _copieExTheme.FondD;
+            }
+            else
+            {
+                FondUi = _copieExTheme.Fond;  // Image de fond pour affichage
+            }
+            // Mise à jour du son
+            player4.SoundLocation = _copieExTheme.Chasseur.Sound;
+
+            Game = false;
+            GameUi = true;
+            _dyn.Stop();
+            _tictac.Stop();
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                if (_trace == false)
+                {
+                    _positionRobotLive.Clear();
+                    _positionRobotBase.Clear();
+                    RaisePropertyChanged("PositionRobotLive");
+                    RaisePropertyChanged("PositionRobotBase");
+                }
+                CreateDetect();
+                CreateChasseur(_copieExGame.TailleNbrs());      // génération chasseur
+                CreateCibles(_copieExGame.TailleNbrs());        // génération cibles
+            }), DispatcherPriority.DataBind);
+        }
+
+        private void CreateDetect()
+        {
+            switch(_copieExGame.Taille)
+            {
+                case Zoom.Petit:
+                    tailleDetectX = 30.0;
+                    tailleDetectY = 30.0;
+                    break;
+                case Zoom.Moyen:
+                    tailleDetectX = 40.0;
+                    tailleDetectY = 40.0;
+                    break;
+                case Zoom.Grand:
+                    tailleDetectX = 50.0;
+                    tailleDetectY = 50.0;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Cibles RééducationKid
+        /// </summary>
+        private void CreateDebugCibles()
+        {
+            // creation d'une cible
+            string ahah1 = "\\Resources\\Game\\Image\\red.png";
+            Image myImage1 = new Image();
+            Uri imageUri1 = new Uri(ahah1, UriKind.Relative);
+            myImage1.Source = new BitmapImage(imageUri1);
+            myImage1.Width = 200.0;
+            myImage1.Height = 200.0;
+            myImage1.HorizontalAlignment = HorizontalAlignment.Left;
+
+            // Use an EllipseGeometry to define the clip region. 
+            Size sizeR1 = new Size(20.0, 20.0);
+            Point centerR1 = new Point(0.0 + ((UiChasseur[0].Width / 2.0) - (sizeR1.Width / 2.0)), 0.0 + ((UiChasseur[0].Height / 2.0) - (sizeR1.Height / 2.0)));
+            Rect r1 = new Rect(centerR1, sizeR1);
+            RectangleGeometry r1D1 = new RectangleGeometry(r1);
+            myImage1.Clip = r1D1;
+
+            UiCibleModel deux = new UiCibleModel()
+            {
+                Name = "deux",
+                Shape = myImage1
+            };
+            //tempUiPos[0] = _copieExGame.TabPosDebut[0];
+            //tempUiPos[1] = _copieExGame.TabPosDebut[1];
+            //un.X = EchelleUtils.MiseEchelleX(_copieExGame.TabPosDebut[0] - Constants.POSITION_X_MAIN_JEU);    // Position debut
+            //un.Y = EchelleUtils.MiseEchelleY(_copieExGame.TabPosDebut[1] - Constants.POSITION_Y_MAIN_JEU);
+            deux.X = UiChasseur[0].X;    // Position debut
+            deux.Y = UiChasseur[0].Y;  // - 116.0
+            deux.Width = 200.0;
+            deux.Height = 200.0;
+            UiCibles.Add(deux);
+
+            // creation d'une cible
+            string ahah2 = "\\Resources\\Game\\Image\\red.png";
+            Image myImage2 = new Image();
+            Uri imageUri2 = new Uri(ahah2, UriKind.Relative);
+            myImage2.Source = new BitmapImage(imageUri2);
+            myImage2.Width = _copieExGame.TailleNbrs();
+            myImage2.Height = _copieExGame.TailleNbrs();
+            myImage2.HorizontalAlignment = HorizontalAlignment.Left;
+
+            // Use an EllipseGeometry to define the clip region. 
+            Size sizeR2 = new Size(tailleDetectX, tailleDetectY);
+            Point centerR2 = new Point(0.0 + ((UiCibles[0].Width / 2.0) - (sizeR2.Width / 2.0)), 0.0 + ((UiCibles[0].Height / 2.0) - (sizeR2.Height / 2.0)));
+            Rect r2 = new Rect(centerR2, sizeR2);
+            RectangleGeometry r2D2 = new RectangleGeometry(r2);
+            myImage2.Clip = r2D2;
+
+            UiCibleModel trois = new UiCibleModel()
+            {
+                Name = "trois",
+                Shape = myImage2
+            };
+            //tempUiPos[0] = _copieExGame.TabPosDebut[0];
+            //tempUiPos[1] = _copieExGame.TabPosDebut[1];
+            //un.X = EchelleUtils.MiseEchelleX(_copieExGame.TabPosDebut[0] - Constants.POSITION_X_MAIN_JEU);    // Position debut
+            //un.Y = EchelleUtils.MiseEchelleY(_copieExGame.TabPosDebut[1] - Constants.POSITION_Y_MAIN_JEU);
+            trois.Width = myImage2.Width;
+            trois.Height = myImage2.Height;
+            trois.X = (EchelleUtils.MiseEchelleXPosition((_copieExGame.TabPosDebut[0] * 100.0))) - (trois.Width / 2.0);    // Position debut
+            trois.Y = (EchelleUtils.MiseEchelleYPosition((_copieExGame.TabPosDebut[1] * 100.0))) - (trois.Height / 2.0);  // - 116.0
+
+            UiCibles.Add(trois);
+        }
+
+        /// <summary>
+        /// Cibles RééducationKid
+        /// </summary>
+        private void CreateCibles(double taille)
+        {
+            string ahah;
+            if (_copieExGame.StaticDyn == true)
+            {
+                // creation d'une cible
+                ahah = _copieExTheme.CibleD.Shape.Remove(0, 1);
+            }
+            else
+            {
+                // creation d'une cible
+                ahah = _copieExTheme.Cible.Shape.Remove(0, 1);
+            }
+
+            Image myImage = new Image();
+            Uri imageUri = new Uri(ahah, UriKind.Relative);
+            myImage.Source = new BitmapImage(imageUri);
+            myImage.Width = taille;
+            myImage.Height = taille;
+            myImage.HorizontalAlignment = HorizontalAlignment.Left;
+            // Use an EllipseGeometry to define the clip region. 
+            //EllipseGeometry myEllipseGeometry = new EllipseGeometry();
+            //myEllipseGeometry.Center = new Point((myImage.Width / 2.0), (myImage.Height / 2.0));
+            //myEllipseGeometry.RadiusX = (myImage.Width / 2.0);  // 105
+            //myEllipseGeometry.RadiusY = (myImage.Height / 2.0);
+            //myImage.Clip = myEllipseGeometry;
+
+            // Use an RectangleGeometry to define the clip region. 
+            Size sizeR2 = new Size(myImage.Width, myImage.Height);
+            Point centerR2 = new Point(0.0 + ((myImage.Width / 2.0) - (sizeR2.Width / 2.0)), 0.0 + ((myImage.Height / 2.0) - (sizeR2.Height / 2.0)));
+            Rect r2 = new Rect(centerR2, sizeR2);
+            RectangleGeometry myRectangleGeometry = new RectangleGeometry(r2);
+            myImage.Clip = myRectangleGeometry;
+
+            UiCibleModel un = new UiCibleModel()
+            {
+                Name = "un",
+                Shape = myImage
+            };
+            
+            tempUiPos[0] = _copieExGame.TabPosDebut[0];
+            tempUiPos[1] = _copieExGame.TabPosDebut[1];
+            //un.X = EchelleUtils.MiseEchelleX(_copieExGame.TabPosDebut[0] - Constants.POSITION_X_MAIN_JEU);    // Position debut
+            //un.Y = EchelleUtils.MiseEchelleY(_copieExGame.TabPosDebut[1] - Constants.POSITION_Y_MAIN_JEU);
+            un.Width = myImage.Width;
+            un.Height = myImage.Height;
+            un.X = (EchelleUtils.MiseEchelleXPosition((_copieExGame.TabPosDebut[0] * 100.0))) - (un.Width / 2.0);    // Position debut
+            un.Y = (EchelleUtils.MiseEchelleYPosition((_copieExGame.TabPosDebut[1] * 100.0))) - (un.Height / 2.0);  // - 116.0
+
+            UiCibles.Clear();
+            UiCibles.Add(un);
+            //CreateDebugCibles();
+        }
+
+        private void CreateCibleUi(string cible, double posX, double posY)
+        {
+            // creation du chasseur
+            string ahah = cible;
+            Image myImage = new Image();
+            Uri imageUri = new Uri(ahah, UriKind.Relative);
+            myImage.Source = new BitmapImage(imageUri);
+            myImage.Width = 200;
+            myImage.Height = 200;
+            myImage.HorizontalAlignment = HorizontalAlignment.Left;
+
+            // Use an EllipseGeometry to define the clip region. 
+            EllipseGeometry myEllipseGeometry = new EllipseGeometry();
+            myEllipseGeometry.Center = new Point(100, 100);
+            myEllipseGeometry.RadiusX = 100;
+            myEllipseGeometry.RadiusY = 100;
+            myImage.Clip = myEllipseGeometry;
+
+            UiCibleModel un = new UiCibleModel()
+            {
+                Name = "un",
+                Shape = myImage
+            };
+            //un.X = 500;
+            un.X = posX - 85;
+            un.Y = posY - 100;
+            un.Width = 200;
+            un.Height = 200;
+
+            UiCibles.Clear();
+            UiCibles.Add(un);
+
+        }
+
+        /// <summary>
+        /// Chasseur RééducationKid
+        /// </summary>
+        private void CreateChasseur(double taille)
+        {
+            // creation du chasseur
+            string ahah = _copieExTheme.Chasseur.Shape.Remove(0, 1);
+            Image myImage = new Image();
+            Uri imageUri = new Uri(ahah, UriKind.Relative);
+            myImage.Source = new BitmapImage(imageUri);
+            myImage.Width = taille + 20.0;
+            myImage.Height = taille + 20.0;
+            myImage.HorizontalAlignment = HorizontalAlignment.Left;
+            //myImage.HorizontalAlignment = HorizontalAlignment.Center;
+            //myImage.VerticalAlignment = VerticalAlignment.Center;
+
+            // Use an EllipseGeometry to define the clip region. 
+            //EllipseGeometry myEllipseGeometry = new EllipseGeometry();
+            //myEllipseGeometry.Center = new Point((myImage.Width / 2.0), (myImage.Height / 2.0));
+            //myEllipseGeometry.RadiusX = (myImage.Width / 2.0);  // 105
+            //myEllipseGeometry.RadiusY = (myImage.Height / 2.0);
+            //myImage.Clip = myEllipseGeometry;
+            // Use an RectangleGeometry to define the clip region. 
+            Size sizeR2 = new Size(myImage.Width, myImage.Height);
+            Point centerR2 = new Point(0.0 + ((myImage.Width / 2.0) - (sizeR2.Width / 2.0)), 0.0 + ((myImage.Height / 2.0) - (sizeR2.Height / 2.0)));
+            Rect r2 = new Rect(centerR2, sizeR2);
+            RectangleGeometry myRectangleGeometry = new RectangleGeometry(r2);
+            myImage.Clip = myRectangleGeometry;
+
+            UiChasseurModel un = new UiChasseurModel()
+            {
+                Name = "un",
+                Shape = myImage
+            };
+
+            //un.X = 300.0;
+            //un.Y = 300.0;
+            un.X = (EchelleUtils.MiseEchelleXPosition((_copieExGame.TabPosDebut[0] * 100.0))) - 100.0;    // Position debut
+            un.Y = (EchelleUtils.MiseEchelleYPosition((_copieExGame.TabPosDebut[1] * 100.0))) - 100.0;  // - 116.0
+            un.Width = taille + 20.0;
+            un.Height = taille + 20.0;
+            //myImage.Clip = un.Geometry;
+            //un.Shape = myImage;
+            UiChasseur.Clear();
+            UiChasseur.Add(un);
+        }
+
+        private void CreateChasseurUi(string chasseur)
+        {
+            // creation du chasseur
+            string ahah = chasseur;
+            Image myImage = new Image();
+            Uri imageUri = new Uri(ahah, UriKind.Relative);
+            myImage.Source = new BitmapImage(imageUri);
+            myImage.Width = 200;
+            myImage.Height = 200;
+            myImage.HorizontalAlignment = HorizontalAlignment.Left;
+
+            // Use an EllipseGeometry to define the clip region. 
+            EllipseGeometry myEllipseGeometry = new EllipseGeometry();
+            myEllipseGeometry.Center = new Point(90, 100);
+            myEllipseGeometry.RadiusX = 112;
+            myEllipseGeometry.RadiusY = 112;
+            myImage.Clip = myEllipseGeometry;
+
+            UiChasseurModel un = new UiChasseurModel()
+            {
+                Name = "un",
+                Shape = myImage
+            };
+            un.X = 300;
+            un.Y = 300;
+            un.Width = 200;
+            un.Height = 200;
+            UiChasseur.Clear();
+            UiChasseur.Add(un);
+        }
+
+        private void CreateChasseurUiPetit(string chasseur)
+        {
+            // creation du chasseur
+            string ahah = chasseur;
+            Image myImage = new Image();
+            Uri imageUri = new Uri(ahah, UriKind.Relative);
+            myImage.Source = new BitmapImage(imageUri);
+            myImage.Width = 100;
+            myImage.Height = 100;
+            myImage.HorizontalAlignment = HorizontalAlignment.Left;
+
+            // Use an EllipseGeometry to define the clip region. 
+            EllipseGeometry myEllipseGeometry = new EllipseGeometry();
+            myEllipseGeometry.Center = new Point(50, 50);
+            myEllipseGeometry.RadiusX = 100;
+            myEllipseGeometry.RadiusY = 100;
+            myImage.Clip = myEllipseGeometry;
+
+            UiChasseurModel un = new UiChasseurModel()
+            {
+                Name = "un",
+                Shape = myImage
+            };
+            un.X = 300;
+            un.Y = 300;
+            un.Width = 100;
+            un.Height = 100;
+            UiChasseur.Clear();
+            UiChasseur.Add(un);
+        }
+
+        private void CreateChasseurUiColonel(string chasseur)
+        {
+            // creation du chasseur
+            string ahah = chasseur;
+            Image myImage = new Image();
+            Uri imageUri = new Uri(ahah, UriKind.Relative);
+            myImage.Source = new BitmapImage(imageUri);
+            myImage.Width = 100;
+            myImage.Height = 100;
+            myImage.HorizontalAlignment = HorizontalAlignment.Left;
+
+            // Use an EllipseGeometry to define the clip region. 
+            EllipseGeometry myEllipseGeometry = new EllipseGeometry();
+            myEllipseGeometry.Center = new Point(50, 90); // 62.5
+            myEllipseGeometry.RadiusX = 100;
+            myEllipseGeometry.RadiusY = 100;
+            myImage.Clip = myEllipseGeometry;
+
+            UiChasseurModel un = new UiChasseurModel()
+            {
+                Name = "un",
+                Shape = myImage
+            };
+            un.X = 300;
+            un.Y = 300;
+            un.Width = 100; // 130
+            un.Height = 100;    // 150
+            UiChasseur.Clear();
+            UiChasseur.Add(un);
+        }
+
+        private void CreateChasseurUiBlob(string chasseur)
+        {
+            // creation du chasseur
+            string ahah = chasseur;
+            Image myImage = new Image();
+            Uri imageUri = new Uri(ahah, UriKind.Relative);
+            myImage.Source = new BitmapImage(imageUri);
+            myImage.Width = 75;
+            myImage.Height = 75;
+            myImage.HorizontalAlignment = HorizontalAlignment.Left;
+
+            // Use an EllipseGeometry to define the clip region. 
+            EllipseGeometry myEllipseGeometry = new EllipseGeometry();
+            myEllipseGeometry.Center = new Point(33.3, 40);
+            myEllipseGeometry.RadiusX = 75;
+            myEllipseGeometry.RadiusY = 75;
+            myImage.Clip = myEllipseGeometry;
+
+            UiChasseurModel un = new UiChasseurModel()
+            {
+                Name = "un",
+                Shape = myImage
+            };
+            un.X = 300;
+            un.Y = 300;
+            un.Width = 75;
+            un.Height = 75;
+            UiChasseur.Clear();
+            UiChasseur.Add(un);
+        }
+
+        private void CreateChasseurUiEx(string chasseur)
+        {
+            // creation du chasseur
+            string ahah = chasseur;
+            Image myImage = new Image();
+            Uri imageUri = new Uri(ahah, UriKind.Relative);
+            myImage.Source = new BitmapImage(imageUri);
+            myImage.Width = 150;
+            myImage.Height = 150;
+            myImage.HorizontalAlignment = HorizontalAlignment.Left;
+
+            // Use an EllipseGeometry to define the clip region. 
+            EllipseGeometry myEllipseGeometry = new EllipseGeometry();
+            myEllipseGeometry.Center = new Point(75, 75);
+            myEllipseGeometry.RadiusX = 150;
+            myEllipseGeometry.RadiusY = 150;
+            myImage.Clip = myEllipseGeometry;
+
+            UiChasseurModel un = new UiChasseurModel()
+            {
+                Name = "un",
+                Shape = myImage
+            };
+            un.X = 800;
+            un.Y = 500;
+            un.Width = 150;
+            un.Height = 150;
+            UiChasseur.Clear();
+            UiChasseur.Add(un);
+        }
+
+        private void CreateUi(string img, double posX, double posY)
+        {
+            // creation du chasseur
+            string ahah = img;
+            Image myImage = new Image();
+            Uri imageUri = new Uri(ahah, UriKind.Relative);
+            myImage.Source = new BitmapImage(imageUri);
+            myImage.Width = 350;
+            myImage.Height = 350;
+            myImage.HorizontalAlignment = HorizontalAlignment.Left;
+
+            // Use an EllipseGeometry to define the clip region. 
+            EllipseGeometry myEllipseGeometry = new EllipseGeometry();
+            myEllipseGeometry.Center = new Point(175, 175);
+            myEllipseGeometry.RadiusX = 350;
+            myEllipseGeometry.RadiusY = 350;
+            myImage.Clip = myEllipseGeometry;
+
+            UiEx un = new UiEx()
+            {
+                Name = "un",
+                Shape = myImage
+            };
+
+            un.X = posX - 175;
+            un.Y = posY - 175;
+            un.Width = 350;
+            un.Height = 350;
+            UiEx.Clear();
+            UiEx.Add(un);
+        }
+
+        private void CreateUi3(string img, double posX, double posY)    // terre petit cercle
+        {
+            // creation du chasseur
+            string ahah = img;
+            Image myImage = new Image();
+            Uri imageUri = new Uri(ahah, UriKind.Relative);
+            myImage.Source = new BitmapImage(imageUri);
+            myImage.Width = 150;
+            myImage.Height = 150;
+            myImage.HorizontalAlignment = HorizontalAlignment.Left;
+
+            // Use an EllipseGeometry to define the clip region. 
+            EllipseGeometry myEllipseGeometry = new EllipseGeometry();
+            myEllipseGeometry.Center = new Point(75, 75);
+            myEllipseGeometry.RadiusX = 150;
+            myEllipseGeometry.RadiusY = 150;
+            myImage.Clip = myEllipseGeometry;
+
+            UiEx un = new UiEx()
+            {
+                Name = "un",
+                Shape = myImage
+            };
+
+            un.X = posX - 75;
+            un.Y = posY - 75;
+            un.Width = 150;
+            un.Height = 150;
+            UiEx.Clear();
+            UiEx.Add(un);
+        }
+
+        private void CreateUi2(string img, double posX, double posY)
+        {
+            // creation du chasseur
+            string ahah = img;
+            Image myImage = new Image();
+            Uri imageUri = new Uri(ahah, UriKind.Relative);
+            myImage.Source = new BitmapImage(imageUri);
+            myImage.Width = 75;
+            myImage.Height = 75;
+            myImage.HorizontalAlignment = HorizontalAlignment.Left;
+
+            // Use an EllipseGeometry to define the clip region. 
+            EllipseGeometry myEllipseGeometry = new EllipseGeometry();
+            myEllipseGeometry.Center = new Point(33.3, 33.3);
+            myEllipseGeometry.RadiusX = 75;
+            myEllipseGeometry.RadiusY = 75;
+            myImage.Clip = myEllipseGeometry;
+
+            UiEx un = new UiEx()
+            {
+                Name = "un",
+                Shape = myImage
+            };
+
+            un.X = posX - 33.3;
+            un.Y = posY - 33.3;
+            un.Width = 75;
+            un.Height = 75;
+            //UiEx.Clear();
+            UiCibles.Add(un);
+            //UiEx.Add(un);
+        }
+
+        public void UpdateGameMessage(List<ExerciceGeneric> ex)
+        {
+            try
+            {
+                ArreterMainLoop();
+                ahahah = false;
+                // vérifier si jeu en cours si oui arrêter avant
+
+                // Mise à jour des bornes
+                _game_x_min = (byte)(ex[0].BorneConfig.BorneG + 2.0);  // 1.0
+                _game_x_max = (byte)(ex[0].BorneConfig.BorneD - 2.0);  // 1.0
+                _game_y_min = (byte)(ex[0].BorneConfig.BorneH + 16.0);  // 2.0
+                _game_y_max = (Constants.GAME_Y_MAX);
+
+                // initialisation du jeu
+                _copieExGame = (ExerciceJeu)ex[0];
+                _copieExTheme = _copieExGame.Theme;
+                InitGame();
+                Debug.Print("MAJ Game !");
+            }
+            catch (Exception exp)
+            {
+                GestionErreur.GerrerErreur(exp);
+            }
+        }
+
+        private void NextExercice(List<ExerciceGeneric> listeExoGen)
+        {
+            try
+            {
+                if (listeExoGen[0].TypeExercice == ExerciceTypes.Evaluation)
+                    FentreUpdateExercicesMessage(listeExoGen);
+                else
+                    UpdateGameMessage(listeExoGen);
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        public void UpdateStartStopMessage(bool s)
+        {
+            try
+            {
+                SelectedPrenom = Singleton.getInstance().PatientSingleton.Prenom;
+                Application.Current.Dispatcher.Invoke(new Action(() =>
+                   {
+                       if (s == true)  // TODO: A changer !
+                       {
+                           if (_evaluation == false && GameUi == true)
+                           {
+                               StartGame();    // Démarrer le jeu
+                               Debug.Print("Start Game !");
+                           }
+                       }
+                       else
+                       {
+                           if (_evaluation == false && GameUi == true)
+                           {
+                               StopGame();
+                               // A implémenter !
+                               Debug.Print("Stop Game !");
+                           }
+                       }
+
+                   }), DispatcherPriority.Normal);
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        public void UpdatePauseMessage(bool p)
+        {
+            try
+            {
+                if (Game == true)
+                {
+                    Pause = p;
+                    if (p == true)
+                    {
+                        _mainLoop.Stop();
+                        _tictac.Stop();
+                        if (_dynamic == true)
+                        {
+                            _dyn.Stop();
+                        }
+                    }
+                    else
+                    {
+                        _mainLoop.Start();
+                        _tictac.Start();
+                        if (_dynamic == true)
+                        {
+                            _dyn.Start();
+                        }
+                    }
+                }
+                else
+                {
+                    //MessageBox.Show("Pas en jeu", "Pause Info !", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        public void UpdatePauseGuiMessage(bool p)
+        {
+            if (Game == true)
+            {
+                Pause = p;
+            }
+        }
+
+        public void ACKMessage(ACKDataModel e)
+        {
+            try
+            {
+                playerRug.Play();
+                //ptc
+                //_pointC
+                if (ptc < 8 && ptc > 3)
+                {
+                    ptc -= 2;
+                    Application.Current.Dispatcher.Invoke(new Action(() =>
+                    {
+                        CreateCibleUi("\\Resources\\Image\\Ex\\goal01.png", _positionRobotBase[ptc].X, _positionRobotBase[ptc].Y);
+                    }), DispatcherPriority.DataBind);
+                }
+                else
+                    if (ptc < 4 && ptc > 0)
+                    {
+                        ptc--;
+                        Application.Current.Dispatcher.Invoke(new Action(() =>
+                        {
+                            CreateCibleUi("\\Resources\\Image\\Ex\\goal01.png", _positionRobotBase[ptc].X, _positionRobotBase[ptc].Y);
+                        }), DispatcherPriority.DataBind);
+                    }
+                    else
+                    {
+                        ptc = 7;
+                        Application.Current.Dispatcher.Invoke(new Action(() =>
+                        {
+                            CreateCibleUi("\\Resources\\Image\\Ex\\goal01.png", _positionRobotBase[ptc].X, _positionRobotBase[ptc].Y);
+                        }), DispatcherPriority.DataBind);
+                    }
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private void DetectCollisions()
+        {
+            if (UiCibles.Count > 0)
+            {
+                // test = TestCollision(UiChasseur[0], UiCibles[0]); //check for Chasseur/Cible collisions
+                test = GameUtils.CheckCollision(UiChasseur[0], UiCibles[0], tailleDetectX, tailleDetectY);
+
+                if (test == true)
+                {
+                    if (sons >= 3)
+                    {
+                        ScoreUi++;
+                        player4.Play();
+                        //TODO : son bravo après 10 mvts
+                        sons = 0;
+                        if (ScoreUi < _copieExGame.Score)
+                        {
+                            if (_dynamic == true)
+                            {
+                                _dyn.Stop();
+                            }
+                            FrameExerciceDataModel newPositionGameExercice = new FrameExerciceDataModel();
+                            Point tPoint = new Point(0, 0);
+                            //tPoint = GameUtils.RandomCircleNumber(new Point(UiCibles[0].X, UiCibles[0].Y), 300.0, 1400.0, 300.0, 700.0);
+                            tPoint = GameUtils.RandomCircleNumber(new Point(tempUiPos[0], tempUiPos[1]), _game_x_min, _game_x_max, _game_y_min, _game_y_max);   // en cm !!!
+                                //UiCibles[0].X = GameUtils.RandomNumber(700, 1100);   // 100 1200
+                                //UiCibles[0].Y = GameUtils.RandomNumber(300, 700);    // 100 900
+                            //if (ahahah == false)
+                            //{
+                            tempUiPos[0] = tPoint.X;
+                            tempUiPos[1] = tPoint.Y;
+                            UiCibles[0].X = (EchelleUtils.MiseEchelleXPosition((tPoint.X * 100.0))) - (UiCibles[0].Width / 2.0);    // 100 1200
+                            UiCibles[0].Y = (EchelleUtils.MiseEchelleYPosition((tPoint.Y * 100.0))) - (UiCibles[0].Height / 2.0);   // 100 900
+                            //UiCibles[2].X = UiCibles[0].X;
+                            //UiCibles[2].Y = UiCibles[0].Y;
+                            //newPositionGameExercice.Data1 = (byte)EchelleUtils.MiseEchelleEnvoyerX(UiCibles[0].X);
+                            //newPositionGameExercice.Data2 = (byte)EchelleUtils.MiseEchelleEnvoyerY(UiCibles[0].Y);
+                            newPositionGameExercice.Data1 = (byte)tempUiPos[0];
+                            newPositionGameExercice.Data2 = (byte)tempUiPos[1];
+                            Messenger.Default.Send(newPositionGameExercice, "MainPViewModel");  // Message envoyé à MainViewModel pour VisualisationViewModel & MainPViewModel
+                            //ahahah = true;
+                            if (_dynamic == true)
+                            {
+                                _defil = GameUtils.RandomNumber(-2, 35) / 10;
+                                Debug.Print(_defil.ToString());
+                                _dyn.Start();
+                            }
+                            //}
+                        }
+                        else
+                        {
+                            GameOver = true;
+                            Application.Current.Dispatcher.BeginInvoke(new Action(() => // ASYNC
+                            {
+                                Messenger.Default.Send(CommandCodes.STOPnv, "MessageCommand");
+                                Messenger.Default.Send<bool>(false, "StartStopGame");
+                            }), DispatcherPriority.Normal);
+                        }
+                    }
+                    sons++;
+                    // A changer pour test !
+                    // creation du chasseur
+                    string ahah = _copieExTheme.Chasseur.ShapeHit.Remove(0, 1);
+                    Image myImage = new Image();
+                    Uri imageUri = new Uri(ahah, UriKind.Relative);
+                    myImage.Source = new BitmapImage(imageUri);
+                    myImage.Width = _copieExGame.TailleNbrs() + 20.0;
+                    myImage.Height = _copieExGame.TailleNbrs() + 20.0;
+                    myImage.HorizontalAlignment = HorizontalAlignment.Left;
+
+                    // Use an RectangleGeometry to define the clip region. 
+                    Size sizeR3 = new Size(myImage.Width, myImage.Height);
+                    Point centerR3 = new Point(0.0 + ((myImage.Width / 2.0) - (sizeR3.Width / 2.0)), 0.0 + ((myImage.Height / 2.0) - (sizeR3.Height / 2.0)));
+                    Rect r3 = new Rect(centerR3, sizeR3);
+                    RectangleGeometry myRectangleGeometry = new RectangleGeometry(r3);
+                    myImage.Clip = myRectangleGeometry;
+
+                    UiChasseur[0].Shape = myImage;
+
+                    //// creation d'une cible
+                    //string ahah2 = "\\Resources\\Game\\Image\\green.png";
+                    //Image myImage2 = new Image();
+                    //Uri imageUri2 = new Uri(ahah2, UriKind.Relative);
+                    //myImage2.Source = new BitmapImage(imageUri2);
+                    //myImage2.Width = 200.0;
+                    //myImage2.Height = 200.0;
+                    //myImage2.HorizontalAlignment = HorizontalAlignment.Left;
+
+                    //// Use an RectangleGeometry to define the clip region. 
+                    //Size sizeR2 = new Size(tailleDetectX, tailleDetectY);
+                    //Point centerR2 = new Point(0.0 + ((UiCibles[0].Width / 2.0) - (sizeR2.Width / 2.0)), 0.0 + ((UiCibles[0].Height / 2.0) - (sizeR2.Height / 2.0)));
+                    //Rect r2 = new Rect(centerR2, sizeR2);
+                    //RectangleGeometry r2D2 = new RectangleGeometry(r2);
+                    //myImage2.Clip = r2D2;
+
+                    //UiCibles[2].Shape = myImage2;
+                }
+                else
+                {
+                    //string ahah;
+                    //if (_copieExGame.StaticDyn == true)
+                    //{
+                    //    // creation d'une cible
+                    //    ahah = _copieExTheme.CibleD.Shape.Remove(0, 1);
+                    //}
+                    //else
+                    //{
+                    //    // creation d'une cible
+                    //    ahah = _copieExTheme.Chasseur.Shape.Remove(0, 1);
+                    //}
+                    // creation du chasseur
+                    string ahah = _copieExTheme.Chasseur.Shape.Remove(0, 1);
+                    Image myImage = new Image();
+                    Uri imageUri = new Uri(ahah, UriKind.Relative);
+                    myImage.Source = new BitmapImage(imageUri);
+                    myImage.Width = _copieExGame.TailleNbrs() + 20.0;
+                    myImage.Height = _copieExGame.TailleNbrs() + 20.0;
+                    myImage.HorizontalAlignment = HorizontalAlignment.Left;
+
+                    // Use an RectangleGeometry to define the clip region. 
+                    Size sizeR4 = new Size(myImage.Width, myImage.Height);
+                    Point centerR4 = new Point(0.0 + ((myImage.Width / 2.0) - (sizeR4.Width / 2.0)), 0.0 + ((myImage.Height / 2.0) - (sizeR4.Height / 2.0)));
+                    Rect r4 = new Rect(centerR4, sizeR4);
+                    RectangleGeometry myRectangleGeometry = new RectangleGeometry(r4);
+                    myImage.Clip = myRectangleGeometry;
+
+                    UiChasseur[0].Shape = myImage;
+
+                    //// creation d'une cible
+                    //string ahah2 = "\\Resources\\Game\\Image\\red.png";
+                    //Image myImage2 = new Image();
+                    //Uri imageUri2 = new Uri(ahah2, UriKind.Relative);
+                    //myImage2.Source = new BitmapImage(imageUri2);
+                    //myImage2.Width = 200.0;
+                    //myImage2.Height = 200.0;
+                    //myImage2.HorizontalAlignment = HorizontalAlignment.Left;
+
+                    //// Use an RectangleGeometry to define the clip region. 
+                    //Size sizeR2 = new Size(tailleDetectX, tailleDetectY);
+                    //Point centerR2 = new Point(0.0 + ((UiCibles[0].Width / 2.0) - (sizeR2.Width / 2.0)), 0.0 + ((UiCibles[0].Height / 2.0) - (sizeR2.Height / 2.0)));
+                    //Rect r2 = new Rect(centerR2, sizeR2);
+                    //RectangleGeometry r2D2 = new RectangleGeometry(r2);
+                    //myImage2.Clip = r2D2;
+
+                    //UiCibles[2].Shape = myImage2;
+                }
+                //Debug.Print("{0}", test);
+            }
+        }
+
+        private void DetectCollisionsEvaluation()   // faire changer le chasseur de style !
+        {
+            bool test2;
+            if (UiCibles.Count > 0)
+            {
+                // test = TestCollision(UiChasseur[0], UiCibles[0]); //check for Chasseur/Cible collisions
+                test = GameUtils.CheckCollisionEva(UiChasseur[0], UiCibles[0]);
+                test2 = GameUtils.CheckCollisionEva(UiChasseur[0], UiCibles[1]);
+
+                if (test == true)
+                {
+                    if (sons >= 5 && _evalson == false)
+                    {
+                        ScoreUi++;
+                        playerPomme.Play();
+                        sons = 0;
+                        _evalson = true;
+                    }
+                    sons++;
+                    // A changer pour test !
+                    // creation du chasseur
+                    //string ahah = _copieExGameModel.Theme.Cible.ShapeHit.Remove(0, 1);
+                    Image myImage = new Image();
+                    Uri imageUri;
+                    if (_ellliVis == true)
+                    {
+                        imageUri = new Uri(_exoEvalList[0].ThemeEnfant.Chasseur, UriKind.Relative);
+                    }
+                    else
+                    {
+                        imageUri = new Uri(_exoEvalList[0].ThemeEnfant.Chasseur2, UriKind.Relative);
+                    }
+                    myImage.Source = new BitmapImage(imageUri);
+                    myImage.Width = 75;
+                    myImage.Height = 75;
+                    myImage.HorizontalAlignment = HorizontalAlignment.Left;
+
+                    // Use an EllipseGeometry to define the clip region. 
+                    EllipseGeometry myEllipseGeometry = new EllipseGeometry();
+                    myEllipseGeometry.Center = new Point(33.3, 40);
+                    myEllipseGeometry.RadiusX = 75;
+                    myEllipseGeometry.RadiusY = 75;
+                    myImage.Clip = myEllipseGeometry;
+
+                    UiChasseur[0].Shape = myImage;
+                }
+
+                if (test2 == true)
+                {
+                    if (sons >= 5 && _evalson == false)
+                    {
+                        ScoreUi++;
+                        playerPomme.Play();
+                        sons = 0;
+                        _evalson = true;
+                    }
+                    sons++;
+                    // A changer pour test !
+                    // creation du chasseur
+                    //string ahah = _copieExGameModel.Theme.Cible.ShapeHit.Remove(0, 1);
+                    Image myImage = new Image();
+                    Uri imageUri;
+                    if (_ellliVis == true)
+                    {
+                        imageUri = new Uri(_exoEvalList[0].ThemeEnfant.Chasseur, UriKind.Relative);
+                    }
+                    else
+                    {
+                        imageUri = new Uri(_exoEvalList[0].ThemeEnfant.Chasseur2, UriKind.Relative);
+                    }
+                    myImage.Source = new BitmapImage(imageUri);
+                    myImage.Width = 75;
+                    myImage.Height = 75;
+                    myImage.HorizontalAlignment = HorizontalAlignment.Left;
+
+                    // Use an EllipseGeometry to define the clip region. 
+                    EllipseGeometry myEllipseGeometry = new EllipseGeometry();
+                    myEllipseGeometry.Center = new Point(33.3, 40);
+                    myEllipseGeometry.RadiusX = 75;
+                    myEllipseGeometry.RadiusY = 75;
+                    myImage.Clip = myEllipseGeometry;
+
+                    UiChasseur[0].Shape = myImage;
+                }
+                if (test2 == false && test == false)
+                {
+                    //string ahah = _copieExGameModel.Theme.Cible.Shape.Remove(0, 1);
+                    Image myImage = new Image();
+                    Uri imageUri;
+                    if (_ellliVis == true)
+                    {
+                        imageUri = new Uri(_exoEvalList[0].ThemeEnfant.Chasseur, UriKind.Relative);
+                    }
+                    else
+                    {
+                        imageUri = new Uri(_exoEvalList[0].ThemeEnfant.Chasseur, UriKind.Relative);
+                    }
+                    myImage.Source = new BitmapImage(imageUri);
+                    myImage.Width = 75;
+                    myImage.Height = 75;
+                    myImage.HorizontalAlignment = HorizontalAlignment.Left;
+
+                    // Use an EllipseGeometry to define the clip region. 
+                    EllipseGeometry myEllipseGeometry = new EllipseGeometry();
+                    myEllipseGeometry.Center = new Point(33.3, 40);
+                    myEllipseGeometry.RadiusX = 75;
+                    myEllipseGeometry.RadiusY = 75;
+                    myImage.Clip = myEllipseGeometry;
+
+                    UiChasseur[0].Shape = myImage;
+                    _evalson = false;
+
+                }
+                //Debug.Print("{0}", test);
+            }
+        }
+
+        #endregion
+
+        public void FenetreUpdateMessage(PositionDataModel messageSerie)   // TODO : à changer !
+        {
+            if (messageSerie != null)
+            {
+
+                double[] tempsXY = new double[2];
+                //DynX = tempsXY[0] = EchelleUtils.MiseEchelleXPosition(_positionUiBuffer.PositionX);
+                //DynY = tempsXY[1] = EchelleUtils.MiseEchelleYPosition(_positionUiBuffer.PositionY);
+                DynX = tempsXY[0] = EchelleUtils.MiseEchelleXPosition(messageSerie.PositionX);
+                DynY = tempsXY[1] = EchelleUtils.MiseEchelleYPosition(messageSerie.PositionY);
+
+
+                //tempsXY[0] = messageSerie.PositionX;
+                //tempsXY[1] = messageSerie.PositionY;
+                try
+                {
+                    Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        try
+                        {
+                            if (_trace == true)
+                            {
+                                _positionRobotLive.Add(new Point(tempsXY[0], tempsXY[1]));   // echelle robot / ecran
+                            }
+                            if (UiChasseur.Count > 0)
+                            {
+                                if (_UiexDent == false)
+                                {
+                                    //UiChasseur[0].X = tempsXY[0] - 100;
+                                    //UiChasseur[0].Y = tempsXY[1] - 100;
+                                    UiChasseur[0].X = tempsXY[0] - (UiChasseur[0].Width / 2.0);  // TODO : à changer pour un converter !!!
+                                    UiChasseur[0].Y = tempsXY[1] - (UiChasseur[0].Height / 2.0);
+
+                                    //if (UiCibles.Count > 1 && _gameUi == true)
+                                    //{
+                                    //    UiCibles[1].X = UiChasseur[0].X;    // TODO : à changer debug !!!
+                                    //    UiCibles[1].Y = UiChasseur[0].Y;
+                                    //}
+                                }
+                                else
+                                {
+                                    UiChasseur[0].X = tempsXY[0] - 75;
+                                    UiChasseur[0].Y = tempsXY[1] - 75;
+                                }
+                            }
+                            if (PositionRobotLive.Count >= 200)
+                            {
+                                _positionRobotLive.RemoveAt(0);
+                            }
+                            RaisePropertyChanged("PositionRobotLive");
+                        }
+                        catch (Exception ex)
+                        {
+                            GestionErreur.GerrerErreur(ex);
+                        }
+                        if (_game == true)
+                        {
+                            Update();   // pour test
+                        }
+                        else
+                        {
+                            if (_evaluation == true)
+                            {
+                                DetectCollisionsEvaluation();
+                            }
+                        }
+                    }), DispatcherPriority.DataBind);
+                }
+                catch (Exception ex)
+                {
+                    GestionErreur.GerrerErreur(ex);
+                }
+            }
+        }
+
+        // Specify what you want to happen when the Elapsed event is raised.
+        private void OnMainLoopSequenceEvent(object source, System.Timers.ElapsedEventArgs e)
+        {
+            double[] tempsXY = new double[2];
+
+            if (Application.Current != null)    // pour éviter l'exception null...
+            {
+                //Application.Current.Dispatcher.BeginInvoke(new Action(() => // on UI Thread
+                //{
+                //    _positionRobotLive.Add(new Point(_positionUiBuffer.PositionX, _positionUiBuffer.PositionY));
+                //}), DispatcherPriority.Normal);
+
+                //Application.Current.Dispatcher.BeginInvoke(new Action(() => // on UI Thread
+                //{
+                //    if (PositionRobotLive.Count >= 100)
+                //    {
+                //        _positionRobotLive.RemoveAt(0);
+                //    }
+                //}), DispatcherPriority.Normal);
+
+                //tempsXY[0] = EchelleUtils.MiseEchelleXPosition(messageSerie.PositionX);
+                //tempsXY[1] = EchelleUtils.MiseEchelleYPosition(messageSerie.PositionY);
+                DynX = tempsXY[0] = EchelleUtils.MiseEchelleXPosition(_positionUiBuffer.PositionX);
+                DynY = tempsXY[1] = EchelleUtils.MiseEchelleYPosition(_positionUiBuffer.PositionY);
+                //tempsXY[0] = messageSerie.PositionX;
+                //tempsXY[1] = messageSerie.PositionY;
+                try
+                {
+                    Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        try
+                        {
+                            if (_trace == true)
+                            {
+                                _positionRobotLive.Add(new Point(tempsXY[0], tempsXY[1]));   // echelle robot / ecran
+                            }
+                            if (UiChasseur.Count > 0)
+                            {
+                                if (_UiexDent == false)
+                                {
+                                    //UiChasseur[0].X = tempsXY[0] - 100;
+                                    //UiChasseur[0].Y = tempsXY[1] - 100;
+                                    UiChasseur[0].X = tempsXY[0] - (UiChasseur[0].Width / 2.0);  // TODO : à changer pour un converter !!!
+                                    UiChasseur[0].Y = tempsXY[1] - (UiChasseur[0].Height / 2.0);
+
+                                    //if (UiCibles.Count > 1 && _gameUi == true)
+                                    //{
+                                    //    UiCibles[1].X = UiChasseur[0].X;    // TODO : à changer debug !!!
+                                    //    UiCibles[1].Y = UiChasseur[0].Y;
+                                    //}
+                                }
+                                else
+                                {
+                                    UiChasseur[0].X = tempsXY[0] - 75;
+                                    UiChasseur[0].Y = tempsXY[1] - 75;
+                                }
+                            }
+                            if (PositionRobotLive.Count >= 200)
+                            {
+                                _positionRobotLive.RemoveAt(0);
+                            }
+                            RaisePropertyChanged("PositionRobotLive");
+                        }
+                        catch (Exception ex)
+                        {
+                            GestionErreur.GerrerErreur(ex);
+                        }
+                        if (_game == true)
+                        {
+                            Update();   // pour test
+                        }
+                        else
+                        {
+                            if (_evaluation == true)
+                            {
+                                DetectCollisionsEvaluation();
+                            }
+                        }
+                    }), DispatcherPriority.DataBind);
+                }
+                catch (Exception ex)
+                {
+                    GestionErreur.GerrerErreur(ex);
+                }
+            }
+        }
+
+        public void FentreUpdateExercicesMessage(List<ExerciceGeneric> _exoGenList)
+        {
+            try
+            {
+                ArreterMainLoop();
+                Pause = false;
+                _evaluation = false;
+                _positionRobotBaseStyle.Clear();
+                StopGame();
+                GameOver = false;
+                PolyVis = true;
+                PolyVisBase = true;
+                _UiexDent = false;
+                UiChasseur.Clear();
+                UiCibles.Clear();
+                UiEx.Clear();
+                _game = false;
+                Game = false;
+                GameUi = false;
+
+                if (_positionRobotBase.Count >= 1)
+                {
+                    _positionRobotBase.Clear();
+                    // TODO : ClearUI
+                    RaisePropertyChanged("PositionRobotLive");
+                }
+                if (_positionRobotLive.Count >= 1)
+                {
+                    _positionRobotLive.Clear();
+                }
+                if (_exoGenList != null)
+                {
+                    if (_exoGenList[0].TypeExercice == ExerciceTypes.Evaluation)
+                    {
+                        _exoEvalList = new List<ExerciceEvaluation>();
+                        foreach (var exo in _exoGenList)
+                        {
+                            _exoEvalList.Add((ExerciceEvaluation)exo);
+                        }
+                        if (_exoEvalList[0].ThemeEnfant.Fond.Remove(0, 28) == "ParDefaut.jpg")//theme enfnat
+                        {
+                            EllliVis = true;
+                            FondUi = "../../Theme/Evaluation/Fond/background_blank.png";
+                        }
+                        else
+                        {
+                            EllliVis = false;
+                            FondUi = _exoEvalList[0].ThemeEnfant.Fond;
+                        }
+                        #region FORME
+                        if (_exoEvalList[0].TypeEval == ExerciceEvalTypes.Forme)
+                        {
+                            ExerciceForme temps = (ExerciceForme)_exoEvalList[0];
+                            MarkerActif = "None";
+                            TailleDroite = 20;
+                            rayon_polygone = EchelleUtils.MiseEchelle(4 * temps.Taille); //10 - 5
+                            if (temps.TypeForme == FormeType.Cercle)
+                            {
+                                //_evaluation = true;
+                                Application.Current.Dispatcher.BeginInvoke(new Action(() => // ASYNC
+                                {
+                                    
+                                    string cercleBase = temps.ThemeEnfant.Cible;
+                                    //CreateUi(, position_centre_polygone_x, position_centre_polygone_y);
+                                    //CreateChasseurUi("\\Resources\\Image\\Ex\\Intergalactique\\triton_trans.png");
+                                    CreateChasseurUiPetit(temps.ThemeEnfant.Chasseur);
+                                    CreateUi3(cercleBase, position_centre_polygone_x, position_centre_polygone_y);
+                                }), DispatcherPriority.Normal);
+                            }
+                            if (temps.TypeForme == FormeType.Carré)
+                            {
+                                //_evaluation = true;
+                                Application.Current.Dispatcher.BeginInvoke(new Action(() => // ASYNC
+                                {
+                                    //CreateUi(, position_centre_polygone_x, position_centre_polygone_y);
+                                    CreateChasseurUiPetit(temps.ThemeEnfant.Chasseur);
+                                    //CreateChasseurUi("\\Resources\\Image\\Ex\\Intergalactique\\triton_trans.png");
+                                    //CreateUi3(cercleBase, position_centre_polygone_x, position_centre_polygone_y);
+                                }), DispatcherPriority.Normal);
+                            }
+                            switch (temps.Origine)
+                            {
+                                case 1: position_centre_polygone_x = EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE);
+                                    break;
+                                case 2: position_centre_polygone_x = EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIN); // *18.45) +220.0;
+                                    break;
+                                case 3: position_centre_polygone_x = EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE);
+                                    break;
+                                default: position_centre_polygone_x = EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIN);
+                                    break;
+                            }
+                            position_centre_polygone_y = EchelleUtils.MiseEchelleY(Constants.POSITION_Y_MAIN);  // 40.2
+                            switch (temps.TypeForme)
+                            {
+                                case FormeType.Carré: nb_segment_polygone = temps.NbrPolygone;
+                                    break;
+                                case FormeType.Cercle: nb_segment_polygone = temps.NbrPolygone;
+                                    break;
+                                case FormeType.Triangle: nb_segment_polygone = 6; // Hexagone
+                                    break;
+                                default: nb_segment_polygone = 4;
+                                    break;
+                            }
+                            theta = 1.0 * Math.PI / 4.0; // /1
+                            delta_teta = 2.0 * Math.PI / nb_segment_polygone;
+
+                            var r = new Random(385);
+                            double dy = 0.0;
+                            double y = 0.0;
+
+
+                            for (int i = 0; i <= nb_segment_polygone; i++)
+                            {
+                                dy += r.NextDouble() * 2 - 1;
+                                y += dy;
+                                _positionRobotBase.Add(new Point(position_centre_polygone_x + rayon_polygone * Math.Sin(delta_teta * i + theta), position_centre_polygone_y - rayon_polygone * Math.Cos(delta_teta * i + theta)));
+                            }
+                        }
+                        #endregion
+                        #region MOUVEMENT
+                        else
+                        {
+                            #region XDENT
+                            if (_exoEvalList[0].TypeExercice == ExerciceTypes.XDent)
+                            {
+                                //ExerciceXDent temps = (ExerciceXDent)reaPlanExercices.Exercice[a];
+                                //MarkerActif = "Circle";
+                                //TailleDroite = 2; // 5
+                                //position_centre_polygone_x = EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIN);   // 35;
+                                //position_centre_polygone_y = EchelleUtils.MiseEchelleY((Constants.POSITION_Y_MAIN) + 10.0);   // 50;
+                                //distCible = EchelleUtils.MiseEchelle(-(double)temps.DistCibles);
+                                //nbrsCible = temps.NbrsCibles;
+                                //angleCible = temps.Anglecible * (2.0 * Math.PI / 360.0);
+                                //_positionRobotBase.Add(new Point(position_centre_polygone_x, position_centre_polygone_y));
+
+                                //for (int j = 0; j < nbrsCible; j++)
+                                //{
+                                //    _positionRobotBase.Add(new Point(position_centre_polygone_x + distCible * Math.Sin(-(nbrsCible - 1) * angleCible / 2 + angleCible * j), position_centre_polygone_y + distCible * Math.Cos(-(nbrsCible - 1) * angleCible / 2 + angleCible * j)));
+                                //    if (j > 0)
+                                //    {
+                                //        _positionRobotBase.Add(new Point((position_centre_polygone_x + distCible * Math.Sin(-(nbrsCible - 1) * angleCible / 2 + angleCible * j)) - 0.01, (position_centre_polygone_y + distCible * Math.Cos(-(nbrsCible - 1) * angleCible / 2 + angleCible * j)) - 0.01));
+                                //    }
+                                //    _positionRobotBase.Add(new Point(position_centre_polygone_x, position_centre_polygone_y));
+                                //}
+                                //if (nbrsCible == 3)
+                                //{
+                                //    Application.Current.Dispatcher.BeginInvoke(new Action(() => // ASYNC
+                                //    {
+                                //        CreateCibleUi("\\Resources\\Image\\Ex\\goal01.png", _positionRobotBase[7].X, _positionRobotBase[7].Y);
+                                //        CreateChasseurUiEx("\\Resources\\Image\\Ex\\Rugby_ball01.png");
+                                //        FondUi = "\\Resources\\Image\\Ex\\green01.jpg";
+                                //        _UiexDent = true;
+                                //    }), DispatcherPriority.Normal);
+                                //}
+                            }
+                            #endregion
+                            else
+                            {
+                                #region ExMOUV
+                                if (_exoEvalList[0].TypeExercice == ExerciceTypes.XDent)
+                                {
+                                    //ExerciceMouvement temps = (ExerciceMouvement)reaPlanExercices.Exercice[a];
+                                    //MarkerActif = "Circle";
+                                    //TailleDroite = 20;
+                                    //if (temps.DroiteType == DroiteType.Vertical)
+                                    //{
+                                    //    switch (temps.PositionDroite)
+                                    //    {
+                                    //        case 1: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                    //            _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                    //            break;
+                                    //        case 2: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIN), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUTV)));
+                                    //            _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIN), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BASV)));
+                                    //            break;
+                                    //        case 3: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                    //            _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                    //            break;
+                                    //        default: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIN), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                    //            _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIN), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                    //            break;
+                                    //    }
+                                    //}
+                                    //else
+                                    //{
+                                    //    if (temps.DroiteType == DroiteType.Horizontal)
+                                    //    {
+                                    //        switch (temps.PositionDroite)
+                                    //        {
+                                    //            case 1: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                    //                _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                    //                break;
+                                    //            case 2: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BASE)));
+                                    //                _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BASE)));
+                                    //                break;
+                                    //            case 3: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                    //                _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                    //                break;
+                                    //            default: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BASE)));
+                                    //                _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BASE)));
+                                    //                break;
+                                    //        }
+                                    //    }
+                                    //    else
+                                    //    {
+                                    //        if (temps.DroiteType == DroiteType.Oblique)
+                                    //        {
+                                    //            switch (temps.PositionDroite)
+                                    //            {
+                                    //                case 1: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                    //                    _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                    //                    break;
+                                    //                case 2: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIN), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                    //                    _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIN), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                    //                    break;
+                                    //                case 3: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                    //                    _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                    //                    break;
+                                    //                default: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                    //                    _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                    //                    break;
+                                    //            }
+                                    //        }
+                                    //    }
+                                    //}
+                                }
+                                #endregion
+                                else
+                                {
+                                    #region Evaluation
+                                    if (_exoEvalList[0].TypeEval == ExerciceEvalTypes.Mouvement)
+                                    {
+                                        ExerciceMouvement temps = (ExerciceMouvement)_exoEvalList[0];
+                                        TailleDroite = 20;
+                                        #region Cible (vertical)
+                                        if (temps.TypeDroite == DroiteType.Vertical)//Target
+                                        {
+                                            switch (temps.PositionDroite)
+                                            {
+                                                case 1: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                                    _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                                    break;
+                                                case 2: //_positionRobotBase.Add(new Point(MiseEchelleX(Constants.POSITION_X_MAIN), MiseEchelleY(Constants.POSITION_Y_HAUTV)));
+                                                    //_positionRobotBase.Add(new Point(MiseEchelleX(Constants.POSITION_X_MAIN), MiseEchelleY(Constants.POSITION_Y_BASV)));
+                                                    _positionRobotBaseStyle.Add(0.0);
+                                                    _evaluation = true;
+                                                        Application.Current.Dispatcher.BeginInvoke(new Action(() => // ASYNC
+                                                        {
+                                                            CreateUi2(temps.ThemeEnfant.Cible, EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIND), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUTD));
+                                                            //CreateUi(cercleBase, position_centre_polygone_x, position_centre_polygone_y);
+                                                            CreateUi2(temps.ThemeEnfant.Cible, EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIND), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BASVD));
+                                                            //CreateChasseurUi(cercleChasseur);
+                                                            CreateChasseurUiBlob(temps.ThemeEnfant.Chasseur);
+                                                        }), DispatcherPriority.Normal);
+                                                    break;
+                                                case 3: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                                    _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                                    break;
+                                                default: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIN), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                                    _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIN), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                                    break;
+                                            }
+                                        }
+                                        #endregion
+                                        else
+                                        {
+                                            #region Horizontal(jamais)
+                                            if (temps.TypeDroite == DroiteType.Horizontal)
+                                            {
+                                                switch (temps.PositionDroite)
+                                                {
+                                                    case 1: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                                        _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                                        break;
+                                                    case 2: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BASE)));
+                                                        _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BASE)));
+                                                        break;
+                                                    case 3: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                                        _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                                        break;
+                                                    default: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BASE)));
+                                                        _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BASE)));
+                                                        break;
+                                                }
+                                            #endregion
+                                            }
+                                            else
+                                            {
+                                                if (temps.TypeDroite == DroiteType.Oblique)
+                                                {
+                                                    #region oblique(jamais)
+                                                    switch (temps.PositionDroite)
+                                                    {
+                                                        case 1: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                                            _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                                            break;
+                                                        case 2: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIN), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                                            _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIN), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                                            break;
+                                                        case 3: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                                            _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                                            break;
+                                                        default: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                                            _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                                            break;
+                                                    }
+                                                    #endregion
+                                                }
+                                                else
+                                                {
+                                                    #region Droite (verticalLong freeAmpl)
+                                                    if (temps.TypeDroite == DroiteType.VerticalLong)
+                                                    {
+                                                        switch (temps.PositionDroite)
+                                                        {
+                                                            case 1: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                                                _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                                                break;
+                                                            case 2: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX((Constants.POSITION_X_MAIN)), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUTV)));
+                                                                _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX((Constants.POSITION_X_MAIN)), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BASV)));
+                                                                _positionRobotBaseStyle.Add(1.0);    // TODO : theme ici
+                                                                //_evaluation = true;
+                                                                    Application.Current.Dispatcher.BeginInvoke(new Action(() => // ASYNC
+                                                                    {
+                                                                        //CreateUi(, position_centre_polygone_x, position_centre_polygone_y);
+                                                                        CreateChasseurUiColonel(temps.ThemeEnfant.Chasseur);
+                                                                    }), DispatcherPriority.Normal);
+                                                                break;
+                                                            case 3: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                                                _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                                                break;
+                                                            default: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIN), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                                                _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIN), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                                                break;
+                                                        }
+                                                    }
+                                                    #endregion
+                                                }// TONUS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                                //#region tonus
+                                                //if (temps.TypeDroite == DroiteType.Tonus)
+                                                //{
+                                                //    switch (temps.PositionDroite)
+                                                //    {
+                                                //        case 1: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT_TONUS)));
+                                                //            _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_GAUCHE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS_TONUS)));
+                                                //            break;
+                                                //        case 2: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIN_TONUS), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT_TONUS)));
+                                                //            _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIN_TONUS), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS_TONUS)));
+                                                //            _positionRobotBaseStyle.Add(1.0);
+                                                //            _evaluation = false;
+
+                                                //            CreateUi2(listeThemeEval.Find(t => t.Name.Equals("Tonus")).Cible, EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIND_TONUS), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUTDA_TONUS));
+                                                //            CreateUi2(listeThemeEval.Find(t => t.Name.Equals("Tonus")).Cible, EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIND_TONUS), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BASVDA_TONUS));
+                                                //            CreateChasseurUiBlob(listeThemeEval.Find(t => t.Name.Equals("Tonus")).Chasseur);
+                                                //            break;
+                                                //        case 3: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                                //            _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_DROITE), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                                //            break;
+                                                //        default: _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIN), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_HAUT)));
+                                                //            _positionRobotBase.Add(new Point(EchelleUtils.MiseEchelleX(Constants.POSITION_X_MAIN), EchelleUtils.MiseEchelleY(Constants.POSITION_Y_BAS)));
+                                                //            break;
+                                                //    }
+                                                //}
+                                                //#endregion
+                                            }
+                                        }
+                                    }
+                                    #endregion
+                                }
+                            }
+                        }
+                        #endregion
+                    }
+                }
+
+                RaisePropertyChanged("PositionRobotBaseStyle");
+                RaisePropertyChanged("PositionRobotBase");
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        public int TailleDroite
+        {
+            get
+            {
+                return _tailleDroite;
+            }
+            set
+            {
+                this._tailleDroite = value;
+                RaisePropertyChanged("TailleDroite");
+            }
+        }
+
+        public string MarkerActif
+        {
+            get
+            {
+                return _markerActif;
+            }
+            set
+            {
+                this._markerActif = value;
+                RaisePropertyChanged("MarkerActif");
+            }
+        }
+
+        #region "HomeUpdateMessage"
+        private void HomeUpdateMessage(bool msg)
+        {
+            // TODO : à changer
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                // DataPositionRobotsLive.Clear();
+            }), DispatcherPriority.DataBind);
+        }
+        #endregion "HomeUpdateMessage"
+
+        void _portSerieService_PositionDataReceived(object sender, PositionDataModel e)
+        {
+            //lock (locker)
+            //{
+                _positionUiBuffer.PositionX = e.PositionX;
+                _positionUiBuffer.PositionY = e.PositionY;
+            //}
+        }
+
+        public override void Cleanup()
+        {
+            // Clean up if needed
+            base.Cleanup();
+        }
+        private void OnRobotError(RobotErrorMessage e)
+        {
+            ResetScreen("");
+        }
+
+        private void ResetScreen(string s)
+        {
+            try
+            {
+                InitMainP();//reset des variables,timer,image de fond
+                UiChasseur.Clear();//plus de chasseur à l'écran
+                UiCibles.Clear();//plus de cible à l'écran
+                UiEx.Clear();
+                GameUi = false;//plus de score à l'écran
+                ArreterMainLoop();
+                PolyVisBase = false;
+<<<<<<< HEAD
+=======
+                EllliVis = false;
+>>>>>>> dc834691afafda63a407212031cd6478e4e34d4c
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+    }
+
+    public class DataPositionRobot
+    {
+        public double PositionX { get; set; }
+        public double PositionY { get; set; }
+    }
+}

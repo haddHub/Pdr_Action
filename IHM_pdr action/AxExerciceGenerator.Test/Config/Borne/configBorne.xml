@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Bornes>
+  <Borne>
+    <Taille>Petit</Taille>
+    <BorneGauche>1.0</BorneGauche>
+    <BorneDroite>73.0</BorneDroite>
+    <BorneHaut>24.0</BorneHaut>
+    <BorneBas>70.0</BorneBas>
+    <BorneArcHaut>45.0</BorneArcHaut>
+    <BorneArcBas>0.0</BorneArcBas>
+  </Borne>
+  <Borne>
+    <Taille>Moyen</Taille>
+    <BorneGauche>1.0</BorneGauche>
+    <BorneDroite>73.0</BorneDroite>
+    <BorneHaut>24.0</BorneHaut>
+    <BorneBas>70.0</BorneBas>
+    <BorneArcHaut>45.0</BorneArcHaut>
+    <BorneArcBas>0.0</BorneArcBas>
+  </Borne>
+  <Borne>
+    <Taille>Grand</Taille>
+    <BorneGauche>1.0</BorneGauche>
+    <BorneDroite>73.0</BorneDroite>
+    <BorneHaut>24.0</BorneHaut>
+    <BorneBas>70.0</BorneBas>
+    <BorneArcHaut>45.0</BorneArcHaut>
+    <BorneArcBas>0.0</BorneArcBas>
+  </Borne>
+</Bornes>

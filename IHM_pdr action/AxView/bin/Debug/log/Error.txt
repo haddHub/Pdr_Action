@@ -1,0 +1,406 @@
+2014-08-21 10:41:33.6434 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-08-21 11:05:30.3762 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-08-22 13:56:04.2330 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-08-23 19:57:19.0577 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-08-23 20:10:48.7644 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-08-23 20:14:21.8727 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-08-23 20:15:43.3936 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-03 09:12:54.3778 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-03 09:34:22.9566 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-03 09:34:39.1316 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-03 09:35:30.7633 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-03 09:36:56.1316 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-03 09:37:28.4264 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-03 09:42:44.7167 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-03 09:44:22.4858 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-03 09:44:48.5507 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-03 09:48:28.7737 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-03 10:03:34.9358 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-03 10:09:18.0193 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-03 10:12:18.8175 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-03 10:15:15.2449 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-03 10:20:16.8270 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-03 10:23:04.3962 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-05 08:18:32.5604 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-05 08:23:35.7889 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-05 09:30:04.6798 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-05 15:50:45.5449 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-05 16:04:06.8604 | ERROR | UpdateException | An error occurred while updating the entries. See the inner exception for details. |   at System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter)
+   at System.Data.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   at AxData.PatientData.<SupPatient>b__0(ExerciceDB ex) in C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxData\PatientData.cs:line 59
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at AxData.PatientData.SupPatient(String nom, String prenom, DateTime dateNaissance) in C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxData\PatientData.cs:line 48
+   at AxViewModel.FormulairePatientViewModel.SupPatient() in C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxViewModel\FormulairePatientViewModel.cs:line 417
+2014-09-05 16:07:40.7544 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-10 10:41:46.9790 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-10 14:45:38.4244 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-10 14:46:42.2690 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-10 15:03:36.5161 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-10 15:08:33.3701 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-10 15:12:09.3359 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-10 15:13:55.1046 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-10 16:29:08.9898 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 10:30:13.3618 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 11:09:45.4446 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 11:14:09.2060 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 11:15:22.0613 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 11:32:06.0748 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 11:52:10.4370 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 11:59:47.9139 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 12:20:19.5973 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 12:27:39.2514 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 12:42:19.0132 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 14:01:16.5215 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 14:06:33.2337 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 14:13:26.6436 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 14:19:59.2795 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 14:24:48.6064 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 14:28:14.9985 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 14:39:28.9907 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 14:42:25.0811 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 14:44:38.9210 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 14:50:09.2834 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 14:54:09.6328 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 15:11:06.3210 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 15:13:25.9274 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 15:23:58.7715 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 15:25:46.1216 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-16 15:31:17.6106 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-17 09:02:17.5538 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-17 09:21:04.7023 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-17 10:23:57.3008 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-17 16:01:11.3510 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-17 16:04:35.6954 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-17 16:08:03.9214 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-18 08:46:53.7304 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-18 08:47:54.9658 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-18 08:51:47.9753 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-18 10:06:14.7359 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-18 12:15:47.7808 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-18 16:13:20.5286 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-18 16:27:32.1567 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-18 16:33:10.2886 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-19 08:53:57.7492 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-19 09:16:25.5162 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-19 09:20:47.9570 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-19 09:33:29.4062 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-19 09:40:45.5842 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-19 09:44:33.8588 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-19 09:57:51.8794 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-19 10:05:29.3924 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-19 11:11:11.3693 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-23 10:14:03.5682 | ERROR | UpdateException | Une erreur s'est produite lors de la mise à jour des entrées. Pour plus d'informations, consultez l'exception interne. |   à System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter)
+   à System.Data.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   à AxData.PatientData.InscriptionPatient(Patient pat) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxData\PatientData.cs:ligne 178
+   à AxViewModel.FormulaireInscriptionPatientViewModel.SavePatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\FormulaireInscriptionPatientViewModel.cs:ligne 383
+2014-09-23 10:23:24.4702 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-23 13:13:51.7452 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-23 13:15:26.4036 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-23 13:17:37.9029 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-23 13:20:12.6496 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-23 13:36:57.9476 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-23 13:38:00.4647 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-23 13:40:15.2309 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-23 15:02:04.4302 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-23 15:43:41.1305 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-23 15:45:33.0751 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-23 15:52:30.4022 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-23 15:56:43.4477 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-23 16:12:33.6058 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-23 16:12:59.1610 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-23 16:13:49.2782 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-24 14:51:02.0239 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-25 09:46:27.4595 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-25 09:50:02.9499 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-26 09:52:53.5180 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-26 11:16:38.9563 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-26 11:57:03.0382 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-29 15:14:28.2020 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-29 15:21:30.1271 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-29 15:25:16.1640 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-29 15:36:11.1505 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-29 16:15:03.3655 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-30 09:20:30.6304 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-30 09:41:21.2256 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-30 11:04:34.0131 | ERROR | UpdateException | Une erreur s'est produite lors de la mise à jour des entrées. Pour plus d'informations, consultez l'exception interne. |   à System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter)
+   à System.Data.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   à AxData.PatientData.<SupPatient>b__0(ExerciceDB ex) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxData\PatientData.cs:ligne 60
+   à System.Collections.Generic.List`1.ForEach(Action`1 action)
+   à AxData.PatientData.SupPatient(String nom, String prenom, DateTime dateNaissance) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxData\PatientData.cs:ligne 49
+   à AxViewModel.FormulairePatientViewModel.SupPatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\FormulairePatientViewModel.cs:ligne 417
+2014-09-30 11:12:37.2518 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-30 11:14:12.6390 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-30 11:18:02.2092 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-30 11:20:57.8794 | ERROR | UpdateException | Une erreur s'est produite lors de la mise à jour des entrées. Pour plus d'informations, consultez l'exception interne. |   à System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter)
+   à System.Data.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   à AxData.PatientData.InscriptionPatient(Patient pat) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxData\PatientData.cs:ligne 179
+   à AxViewModel.FormulaireInscriptionPatientViewModel.SavePatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\FormulaireInscriptionPatientViewModel.cs:ligne 383
+2014-09-30 11:24:14.3775 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-30 11:26:24.8247 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-30 11:30:38.9607 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-30 11:32:14.8041 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-30 11:42:42.7033 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-30 12:21:06.0170 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-09-30 12:24:40.4118 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-01 10:23:05.8598 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-01 11:10:21.7180 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-01 15:49:59.9154 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-01 15:54:28.0304 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-01 16:04:59.1088 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-02 12:20:45.0154 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-02 12:26:05.0578 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-02 13:31:43.0578 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 09:17:35.2118 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 09:22:29.2417 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 09:25:36.1941 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 09:33:48.6403 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 09:54:54.3867 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 14:25:53.9484 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 14:29:59.2926 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 14:50:08.7937 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 14:56:53.0768 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 15:03:09.6325 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 15:04:47.3620 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 15:07:48.3008 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 15:09:33.3494 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 15:11:51.3025 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 15:16:11.3764 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 15:41:51.1463 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 15:49:37.4957 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 15:58:13.5967 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 16:28:44.6936 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 16:39:58.7427 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-09 16:40:23.9052 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 10:16:00.3568 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 10:27:27.8376 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 10:32:33.9613 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 10:35:06.8203 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 10:36:42.7858 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 10:39:50.3775 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 12:20:53.9906 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 12:22:04.2888 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 12:42:47.1354 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 12:44:55.2324 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 13:02:12.4742 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 13:10:44.1570 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 13:16:11.2926 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 13:20:38.0062 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 13:59:55.7194 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 14:21:14.5508 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 14:38:23.5766 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 15:53:53.0495 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 16:33:29.8909 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-10 16:46:25.2983 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-13 13:54:46.4380 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-13 14:32:07.7853 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-13 14:46:48.5282 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-13 14:50:34.3464 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-13 14:51:33.3817 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-13 15:20:52.3112 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-13 16:39:25.4235 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-13 16:49:18.5463 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-13 17:17:14.4753 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-13 17:21:31.0174 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-13 17:27:38.0932 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-13 17:53:54.5601 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-13 18:11:11.2325 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-13 18:11:48.5430 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-13 18:15:32.7293 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-13 19:03:06.1640 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-14 11:29:06.6741 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-14 11:30:03.5441 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-14 11:31:32.3427 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-14 11:32:31.5121 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-14 11:38:58.1953 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-14 11:39:24.2787 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-15 09:24:03.4942 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-15 09:46:07.1566 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-15 10:25:05.2680 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-15 10:47:23.0942 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-16 15:03:53.5111 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-20 10:59:30.7803 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-22 08:21:38.0898 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-22 08:44:49.1570 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-22 09:00:11.8414 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-22 09:58:23.8262 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-22 10:16:01.8267 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-24 09:39:55.1233 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-24 09:43:11.3098 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-24 09:47:50.0595 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-24 10:08:59.5741 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-24 10:12:51.0361 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-24 10:15:05.0199 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-24 10:17:48.6091 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-10-24 10:20:20.2361 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-11-27 15:51:53.6629 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-11-27 15:56:35.4771 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-11-27 15:58:40.4051 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-11-28 09:01:50.4607 | ERROR | UpdateException | Une erreur s'est produite lors de la mise à jour des entrées. Pour plus d'informations, consultez l'exception interne. |   à System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter)
+   à System.Data.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   à AxData.PatientData.<SupPatient>b__0(ExerciceDB ex) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxData\PatientData.cs:ligne 62
+   à System.Collections.Generic.List`1.ForEach(Action`1 action)
+   à AxData.PatientData.SupPatient(String nom, String prenom, DateTime dateNaissance) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxData\PatientData.cs:ligne 51
+   à AxViewModel.FormulairePatientViewModel.SupPatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\FormulairePatientViewModel.cs:ligne 417
+2014-12-01 09:47:16.5370 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-12-01 10:09:45.6000 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-12-01 10:11:11.5010 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-12-09 10:09:31.7598 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-12-09 10:17:14.2076 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-12-09 11:12:42.6929 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-12-09 14:17:29.9434 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-12-09 14:20:45.3134 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2014-12-09 14:31:37.7794 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2015-01-08 11:38:16.4554 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-01-07 14:57:46.5816 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-01-11 11:17:03.8706 | ERROR | EntityCommandExecutionException | Une erreur s'est produite lors de l'exécution de la définition de la commande. Pour plus de détails, consultez l'exception interne. |Nom de colonne non valide : 'IdJeu'.|   à System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   à System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   à System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   à System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   à System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   à System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   à AxData.PatientData.SupPatient(String nom, String prenom, DateTime dateNaissance) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - Maze Circuit\AxData\PatientData.cs:ligne 51
+   à AxViewModel.FormulairePatientViewModel.SupPatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - Maze Circuit\AxViewModel\FormulairePatientViewModel.cs:ligne 417
+2016-01-11 11:26:30.1068 | ERROR | EntityCommandExecutionException | Une erreur s'est produite lors de l'exécution de la définition de la commande. Pour plus de détails, consultez l'exception interne. |Nom de colonne non valide : 'IdJeu'.|   à System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   à System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   à System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   à System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   à System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   à System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   à AxData.PatientData.SupPatient(String nom, String prenom, DateTime dateNaissance) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - Maze Circuit\AxData\PatientData.cs:ligne 51
+   à AxViewModel.FormulairePatientViewModel.SupPatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - Maze Circuit\AxViewModel\FormulairePatientViewModel.cs:ligne 417
+2016-01-11 11:32:29.3016 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-01-11 11:34:33.7245 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-01-11 11:59:11.3133 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-01-11 12:00:36.3919 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-01-11 12:07:22.9183 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-01-11 12:09:09.3841 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-01-11 12:14:15.5196 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-01-11 12:17:35.9421 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-01-11 12:25:49.5296 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-01-11 12:27:57.6227 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-01-11 12:29:07.1536 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-01-11 15:50:42.4438 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-01-26 11:44:55.3918 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-01-26 14:59:13.2310 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-01-29 10:21:38.7193 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-01-29 10:53:27.8847 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-02-01 16:07:56.0382 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-02-10 14:27:49.9986 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-02 15:24:11.6535 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-02 15:29:46.4075 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-02 16:28:55.3877 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-02 16:40:14.2630 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-02 16:41:38.8810 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-02 16:44:35.7311 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-02 16:52:05.7342 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-03 12:29:37.6292 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-04 18:02:27.9392 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-04 18:08:07.3061 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-04 18:16:44.6321 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-04 18:17:21.8843 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-04 18:18:55.5438 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-04 19:01:01.5283 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-04 19:29:28.8846 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-05 01:00:47.4985 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-05 01:07:23.3796 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-05 02:04:59.6697 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-07 14:54:20.7250 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-07 18:07:52.4458 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-07 19:47:12.7078 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-08 11:54:12.2699 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-08 12:13:07.6556 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-08 14:18:09.4568 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-08 14:26:02.4846 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-09 13:56:20.4507 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-10 10:27:47.0320 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-10 10:32:35.2950 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-10 15:52:29.8083 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-10 15:55:06.4459 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-11 11:31:20.6248 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-14 10:27:45.7714 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-15 13:55:56.2157 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-16 11:09:58.2102 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-16 11:21:14.9815 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-17 10:00:48.7835 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-17 11:30:23.6375 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-17 11:35:39.4910 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-17 11:37:04.8410 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-17 11:38:13.3980 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-17 11:39:19.2360 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-17 11:40:21.2860 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-17 12:11:27.5256 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-17 12:29:13.7020 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-18 11:08:23.5200 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-18 11:24:32.2239 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-22 10:28:18.9788 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-03-22 10:41:19.9533 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-12 14:09:33.5161 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-12 14:15:36.2848 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-18 14:15:28.8402 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-18 14:16:53.0506 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-18 14:18:48.2185 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-18 14:34:40.4587 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-18 14:38:04.8560 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-18 14:54:13.0195 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-18 14:59:06.3402 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-26 13:35:58.2513 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-27 13:53:15.6143 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-27 16:14:36.8047 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-27 16:18:49.3311 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-27 16:22:10.3547 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-28 14:45:22.2350 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-28 14:46:05.8118 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-28 14:47:32.6061 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-28 14:48:15.5697 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-28 14:48:47.6911 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-04-28 14:51:57.1736 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-04 15:54:35.0517 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-04 15:56:53.3202 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-04 16:06:17.4658 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-04 16:10:00.2140 | ERROR | UnauthorizedAccessException | L'accès au port est refusé. |   à System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   à System.IO.Ports.SerialStream.Dispose(Boolean disposing)
+   à System.IO.Stream.Close()
+   à System.IO.Ports.SerialPort.Dispose(Boolean disposing)
+   à System.IO.Ports.SerialPort.Close()
+   à AxCommunication.PortSerieService.Close() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - pdr action\AxCommunication\PortSerieService.cs:ligne 259
+   à AxAction.ActionRobot.Close() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - pdr action\AxAction\ActionRobot.cs:ligne 33
+   à AxViewModel.MainViewModel.CloseCom() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - pdr action\AxViewModel\MainViewModel.cs:ligne 1110
+2016-05-04 16:11:31.4997 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-09 09:46:59.5619 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-09 10:16:07.1129 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-09 10:16:44.0313 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-09 10:17:48.7513 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-09 10:20:04.1287 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-09 10:21:14.9138 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-09 10:21:43.5417 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-09 10:22:36.3380 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-09 10:23:33.2036 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-09 10:28:38.2691 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-09 14:14:52.5865 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-09 14:17:48.5322 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-09 14:51:19.2615 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-10 15:11:33.9468 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-10 15:27:02.7192 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-10 15:49:15.7309 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-10 15:52:16.3490 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-10 15:53:43.3722 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-10 15:59:40.2639 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-10 16:00:25.0896 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-11 13:09:48.0143 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-05-11 13:10:11.4914 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-07-13 11:16:43.4293 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-07-13 11:21:15.8236 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-07-13 11:39:03.0834 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-07-13 11:40:46.3180 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-07-13 11:43:40.4887 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-07-13 11:56:18.6279 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-07-13 12:00:32.3890 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-07-13 12:45:13.4959 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-10-12 13:29:20.6645 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-12-21 12:10:19.4358 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2016-12-21 12:20:47.4757 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2017-03-02 14:59:25.2573 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2017-03-02 15:01:52.9261 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2017-03-03 09:59:08.4769 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2017-03-10 10:37:20.6919 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application
+2017-03-16 14:37:31.5412 | ERROR | MauvaiseFermetureException |  Mauvaise Fermeutre de l'application

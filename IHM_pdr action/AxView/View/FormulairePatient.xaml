@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="AxView.View.FormulairePatient"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+              xmlns:toolkitInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+             mc:Ignorable="d" 
+             xmlns:res="clr-namespace:AxLanguage;assembly=AxLanguage"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <StackPanel Margin="0,100,0,0">
+            <Label Content="{x:Static res:Languages.REAplan_Nom}" Margin="0,10,0,1" FontSize="21.333" FontFamily="Arial" Style="{DynamicResource LabelStyle}" Width="300" />
+            <toolkitInput:AutoCompleteBox FilterMode="StartsWith" ItemsSource="{Binding ListeNom}" Text="{Binding NomPatient, Mode=TwoWay}" SelectedItem="{Binding SelectN, Mode=TwoWay}" Margin="0,1,0,10"  FontSize="21.333" FontFamily="Arial" Style="{DynamicResource AutoCompleteBoxStyle}" Width="300" Height="50" VerticalContentAlignment="Center" />
+            <Label Content="{x:Static res:Languages.REAplan_Prenom}" Margin="0,10,0,1" FontSize="21.333" FontFamily="Arial" Style="{DynamicResource LabelStyle}" Width="300" />
+            <toolkitInput:AutoCompleteBox GotFocus="buttonCo_LostFocus" FilterMode="StartsWith" ItemsSource="{Binding ListePrenom}" Text="{Binding PrenomPatient, Mode=TwoWay}" SelectedItem="{Binding SelectP, Mode=TwoWay}" Margin="0,1,0,20" FontSize="21.333" FontFamily="Arial" Style="{DynamicResource AutoCompleteBoxStyle}" Width="300" Height="50" VerticalContentAlignment="Center" />
+            <DataGrid AutoGenerateColumns="True" CanUserReorderColumns="False" IsReadOnly="True" Height="191" Margin="0,10,0,45" x:Name="dataGrid1" ItemsSource="{Binding ResultRech, Mode=TwoWay}" SelectedItem="{Binding SelectResultRech, Mode=TwoWay}" FontSize="13.333" FontFamily="Arial" SelectionMode="Single" Width="300" RowHeight="50" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" MinColumnWidth="85" />
+            <UniformGrid Margin="0,10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Content="{x:Static res:Languages.REAplan_Connecter}" x:Name="buttonCo" FontFamily="Arial" FontSize="21.333" Command="{Binding ConnexionCommand}"  Style="{DynamicResource ButtonStyle}" Margin="0,0,5,10" Width="150" Height="70" />
+                <Button Content="{x:Static res:Languages.REAplan_Del}" x:Name="buttonSup" Command="{Binding CmdSup}" FontFamily="Arial" FontSize="21.333" Margin="5,0,0,10" Style="{DynamicResource ButtonStyle}" Width="150" Height="70" />
+                <Button Content="{x:Static res:Languages.REAplan_Inscription}" Command="{Binding DataContext.ChangeInternNavigation, RelativeSource={RelativeSource FindAncestor, AncestorLevel=2, AncestorType={x:Type UserControl}}}" CommandParameter="1" x:Name="button2" FontFamily="Arial" FontSize="21.333" Style="{DynamicResource ButtonStyle}" Margin="0,10,5,0" Width="150" Height="70"/>
+                <Button Content="{x:Static res:Languages.REAplan_Modifier}" Command="{Binding DataContext.ChangeInternNavigation, RelativeSource={RelativeSource FindAncestor, AncestorLevel=2, AncestorType={x:Type UserControl}}}" CommandParameter="2" x:Name="button2_Copy" FontFamily="Arial" FontSize="21.333" IsEnabled="{Binding IsEnConn}" Margin="5,10,0,0" Style="{DynamicResource ButtonStyle}" Width="150" Height="70"/>
+            </UniformGrid>
+        </StackPanel>
+    </Grid>
+</UserControl>
+

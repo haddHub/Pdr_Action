@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\bin\Debug\AxExerciceGenerator.Test.dll" total="14" errors="4" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2014-08-12" time="15:37:13">
+  <environment nunit-version="2.5.1.9189" clr-version="4.0.30319.34014" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Users\Axinesis\Desktop\ihm_base\TestResults\Axinesis_PC-AXINESIS-004 2014-08-12 15_36_42\Out" machine-name="PC-AXINESIS-004" user="Axinesis" user-domain="PC-AXINESIS-004" />
+  <culture-info current-culture="fr-FR" current-uiculture="fr-FR" />
+  <test-suite name="C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\bin\Debug\AxExerciceGenerator.Test.dll" executed="True" success="False" time="0.228" asserts="0">
+    <results>
+      <test-suite name="AxExerciceGenerator" executed="True" success="False" time="0.225" asserts="0">
+        <results>
+          <test-suite name="Test" executed="True" success="False" time="0.223" asserts="0">
+            <results>
+              <test-suite name="ExerciceGeneratorTest" executed="True" success="False" time="0.223" asserts="0">
+                <results>
+                  <test-case name="AxExerciceGenerator.Test.ExerciceGeneratorTest.Exercice_Doit_Avoir_Base_Config" executed="True" success="True" time="0.084" asserts="9" />
+                  <test-case name="AxExerciceGenerator.Test.ExerciceGeneratorTest.Exercice_Doit_Etre_Type_Carre_Avec_Theme" executed="True" success="True" time="0.007" asserts="2" />
+                  <test-case name="AxExerciceGenerator.Test.ExerciceGeneratorTest.Exercice_Doit_Etre_Type_Carre_Sans_Theme" executed="True" success="True" time="0.007" asserts="2" />
+                  <test-case name="AxExerciceGenerator.Test.ExerciceGeneratorTest.Exercice_Doit_Etre_Type_Cercle_Avec_Theme" executed="True" success="True" time="0.008" asserts="2" />
+                  <test-case name="AxExerciceGenerator.Test.ExerciceGeneratorTest.Exercice_Doit_Etre_Type_Cercle_Sans_Theme" executed="True" success="True" time="0.008" asserts="2" />
+                  <test-case name="AxExerciceGenerator.Test.ExerciceGeneratorTest.Exercice_Doit_Etre_Type_FreeAmpl_Avec_Theme" executed="True" success="True" time="0.007" asserts="2" />
+                  <test-case name="AxExerciceGenerator.Test.ExerciceGeneratorTest.Exercice_Doit_Etre_Type_FreeAmpl_Sans_Theme" executed="True" success="True" time="0.007" asserts="2" />
+                  <test-case name="AxExerciceGenerator.Test.ExerciceGeneratorTest.Exercice_Doit_Etre_Type_Target_Avec_Theme" executed="True" success="True" time="0.007" asserts="2" />
+                  <test-case name="AxExerciceGenerator.Test.ExerciceGeneratorTest.Exercice_Doit_Etre_Type_Target_Sans_Theme" executed="True" success="True" time="0.007" asserts="2" />
+                  <test-case name="AxExerciceGenerator.Test.ExerciceGeneratorTest.Exercice_Eval_Doit_Avoir_Big_Borne" executed="True" success="True" time="0.008" asserts="6" />
+                  <test-case name="AxExerciceGenerator.Test.ExerciceGeneratorTest.Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Difficile" executed="True" success="False" time="0.033" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NullReferenceException : La référence d'objet n'est pas définie à une instance d'un objet.]]></message>
+                      <stack-trace><![CDATA[à AxData.ConfigData.LoadLastConfigPourExercice(String nomExo) dans C:\Users\Axinesis\Desktop\ihm_base\AxData\ConfigData.cs:ligne 96
+à AxConfiguration.ExerciceConfig.GetBaseConfigPourExercice(String nomJeu) dans C:\Users\Axinesis\Desktop\ihm_base\AxExerciceConfig\ExerciceConfig.cs:ligne 52
+à AxExerciceGenerator.ExerciceGenerator.GetExerciceJeu(ThemeModel themeJeu, String niveau) dans C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGeneric\ExerciceGenerator.cs:ligne 36
+à AxExerciceGenerator.Test.ExerciceGeneratorTest.Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Difficile() dans C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\ExerciceGeneratorTest.cs:ligne 125
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="AxExerciceGenerator.Test.ExerciceGeneratorTest.Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Expert" executed="True" success="False" time="0.011" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NullReferenceException : La référence d'objet n'est pas définie à une instance d'un objet.]]></message>
+                      <stack-trace><![CDATA[à AxData.ConfigData.LoadLastConfigPourExercice(String nomExo) dans C:\Users\Axinesis\Desktop\ihm_base\AxData\ConfigData.cs:ligne 96
+à AxConfiguration.ExerciceConfig.GetBaseConfigPourExercice(String nomJeu) dans C:\Users\Axinesis\Desktop\ihm_base\AxExerciceConfig\ExerciceConfig.cs:ligne 52
+à AxExerciceGenerator.ExerciceGenerator.GetExerciceJeu(ThemeModel themeJeu, String niveau) dans C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGeneric\ExerciceGenerator.cs:ligne 36
+à AxExerciceGenerator.Test.ExerciceGeneratorTest.Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Expert() dans C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\ExerciceGeneratorTest.cs:ligne 133
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="AxExerciceGenerator.Test.ExerciceGeneratorTest.Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Facile" executed="True" success="False" time="0.010" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NullReferenceException : La référence d'objet n'est pas définie à une instance d'un objet.]]></message>
+                      <stack-trace><![CDATA[à AxData.ConfigData.LoadLastConfigPourExercice(String nomExo) dans C:\Users\Axinesis\Desktop\ihm_base\AxData\ConfigData.cs:ligne 96
+à AxConfiguration.ExerciceConfig.GetBaseConfigPourExercice(String nomJeu) dans C:\Users\Axinesis\Desktop\ihm_base\AxExerciceConfig\ExerciceConfig.cs:ligne 52
+à AxExerciceGenerator.ExerciceGenerator.GetExerciceJeu(ThemeModel themeJeu, String niveau) dans C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGeneric\ExerciceGenerator.cs:ligne 36
+à AxExerciceGenerator.Test.ExerciceGeneratorTest.Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Facile() dans C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\ExerciceGeneratorTest.cs:ligne 109
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="AxExerciceGenerator.Test.ExerciceGeneratorTest.Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Moyen" executed="True" success="False" time="0.008" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NullReferenceException : La référence d'objet n'est pas définie à une instance d'un objet.]]></message>
+                      <stack-trace><![CDATA[à AxData.ConfigData.LoadLastConfigPourExercice(String nomExo) dans C:\Users\Axinesis\Desktop\ihm_base\AxData\ConfigData.cs:ligne 96
+à AxConfiguration.ExerciceConfig.GetBaseConfigPourExercice(String nomJeu) dans C:\Users\Axinesis\Desktop\ihm_base\AxExerciceConfig\ExerciceConfig.cs:ligne 52
+à AxExerciceGenerator.ExerciceGenerator.GetExerciceJeu(ThemeModel themeJeu, String niveau) dans C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGeneric\ExerciceGenerator.cs:ligne 36
+à AxExerciceGenerator.Test.ExerciceGeneratorTest.Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Moyen() dans C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\ExerciceGeneratorTest.cs:ligne 117
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

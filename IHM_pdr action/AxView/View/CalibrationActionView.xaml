@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="AxView.View.CalibrationActionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:res="clr-namespace:AxLanguage;assembly=AxLanguage"
+             MinWidth="1228" MinHeight="550">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.927*"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <GroupBox Header="Amplitude" >
+                <StackPanel Orientation="Vertical" >
+                    <Button Content="Start" FontSize="20" Margin="0,0,0,10" Height="50" Width="150" Padding="0" Command="{Binding StartAmplitudeCommand}" Style="{DynamicResource ButtonBackgroundStyle}" Background="#FF659F5D"/>
+                    <Button Content="Stop" FontSize="20" Height="50" Width="150" Padding="0" Command="{Binding StopAmplitudeCommand}" Style="{DynamicResource ButtonBackgroundStyle}" Background="#FFDC5252"/>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Amplitude Articulaire" >
+                <StackPanel Orientation="Vertical" >
+                    <Button Content="Start" FontSize="20" Margin="0,0,0,10" Height="50" Width="150" Padding="0" Command="{Binding StartAmplitudeArticulaireCommand}" Style="{DynamicResource ButtonBackgroundStyle}" Background="#FF659F5D"/>
+                    <Button Content="Stop" FontSize="20" Height="50" Width="150" Padding="0" Command="{Binding StopAmplitudeArticulaireCommand}" Style="{DynamicResource ButtonBackgroundStyle}" Background="#FFDC5252"/>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Amplitude Articulaire avec aide" >
+                <StackPanel Orientation="Vertical" >
+                    <Button Content="Start" FontSize="20" Margin="0,0,0,10" Height="50" Width="150" Padding="0" Command="{Binding StartAmplitudeArticulaireAideCommand}" Style="{DynamicResource ButtonBackgroundStyle}" Background="#FF659F5D"/>
+                    <Button Content="Stop" FontSize="20" Height="50" Width="150" Padding="0" Command="{Binding StopAmplitudeArticulaireAideCommand}" Style="{DynamicResource ButtonBackgroundStyle}" Background="#FFDC5252"/>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Force" >
+                <StackPanel Orientation="Vertical" >
+                    <Button Content="Start" FontSize="20" Margin="0,0,0,10" Height="50" Width="150" Padding="0" Command="{Binding StartForceCommand}" Style="{DynamicResource ButtonBackgroundStyle}" Background="#FF659F5D"/>
+                    <Button Content="Stop" FontSize="20" Height="50" Width="150" Padding="0" Command="{Binding StopForceCommand}" Style="{DynamicResource ButtonBackgroundStyle}" Background="#FFDC5252"/>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+
+            <Border BorderBrush="Black" BorderThickness="0,1,0,0" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" d:LayoutOverrides="Height" Margin="0" HorizontalAlignment="Right">
+                <Button Content="{x:Static res:Languages.REAplan_Accueil}" FontSize="20" Margin="10,0" Height="50" Width="150" Padding="0"  Command="{Binding HomeViewModelCommand}"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

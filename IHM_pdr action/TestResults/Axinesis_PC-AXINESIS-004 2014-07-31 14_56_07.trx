@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="2ba86404-16e8-4d9b-a913-39642b72c125" name="Axinesis@PC-AXINESIS-004 2014-07-31 14:56:07" runUser="PC-AXINESIS-004\Axinesis" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Paramètres de test par défaut" id="5dbcb780-e5aa-4e89-a21a-941c09d05854">
+    <Deployment runDeploymentRoot="Axinesis_PC-AXINESIS-004 2014-07-31 14_56_07">
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxNavigation\NavegarLib\Navegar.WPF4\bin\Debug\Navegar.WPF4.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\MvvmLightLibs.4.4.32.1\lib\net40\System.Windows.Interactivity.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\MvvmLightLibs.4.4.32.1\lib\net40\GalaSoft.MvvmLight.Extras.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxAction\bin\Debug\AxAction.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\bin\Debug\AxViewModel.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\NUnit 2.6.3\bin\framework\nunit.framework.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\Moq.4.2.1402.2112\lib\net40\Moq.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxModel\bin\Debug\AxModel.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\MvvmLightLibs.4.4.32.1\lib\net40\GalaSoft.MvvmLight.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-07-31T14:56:07.7512266+02:00" queuing="2014-07-31T14:56:08.0324909+02:00" start="2014-07-31T14:56:08.0481162+02:00" finish="2014-07-31T14:56:36.1867572+02:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="1" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="DecoPatient_Oui_Vers_HomeViewModel" storage="c:\users\axinesis\desktop\ihm_base\axnavigation.test\bin\debug\axnavigation.test.dll" id="f12e1a8a-71af-23d0-a32f-22bbf6d801ac" xmlns="AxNavigation.Test">
+      <Execution id="c41bc36e-1769-473b-af72-64c8403761ff" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxNavigation.Test\bin\Debug\AxNavigation.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxNavigation.Test.NavigationMainViewModelTest" name="DecoPatient_Oui_Vers_HomeViewModel" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Les résultats ne figurent pas dans une liste" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Tous les résultats chargés" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="f12e1a8a-71af-23d0-a32f-22bbf6d801ac" executionId="c41bc36e-1769-473b-af72-64c8403761ff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <TestResultAggregation executionId="c41bc36e-1769-473b-af72-64c8403761ff" testId="f12e1a8a-71af-23d0-a32f-22bbf6d801ac" testName="DecoPatient_Oui_Vers_HomeViewModel" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:56:08.0949943+02:00" endTime="2014-07-31T14:56:36.1711307+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c41bc36e-1769-473b-af72-64c8403761ff">
+      <Output>
+        <ErrorInfo>
+          <Message>Le processus Agent s'est arrêté pendant l'exécution du test.</Message>
+        </ErrorInfo>
+      </Output>
+    </TestResultAggregation>
+  </Results>
+</TestRun>

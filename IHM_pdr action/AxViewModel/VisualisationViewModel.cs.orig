@@ -1,0 +1,1560 @@
+﻿using GalaSoft.MvvmLight;
+using System.Diagnostics;
+using AxModel;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using System.Windows.Media;
+using System.Windows;
+using System.Collections.Concurrent;
+using AxAnalyse;
+using System.Timers;
+using System;
+using System.Collections.Generic;
+using System.Windows.Threading;
+using System.Collections.ObjectModel;
+using System.IO;
+using AxAction;
+using AxCommunication;
+using AxError;
+using AxModelExercice;
+using AxModel.Message;
+using GalaSoft.MvvmLight.Ioc;
+using Navegar;
+namespace AxViewModel
+{
+    /// <summary>
+    /// This class contains properties that a View can data bind to.
+    /// <para>
+    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
+    /// </para>
+    /// <para>
+    /// See http://www.galasoft.ch/mvvm/getstarted
+    /// </para>
+    /// </summary>
+    public class VisualisationViewModel : BlankViewModelBase, IPageViewModel
+    {
+        #region Fields
+
+        object locker = new object();
+
+        
+        private ObservableCollection<ExerciceEvaluation> _exoEvalList = new ObservableCollection<ExerciceEvaluation>();
+        private ObservableCollection<ExerciceReeducation> _exoReedList = new ObservableCollection<ExerciceReeducation>();
+
+
+        public ObservableCollection<ExerciceEvaluation> ExoEvalList
+        {
+            get { return _exoEvalList; }
+            set {
+                if (_exoEvalList != value)
+                {
+                    _exoEvalList = value;
+                    RaisePropertyChanged("ExoEvalList");
+                }
+
+            }
+        }
+        public ObservableCollection<ExerciceReeducation> ExoReedList
+        {
+            get { return _exoReedList; }
+            set
+            {
+                if (_exoReedList != value)
+                {
+                    _exoReedList = value;
+                    RaisePropertyChanged("ExoReedList");
+                }
+
+            }
+        }
+        
+        private SingletonReeducation ValeurReeducation = SingletonReeducation.getInstance();
+
+        private bool _acqHz;
+        private static System.Timers.Timer _acq100Hz;   // Timer acquisition à 100hz
+        private DispatcherTimer timerSave;              // le timer Enregistrement
+
+        private static int _nbrsPassage = 0;
+        private double[] tabDistRelle = new double[3];      // Résultat distance réelle pour 3
+        private double[] tabVitesseMoy = new double[3];     // Résultat vitesse moyenne pour 3
+        private double[] tabDebutTraj = new double[2];      // debut et fin de traj
+        private double[] tabFinTraj = new double[2];
+        private bool _initPosition = false;
+        private bool _initPositionEnd = false;
+        private bool _ack_end_ok = false;
+        private bool _ack_end = false;              // fin de traj
+        private bool _calc_ack_end = false;         // calc fin de traj
+        private bool _detectStart = false;          // detection demarrage
+        private bool _initdetectstart = false;
+        private bool _initdetectblock = false;
+        private bool _detectionDem = false;         // activer / désactiver la détection de start
+        private bool _initActivated = false;
+        private bool _save = true;                  // Enregistrement
+        private bool _activOF = false;              // Enregistrement
+        private bool test = false;                  // Enregistrement
+        private bool posforce = false;
+        private bool _pause = true;                 // enable button
+        private bool _detectionBlockA = false;
+        private bool actif = false;
+        private bool pause = false;
+
+        private string _filename;                   // Chemin enregistrement
+        private string text;                        // Chemin enregistrement
+
+        private double _initPatient;
+        private int _initp;
+        private double _currentForceX, _currentForceY;
+        private PositionDataModel _currentPosition;
+        private DataPosition tempsPositionXY;
+        private PositionDataModel initdetextstart;
+        private PositionDataModel initdetextblock;
+
+        private double _resultDist;             // Résultat distance réelle
+        private double _resultStra;             // Résultat Straightness
+        private double _resultVit;              // Résultat Vitesse Réel
+        private double _resultVitP;             // Résultat Vitesse Peak
+        private double _resultSmoth;            // Résultat Smoothness
+        private double _detectStartAmp = 2.0;
+        private double _detectBlockAmp = 0.15;  // 0.15
+        private double tempsStra = 0.0;
+        private DataPosition[] debut = new DataPosition[3];
+        private DataPosition[] fin = new DataPosition[3];
+
+        private ExerciceBaseConfigViewModel _currentConfig;
+        private ExerciceBaseConfigViewModel _saveCurrentConfig;
+        private ExerciceBaseConfigViewModel _TempsCurrentConfig;
+        private ExerciceBaseConfigViewModel _blockCurrentConfig;
+        private ExerciceBaseConfigViewModel _currentUcConfig;
+
+        private Collection<PositionDataModel> _detectionStart;
+        private Collection<PositionDataModel> _detectionBlock;
+        private BlockingCollection<DataPosition> PositionXY;
+        private List<DataPosition> _tempsPositionXY;
+
+        private List<double> ListInit = new List<double>();
+        private List<ViewModelBase> _pagesInternes;
+        public List<ViewModelBase> PagesInternes { get; set; }
+        public bool canPrecedent = true;
+        private bool isNewExercice = true;
+        private int _countCycle;
+        public INavigation _nav;
+        public IMessageBoxService _msbs;
+        #endregion
+
+        #region Constructors
+        /// <summary>
+        /// Initializes a new instance of the VisualisationViewModel class.
+        /// </summary>
+        public VisualisationViewModel()
+        {
+
+            try
+            {
+
+                PagesInternes = new List<ViewModelBase>();
+                _nav = SimpleIoc.Default.GetInstance<INavigation>();
+                _msbs = SimpleIoc.Default.GetInstance<IMessageBoxService>();
+                InitVisualisation();
+                CreateCommands();       // création des commandes de la page
+                CreateMessengers();     // création des messages
+                Debug.Print("VisualisationViewModel OK");
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        #endregion
+
+        #region Properties
+
+    private ViewModelBase _internViewParametres;
+        public ViewModelBase InternViewParametres
+        {
+            get { return _internViewParametres; }
+            set
+            {
+                if (_internViewParametres != value)
+                {
+                    _internViewParametres = value;
+                    RaisePropertyChanged("InternViewParametres");
+                }
+            }
+        }
+
+        private ViewModelBase _internViewBoutons;
+        public ViewModelBase InternViewBoutons
+        {
+            get { return _internViewBoutons; }
+            set
+            {
+                if (_internViewBoutons != value)
+                {
+                    _internViewBoutons = value;
+                    RaisePropertyChanged("InternViewBoutons");
+                }
+            }
+        }
+
+        private ViewModelBase _internViewList;
+        public ViewModelBase InternViewList
+        {
+            get { return _internViewList; }
+            set
+            {
+                if (_internViewList != value)
+                {
+                    _internViewList = value;
+                    RaisePropertyChanged("InternViewList");
+                }
+            }
+        }
+
+        public bool Pause
+        {
+            get
+            {
+                return _pause;
+            }
+            set
+            {
+                _pause = value;
+                RaisePropertyChanged("Pause");
+            }
+        }
+
+        /// <summary>
+        /// Méthode de changement de nom  du fichier
+        /// </summary>
+        public string FileName
+        {
+            get
+            {
+                return _filename;
+            }
+            set
+            {
+                _filename = value;
+                RaisePropertyChanged("FileName");
+            }
+        }
+
+        /// <summary>
+        /// Méthode qui active ou pas la progressBar
+        /// </summary>
+        public bool ActivOF
+        {
+            get
+            {
+                return _activOF;
+            }
+        }
+
+        public bool InitActivated
+        {
+            get
+            {
+                return _initActivated;
+            }
+            set
+            {
+                _initActivated = value;
+                RaisePropertyChanged("InitActivated");
+            }
+        }
+
+        /// <summary>
+        /// Méthode d'activation ou non de BrowseOF
+        /// </summary>
+        public bool Save
+        {
+            get
+            {
+                return _save;
+            }
+            set
+            {
+                _save = value;
+                RaisePropertyChanged("Save");
+            }
+        }
+
+        public ExerciceBaseConfigViewModel CurrentConfig
+        {
+            get
+            {
+                return _currentConfig;
+            }
+            set
+            {
+                _currentConfig = value;
+                RaisePropertyChanged("CurrentConfig");                
+            }
+        }
+       
+        public ExerciceBaseConfigViewModel CurrentUcConfig
+        {
+            get
+            {
+                return _currentUcConfig;
+            }
+            set
+            {
+                _currentUcConfig = value;
+                RaisePropertyChanged("CurrentUcConfig");
+            }
+        }
+
+        public ExerciceBaseConfigViewModel BlockCurrentConfig
+        {
+            get
+            {
+                return _blockCurrentConfig;
+            }
+            set
+            {
+                _blockCurrentConfig = value;
+                RaisePropertyChanged("BlockCurrentConfig");
+            }
+        }
+
+        public double CurrentForceX
+        {
+            get
+            {
+                return this._currentForceX;
+            }
+            set
+            {
+                this._currentForceX = value;
+                RaisePropertyChanged("CurrentForceX");
+            }
+        }
+
+        public double CurrentForceY
+        {
+            get
+            {
+                return this._currentForceY;
+            }
+            set
+            {
+                this._currentForceY = value;
+                RaisePropertyChanged("CurrentForceY");
+            }
+        }
+
+        public PositionDataModel CurrentPosition
+        {
+            get
+            {
+                return this._currentPosition;
+            }
+            set
+            {
+                this._currentPosition = value;
+                RaisePropertyChanged("CurrentPosition");
+            }
+        }
+
+        public double ResultDist
+        {
+            get
+            {
+                return _resultDist;
+            }
+            set
+            {
+                _resultDist = value;
+                RaisePropertyChanged("ResultDist");
+            }
+        }
+
+        public double ResultStra
+        {
+            get
+            {
+                return _resultStra;
+            }
+            set
+            {
+                if (value > 1.0)
+                {
+                    _resultStra = 1.0;
+                }
+                else
+                {
+                    _resultStra = value;
+                }
+                RaisePropertyChanged("ResultStra");
+            }
+        }
+
+        public double ResultVit
+        {
+            get
+            {
+                return _resultVit;
+            }
+            set
+            {
+                _resultVit = value;
+                RaisePropertyChanged("ResultVit");
+            }
+        }
+
+        public double ResultVitP
+        {
+            get
+            {
+                return _resultVitP;
+            }
+            set
+            {
+                _resultVitP = value;
+                RaisePropertyChanged("ResultVitP");
+            }
+        }
+
+        public double ResultSmoth
+        {
+            get
+            {
+                return _resultSmoth;
+            }
+            set
+            {
+                _resultSmoth = value;
+                RaisePropertyChanged("ResultSmoth");
+            }
+        }
+
+        public int CountCycle
+        {
+            get
+            {
+                return _countCycle;
+            }
+            set
+            {
+                _countCycle = value;
+                RaisePropertyChanged("CountCycle");
+            }
+        }
+
+        public string Name
+        {
+            get { return "Visualisation"; }
+        }
+
+        #endregion
+
+        #region Methods
+        public void LoadReed(List<ExerciceGeneric> liteExReed)
+        {
+            try
+            {
+                if (liteExReed[0].TypeExercice == ExerciceTypes.Jeu)
+                {
+                    _exoReedList = new ObservableCollection<ExerciceReeducation>();
+                    foreach (var exo in liteExReed)
+                    {
+                        ExoReedList.Add((ExerciceReeducation)exo);
+                    }
+                    RaisePropertyChanged("ExoReedList");
+                }
+
+                if (PagesInternes.Count == 0)
+                {
+                    PagesInternes.Add(new ListeVisualisationReeducation());
+                    PagesInternes.Add(new BoutonsVisualisationReeducationViewModel());
+                    PagesInternes.Add(new ParametresVisualisationReeducationViewModel());
+                }
+
+                InternViewList = PagesInternes[0];
+                InternViewBoutons = PagesInternes[1];
+                InternViewParametres = PagesInternes[2];
+                PagesInternes.Clear();
+                canPrecedent = true;
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private void LoadEvaluation(List<ExerciceGeneric> listeExEval)
+        {
+            try
+            {
+                if (listeExEval[0].TypeExercice == ExerciceTypes.Evaluation)
+                {
+                    _exoEvalList = new ObservableCollection<ExerciceEvaluation>();
+                    foreach (var exo in listeExEval)
+                    {
+                        ExoEvalList.Add((ExerciceEvaluation)exo);
+                    }
+                    RaisePropertyChanged("ExoEvalList");
+                }
+
+                if (PagesInternes.Count == 0)
+                {
+                    PagesInternes.Add(new ListeVisualisationEvaluationViewModel());
+                    PagesInternes.Add(new BoutonsVisualisationEvaluationViewModel());
+                    PagesInternes.Add(new ParametresVisualisationEvaluationViewModel());
+                }
+
+                InternViewList = PagesInternes[0];
+                InternViewBoutons = PagesInternes[1];
+                InternViewParametres = PagesInternes[2];
+                PagesInternes.Clear();
+                canPrecedent = true;
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+ 
+        private void InitVisualisation()
+        {
+
+            _countCycle = 0;
+            _tempsPositionXY = new List<DataPosition>();
+            initdetextstart = new PositionDataModel(3750, 5000);
+            _detectionStart = new Collection<PositionDataModel>();
+            _detectionBlock = new Collection<PositionDataModel>();
+            initdetextblock = new PositionDataModel();
+
+            _currentConfig = new ExerciceBaseConfigViewModel(new ExerciceBaseConfig());
+            _saveCurrentConfig = new ExerciceBaseConfigViewModel(new ExerciceBaseConfig());
+            _TempsCurrentConfig = new ExerciceBaseConfigViewModel(new ExerciceBaseConfig());
+            _blockCurrentConfig = new ExerciceBaseConfigViewModel(new ExerciceBaseConfig());
+            _currentUcConfig = new ExerciceBaseConfigViewModel(new ExerciceBaseConfig());
+
+            _currentPosition = new PositionDataModel(100, 100);
+
+            _acq100Hz = new System.Timers.Timer(100);    // Create a timer with a ten millisecond interval.
+            _acq100Hz.Elapsed += new ElapsedEventHandler(Onacq100HzSequenceEvent);    // Hook up the Elapsed event for the timer.
+            _acq100Hz.Enabled = false;
+
+            timerSave = new DispatcherTimer();
+            timerSave.Interval = TimeSpan.FromMilliseconds(100);
+            timerSave.Tick += new EventHandler(timer_TickSave);     // appelé tout les 100 ms  
+
+            tempsPositionXY = new DataPosition();
+            //tempsPositionXY.X = 35.45;
+            //tempsPositionXY.Y = 45.20;
+            PositionXY = new BlockingCollection<DataPosition>();    // pour les calc
+            PositionXY.Add(tempsPositionXY);
+        }
+
+        private void CreateCommands()
+        {
+            EnvoyerConfigCommand = new RelayCommand(() => EnvoyerConfigPort(),CanExecuteConfigCommand);
+            PreviousViewModelCommand = new RelayCommand(GoBack, CanGoBack);
+            MainViewModelCommand = new RelayCommand(NavigateToHome);
+        }
+
+        private void CreateMessengers()
+        {
+            Messenger.Default.Register<List<ExerciceGeneric>>(this, "NextExercice", TraitementExercice);    // abonnement aux messages envoyé par MainViewModel pour envoyer au µc
+            Messenger.Default.Register<List<ExerciceGeneric>>(this, "ReeducationKidWizardViewModel", TraitementExercice);    // abonnement aux messages envoyé par ReeducationKidWizard pour envoyer au µc
+            Messenger.Default.Register<List<ExerciceGeneric>>(this, "EvaluationViewModel", TraitementExercice);              // abonnement aux messages envoyé par Evaluation pour envoyer au µc
+            Messenger.Default.Register<ForceDataModel>(this, "NewForce",TraitementForce);           // abonnement aux messages envoyé par MainViewModel pour afficher la force
+            Messenger.Default.Register<PositionDataModel>(this, "NewPosition",TraitementPosition);  // abonnement aux messages envoyé par MainViewModel pour afficher la position
+            Messenger.Default.Register<FrameConfigDataModel>(this, "NewUcConfig", ConfigUcUpdateMessage);               // abonnement aux messages envoyé par MainViewModel pour afficher la configuration du µc
+            //Messenger.Default.Register<bool>(this, "Acq", Acquisition);                     // abonnement aux messages envoyé par MainViewModel à la réception d'un ACK aquisition
+            Messenger.Default.Register<FrameExerciceDataModel>(this, "MainPViewModel", Acquisition);
+            Messenger.Default.Register<bool>(this, "MainViewModel", StartAssistance);
+            Messenger.Default.Register<bool>(this, "StartStopGame", UpdateStartStopMessage);
+            Messenger.Default.Register<bool>(this, "GamePause", PauseMessage);
+            Messenger.Default.Register<int>(this, "CountCycle", CCycle);
+            Messenger.Default.Register<RobotErrorMessage>(this, "NewRobotError", OnRobotError); // effectuer si il y a une erreur robot
+            Messenger.Default.Register<bool>(this, "VisualisationCanPrecedent", ChangeCanPrecedent);
+        }
+
+        public void NavigateToHome()
+        {
+            try
+            {
+                Messenger.Default.Send<bool>(true, "InitAnalyseEval");
+                if (canPrecedent == false)
+                {
+                    if((_msbs.ShowYesNo("Un exercice est déjà en cours voulez vous l'arreter ?",CustomDialogIcons.Question) == CustomDialogResults.Yes))
+                    {
+                        Messenger.Default.Send("n", "StopRobot");
+                        Messenger.Default.Send("", "ResetCurentListExercice");
+                        Messenger.Default.Send(false, "GamePause");//annule l'effet de pause sur la mainP quand on revient a l'accueil.
+                        _nav.NavigateTo<HomeViewModel>(false);
+                    }
+                }
+                else
+                {
+                    Messenger.Default.Send("n", "StopRobot");
+                    Messenger.Default.Send("", "ResetCurentListExercice");
+                    Messenger.Default.Send(false, "GamePause");//annule l'effet de pause sur la mainP quand on revient a l'accueil.
+                    _nav.NavigateTo<HomeViewModel>(false);
+                }
+                isNewExercice = true;
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private bool CanExecuteConfigCommand()
+        {
+            return !Singleton.GetRobotError();
+        }
+
+        private bool CanGoBack()
+        {
+            if (Singleton.GetRobotError() == true || canPrecedent == false)
+                return false;
+            else
+                return true;
+        }
+        private void ChangeCanPrecedent(bool state)
+        {
+            canPrecedent = state;
+        }
+        //Permet de revenir sur le premier ViewModel
+        private void GoBack()
+        {
+            try
+            {
+<<<<<<< HEAD
+                Messenger.Default.Send<bool>(true, "InitAnalyseEval");
+                if (SimpleIoc.Default.GetInstance<INavigation>().GetTypeViewModelToBack() == typeof(EvaluationViewModel))
+=======
+                if (_nav.GetTypeViewModelToBack() == typeof(EvaluationViewModel))
+>>>>>>> 699edbf5c220b0c3ec9e15a550f23c82c4bda890
+                {
+                    _nav.GoBack("SetIsRetour", new object[] { true });
+                }
+                else if (_nav.GetTypeViewModelToBack() == typeof(ZoomViewModel))
+                {
+                    _nav.GoBack("SetIsRetour", new object[] { true });
+                    isNewExercice = true;
+                }
+                Messenger.Default.Send("", "StopRobot");
+                Messenger.Default.Send("", "ResetCanExecuteMainVM");//reset les can execute des bouttons de la visu
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private void CCycle(int e)
+        {
+            CountCycle = e;
+        }
+
+        private void TraitementExercice(List<ExerciceGeneric> newExerciceList)
+        {
+            try
+            {
+                if(newExerciceList[0].TypeExercice== ExerciceTypes.Jeu)
+                    LoadReed(newExerciceList);
+                if (newExerciceList[0].TypeExercice == ExerciceTypes.Evaluation)
+                    LoadEvaluation(newExerciceList);
+                _initdetectblock = false;
+                _detectionBlockA = false;
+                if (newExerciceList != null)
+                {
+                    _nbrsPassage = 0;
+                    PositionXY = new BlockingCollection<DataPosition>();
+                    if (newExerciceList[0].TypeExercice == ExerciceTypes.Evaluation)
+                        Pause = true;
+                    else
+                        Pause = false;
+                    if (isNewExercice)
+                    {
+                        CurrentConfig.Masse = newExerciceList[0].BaseConfig.Masse;
+                        CurrentConfig.Viscosite = newExerciceList[0].BaseConfig.Viscosite;
+                        CurrentConfig.RaideurLat = newExerciceList[0].BaseConfig.RaideurLat;
+                        CurrentConfig.RaideurLong = newExerciceList[0].BaseConfig.RaideurLong;
+                        CurrentConfig.Vitesse = newExerciceList[0].BaseConfig.Vitesse;
+                        CurrentConfig.Init = newExerciceList[0].BaseConfig.Init;
+                        CurrentConfig.Auto = newExerciceList[0].BaseConfig.Auto;
+                        isNewExercice = false;
+                    }
+                    else
+                    {
+                        CurrentConfig = _saveCurrentConfig;
+                    }
+                    BlockCurrentConfig.RaideurLong = newExerciceList[0].BaseConfig.RaideurLong;
+
+                    if (Pause == true)
+                    {
+                        _detectionDem = false;
+                    }
+                    else
+                    {
+                        InitBaseConfigRaz();
+                    }
+                    ResultDist = 0.0;
+                    ResultStra = 0.0;
+                    ResultVit = 0.0;
+                    ResultVitP = 0.0;
+                    ResultSmoth = 0.0;
+                    Application.Current.Dispatcher.Invoke(new Action(() =>
+                    {
+                        _acq100Hz.Stop();
+                        _acqHz = false;
+                    }), DispatcherPriority.Normal);
+                }   
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private void TraitementForce(ForceDataModel newForce)
+        {
+            try
+            {
+                if (newForce != null)
+                {
+                    CurrentForceX = newForce.ForceX;
+                    CurrentForceY = newForce.ForceY;
+                }
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        public void TraitementPosition(PositionDataModel newPosition)   // TODO : à changer !
+        {
+            try
+            {
+                if (pause == false)
+                {
+                    if (_acqHz == true)
+                    {
+                        lock (locker)
+                        {
+                            tempsPositionXY = new DataPosition();
+                            tempsPositionXY.X = newPosition.PositionX / 100.0;
+                            tempsPositionXY.Y = newPosition.PositionY / 100.0;  // mise à l'echelle
+                        }
+                    }
+                    if (newPosition != null)
+                    {
+                        if (_detectionBlockA == true && _initdetectblock == true && actif == true)
+                        {
+                            _detectionBlock.Add(newPosition);
+                            if (_detectionBlock.Count > 30)
+                            {
+                                _detectionBlock.RemoveAt(0);
+                                DistanceBlock();
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                        else
+                        {
+                            if (_detectionBlockA == true && _initdetectblock == false && actif == true)
+                            {
+                                _detectionBlock.Add(newPosition);
+                                if (_detectionBlock.Count == 1)
+                                {
+                                    initdetextblock.PositionX = _detectionBlock[0].PositionX;
+                                    initdetextblock.PositionY = _detectionBlock[0].PositionY;
+                                }
+                                DistanceInit();
+                            }
+                            if (_detectionBlock.Count > 30)
+                            {
+                                _detectionBlock.RemoveAt(0);
+                            }
+                        }
+
+                        if (_detectionDem == true && _initdetectstart == true && CurrentConfig.Init != 0 && actif == true)
+                        {
+                            if (_initdetectstart == true)
+                            {
+                                _initp++;
+                                _detectionStart.Add(newPosition);
+                                DistanceTab();
+                            }
+                            else
+                                _initp = 0;
+                        }
+                        else
+                        {
+                            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                            {
+                                AddNewLine();
+                            }), DispatcherPriority.Normal);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        public void ConfigUcUpdateMessage(FrameConfigDataModel newConfigUc)   // TODO : à changer !
+        {
+            try
+            {
+                if (newConfigUc != null)
+                {
+                    switch (newConfigUc.Address)
+                    {
+                        case ConfigAddresses.KlatClong:
+                            CurrentUcConfig.RaideurLat = (byte)newConfigUc.Data1_2;
+                            CurrentUcConfig.RaideurLong = (byte)newConfigUc.Data3_4;
+                            break;
+                        case ConfigAddresses.VitesseNbrsrep:
+                            CurrentUcConfig.Vitesse = (byte)newConfigUc.Data1_2;
+                            break;
+                        case ConfigAddresses.ActifPassif:
+                            break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private void Acquisition(FrameExerciceDataModel ack)
+        {
+            _ack_end = true;
+        }
+
+        /// <summary>
+        /// Démarrage de l'Assistance
+        /// </summary>
+        /// <param name="status"></param>
+        private void StartAssistance(bool status)
+        {
+            try
+            {
+                if (status == false)
+                {
+                    Application.Current.Dispatcher.Invoke(new Action(() =>
+                    {
+                        actif = false;
+                        _detectionBlockA = false;
+                        _acqHz = false;
+                        _acq100Hz.Stop();
+                    }), DispatcherPriority.Normal);
+
+                    Application.Current.Dispatcher.Invoke(new Action(() =>
+                    {
+                        actif = true;
+                        PositionXY = new BlockingCollection<DataPosition>();
+                        _detectionBlockA = true;
+                        _acqHz = true;
+                        _acq100Hz.Start();
+                    }), DispatcherPriority.Normal);
+                }
+                else
+                {
+                    actif = false;
+                    _detectionBlockA = false;
+                }
+                if (CurrentConfig.Init != 0)
+                {
+                    _detectionDem = true;
+                    _initdetectstart = true;
+                    initdetextstart.PositionX = 3750;
+                    initdetextstart.PositionY = 5000;
+                    _detectionStart.Clear();
+                }
+                InitActivated = false;
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+
+        public void UpdateStartStopMessage(bool s)
+        {
+            try
+            {
+                InitActivated = false;
+                _initdetectstart = false;
+                _detectionBlockA = false;
+                actif = false;
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        public void PauseMessage(bool p)
+        {
+            pause = p;
+        }
+
+        /// <summary>
+        /// Gestion arrêt
+        /// </summary>
+        /// <returns></returns>
+        public bool DistanceBlock()
+        {
+            double moyX = 0.0;
+            double moyY = 0.0;
+            double distance = 0.0;
+            for (int i = 0; i < _detectionBlock.Count; i++)
+            {
+                moyX += _detectionBlock[i].PositionX;
+                moyY += _detectionBlock[i].PositionY;
+            }
+            moyX /= _detectionBlock.Count;
+            moyY /= _detectionBlock.Count;
+
+            distance = Distance(moyX, moyY, _detectionBlock[_detectionBlock.Count - 1].PositionX, _detectionBlock[_detectionBlock.Count - 1].PositionY);
+            lock (locker)
+            {
+                distance /= 100.0;
+            }
+            if (distance < _detectBlockAmp)     // default : 0.8
+            {
+                if (CurrentConfig.RaideurLong <= 95)
+                {
+                    EnvoyerNewLongConfigPortBlock(5);
+                    Debug.Print("Block + 5");
+                }
+            }
+                _detectionBlock.Clear();
+            return true;
+        }
+
+        public bool DistanceInit()
+        {
+            double distance = 0.0;
+
+            distance = Distance(_detectionBlock[0].PositionX, _detectionBlock[0].PositionY, initdetextblock.PositionX, initdetextblock.PositionY);
+            if (distance > 100.0)   // default : 500.0
+            {
+                Debug.Print("block" + Convert.ToString(distance));
+                _initdetectblock = true;
+            }
+            return true;
+        }
+
+        public bool DistanceTab()
+        {
+            double moyX = 0.0;
+            double moyY = 0.0;
+            double distance = 0.0;
+            for (int i = 0; i < _detectionStart.Count; i++)
+            {
+                moyX += _detectionStart[i].PositionX;
+                moyY += _detectionStart[i].PositionY;
+            }
+            moyX /= _detectionStart.Count;
+            moyY /= _detectionStart.Count;
+
+            distance = Distance(moyX, moyY, initdetextstart.PositionX, initdetextstart.PositionY);
+            lock (locker)
+            {
+                distance /= 100.0;
+            }
+            if (distance < _detectStartAmp)     // default : 0.8
+            {
+                if (_detectionStart.Count >= CurrentConfig.Init * 4)
+                {
+                    Debug.Print("Init ON !");
+                    _initdetectstart = false;
+                    EnvoyerConfigTotal();
+                    InitActivated = true;
+                    if (_initp >= CurrentConfig.Init)
+                    {
+                        _initPatient = CurrentConfig.Init;
+                        _initp = 0;
+                    }
+                    else
+                    {
+                        _initPatient = _initp;
+                        _initp = 0;
+                    }
+                    if (CurrentConfig.Init <= 45)
+                    {
+                        CurrentConfig.Init += 5;
+                    }
+                    ListInit.Add(_initPatient);
+                    ValeurReeducation.Init = ListInit;
+
+                    _detectionStart.Clear();
+                }
+            }
+            else
+            {
+                EnvoyerConfigTotal();
+                InitActivated = false;
+                Debug.Print("STOP DistanceTab");
+                _initdetectstart = false;
+                if (_initp >= CurrentConfig.Init)
+                {
+                    _initPatient = CurrentConfig.Init;
+                    _initp = 0;
+                }
+                else
+                {
+                    _initPatient = _initp;
+                    _initp = 0;
+                }
+                if (CurrentConfig.Init >= 10)
+                {
+                    CurrentConfig.Init -= 5;
+                }
+                _detectionStart.Clear();
+            }
+            return true;
+        }
+        public double Distance(double x1, double y1, double x2, double y2)
+        {
+            double result = 0.0;
+            result = Math.Sqrt(Math.Pow((y2 - y1), 2.0) + Math.Pow((x2 - x1), 2.0));
+            return result;
+        }
+
+        private void Calc_klat()
+        {
+            List<DataPosition> temp;
+            double peakV = 0.0;
+            double resDist = 0.0;
+            double resVit = 0.0;
+            double resVitRC = 0.0;
+
+            _initdetectblock = false;
+            _detectionBlock.Clear();
+            if (CurrentConfig.Init == 0)
+            {
+                CurrentConfig.RaideurLong = BlockCurrentConfig.RaideurLong;
+                EnvoyerNewLongConfigPortBlock(0);
+            }
+            try
+            {
+                temp = new List<DataPosition>(PositionXY.ToArray());
+                _tempsPositionXY.AddRange(temp);
+
+                if (_nbrsPassage < 2)
+                {
+                    if (_nbrsPassage == 0)
+                    {
+                        debut[_nbrsPassage] = temp[0];
+                        fin[_nbrsPassage] = temp[temp.Count - 1];
+
+                        if (CurrentConfig.Init != 0)
+                        {
+                            initdetextstart.PositionX = (int)(fin[_nbrsPassage].X * 100.0);
+                            initdetextstart.PositionY = (int)(fin[_nbrsPassage].Y * 100.0);
+                            _initdetectstart = true;
+                           BaseConfigRaz();
+                        }
+                    }
+                    else
+                    {
+                        debut[_nbrsPassage] = temp[0];
+                        fin[_nbrsPassage] = temp[temp.Count - 1];
+
+                        if (CurrentConfig.Init != 0)
+                        {
+                            initdetextstart.PositionX = (int)(fin[_nbrsPassage].X * 100.0);
+                            initdetextstart.PositionY = (int)(fin[_nbrsPassage].Y * 100.0);
+                            _initdetectstart = true;
+                           BaseConfigRaz();
+                        }
+                    }
+
+                    tempsStra += Distance(debut[_nbrsPassage].X, debut[_nbrsPassage].Y, fin[_nbrsPassage].X, fin[_nbrsPassage].Y);
+                    Debug.Print("Amplitude :" + tempsStra.ToString());
+                    resDist = Ax_Position.Distance(temp);
+                    Debug.Print("DistReel :" + resDist.ToString());
+                    tabDistRelle[_nbrsPassage] = resDist;
+
+                    resVit = Ax_Vitesse.VitesseMoy(temp, ref peakV, 0.1);  // 0.01
+                    Debug.Print("Vmoy :" + resVit.ToString());
+                    tabVitesseMoy[_nbrsPassage] = resVit;
+                    _nbrsPassage++;
+                    PositionXY = new BlockingCollection<DataPosition>();
+
+                    if (CurrentConfig.Vitesse != 0)
+                    {
+                        resVitRC = AxAnalyse.Ax_Vitesse.VitesseRef(CurrentConfig.Vitesse, CurrentConfig.Init) / resVit;
+                        Debug.Print(resVitRC.ToString());
+                    }
+                    Debug.Print("resVitRC :" + resVitRC.ToString());
+                    if (resVitRC > 0.91)
+                    {
+                        Debug.Print("klong + 5");
+                        if (CurrentConfig.RaideurLong <= 95)
+                        {
+                            EnvoyerNewLongConfigPort(5);     // augmenter la klong
+                        }
+                    }
+                    else
+                    {
+                        if (CurrentConfig.RaideurLong >= 5)
+                        {
+                            EnvoyerNewLongConfigPort(-5);     // diminuer la klong
+                        }
+                        Debug.Print("klong - 5");
+                    }
+                }
+                else
+                {
+                    debut[_nbrsPassage] = fin[_nbrsPassage - 1];
+                    fin[_nbrsPassage] = temp[temp.Count - 1];
+
+                    if (CurrentConfig.Init != 0)
+                    {
+                        initdetextstart.PositionX = (int)(fin[_nbrsPassage].X * 100.0);
+                        initdetextstart.PositionY = (int)(fin[_nbrsPassage].Y * 100.0);
+                        _initdetectstart = true;
+                    }
+
+                    tempsStra += Distance(debut[_nbrsPassage].X, debut[_nbrsPassage].Y, fin[_nbrsPassage].X, fin[_nbrsPassage].Y);
+
+                    resDist = Ax_Position.Distance(temp);
+                    tabDistRelle[_nbrsPassage] = resDist;
+                    Debug.Print("Amplitude :" + tempsStra.ToString());
+                    ResultDist = Ax_Position.DistReelleMoy(tabDistRelle);
+                    ResultStra = Ax_Position.Straightness(tempsStra / 3.0, tabDistRelle);   // Amplitude, distance entre le debut et la fin
+                    Debug.Print("DistReel :" + resDist.ToString());
+                    tabDistRelle[0] = 0.0;
+                    tabDistRelle[1] = 0.0;
+                    tabDistRelle[2] = 0.0;
+
+                    // Vitesse
+                    resVit = Ax_Vitesse.VitesseMoy(temp, ref peakV, 0.1);
+                    Debug.Print("Vmoy :" + resVit.ToString());
+                    tabVitesseMoy[_nbrsPassage] = resVit;
+                    ResultVitP = peakV;
+                    ResultVit = Ax_Vitesse.VitesseMoyenne(tabVitesseMoy);
+                    ResultSmoth = ResultVit / ResultVitP;
+
+                    tabVitesseMoy[0] = 0.0;
+                    tabVitesseMoy[1] = 0.0;
+                    tabVitesseMoy[2] = 0.0;
+                    _nbrsPassage = 0;
+                    tempsStra = 0.0;
+                    debut = new DataPosition[3];
+                    fin = new DataPosition[3];
+                    _tempsPositionXY.Clear();
+                    PositionXY = new BlockingCollection<DataPosition>();
+                    if (CurrentConfig.Auto == true)
+                    {
+                        if (ResultStra < 0.95)
+                        {
+                            Debug.Print("klat + 5");
+                            if (CurrentConfig.RaideurLat <= 95)
+                            {
+                                EnvoyerNewLatConfigPort(5);     // augmenter la klat
+                            }
+                        }
+                        else
+                        {
+                            if (CurrentConfig.RaideurLat >= 5)
+                            {
+                                EnvoyerNewLatConfigPort(-5);     // diminuer la klat
+                            }
+                            Debug.Print("klat - 5");
+                            // klat ???
+                        }
+
+                        if (CurrentConfig.Vitesse != 0)
+                        {
+                            resVitRC = AxAnalyse.Ax_Vitesse.VitesseRef(CurrentConfig.Vitesse, CurrentConfig.Init) / resVit;
+                            Debug.Print(resVitRC.ToString());
+                        }
+                        Debug.Print("resVitRC :" + resVitRC.ToString());
+                        if (resVitRC > 0.91)
+                        {
+                            Debug.Print("klong + 5");
+                            if (CurrentConfig.RaideurLong <= 95)
+                            {
+                                EnvoyerNewLongConfigPort(5);     // augmenter la klong
+                            }
+                        }
+                        else
+                        {
+                            if (CurrentConfig.RaideurLong >= 5)
+                            {
+                                EnvoyerNewLongConfigPort(-5);     // diminuer la klong
+                            }
+                            Debug.Print("klong - 5");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        void InitBaseConfigRaz()
+        {
+            _TempsCurrentConfig.RaideurLat = CurrentConfig.RaideurLat;
+            _TempsCurrentConfig.RaideurLong = CurrentConfig.RaideurLong;
+            _TempsCurrentConfig.Vitesse = CurrentConfig.Vitesse;
+
+            BlockCurrentConfig.RaideurLong = _TempsCurrentConfig.RaideurLong;
+        }
+
+        void BaseConfigRaz()
+        {
+            _TempsCurrentConfig.RaideurLat = CurrentConfig.RaideurLat;
+            _TempsCurrentConfig.RaideurLong = BlockCurrentConfig.RaideurLong;
+            _TempsCurrentConfig.Vitesse = CurrentConfig.Vitesse;
+            CurrentConfig.RaideurLong = BlockCurrentConfig.RaideurLong;
+            EnvoyerConfigTempsTotal();
+        }
+
+
+        /// <summary>
+        /// Méthode qui démarre le timer aléatoire
+        /// </summary>
+        private void StartTimerSave()
+        {
+            timerSave.Stop();          
+            timerSave.Start();
+        }
+
+        public void AddNewLine()
+        {
+            if (test == false)
+            {
+                if (posforce == true)
+                {
+                    posforce = false;
+                }
+                text = Convert.ToString(string.Format("{0:F2}", ResultStra) + " " + string.Format("{0:F2}", ResultSmoth) + " " + string.Format("{0:F2}", ResultVitP) + " " + string.Format("{0:F2}", ResultVit) + " " + string.Format("{0:F1}", (CurrentUcConfig.RaideurLong * 1000.0 / 12700.0)) + " " + string.Format("{0:F1}", (CurrentUcConfig.RaideurLat * 500.0 / 12700.0)) + " " + string.Format("{0:F2}", (CurrentConfig.Init * 40.0) / 1000.0) + " " + string.Format("{0:F2}", (_initPatient * 40.0) / 1000.0));   // init en s, klat = N/cm , klong = N.s/cm
+            }
+        }
+
+        #endregion
+
+        #region RelayCommand
+        public RelayCommand PreviousViewModelCommand { get; set; }
+        public RelayCommand MainViewModelCommand { get; set; }
+
+        public RelayCommand EnvoyerConfigCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand SaveCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand BrowseCommand
+        {
+            get;
+            private set;
+        }
+
+        #endregion
+
+        #region Actions
+
+        // Specify what you want to happen when the Elapsed event is 
+        // raised.
+        private void Onacq100HzSequenceEvent(object source, ElapsedEventArgs e)
+        //private void Onacq100HzSequenceEvent()
+        {
+            try
+            {
+                if (pause == false)
+                {
+                    //if (Math.Abs(Distance(tempsPositionXY.X, tempsPositionXY.Y, 35.45, 36.00)) < 0.3 && _ack_end == true && _ack_end_ok == false)
+                    if (_ack_end == true)
+                    {
+                        _detectionBlockA = false;
+                        _ack_end = false;
+                        _calc_ack_end = false;
+                        _ack_end_ok = true;
+                        PositionXY.Add(new DataPosition(tempsPositionXY.X, tempsPositionXY.Y));
+                        //PositionXY.Add(test2);
+                        Calc_klat();
+                        _initPosition = true;
+                        if (CurrentConfig.Init != 0)
+                        {
+                            // _detectionStart.Add(new PositionDataModel((int)tempsPositionXY.X, (int)tempsPositionXY.Y));
+                            _initdetectstart = true; // test
+                        }
+                    }
+                    //else if (Math.Abs(Distance(tempsPositionXY.X, tempsPositionXY.Y, 35.45, 45.20)) < 0.3 && _calc_ack_end == false && _ack_end_ok == true)
+                    //{
+                    //    _ack_end = false;
+                    //    _calc_ack_end = true;
+                    //    _ack_end_ok = false;
+                    //    PositionXY.Add(tempsPositionXY);
+                    //    //PositionXY.Add(test);
+                    //    Calc_klat();
+                    //    _initPositionEnd = true;
+                    //}
+                    else
+                    {
+                        PositionXY.Add(new DataPosition(tempsPositionXY.X, tempsPositionXY.Y));
+                        _detectionBlockA = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        /// <summary>
+        /// Méthode qui décrémente le temps restant et arrête le timer
+        /// </summary>
+        private void timer_TickSave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (pause == false)
+                {
+                    test = true;
+                    File.AppendAllText(FileName, text + Environment.NewLine);
+                    Debug.Print("Ecriture");
+                    test = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private void EnvoyerNewLatConfigPort(int plus)
+        {
+            if (CurrentConfig.Init != 0)
+            {
+                CurrentConfig.RaideurLat = (byte)(CurrentConfig.RaideurLat + plus);
+            }
+            else
+            {
+                FrameConfigDataModel newConfig = new FrameConfigDataModel();
+                newConfig.Address = ConfigAddresses.KlatClong;
+                CurrentConfig.RaideurLat = (byte)(CurrentConfig.RaideurLat + plus);
+                newConfig.Data1_2 = (ushort)(CurrentUcConfig.RaideurLat + plus);
+                newConfig.Data3_4 = (ushort)(BlockCurrentConfig.RaideurLong);
+                Messenger.Default.Send(newConfig, "VisualisationViewModel");
+                System.Threading.Thread.Sleep(10);
+            }
+        }
+
+        private void EnvoyerNewLongConfigPortBlock(int plus)
+        {
+            FrameConfigDataModel newConfig = new FrameConfigDataModel();
+            newConfig.Address = ConfigAddresses.KlatClong;
+            newConfig.Data1_2 = (ushort)(CurrentUcConfig.RaideurLat);
+            //CurrentConfig.RaideurLong = (byte)(CurrentConfig.RaideurLong + plus);
+            if (plus == 5)
+            {
+                CurrentConfig.RaideurLong += 5;
+                newConfig.Data3_4 = (ushort)(CurrentConfig.RaideurLong);
+            }
+            else
+            {
+                newConfig.Data3_4 = (ushort)(CurrentConfig.RaideurLong + plus);
+            }
+            Messenger.Default.Send(newConfig, "VisualisationViewModel");
+            System.Threading.Thread.Sleep(10);
+        }
+
+        private void EnvoyerNewLongConfigPort(int plus)
+        {
+            if (CurrentConfig.Init != 0)
+            {
+                CurrentConfig.RaideurLong = (byte)(BlockCurrentConfig.RaideurLong + plus);
+                BlockCurrentConfig.RaideurLong = (byte)(_TempsCurrentConfig.RaideurLong + plus);
+                //BlockCurrentConfig.RaideurLong = CurrentConfig.RaideurLong;
+            }
+            else
+            {
+                FrameConfigDataModel newConfig = new FrameConfigDataModel();
+                newConfig.Address = ConfigAddresses.KlatClong;
+                newConfig.Data1_2 = (ushort)(CurrentUcConfig.RaideurLat);
+                CurrentConfig.RaideurLong = (byte)(CurrentConfig.RaideurLong + plus);
+                BlockCurrentConfig.RaideurLong = CurrentConfig.RaideurLong;
+                newConfig.Data3_4 = (ushort)(CurrentUcConfig.RaideurLong + plus);
+                Messenger.Default.Send(newConfig, "VisualisationViewModel");
+                System.Threading.Thread.Sleep(10);
+            }
+        }
+
+        private void EnvoyerConfigPort()
+        {
+            try
+            {
+                BlockCurrentConfig.RaideurLong = CurrentConfig.RaideurLong;
+                FrameConfigDataModel newConfig = new FrameConfigDataModel();
+                newConfig.Address = ConfigAddresses.KlatClong;
+                newConfig.Data1_2 = CurrentConfig.RaideurLat;
+                newConfig.Data3_4 = CurrentConfig.RaideurLong;
+                Messenger.Default.Send(newConfig, "VisualisationViewModel");
+                System.Threading.Thread.Sleep(10);
+                newConfig.Address = ConfigAddresses.VitesseNbrsrep;
+                newConfig.Data1_2 = CurrentConfig.Vitesse;
+                newConfig.Data3_4 = 100;
+                Messenger.Default.Send(newConfig, "VisualisationViewModel");
+                _saveCurrentConfig = CurrentConfig;
+                MessageBox.Show("La configuration a bien été modifiée !","Modification configuration");
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        /// <summary>
+        /// Méthode qui active ou pas l'enregistrement
+        /// </summary>
+        public void SaveOF()
+        {
+            try
+            {
+                if (_activOF == false)
+                {
+                    if (FileName == null)
+                    {
+                        MessageBox.Show("Pas de fichier pour l'enregistrement !", "Erreur !", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        _activOF = true;
+                        Save = false;
+                        StartTimerSave();
+                        RaisePropertyChanged("ActivOF");
+                    }
+                }
+                else
+                {
+                    _activOF = false;
+                    Save = true;
+                    timerSave.Stop();
+                    RaisePropertyChanged("ActivOF");
+                }
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        /// <summary>
+        /// Méthode de selection du fichier
+        /// </summary>
+        public void BrowseOF()
+        {
+            try
+            {
+                // Create OpenFileDialog
+                Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+
+                // Set filter for file extension and default file extension
+                dlg.DefaultExt = ".txt";
+                dlg.Filter = "Text documents (.txt)|*.txt";
+
+                // Display SaveFileDialog by calling ShowDialog method
+                Nullable<bool> result = dlg.ShowDialog();
+
+                // Get the selected file name and display in a TextBox
+                if (result == true)
+                {
+                    // Open/Save document
+                    FileName = dlg.FileName;
+                }
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private void EnvoyerConfigLongLat()
+        {
+            System.Threading.Thread.Sleep(15);
+            FrameConfigDataModel newConfig = new FrameConfigDataModel();
+            newConfig.Address = ConfigAddresses.KlatClong;
+            newConfig.Data1_2 = CurrentConfig.RaideurLat;
+            if (CurrentConfig.RaideurLong > 100)
+            {
+                newConfig.Data3_4 = 100;
+            }
+            else
+            {
+                newConfig.Data3_4 = BlockCurrentConfig.RaideurLong;
+            }
+            newConfig.Data3_4 = BlockCurrentConfig.RaideurLong;
+            Messenger.Default.Send(newConfig, "VisualisationViewModel");
+            System.Threading.Thread.Sleep(15);
+        }
+
+        private void EnvoyerConfigTempsTotal()
+        {
+            FrameConfigDataModel newConfig = new FrameConfigDataModel();
+            newConfig.Address = ConfigAddresses.KlatClong;
+            newConfig.Data1_2 = 0;
+            newConfig.Data3_4 = 10;
+            Messenger.Default.Send(newConfig, "VisualisationViewModel");
+            System.Threading.Thread.Sleep(10);
+            newConfig.Address = ConfigAddresses.VitesseNbrsrep;
+            newConfig.Data1_2 = 0;
+            newConfig.Data3_4 = 100;
+            Messenger.Default.Send(newConfig, "VisualisationViewModel");
+        }
+
+        private void EnvoyerConfigTotal()
+        {
+            FrameConfigDataModel newConfig = new FrameConfigDataModel();
+            newConfig.Address = ConfigAddresses.KlatClong;
+            newConfig.Data1_2 = CurrentConfig.RaideurLat;
+            if (CurrentConfig.RaideurLong > 100)
+            {
+                newConfig.Data3_4 = 100;
+            }
+            else
+            {
+                newConfig.Data3_4 = BlockCurrentConfig.RaideurLong;
+            }
+            Messenger.Default.Send(newConfig, "VisualisationViewModel");
+            System.Threading.Thread.Sleep(10);
+            newConfig.Address = ConfigAddresses.VitesseNbrsrep;
+            newConfig.Data1_2 = CurrentConfig.Vitesse;
+            newConfig.Data3_4 = 100;
+            Messenger.Default.Send(newConfig, "VisualisationViewModel");
+        }
+
+        private void OnRobotError(RobotErrorMessage e)
+        {
+            //options grisé
+            StartAssistance(false);//coupe l'assistance
+            InitVisualisation();// reset les variable et timer
+            //RaisePropertyChanged("CurrentConfig");
+            //EnvoyerConfigPort();//reset de la config de base
+            Messenger.Default.Send("", "StopRobot");
+        }
+        #endregion
+
+    }
+}

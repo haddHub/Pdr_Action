@@ -1,0 +1,1 @@
+2014-08-11 10:18:58.0249 | WARN | WrongSerialPortException | Une exception de type 'AxError.Exceptions.WrongSerialPortException' a été levée. |   à AxViewModel.MainViewModel.OpenCom() dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\MainViewModel.cs:ligne 1035

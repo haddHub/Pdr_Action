@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="b81f16ed-2b69-4625-bfb8-3c4743437f65" name="Axinesis@PC-AXINESIS-004 2014-07-30 10:16:12" runUser="PC-AXINESIS-004\Axinesis" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Paramètres de test par défaut" id="83f3f33d-8109-45c8-8a9f-f13f5056c22f">
+    <Deployment runDeploymentRoot="Axinesis_PC-AXINESIS-004 2014-07-30 10_16_12">
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\Fusion\packages\MvvmLightLibs.4.4.32.1\lib\net40\GalaSoft.MvvmLight.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\Fusion\packages\NMemory.1.0.0\lib\net40\NMemory.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\Fusion\AxError\bin\Debug\AxError.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\Fusion\packages\MvvmLightLibs.4.4.32.1\lib\net40\System.Windows.Interactivity.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\Fusion\AxModel\bin\Debug\AxModel.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\Fusion\AxData\bin\Debug\AxData.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\Fusion\packages\Moq.4.2.1402.2112\lib\net40\Moq.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\Fusion\packages\MvvmLightLibs.4.4.32.1\lib\net40\GalaSoft.MvvmLight.Extras.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\Fusion\packages\Effort.1.1.0\lib\net40\Effort.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\Fusion\AxViewModel\bin\Debug\AxViewModel.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\NUnit 2.6.3\bin\framework\nunit.framework.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\Fusion\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-07-30T10:16:12.4220879+02:00" queuing="2014-07-30T10:16:12.8283576+02:00" start="2014-07-30T10:16:12.8283576+02:00" finish="2014-07-30T10:16:13.7033978+02:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Inscription_Administrateur" storage="c:\users\axinesis\desktop\fusion\axdata.test\bin\debug\axdata.test.dll" id="9ef9f365-076b-fb6f-67f0-e145ead2e579" xmlns="AxData.Test">
+      <Execution id="ca822004-bf59-42a9-baac-244d61e4da2b" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\Fusion\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataTherapeuteTest" name="Inscription_Administrateur" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Les résultats ne figurent pas dans une liste" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Tous les résultats chargés" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="9ef9f365-076b-fb6f-67f0-e145ead2e579" executionId="ca822004-bf59-42a9-baac-244d61e4da2b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <TestResultAggregation executionId="ca822004-bf59-42a9-baac-244d61e4da2b" testId="9ef9f365-076b-fb6f-67f0-e145ead2e579" testName="Inscription_Administrateur" computerName="PC-AXINESIS-004" duration="00:00:00.3750000" startTime="2014-07-30T10:16:13.2815223+02:00" endTime="2014-07-30T10:16:13.6565223+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ca822004-bf59-42a9-baac-244d61e4da2b">
+    </TestResultAggregation>
+  </Results>
+</TestRun>

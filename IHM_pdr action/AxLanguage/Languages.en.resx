@@ -1,0 +1,1404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="REAplan_About" xml:space="preserve">
+    <value>À propos</value>
+  </data>
+  <data name="REAplan_Affichage" xml:space="preserve">
+    <value>Affichage</value>
+  </data>
+  <data name="REAplan_Ajouter" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="REAplan_Aller_Retour" xml:space="preserve">
+    <value>Aller/Retour</value>
+  </data>
+  <data name="REAplan_All_Rights_Reserved" xml:space="preserve">
+    <value>All Rights Reserved.</value>
+  </data>
+  <data name="REAplan_Amplitude" xml:space="preserve">
+    <value>Amplitude</value>
+  </data>
+  <data name="REAplan_AngleX" xml:space="preserve">
+    <value>Angle en X Min (A) - Max (B)</value>
+  </data>
+  <data name="REAplan_AngleY" xml:space="preserve">
+    <value>Angle en Y Min (A) - Max (B)</value>
+  </data>
+  <data name="REAplan_Arc_Down" xml:space="preserve">
+    <value>Arc Bas</value>
+  </data>
+  <data name="REAplan_Arc_Up" xml:space="preserve">
+    <value>Arc Haut</value>
+  </data>
+  <data name="REAplan_Assist" xml:space="preserve">
+    <value>Assistance</value>
+  </data>
+  <data name="REAplan_Attention" xml:space="preserve">
+    <value>Attention !</value>
+  </data>
+  <data name="REAplan_Auto" xml:space="preserve">
+    <value>Automatique</value>
+  </data>
+  <data name="REAplan_Autres_Exercices" xml:space="preserve">
+    <value>Autres exercices</value>
+  </data>
+  <data name="REAplan_Axinesis" xml:space="preserve">
+    <value>AXINESIS</value>
+  </data>
+  <data name="REAplan_Bienvenue" xml:space="preserve">
+    <value>Bienvenue dans REAplan Alpha.</value>
+  </data>
+  <data name="REAplan_Borne" xml:space="preserve">
+    <value>Borne</value>
+  </data>
+  <data name="REAplan_bouton_ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="REAplan_Cible" xml:space="preserve">
+    <value>Cible</value>
+  </data>
+  <data name="REAplan_Config" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="REAplan_Configuration" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="REAplan_Config_Pos" xml:space="preserve">
+    <value>Config. / Positionnement</value>
+  </data>
+  <data name="REAplan_Dist_Cibles" xml:space="preserve">
+    <value>Distance cibles</value>
+  </data>
+  <data name="REAplan_Down" xml:space="preserve">
+    <value>Bas</value>
+  </data>
+  <data name="REAplan_Droite" xml:space="preserve">
+    <value>Droite</value>
+  </data>
+  <data name="REAplan_Envoyer" xml:space="preserve">
+    <value>Envoyer</value>
+  </data>
+  <data name="REAplan_Evaluation" xml:space="preserve">
+    <value>Evaluation</value>
+  </data>
+  <data name="REAplan_Evolution" xml:space="preserve">
+    <value>Evolution</value>
+  </data>
+  <data name="REAplan_Evolution_Patient" xml:space="preserve">
+    <value>Evolution du patient</value>
+  </data>
+  <data name="REAplan_Exercice" xml:space="preserve">
+    <value>Exercice :</value>
+  </data>
+  <data name="REAplan_Exercices" xml:space="preserve">
+    <value>Exercices</value>
+  </data>
+  <data name="REAplan_Exit" xml:space="preserve">
+    <value>Quitter</value>
+  </data>
+  <data name="REAplan_Fichier" xml:space="preserve">
+    <value>_Fichier</value>
+  </data>
+  <data name="REAplan_Forme" xml:space="preserve">
+    <value>Forme</value>
+  </data>
+  <data name="REAplan_FullScreen" xml:space="preserve">
+    <value>Plein écran</value>
+  </data>
+  <data name="REAplan_Go_Debut" xml:space="preserve">
+    <value>Aller debut exo / STOP</value>
+  </data>
+  <data name="REAplan_Header_Steps" xml:space="preserve">
+    <value>Etapes</value>
+  </data>
+  <data name="REAplan_Home" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="REAplan_Identification" xml:space="preserve">
+    <value>Identification</value>
+  </data>
+  <data name="REAplan_Init" xml:space="preserve">
+    <value>Initialisation</value>
+  </data>
+  <data name="REAplan_Langue" xml:space="preserve">
+    <value>Langage</value>
+  </data>
+  <data name="REAplan_Left" xml:space="preserve">
+    <value>Gauche</value>
+  </data>
+  <data name="REAplan_Lib_Poignee" xml:space="preserve">
+    <value>Libérez la poignée lors de la calibration</value>
+  </data>
+  <data name="REAplan_Ludique" xml:space="preserve">
+    <value>Rééducation Enfant</value>
+  </data>
+  <data name="REAplan_Man" xml:space="preserve">
+    <value>Manuelle</value>
+  </data>
+  <data name="REAplan_Masse" xml:space="preserve">
+    <value>Masse</value>
+  </data>
+  <data name="REAplan_Metro" xml:space="preserve">
+    <value>Métronome</value>
+  </data>
+  <data name="REAplan_Mode" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+  <data name="REAplan_More_info" xml:space="preserve">
+    <value>More info</value>
+  </data>
+  <data name="REAplan_Naissance" xml:space="preserve">
+    <value>Date de naissance</value>
+  </data>
+  <data name="REAplan_NbrRep" xml:space="preserve">
+    <value>Nombre de répétitions</value>
+  </data>
+  <data name="REAplan_Nbrs_Cibles" xml:space="preserve">
+    <value>Nombres cibles</value>
+  </data>
+  <data name="REAplan_Nom" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="REAplan_Nouveau_Patient" xml:space="preserve">
+    <value>Nouveau patient</value>
+  </data>
+  <data name="REAplan_On_Off" xml:space="preserve">
+    <value>On / Off</value>
+  </data>
+  <data name="REAplan_Origine" xml:space="preserve">
+    <value>Origine</value>
+  </data>
+  <data name="REAplan_Param_Ex" xml:space="preserve">
+    <value>Paramètres en début d'exercice</value>
+  </data>
+  <data name="REAplan_Position" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="REAplan_Precedent" xml:space="preserve">
+    <value>Précédent</value>
+  </data>
+  <data name="REAplan_Prenom" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="REAplan_Preview" xml:space="preserve">
+    <value>Aperçu Statique</value>
+  </data>
+  <data name="REAplan_Product" xml:space="preserve">
+    <value>Product details:</value>
+  </data>
+  <data name="REAplan_Quitter" xml:space="preserve">
+    <value>_Quitter</value>
+  </data>
+  <data name="REAplan_Raideur_Lat" xml:space="preserve">
+    <value>Raideur latérale</value>
+  </data>
+  <data name="REAplan_Raideur_Long" xml:space="preserve">
+    <value>Raideur longitudinale</value>
+  </data>
+  <data name="REAplan_Rechercher" xml:space="preserve">
+    <value>Rechercher :</value>
+  </data>
+  <data name="REAplan_Reeducation" xml:space="preserve">
+    <value>Rééducation</value>
+  </data>
+  <data name="REAplan_Reference" xml:space="preserve">
+    <value>Référence ( Fantôme )</value>
+  </data>
+  <data name="REAplan_Right" xml:space="preserve">
+    <value>Droite</value>
+  </data>
+  <data name="REAplan_Robot" xml:space="preserve">
+    <value>Robot</value>
+  </data>
+  <data name="REAplan_Save" xml:space="preserve">
+    <value>Enregistrement</value>
+  </data>
+  <data name="REAplan_Save_As" xml:space="preserve">
+    <value>Enregistrer sous</value>
+  </data>
+  <data name="REAplan_Selectionner" xml:space="preserve">
+    <value>Selectionner</value>
+  </data>
+  <data name="REAplan_Send" xml:space="preserve">
+    <value>Envoyer</value>
+  </data>
+  <data name="REAplan_Size_Arm" xml:space="preserve">
+    <value>Taille du bras</value>
+  </data>
+  <data name="REAplan_Son_On_Off" xml:space="preserve">
+    <value>Son de fin</value>
+  </data>
+  <data name="REAplan_Start" xml:space="preserve">
+    <value>START exercice !</value>
+  </data>
+  <data name="REAplan_Static_Dyn" xml:space="preserve">
+    <value>Statique / Dynamique</value>
+  </data>
+  <data name="REAplan_Stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="REAplan_Suivant" xml:space="preserve">
+    <value>Suivant</value>
+  </data>
+  <data name="REAplan_Supprimer" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="REAplan_Sync" xml:space="preserve">
+    <value>Syncro.</value>
+  </data>
+  <data name="REAplan_Taille" xml:space="preserve">
+    <value>Taille</value>
+  </data>
+  <data name="REAplan_Temps" xml:space="preserve">
+    <value>Temps</value>
+  </data>
+  <data name="REAplan_Themes" xml:space="preserve">
+    <value>Thèmes</value>
+  </data>
+  <data name="REAplan_Timer_X2" xml:space="preserve">
+    <value>Temps x2</value>
+  </data>
+  <data name="REAplan_Titre" xml:space="preserve">
+    <value>REAplan 2D Alpha</value>
+  </data>
+  <data name="REAplan_Trace" xml:space="preserve">
+    <value>Trace</value>
+  </data>
+  <data name="REAplan_Ucl" xml:space="preserve">
+    <value>UCL</value>
+  </data>
+  <data name="REAplan_Up" xml:space="preserve">
+    <value>Haut</value>
+  </data>
+  <data name="REAplan_version" xml:space="preserve">
+    <value>Version - </value>
+  </data>
+  <data name="REAplan_Viscosite" xml:space="preserve">
+    <value>Viscosité</value>
+  </data>
+  <data name="REAplan_Visualisation" xml:space="preserve">
+    <value>Visualisation</value>
+  </data>
+  <data name="REAplan_Vitesse" xml:space="preserve">
+    <value>Vitesse</value>
+  </data>
+  <data name="ZoomEnum_Grand" xml:space="preserve">
+    <value>Grand</value>
+  </data>
+  <data name="ZoomEnum_Moyen" xml:space="preserve">
+    <value>Moyen</value>
+  </data>
+  <data name="ZoomEnum_Petit" xml:space="preserve">
+    <value>Petit</value>
+  </data>
+  <data name="REAplan_Actif" xml:space="preserve">
+    <value>Actif</value>
+  </data>
+  <data name="REAplan_A_P" xml:space="preserve">
+    <value>Activo-passif</value>
+  </data>
+  <data name="REAplan_Passif" xml:space="preserve">
+    <value>Passif</value>
+  </data>
+  <data name="REAplan_Add" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="REAplan_Data_Ex" xml:space="preserve">
+    <value>Gestion Liste Exercice</value>
+  </data>
+  <data name="REAplan_Del" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="REAplan_ForceX" xml:space="preserve">
+    <value>Force X</value>
+  </data>
+  <data name="REAplan_ForceY" xml:space="preserve">
+    <value>Force Y</value>
+  </data>
+  <data name="REAplan_Carre" xml:space="preserve">
+    <value>Carre</value>
+  </data>
+  <data name="REAplan_Cercle" xml:space="preserve">
+    <value>Cercle</value>
+  </data>
+  <data name="REAplan_Detect_Stop" xml:space="preserve">
+    <value>Détection arrêt</value>
+  </data>
+  <data name="REAplan_Start_Opt" xml:space="preserve">
+    <value>Start option :</value>
+  </data>
+  <data name="REAplan_Ch_Config" xml:space="preserve">
+    <value>Changer config !</value>
+  </data>
+  <data name="REAplan_Dist_R" xml:space="preserve">
+    <value>Dist. Réel :</value>
+  </data>
+  <data name="REAplan_Pos" xml:space="preserve">
+    <value>Positionnement</value>
+  </data>
+  <data name="REAplan_R_Lat" xml:space="preserve">
+    <value>Raideur Lat.</value>
+  </data>
+  <data name="REAplan_R_Long" xml:space="preserve">
+    <value>Raideur Long.</value>
+  </data>
+  <data name="REAplan_Smoothness" xml:space="preserve">
+    <value>Smoothness :</value>
+  </data>
+  <data name="REAplan_State" xml:space="preserve">
+    <value>Etat :</value>
+  </data>
+  <data name="REAplan_Straightness" xml:space="preserve">
+    <value>Straightness :</value>
+  </data>
+  <data name="REAplan_Vit_M" xml:space="preserve">
+    <value>Vit. Moy. :</value>
+  </data>
+  <data name="REAplan_Vit_P" xml:space="preserve">
+    <value>Vit. Peak :</value>
+  </data>
+  <data name="REAplan_Port" xml:space="preserve">
+    <value>Port :</value>
+  </data>
+  <data name="REAplan_Calibration" xml:space="preserve">
+    <value>Calibration</value>
+  </data>
+  <data name="REAplan_Color" xml:space="preserve">
+    <value>Couleur :</value>
+  </data>
+  <data name="REAplan_Connexion" xml:space="preserve">
+    <value>Connexion</value>
+  </data>
+  <data name="REAplan_Con_Rob" xml:space="preserve">
+    <value>Connexion à REAplan</value>
+  </data>
+  <data name="REAplan_Deconnexion" xml:space="preserve">
+    <value>Deconnexion</value>
+  </data>
+  <data name="REAplan_Fantome" xml:space="preserve">
+    <value>Fantôme</value>
+  </data>
+  <data name="REAplan_Flagelle" xml:space="preserve">
+    <value>Flagelle</value>
+  </data>
+  <data name="REAplan_Libre" xml:space="preserve">
+    <value>Libre</value>
+  </data>
+  <data name="REAplan_Pos_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="REAplan_State_R" xml:space="preserve">
+    <value>Etat Robot :</value>
+  </data>
+  <data name="REAplan_Taille_F" xml:space="preserve">
+    <value>Taille :</value>
+  </data>
+  <data name="REAplan_Tools" xml:space="preserve">
+    <value>Outils</value>
+  </data>
+  <data name="REAplan_Type_F" xml:space="preserve">
+    <value>Type :</value>
+  </data>
+  <data name="REAplan_Accueil" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="REAplan_Connexion_D" xml:space="preserve">
+    <value>Ouvre la connexion entre l'interface et le robot.</value>
+  </data>
+  <data name="REAplan_Deconnexion_D" xml:space="preserve">
+    <value>Ferme la connexion entre l'interface et le robot.</value>
+  </data>
+  <data name="REAplan_Help_D" xml:space="preserve">
+    <value>Obtient de l'aide sur l'utilisation de REAplan.</value>
+  </data>
+  <data name="REAplan_Help_T" xml:space="preserve">
+    <value>Aide sur REAplan 2D (F1)</value>
+  </data>
+  <data name="REAplan_Port_D" xml:space="preserve">
+    <value>Change le port série selectionné pour communiquer avec le robot.</value>
+  </data>
+  <data name="REAplan_Port_T" xml:space="preserve">
+    <value>Port Serie</value>
+  </data>
+  <data name="REAplan_About_D" xml:space="preserve">
+    <value>Informations supplémentaires sur la version et le copyright.</value>
+  </data>
+  <data name="REAplan_FullScreen_D" xml:space="preserve">
+    <value>Met le programme en plein écran.</value>
+  </data>
+  <data name="REAplan_Langue_D" xml:space="preserve">
+    <value>Langues disponibles.</value>
+  </data>
+  <data name="REAplan_Pgm" xml:space="preserve">
+    <value>Programme</value>
+  </data>
+  <data name="REAplan_Quitter_D" xml:space="preserve">
+    <value>Ferme le programme.</value>
+  </data>
+  <data name="REAplan_Panic" xml:space="preserve">
+    <value>Panic</value>
+  </data>
+  <data name="REAplan_Panic_D" xml:space="preserve">
+    <value>Bouton Panic, arrêt violent du robot.</value>
+  </data>
+  <data name="REAplan_Next_Exo" xml:space="preserve">
+    <value>Exercice suivant !</value>
+  </data>
+  <data name="REAplan_PreviewD" xml:space="preserve">
+    <value>Aperçu Dynamique</value>
+  </data>
+  <data name="REAplan_Hunter" xml:space="preserve">
+    <value>Chasseur</value>
+  </data>
+  <data name="REAplan_Nbrs_Ex" xml:space="preserve">
+    <value>Nombres d'exercices : </value>
+  </data>
+  <data name="REAplan_Calibration_D" xml:space="preserve">
+    <value>Calibre le robot.</value>
+  </data>
+  <data name="REAplan_Flagelle_D" xml:space="preserve">
+    <value>Affiche la trainée de la poignée du robot.</value>
+  </data>
+  <data name="REAplan_Pos_Home_D" xml:space="preserve">
+    <value>Ramène le robot à sa position de départ.</value>
+  </data>
+  <data name="REAplan_Phrase" xml:space="preserve">
+    <value>Phrase :</value>
+  </data>
+  <data name="REAplan_Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="REAplan_About1" xml:space="preserve">
+    <value>À propos</value>
+  </data>
+  <data name="REAplan_About_D1" xml:space="preserve">
+    <value>Informations supplémentaires sur la version et le copyright.</value>
+  </data>
+  <data name="REAplan_Accueil1" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="REAplan_Actif1" xml:space="preserve">
+    <value>Actif</value>
+  </data>
+  <data name="REAplan_Add1" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="REAplan_Affichage1" xml:space="preserve">
+    <value>Affichage</value>
+  </data>
+  <data name="REAplan_Ajouter1" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="REAplan_Aller_Retour1" xml:space="preserve">
+    <value>Aller/Retour</value>
+  </data>
+  <data name="REAplan_All_Rights_Reserved1" xml:space="preserve">
+    <value>All Rights Reserved.</value>
+  </data>
+  <data name="REAplan_Amplitude1" xml:space="preserve">
+    <value>Amplitude</value>
+  </data>
+  <data name="REAplan_AngleX1" xml:space="preserve">
+    <value>Angle en X Min (A) - Max (B)</value>
+  </data>
+  <data name="REAplan_AngleY1" xml:space="preserve">
+    <value>Angle en Y Min (A) - Max (B)</value>
+  </data>
+  <data name="REAplan_Arc_Down1" xml:space="preserve">
+    <value>Arc Bas</value>
+  </data>
+  <data name="REAplan_Arc_Up1" xml:space="preserve">
+    <value>Arc Haut</value>
+  </data>
+  <data name="REAplan_Assist1" xml:space="preserve">
+    <value>Assistance</value>
+  </data>
+  <data name="REAplan_Attention1" xml:space="preserve">
+    <value>Attention !</value>
+  </data>
+  <data name="REAplan_Auto1" xml:space="preserve">
+    <value>Automatique</value>
+  </data>
+  <data name="REAplan_Autres_Exercices1" xml:space="preserve">
+    <value>Autres exercices</value>
+  </data>
+  <data name="REAplan_Axinesis1" xml:space="preserve">
+    <value>AXINESIS</value>
+  </data>
+  <data name="REAplan_A_P1" xml:space="preserve">
+    <value>Activo-passif</value>
+  </data>
+  <data name="REAplan_Bienvenue1" xml:space="preserve">
+    <value>Bienvenue dans REAplan Alpha.</value>
+  </data>
+  <data name="REAplan_Borne1" xml:space="preserve">
+    <value>Borne</value>
+  </data>
+  <data name="REAplan_bouton_ok1" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="REAplan_Calibration1" xml:space="preserve">
+    <value>Calibration</value>
+  </data>
+  <data name="REAplan_Calibration_D1" xml:space="preserve">
+    <value>Calibre le robot.</value>
+  </data>
+  <data name="REAplan_Carre1" xml:space="preserve">
+    <value>Carre</value>
+  </data>
+  <data name="REAplan_Cercle1" xml:space="preserve">
+    <value>Cercle</value>
+  </data>
+  <data name="REAplan_Ch_Config1" xml:space="preserve">
+    <value>Changer config !</value>
+  </data>
+  <data name="REAplan_Cible1" xml:space="preserve">
+    <value>Cible</value>
+  </data>
+  <data name="REAplan_Color1" xml:space="preserve">
+    <value>Couleur :</value>
+  </data>
+  <data name="REAplan_Config1" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="REAplan_Configuration1" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="REAplan_Config_Pos1" xml:space="preserve">
+    <value>Config. / Positionnement</value>
+  </data>
+  <data name="REAplan_Connexion1" xml:space="preserve">
+    <value>Connexion</value>
+  </data>
+  <data name="REAplan_Connexion_D1" xml:space="preserve">
+    <value>Ouvre la connexion entre l'interface et le robot.</value>
+  </data>
+  <data name="REAplan_Con_Rob1" xml:space="preserve">
+    <value>Connexion à REAplan</value>
+  </data>
+  <data name="REAplan_Data_Ex1" xml:space="preserve">
+    <value>Gestion Liste Exercice</value>
+  </data>
+  <data name="REAplan_Deconnexion1" xml:space="preserve">
+    <value>Deconnexion</value>
+  </data>
+  <data name="REAplan_Deconnexion_D1" xml:space="preserve">
+    <value>Ferme la connexion entre l'interface et le robot.</value>
+  </data>
+  <data name="REAplan_Del1" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="REAplan_Detect_Stop1" xml:space="preserve">
+    <value>Détection arrêt</value>
+  </data>
+  <data name="REAplan_Dist_Cibles1" xml:space="preserve">
+    <value>Distance cibles</value>
+  </data>
+  <data name="REAplan_Dist_R1" xml:space="preserve">
+    <value>Dist. Réel :</value>
+  </data>
+  <data name="REAplan_Down1" xml:space="preserve">
+    <value>Bas</value>
+  </data>
+  <data name="REAplan_Droite1" xml:space="preserve">
+    <value>Droite</value>
+  </data>
+  <data name="REAplan_Envoyer1" xml:space="preserve">
+    <value>Envoyer</value>
+  </data>
+  <data name="REAplan_Evaluation1" xml:space="preserve">
+    <value>Evaluation</value>
+  </data>
+  <data name="REAplan_EvolutionE" xml:space="preserve">
+    <value>Evolution de l'évaluation</value>
+  </data>
+  <data name="REAplan_EvolutionR" xml:space="preserve">
+    <value>Evolution de la rééducation</value>
+  </data>
+  <data name="REAplan_Evolution_Patient1" xml:space="preserve">
+    <value>Evolution du patient</value>
+  </data>
+  <data name="REAplan_Exercice1" xml:space="preserve">
+    <value>Exercice :</value>
+  </data>
+  <data name="REAplan_Exercices1" xml:space="preserve">
+    <value>Exercices</value>
+  </data>
+  <data name="REAplan_Exit1" xml:space="preserve">
+    <value>Quitter</value>
+  </data>
+  <data name="REAplan_Fantome1" xml:space="preserve">
+    <value>Fantôme</value>
+  </data>
+  <data name="REAplan_Fichier1" xml:space="preserve">
+    <value>_Fichier</value>
+  </data>
+  <data name="REAplan_Flagelle1" xml:space="preserve">
+    <value>Flagelle</value>
+  </data>
+  <data name="REAplan_Flagelle_D1" xml:space="preserve">
+    <value>Affiche la trainée de la poignée du robot.</value>
+  </data>
+  <data name="REAplan_Forme1" xml:space="preserve">
+    <value>Forme</value>
+  </data>
+  <data name="REAplan_FullScreen1" xml:space="preserve">
+    <value>Plein écran</value>
+  </data>
+  <data name="REAplan_FullScreen_D1" xml:space="preserve">
+    <value>Met le programme en plein écran.</value>
+  </data>
+  <data name="REAplan_Go_Debut1" xml:space="preserve">
+    <value>Aller debut exo / STOP</value>
+  </data>
+  <data name="REAplan_Header_Steps1" xml:space="preserve">
+    <value>Etapes</value>
+  </data>
+  <data name="REAplan_Help_D1" xml:space="preserve">
+    <value>Obtient de l'aide sur l'utilisation de REAplan.</value>
+  </data>
+  <data name="REAplan_Help_T1" xml:space="preserve">
+    <value>Aide sur REAplan 2D (F1)</value>
+  </data>
+  <data name="REAplan_Home1" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="REAplan_Hunter1" xml:space="preserve">
+    <value>Chasseur</value>
+  </data>
+  <data name="REAplan_Identification1" xml:space="preserve">
+    <value>Identification</value>
+  </data>
+  <data name="REAplan_Init1" xml:space="preserve">
+    <value>Initialisation</value>
+  </data>
+  <data name="REAplan_Langue1" xml:space="preserve">
+    <value>Langage</value>
+  </data>
+  <data name="REAplan_Langue_D1" xml:space="preserve">
+    <value>Langues disponibles.</value>
+  </data>
+  <data name="REAplan_Left1" xml:space="preserve">
+    <value>Gauche</value>
+  </data>
+  <data name="REAplan_Libre1" xml:space="preserve">
+    <value>Libre</value>
+  </data>
+  <data name="REAplan_Lib_Poignee1" xml:space="preserve">
+    <value>Libérez la poignée lors de la calibration</value>
+  </data>
+  <data name="REAplan_Ludique1" xml:space="preserve">
+    <value>Rééducation</value>
+  </data>
+  <data name="REAplan_Man1" xml:space="preserve">
+    <value>Manuelle</value>
+  </data>
+  <data name="REAplan_Masse1" xml:space="preserve">
+    <value>Masse</value>
+  </data>
+  <data name="REAplan_Metro1" xml:space="preserve">
+    <value>Métronome</value>
+  </data>
+  <data name="REAplan_Mode1" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+  <data name="REAplan_More_info1" xml:space="preserve">
+    <value>More info</value>
+  </data>
+  <data name="REAplan_Naissance1" xml:space="preserve">
+    <value>Date de naissance : </value>
+  </data>
+  <data name="REAplan_NbrRep1" xml:space="preserve">
+    <value>Nombre de répétitions</value>
+  </data>
+  <data name="REAplan_Nbrs_Cibles1" xml:space="preserve">
+    <value>Nombres cibles</value>
+  </data>
+  <data name="REAplan_Nbrs_Ex1" xml:space="preserve">
+    <value>Nombres d'exercices : </value>
+  </data>
+  <data name="REAplan_Next_Exo1" xml:space="preserve">
+    <value>Exercice suivant !</value>
+  </data>
+  <data name="REAplan_Nom1" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="REAplan_Nouveau_Patient1" xml:space="preserve">
+    <value>Nouveau patient</value>
+  </data>
+  <data name="REAplan_On_Off1" xml:space="preserve">
+    <value>On / Off</value>
+  </data>
+  <data name="REAplan_Origine1" xml:space="preserve">
+    <value>Origine</value>
+  </data>
+  <data name="REAplan_Panic1" xml:space="preserve">
+    <value>Panic</value>
+  </data>
+  <data name="REAplan_Panic_D1" xml:space="preserve">
+    <value>Bouton Panic, arrêt violent du robot.</value>
+  </data>
+  <data name="REAplan_Param_Ex1" xml:space="preserve">
+    <value>Paramètres en début d'exercice</value>
+  </data>
+  <data name="REAplan_Passif1" xml:space="preserve">
+    <value>Passif</value>
+  </data>
+  <data name="REAplan_Pause1" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="REAplan_Pgm1" xml:space="preserve">
+    <value>Programme</value>
+  </data>
+  <data name="REAplan_Phrase1" xml:space="preserve">
+    <value>Phrase :</value>
+  </data>
+  <data name="REAplan_Port1" xml:space="preserve">
+    <value>Port :</value>
+  </data>
+  <data name="REAplan_Port_D1" xml:space="preserve">
+    <value>Change le port série selectionné pour communiquer avec le robot.</value>
+  </data>
+  <data name="REAplan_Port_T1" xml:space="preserve">
+    <value>Port Serie</value>
+  </data>
+  <data name="REAplan_Pos1" xml:space="preserve">
+    <value>Positionnement</value>
+  </data>
+  <data name="REAplan_Position1" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="REAplan_Pos_Home1" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="REAplan_Pos_Home_D1" xml:space="preserve">
+    <value>Ramène le robot à sa position de départ.</value>
+  </data>
+  <data name="REAplan_Precedent1" xml:space="preserve">
+    <value>Précédent &gt;</value>
+  </data>
+  <data name="REAplan_Prenom1" xml:space="preserve">
+    <value>Prenom</value>
+  </data>
+  <data name="REAplan_Preview1" xml:space="preserve">
+    <value>Aperçu Statique</value>
+  </data>
+  <data name="REAplan_PreviewD1" xml:space="preserve">
+    <value>Aperçu Dynamique</value>
+  </data>
+  <data name="REAplan_Product1" xml:space="preserve">
+    <value>Product details:</value>
+  </data>
+  <data name="REAplan_Quitter1" xml:space="preserve">
+    <value>_Quitter</value>
+  </data>
+  <data name="REAplan_Quitter_D1" xml:space="preserve">
+    <value>Ferme le programme.</value>
+  </data>
+  <data name="REAplan_Raideur_Lat1" xml:space="preserve">
+    <value>Raideur latérale</value>
+  </data>
+  <data name="REAplan_Raideur_Long1" xml:space="preserve">
+    <value>Raideur longitudinale</value>
+  </data>
+  <data name="REAplan_Rechercher1" xml:space="preserve">
+    <value>Rechercher :</value>
+  </data>
+  <data name="REAplan_Reeducation1" xml:space="preserve">
+    <value>Rééducation Adulte</value>
+  </data>
+  <data name="REAplan_Reference1" xml:space="preserve">
+    <value>Référence ( Fantôme )</value>
+  </data>
+  <data name="REAplan_Right1" xml:space="preserve">
+    <value>Droite</value>
+  </data>
+  <data name="REAplan_Robot1" xml:space="preserve">
+    <value>Robot</value>
+  </data>
+  <data name="REAplan_R_Lat1" xml:space="preserve">
+    <value>Raideur Lat.</value>
+  </data>
+  <data name="REAplan_R_Long1" xml:space="preserve">
+    <value>Raideur Long.</value>
+  </data>
+  <data name="REAplan_Save1" xml:space="preserve">
+    <value>Enregistrement</value>
+  </data>
+  <data name="REAplan_Save_As1" xml:space="preserve">
+    <value>Enregistrer sous</value>
+  </data>
+  <data name="REAplan_Selectionner1" xml:space="preserve">
+    <value>Selectionner</value>
+  </data>
+  <data name="REAplan_Send1" xml:space="preserve">
+    <value>Envoyer</value>
+  </data>
+  <data name="REAplan_Size_Arm1" xml:space="preserve">
+    <value>Taille du bras</value>
+  </data>
+  <data name="REAplan_Smoothness1" xml:space="preserve">
+    <value>Smoothness :</value>
+  </data>
+  <data name="REAplan_Son_On_Off1" xml:space="preserve">
+    <value>Son de fin</value>
+  </data>
+  <data name="REAplan_Start1" xml:space="preserve">
+    <value>START exercice !</value>
+  </data>
+  <data name="REAplan_Start_Opt1" xml:space="preserve">
+    <value>Start option :</value>
+  </data>
+  <data name="REAplan_State1" xml:space="preserve">
+    <value>Etat :</value>
+  </data>
+  <data name="REAplan_State_R1" xml:space="preserve">
+    <value>Etat Robot :</value>
+  </data>
+  <data name="REAplan_Static_Dyn1" xml:space="preserve">
+    <value>Statique / Dynamique</value>
+  </data>
+  <data name="REAplan_Stop1" xml:space="preserve">
+    <value>STOP</value>
+  </data>
+  <data name="REAplan_Straightness1" xml:space="preserve">
+    <value>Straightness :</value>
+  </data>
+  <data name="REAplan_Suivant1" xml:space="preserve">
+    <value>&lt; Suivant</value>
+  </data>
+  <data name="REAplan_Supprimer1" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="REAplan_Sync1" xml:space="preserve">
+    <value>Syncro.</value>
+  </data>
+  <data name="REAplan_Taille1" xml:space="preserve">
+    <value>Taille</value>
+  </data>
+  <data name="REAplan_Taille_F1" xml:space="preserve">
+    <value>Taille :</value>
+  </data>
+  <data name="REAplan_Temps1" xml:space="preserve">
+    <value>Temps</value>
+  </data>
+  <data name="REAplan_Themes1" xml:space="preserve">
+    <value>Thèmes</value>
+  </data>
+  <data name="REAplan_Timer_X21" xml:space="preserve">
+    <value>Temps x2</value>
+  </data>
+  <data name="REAplan_Titre1" xml:space="preserve">
+    <value>REAplan 2D Alpha</value>
+  </data>
+  <data name="REAplan_Tools1" xml:space="preserve">
+    <value>Outils</value>
+  </data>
+  <data name="REAplan_Trace1" xml:space="preserve">
+    <value>Trace</value>
+  </data>
+  <data name="REAplan_Type_F1" xml:space="preserve">
+    <value>Type :</value>
+  </data>
+  <data name="REAplan_Ucl1" xml:space="preserve">
+    <value>UCL</value>
+  </data>
+  <data name="REAplan_Up1" xml:space="preserve">
+    <value>Haut</value>
+  </data>
+  <data name="REAplan_version1" xml:space="preserve">
+    <value>Version - </value>
+  </data>
+  <data name="REAplan_Viscosite1" xml:space="preserve">
+    <value>Viscosité</value>
+  </data>
+  <data name="REAplan_Visualisation1" xml:space="preserve">
+    <value>Visualisation</value>
+  </data>
+  <data name="REAplan_Vitesse1" xml:space="preserve">
+    <value>Vitesse</value>
+  </data>
+  <data name="REAplan_Vit_M1" xml:space="preserve">
+    <value>Vit. Moy. :</value>
+  </data>
+  <data name="REAplan_Vit_P1" xml:space="preserve">
+    <value>Vit. Peak :</value>
+  </data>
+  <data name="ZoomEnum_Grand1" xml:space="preserve">
+    <value>Grand</value>
+  </data>
+  <data name="ZoomEnum_Moyen1" xml:space="preserve">
+    <value>Moyen</value>
+  </data>
+  <data name="ZoomEnum_Petit1" xml:space="preserve">
+    <value>Petit</value>
+  </data>
+  <data name="REAplan_Enfant" xml:space="preserve">
+    <value>Enfant</value>
+  </data>
+  <data name="REAplan_Unconnect" xml:space="preserve">
+    <value>Déconnecter le thérapute</value>
+  </data>
+  <data name="REAplan_Cycle" xml:space="preserve">
+    <value>Cycle(s) :</value>
+  </data>
+  <data name="REAplan_Pied" xml:space="preserve">
+    <value>Réglage de la hauteur</value>
+  </data>
+  <data name="REAplan_Descendre" xml:space="preserve">
+    <value>Descendre</value>
+  </data>
+  <data name="REAplan_Descendre_D" xml:space="preserve">
+    <value>Descendre la table du robot</value>
+  </data>
+  <data name="REAplan_Monter" xml:space="preserve">
+    <value>  Monter  </value>
+  </data>
+  <data name="REAplan_Monter_D" xml:space="preserve">
+    <value>Monter la table du robot</value>
+  </data>
+  <data name="REAplan_Erreur_Admin" xml:space="preserve">
+    <value>L'application doit être executée en tant qu'administrateur !</value>
+  </data>
+  <data name="REAplan_Erreur_ArretRobot" xml:space="preserve">
+    <value>Svp appuyer sur le bouton d'arret d'urgence !</value>
+  </data>
+  <data name="REAplan_Erreur_BD" xml:space="preserve">
+    <value>Erreur avec la base de données !</value>
+  </data>
+  <data name="REAplan_Erreur_Calibration" xml:space="preserve">
+    <value>Veuillez effectuer une nouvelle calibration.</value>
+  </data>
+  <data name="REAplan_Erreur_Call" xml:space="preserve">
+    <value>Veuillez contacter le service technique au numéro suivant :</value>
+  </data>
+  <data name="REAplan_Erreur_Critique" xml:space="preserve">
+    <value>Une erreur critique est survenue pendant l'exécution de l'application ! Le programme va maintenant se fermer.</value>
+  </data>
+  <data name="REAplan_Erreur_Fichier" xml:space="preserve">
+    <value>Impossible de trouver le fichier !</value>
+  </data>
+  <data name="REAplan_Erreur_NumeroTelephone" xml:space="preserve">
+    <value>+32 473 61 43 26</value>
+  </data>
+  <data name="REAplan_Erreur_PlaceDisqueDur" xml:space="preserve">
+    <value>Vous n'avez plus assez de place disponible sur votre disque dur !</value>
+  </data>
+  <data name="REAplan_Erreur_PortSerie_1" xml:space="preserve">
+    <value>Vous êtes déjà connecté au robot !</value>
+  </data>
+  <data name="REAplan_Erreur_PortSerie_2" xml:space="preserve">
+    <value>Le port série sélectionné n'est pas valide !</value>
+  </data>
+  <data name="REAplan_Erreur_Robot" xml:space="preserve">
+    <value>Une Erreur est survenue avec le REApan !</value>
+  </data>
+  <data name="REAplan_Erreur_Sql_Defaut" xml:space="preserve">
+    <value>Erreur avec la base données !</value>
+  </data>
+  <data name="REAplan_Erreur_Sql_Fichier" xml:space="preserve">
+    <value>Impossible d'ouvrir la base de données !</value>
+  </data>
+  <data name="REAplan_Erreur_Sql_Mdp" xml:space="preserve">
+    <value>Echec de la connexion !\nVeuillez vérifier les informations entrées.</value>
+  </data>
+  <data name="REAplan_Erreur_Sql_Serveur" xml:space="preserve">
+    <value>Impossible de se connecter à la base de données !</value>
+  </data>
+  <data name="REAplan_Erreur_Sql_Unique" xml:space="preserve">
+    <value>Utilisateur déjà enregistré dans la base de données !</value>
+  </data>
+  <data name="REAplan_Accueil_Confirmation" xml:space="preserve">
+    <value>Voulez-vous vraiment retourner à la page d'accueil ?</value>
+  </data>
+  <data name="REAplan_Annuler" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="REAplan_Changer_Config" xml:space="preserve">
+    <value>Changer configuration</value>
+  </data>
+  <data name="REAplan_Choisir_Date" xml:space="preserve">
+    <value>Choisir une date</value>
+  </data>
+  <data name="REAplan_Complexe" xml:space="preserve">
+    <value>Complexe</value>
+  </data>
+  <data name="REAplan_Confirmation" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
+  <data name="REAplan_Confirmation_Quitter" xml:space="preserve">
+    <value>Voulez vous vraiment quitter?</value>
+  </data>
+  <data name="REAplan_Confirm_Mot_De_Passe" xml:space="preserve">
+    <value>Confirmation du mot de passe : </value>
+  </data>
+  <data name="REAplan_Connecter" xml:space="preserve">
+    <value>Connecter</value>
+  </data>
+  <data name="REAplan_Connexion_Erreur" xml:space="preserve">
+    <value>Veuillez entrer un nom d'utilisateur et un mot de passe valide</value>
+  </data>
+  <data name="REAplan_Connexion_Erreur2" xml:space="preserve">
+    <value>Identifiants non valide</value>
+  </data>
+  <data name="REAplan_Connexion_Patient" xml:space="preserve">
+    <value>Connexion réussie</value>
+  </data>
+  <data name="REAplan_Cyclique" xml:space="preserve">
+    <value>Cyclique</value>
+  </data>
+  <data name="REAplan_Demarrage" xml:space="preserve">
+    <value>Démarrage</value>
+  </data>
+  <data name="REAplan_Demo" xml:space="preserve">
+    <value>Démo</value>
+  </data>
+  <data name="REAplan_Difficile" xml:space="preserve">
+    <value>Difficile</value>
+  </data>
+  <data name="REAplan_Discret_Cognitif" xml:space="preserve">
+    <value>Discret cognitif</value>
+  </data>
+  <data name="REAplan_Discret_Dynamique" xml:space="preserve">
+    <value>Discret dynamique</value>
+  </data>
+  <data name="REAplan_Discret_Statique" xml:space="preserve">
+    <value>Discret statique</value>
+  </data>
+  <data name="REAplan_Enregistrement_Therapeute" xml:space="preserve">
+    <value>Enregistrement thérapeute</value>
+  </data>
+  <data name="REAplan_Enregistrer_Modif" xml:space="preserve">
+    <value>Enregistrer les modifications</value>
+  </data>
+  <data name="REAplan_Entrainement" xml:space="preserve">
+    <value>Entraînement</value>
+  </data>
+  <data name="REAplan_Evaluation_Cinematique" xml:space="preserve">
+    <value>Cinématique</value>
+  </data>
+  <data name="REAplan_Exercice_Suivant" xml:space="preserve">
+    <value>Exercice Suivant</value>
+  </data>
+  <data name="REAplan_Expert" xml:space="preserve">
+    <value>Expert</value>
+  </data>
+  <data name="REAplan_Facile" xml:space="preserve">
+    <value>Facile</value>
+  </data>
+  <data name="REAplan_Feminin" xml:space="preserve">
+    <value>Féminin</value>
+  </data>
+  <data name="REAplan_Fin_Exercice" xml:space="preserve">
+    <value>Fin de l'exercice</value>
+  </data>
+  <data name="REAplan_Fin_Exercice2" xml:space="preserve">
+    <value>Exercice terminé</value>
+  </data>
+  <data name="REAplan_Grand_Zoom" xml:space="preserve">
+    <value>Grand</value>
+  </data>
+  <data name="REAplan_IdNational" xml:space="preserve">
+    <value>Id national</value>
+  </data>
+  <data name="REAplan_Impossible_Enregistrer_Utilisateur" xml:space="preserve">
+    <value>Impossible d'inscrire un utilisateur. Veuillez contacter un administrateur.</value>
+  </data>
+  <data name="REAplan_Imprimer" xml:space="preserve">
+    <value>Imprimer</value>
+  </data>
+  <data name="REAplan_Inscription" xml:space="preserve">
+    <value>Inscription</value>
+  </data>
+  <data name="REAplan_Inscription_Erreur" xml:space="preserve">
+    <value>Erreur inscription</value>
+  </data>
+  <data name="REAplan_Inscrire" xml:space="preserve">
+    <value>S'inscrire</value>
+  </data>
+  <data name="REAplan_Masculin" xml:space="preserve">
+    <value>Masculin</value>
+  </data>
+  <data name="REAplan_Modification_Confirmation" xml:space="preserve">
+    <value>Le patient a bien été modifié</value>
+  </data>
+  <data name="REAplan_Modification_Demande_Confirmation" xml:space="preserve">
+    <value>Voulez-vous vraiment modifier le patient?</value>
+  </data>
+  <data name="REAplan_Modifier" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="REAplan_Mot_De_Passe" xml:space="preserve">
+    <value>Mot de passe : </value>
+  </data>
+  <data name="REAplan_Moyen" xml:space="preserve">
+    <value>Moyen</value>
+  </data>
+  <data name="REAplan_Moyen_Zoom" xml:space="preserve">
+    <value>Moyen</value>
+  </data>
+  <data name="REAplan_New_Config" xml:space="preserve">
+    <value>La configuration a bien été modifiée !</value>
+  </data>
+  <data name="REAplan_New_Config2" xml:space="preserve">
+    <value>Modification configuration</value>
+  </data>
+  <data name="REAplan_Nom_Utilisateur" xml:space="preserve">
+    <value>Login : </value>
+  </data>
+  <data name="REAplan_Page" xml:space="preserve">
+    <value>Page </value>
+  </data>
+  <data name="REAplan_Patient_Enregistre" xml:space="preserve">
+    <value>Le patient a bien été enregistré</value>
+  </data>
+  <data name="REAplan_PDF" xml:space="preserve">
+    <value>PDF</value>
+  </data>
+  <data name="REAplan_PDF_Confirmation" xml:space="preserve">
+    <value>Votre document pdf a bien été créé</value>
+  </data>
+  <data name="REAplan_Petit_Zoom" xml:space="preserve">
+    <value>Petit</value>
+  </data>
+  <data name="REAplan_Poids_Patient" xml:space="preserve">
+    <value>Poids du patient :</value>
+  </data>
+  <data name="REAplan_Recommencer" xml:space="preserve">
+    <value>Recommencer</value>
+  </data>
+  <data name="REAplan_Reeducation_Mouvement" xml:space="preserve">
+    <value>Rééducation mouvement</value>
+  </data>
+  <data name="REAplan_Score" xml:space="preserve">
+    <value>Score</value>
+  </data>
+  <data name="REAplan_Sexe" xml:space="preserve">
+    <value>Sexe : </value>
+  </data>
+  <data name="REAplan_Suppression" xml:space="preserve">
+    <value>Suppression</value>
+  </data>
+  <data name="REAplan_Supprimer_Confirmation" xml:space="preserve">
+    <value>Voulez-vous vraiment supprimer le patient?</value>
+  </data>
+  <data name="REAplan_Supprimer_Patient" xml:space="preserve">
+    <value>Patient supprimé</value>
+  </data>
+  <data name="REAplan_Sur" xml:space="preserve">
+    <value>sur </value>
+  </data>
+  <data name="REAplan_Taille_Patient" xml:space="preserve">
+    <value>Taille du patient :</value>
+  </data>
+  <data name="REAplan_Unconnect2" xml:space="preserve">
+    <value>Êtes-vous sur de vouloir vous déconnecter ?</value>
+  </data>
+  <data name="REAplan_Unconnect_Patient" xml:space="preserve">
+    <value>Déconnecter le patient</value>
+  </data>
+  <data name="REAplan_Unconnect_Patient2" xml:space="preserve">
+    <value>Êtes-vous sur de vouloir déconnecter le patient ?</value>
+  </data>
+  <data name="REAplan_Utilisateur_Enregistre" xml:space="preserve">
+    <value>Utilisateur enregistré</value>
+  </data>
+  <data name="REAplan_Validation_IdNat" xml:space="preserve">
+    <value>Entrez un Chiffre !</value>
+  </data>
+  <data name="REAplan_Validation_IdNat_Chiffre" xml:space="preserve">
+    <value>Doit avoir 3 chiffres</value>
+  </data>
+  <data name="REAplan_Validation_IdNat_Digit" xml:space="preserve">
+    <value>Digit non valide !</value>
+  </data>
+  <data name="REAplan_Validation_IdNat_Femme" xml:space="preserve">
+    <value>Doit être une femme !</value>
+  </data>
+  <data name="REAplan_Validation_IdNat_Homme" xml:space="preserve">
+    <value>Doit être un homme !</value>
+  </data>
+  <data name="REAplan_Validation_IdNat_Lettre" xml:space="preserve">
+    <value>Ne peut pas contenir de lettres !</value>
+  </data>
+  <data name="REAplan_Validation_IdNat_Negatif" xml:space="preserve">
+    <value>Ne peut pas être négative !</value>
+  </data>
+  <data name="REAplan_Validation_Mot_De_Passe" xml:space="preserve">
+    <value>Mot de passe obligatoire !</value>
+  </data>
+  <data name="REAplan_Validation_Mot_De_Passe_Confirmation" xml:space="preserve">
+    <value>Les mots de passe ne correspondent pas !</value>
+  </data>
+  <data name="REAplan_Validation_Mot_De_Passe_Taille" xml:space="preserve">
+    <value>Doit contenir entre 5 et 20 caractères !</value>
+  </data>
+  <data name="REAplan_Validation_Nom" xml:space="preserve">
+    <value>Entrez un nom !</value>
+  </data>
+  <data name="REAplan_Validation_Nom_Chiffre" xml:space="preserve">
+    <value>Le nom ne peut pas contenir de chiffres !</value>
+  </data>
+  <data name="REAplan_Validation_Nom_Taille" xml:space="preserve">
+    <value>Doit contenir entre 1 et 100 lettres !</value>
+  </data>
+  <data name="REAplan_Validation_Nom_Utilisateur" xml:space="preserve">
+    <value>Entrez un nom d'utilisateur !</value>
+  </data>
+  <data name="REAplan_Validation_Poids" xml:space="preserve">
+    <value>Entrez un poids !</value>
+  </data>
+  <data name="REAplan_Validation_Poids_Lettre" xml:space="preserve">
+    <value>Le poids ne peut pas contenir de lettres !</value>
+  </data>
+  <data name="REAplan_Validation_Poids_Negatif" xml:space="preserve">
+    <value>Le poids ne peut pas être négative !</value>
+  </data>
+  <data name="REAplan_Validation_Poids_Plausible" xml:space="preserve">
+    <value>Entrez un poids plausible !</value>
+  </data>
+  <data name="REAplan_Validation_Prenom" xml:space="preserve">
+    <value>Entrez un prénom !</value>
+  </data>
+  <data name="REAplan_Validation_Prenom_Chiffre" xml:space="preserve">
+    <value>Le prénom ne peut pas contenir de chiffres !</value>
+  </data>
+  <data name="REAplan_Validation_Taille" xml:space="preserve">
+    <value>Entrez une taille !</value>
+  </data>
+  <data name="REAplan_Validation_Taille_Lettre" xml:space="preserve">
+    <value>La taille ne peut pas contenir de lettres !</value>
+  </data>
+  <data name="REAplan_Validation_Taille_Negative" xml:space="preserve">
+    <value>La taille ne peut pas être négative !</value>
+  </data>
+  <data name="REAplan_Validation_Taille_Plausible" xml:space="preserve">
+    <value>Entrez une taille plausible !</value>
+  </data>
+  <data name="REAplan_Option" xml:space="preserve">
+    <value>Option</value>
+  </data>
+  <data name="REAplan_Changer_Langage" xml:space="preserve">
+    <value>Le changement de langage sera appliqué après redémarrage de l'application.</value>
+  </data>
+  <data name="REAplan_Volume_Faible" xml:space="preserve">
+    <value>Le volume sonore de l'application est trop faible, Voulez vous l'augmenter ?</value>
+  </data>
+</root>

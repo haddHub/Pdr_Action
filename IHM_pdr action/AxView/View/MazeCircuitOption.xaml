@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="AxView.View.MazeCircuitOption"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:res="clr-namespace:AxLanguage;assembly=AxLanguage"
+             mc:Ignorable="d" 
+             MinWidth="1228" MinHeight="550">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.927*"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" BorderBrush="Black" BorderThickness="0,0,1,0" >
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <RadioButton Content="Unimanuel" GroupName="UniBi" IsChecked="{Binding UniChecked}"/>
+                    <RadioButton Content="Bimanuel" GroupName="UniBi" IsChecked="{Binding BiChecked}"/>
+                </StackPanel>
+            </Border>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1">
+                <RadioButton GroupName="GaucheDroite" IsChecked="{Binding GaucheXChecked}">
+                    <RadioButton.Style>
+                        <Style TargetType="RadioButton">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding UniChecked}" Value="False" >
+                                    <Setter Property="Content">
+                                        <Setter.Value>
+                                            <StackPanel Orientation="Horizontal" >
+                                                <Image Source="/Resources/Image/32x32/fleche_double.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="32" Width="32" />
+                                                <Image Source="/Resources/Image/32x32/fleche_double_rotation.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="32" Width="32" />
+                                            </StackPanel>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding UniChecked}" Value="True" >
+                                    <Setter Property="Content">
+                                        <Setter.Value>
+                                            <StackPanel Orientation="Horizontal" >
+                                                <Label Content="Gauche" VerticalAlignment="Center" HorizontalAlignment="Center" Height="32" />
+                                            </StackPanel>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </RadioButton.Style>
+                </RadioButton>
+                <RadioButton GroupName="GaucheDroite" IsChecked="{Binding GaucheYChecked}">
+                    <RadioButton.Style>
+                        <Style TargetType="RadioButton">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding UniChecked}" Value="False" >
+                                    <Setter Property="Content">
+                                        <Setter.Value>
+                                            <StackPanel Orientation="Horizontal" >
+                                                <Image Source="/Resources/Image/32x32/fleche_double_rotation.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="32" Width="32" />
+                                                <Image Source="/Resources/Image/32x32/fleche_double.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="32" Width="32" />
+                                            </StackPanel>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding UniChecked}" Value="True" >
+                                    <Setter Property="Content">
+                                        <Setter.Value>
+                                            <StackPanel Orientation="Horizontal" >
+                                                <Label Content="Droit" VerticalAlignment="Center" HorizontalAlignment="Center" Height="32" />
+                                            </StackPanel>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </RadioButton.Style>
+                </RadioButton>
+            </StackPanel>
+        </Grid>
+        
+        <Border BorderBrush="Black" BorderThickness="0,1,0,0" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" d:LayoutOverrides="Height" Margin="0" HorizontalAlignment="Right">
+                <Button Content="{x:Static res:Languages.REAplan_Precedent}" FontSize="20" Margin="10,0" Height="50" Width="150" Padding="0" Command="{Binding PreviousViewModelCommand}"/>
+                <Button Content="{x:Static res:Languages.REAplan_Suivant}" Command="{Binding NextViewModelCommand}" FontSize="20" Margin="10,0" Height="50" Width="150" Padding="0" />
+                <Button Content="{x:Static res:Languages.REAplan_Accueil}" FontSize="20" Margin="10,0" Height="50" Width="150" Padding="0"  Command="{Binding PreviousViewModelCommand}"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

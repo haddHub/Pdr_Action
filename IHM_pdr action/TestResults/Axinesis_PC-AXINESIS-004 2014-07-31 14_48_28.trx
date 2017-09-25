@@ -1,0 +1,859 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="050733ba-5a06-4768-924f-cb44225a01e4" name="Axinesis@PC-AXINESIS-004 2014-07-31 14:48:28" runUser="PC-AXINESIS-004\Axinesis" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Paramètres de test par défaut" id="84b23eb0-e0df-4066-80c9-c12e3a4e4bf9">
+    <Deployment runDeploymentRoot="Axinesis_PC-AXINESIS-004 2014-07-31 14_48_28">
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\Effort.1.1.0\lib\net40\Effort.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGeneric\bin\Debug\AxExerciceGenerator.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\MvvmLightLibs.4.4.32.1\lib\net40\System.Windows.Interactivity.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxLanguage\bin\Debug\AxLanguage.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse\bin\Debug\AxAnalyse.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxError\bin\Debug\AxError.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxModelExercice\bin\Debug\AxModelExercice.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\NUnit 2.6.3\bin\framework\nunit.mocks.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\NLog.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\Moq.4.2.1402.2112\lib\net40\Moq.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\Common.Logging.2.2.0\lib\net40\Common.Logging.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxExerciceConfig\bin\Debug\AxExerciceConfig.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\MvvmLightLibs.4.4.32.1\lib\net40\GalaSoft.MvvmLight.Extras.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\NMemory.1.0.0\lib\net40\NMemory.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\NUnit 2.6.3\bin\framework\nunit.framework.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxData\bin\Debug\AxData.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\bin\Debug\AxViewModel.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxNavigation\NavegarLib\Navegar.WPF4\bin\Debug\Navegar.WPF4.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\Common.Logging.Core.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\MvvmLightLibs.4.4.32.1\lib\net40\GalaSoft.MvvmLight.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxAction\bin\Debug\AxAction.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\Common.Logging.NLog20.2.2.0\lib\net40\Common.Logging.NLog20.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxCommunication\bin\Debug\AxCommunication.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxModel\bin\Debug\AxModel.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-07-31T14:48:28.6927452+02:00" queuing="2014-07-31T14:48:32.3022988+02:00" start="2014-07-31T14:48:32.4585575+02:00" finish="2014-07-31T14:49:16.2967026+02:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="114" executed="114" passed="113" error="1" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Erreur_Robot_LogicSupplyVoltageTooLowError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="4f482e75-1f13-6e68-c51e-899481bb394c" xmlns="AxError.Test">
+      <Execution id="f251835f-e182-4634-9336-b39f9ef7cc07" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_LogicSupplyVoltageTooLowError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Bon_Prenom_Patient_Trouve" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="44ed4079-9453-ff0c-84c2-ac19b4af933d" xmlns="AxData.Test">
+      <Execution id="1503ba7d-6499-47b8-94a5-a376507b8235" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataPatientTest" name="Bon_Prenom_Patient_Trouve" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_GearScalingFactorError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="5f4e2034-866f-4eb1-0441-6555f1681d32" xmlns="AxError.Test">
+      <Execution id="e0dfdac0-a7bc-4946-aaae-ba2aec5b99c4" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_GearScalingFactorError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Ecart_Type" storage="c:\users\axinesis\desktop\ihm_base\axmodel.test\bin\debug\axmodel.test.dll" id="7a8c8ab2-cc1f-665a-6687-1b4694c99073" xmlns="AxModel.Test">
+      <Execution id="83b1d03e-aa48-4634-b1e6-6152f755f8e3" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxModel.Test\bin\Debug\AxModel.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxModel.Test.ModelTest" name="Ecart_Type" />
+    </UnitTest>
+    <UnitTest name="Patient_DateNaissance_Obligatoire" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="7d2a5c74-8b81-7def-78d9-19fc9e6c2ea4" xmlns="AxData.Test">
+      <Execution id="820e7f9f-5523-4d77-8b59-6aa9792fd01d" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataPatientTest" name="Patient_DateNaissance_Obligatoire" />
+    </UnitTest>
+    <UnitTest name="Connexion_Robot_Correcte" storage="c:\users\axinesis\desktop\ihm_base\axcommunication.test\bin\debug\axcommunication.test.dll" id="ae8642d5-07bc-0f18-4b31-bcbab057a0d0" xmlns="AxCommunication.Test">
+      <Execution id="519aa0f0-8675-418e-83df-e06f79910f4d" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxCommunication.Test\bin\Debug\AxCommunication.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxCommunication.Test.PortSerieTest" name="Connexion_Robot_Correcte" />
+    </UnitTest>
+    <UnitTest name="Erreur_Autres_Exception_Doit_Couper_Le_Programme" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="92fd36a1-ca75-7f92-7bd2-2dc408eedb40" xmlns="AxError.Test">
+      <Execution id="9f5edaab-c2e1-45a8-b650-c2ed5801f4bd" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Autres_Exception_Doit_Couper_Le_Programme" />
+    </UnitTest>
+    <UnitTest name="Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Facile" storage="c:\users\axinesis\desktop\ihm_base\axexercicegenerator.test\bin\debug\axexercicegenerator.test.dll" id="84265baa-a0fc-9eb4-5420-2fc493c758dd" xmlns="AxExerciceGenerator.Test">
+      <Execution id="f9e36063-68fd-4243-ac08-c02a9badb594" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\bin\Debug\AxExerciceGenerator.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxExerciceGenerator.Test.ExerciceGeneratorTest" name="Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Facile" />
+    </UnitTest>
+    <UnitTest name="Patient_Taille_Obligatoire" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="a7d2c1fe-6292-38c4-b190-463be3c8cf93" xmlns="AxData.Test">
+      <Execution id="ff45194b-809c-4126-a271-d3c16165672b" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataPatientTest" name="Patient_Taille_Obligatoire" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_InternalSoftwareError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="b97e58f3-cbc0-bcdd-6669-a43c0d325371" xmlns="AxError.Test">
+      <Execution id="d9320274-54a4-48f5-a8c3-7a037381b712" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_InternalSoftwareError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Exercice_Doit_Etre_Type_Carre_Avec_Theme" storage="c:\users\axinesis\desktop\ihm_base\axexercicegenerator.test\bin\debug\axexercicegenerator.test.dll" id="f6827a5d-d000-6b57-1a5d-244c917c4e49" xmlns="AxExerciceGenerator.Test">
+      <Execution id="37a0f5b4-e2c2-47bb-abc6-69550315d56c" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\bin\Debug\AxExerciceGenerator.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxExerciceGenerator.Test.ExerciceGeneratorTest" name="Exercice_Doit_Etre_Type_Carre_Avec_Theme" />
+    </UnitTest>
+    <UnitTest name="Erreur_OutOfMemoryException_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="5188289e-0f4c-4bba-4f87-aede2c765fd5" xmlns="AxError.Test">
+      <Execution id="fed016bf-451c-4cf6-b307-2c639b11053a" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_OutOfMemoryException_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_OvertemperatureError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="bf764ba8-8696-c92f-3f57-afea2c1bfe57" xmlns="AxError.Test">
+      <Execution id="64436dfb-fc5e-4e44-9be4-b1fe3cc7e314" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_OvertemperatureError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Therapeute_Connection_Login_Faux_Mdp_Bon" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="454cd542-f819-baab-5e5e-809ca9946cca" xmlns="AxData.Test">
+      <Execution id="c2368192-3eef-4598-be7d-045e819f8248" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataTherapeuteTest" name="Therapeute_Connection_Login_Faux_Mdp_Bon" />
+    </UnitTest>
+    <UnitTest name="Erreur_SqlException_Num53_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="ea2c6b0a-c912-2fce-46c5-ac0346f15352" xmlns="AxError.Test">
+      <Execution id="2e5b57fc-fdbe-4276-85c1-58a295253aa1" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_SqlException_Num53_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Exercice_Eval_Doit_Avoir_Big_Borne" storage="c:\users\axinesis\desktop\ihm_base\axexercicegenerator.test\bin\debug\axexercicegenerator.test.dll" id="6e80c6e1-e5cc-e094-8690-e0b15e42b61e" xmlns="AxExerciceGenerator.Test">
+      <Execution id="3102193e-e9b5-4c40-9e58-b9c911dd9238" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\bin\Debug\AxExerciceGenerator.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxExerciceGenerator.Test.ExerciceGeneratorTest" name="Exercice_Eval_Doit_Avoir_Big_Borne" />
+    </UnitTest>
+    <UnitTest name="Patient_ID1_Obligatoire" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="c49b8624-edd6-882f-a895-24bc1ddc98ef" xmlns="AxData.Test">
+      <Execution id="9d40e628-fe38-4093-9262-35c16a492632" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataPatientTest" name="Patient_ID1_Obligatoire" />
+    </UnitTest>
+    <UnitTest name="Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Difficile" storage="c:\users\axinesis\desktop\ihm_base\axexercicegenerator.test\bin\debug\axexercicegenerator.test.dll" id="1feb75d6-6075-769f-0ca5-c7a95c479767" xmlns="AxExerciceGenerator.Test">
+      <Execution id="6c3a8e14-165b-4c5d-a3e8-cdf4034b3e11" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\bin\Debug\AxExerciceGenerator.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxExerciceGenerator.Test.ExerciceGeneratorTest" name="Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Difficile" />
+    </UnitTest>
+    <UnitTest name="CalcSommeAbs_retourne_positif_quand_reponse_positive" storage="c:\users\axinesis\desktop\ihm_base\axanalyse.test\bin\debug\axanalyse.test.dll" id="dc5d423e-851c-6658-b8be-e6a841de2fd1" xmlns="AxAnalyse.Test">
+      <Execution id="bb7634f7-df28-4e77-b244-bafeb1ac76eb" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse.Test\bin\Debug\AxAnalyse.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxAnalyse.Test.AnalyseTest" name="CalcSommeAbs_retourne_positif_quand_reponse_positive" />
+    </UnitTest>
+    <UnitTest name="Patient_Poids_Obligatoire" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="20b118dc-27e8-ed17-0ac4-d5df103752d3" xmlns="AxData.Test">
+      <Execution id="8ce438f3-539b-42af-ba1f-ac4a1a79afdb" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataPatientTest" name="Patient_Poids_Obligatoire" />
+    </UnitTest>
+    <UnitTest name="Therapeute_Nom_Obligatoire" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="70c3bcd2-30f3-dc55-d57b-3305735ab2fe" xmlns="AxData.Test">
+      <Execution id="61a8f057-4b17-4f3f-b1c0-fa4ae2b951c2" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataTherapeuteTest" name="Therapeute_Nom_Obligatoire" />
+    </UnitTest>
+    <UnitTest name="Erreur_SqlException_Num10054_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="685bc9e4-6b9e-eafd-c8ef-4d24f897588d" xmlns="AxError.Test">
+      <Execution id="58d273ab-8752-4c45-b87e-ca7e637e6b76" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_SqlException_Num10054_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Therapeute_Confirmation_Mot_De_Passe_Valide" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="70ebb40d-5861-d5c1-a3ef-791dade40bd9" xmlns="AxData.Test">
+      <Execution id="de3d50f1-630e-4890-b8e4-82810ce6b23e" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataTherapeuteTest" name="Therapeute_Confirmation_Mot_De_Passe_Valide" />
+    </UnitTest>
+    <UnitTest name="Erreur_SqlException_Num18452_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="4d48ca6b-511b-39ac-a68c-91352d15b1df" xmlns="AxError.Test">
+      <Execution id="60d2ec52-5b12-4b4b-8dd7-8c49f7777b27" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_SqlException_Num18452_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Taille_Trop_Grande" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="d1d5bdee-95e1-826a-6e8c-92bd1b1d1870" xmlns="AxError.Test">
+      <Execution id="28964ff6-7ec4-4d43-ae2b-66d1eed7aa16" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.ErrorInterfaceTest" name="Taille_Trop_Grande" />
+    </UnitTest>
+    <UnitTest name="Therapeute_Mot_De_Passe_Longeur_Valide" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="b7e43fdb-6e64-2c94-dcce-89d4bd434ec6" xmlns="AxData.Test">
+      <Execution id="3a52c4cf-42e3-4dd8-ab74-5a4a74b8278a" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataTherapeuteTest" name="Therapeute_Mot_De_Passe_Longeur_Valide" />
+    </UnitTest>
+    <UnitTest name="Inscription_Administrateur" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="9ef9f365-076b-fb6f-67f0-e145ead2e579" xmlns="AxData.Test">
+      <Execution id="d4a3dcaa-b3b6-4d4e-868f-d094abf74b60" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataTherapeuteTest" name="Inscription_Administrateur" />
+    </UnitTest>
+    <UnitTest name="Patient_Prenom_Avec_Chiffre_Non_Valdie" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="753937c8-a9eb-1241-f3c3-39b8d5bc3c92" xmlns="AxError.Test">
+      <Execution id="95c54eb4-e683-4727-9c87-289bffb4af28" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.ErrorInterfaceTest" name="Patient_Prenom_Avec_Chiffre_Non_Valdie" />
+    </UnitTest>
+    <UnitTest name="Digit_Apres_Decembre_1999_Correct" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="79e0f4ac-752d-6854-5869-d79798ecc5d8" xmlns="AxError.Test">
+      <Execution id="6a5f8a66-ffe6-4330-a0e9-ba28edf60252" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.ErrorInterfaceTest" name="Digit_Apres_Decembre_1999_Correct" />
+    </UnitTest>
+    <UnitTest name="Poids_Trop_Grand" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="25abb7b9-1485-9596-f399-1468ba684cfa" xmlns="AxError.Test">
+      <Execution id="bfa73be4-e3c6-4100-b548-6f3dbd37ccf9" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.ErrorInterfaceTest" name="Poids_Trop_Grand" />
+    </UnitTest>
+    <UnitTest name="Admin_Dans_La_Bd" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="ee9a69f6-cf44-b467-cc2a-1e750c89a07f" xmlns="AxData.Test">
+      <Execution id="e93f051b-f78d-41d2-81a0-26fe72100b75" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataTherapeuteTest" name="Admin_Dans_La_Bd" />
+    </UnitTest>
+    <UnitTest name="CalcSommeAbs_retourne_positif_quand_reponse_negative" storage="c:\users\axinesis\desktop\ihm_base\axanalyse.test\bin\debug\axanalyse.test.dll" id="23292fbe-adfa-993b-82f2-7c477d400857" xmlns="AxAnalyse.Test">
+      <Execution id="103e56bb-8f9a-469d-b5a4-64dd951ba0f9" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse.Test\bin\Debug\AxAnalyse.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxAnalyse.Test.AnalyseTest" name="CalcSommeAbs_retourne_positif_quand_reponse_negative" />
+    </UnitTest>
+    <UnitTest name="Deconnexion_Robot_Correcte" storage="c:\users\axinesis\desktop\ihm_base\axcommunication.test\bin\debug\axcommunication.test.dll" id="8786509f-e646-d735-fbae-09bb7ea9968d" xmlns="AxCommunication.Test">
+      <Execution id="298065f8-3f06-4948-877c-bc47dc890f52" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxCommunication.Test\bin\Debug\AxCommunication.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxCommunication.Test.PortSerieTest" name="Deconnexion_Robot_Correcte" />
+    </UnitTest>
+    <UnitTest name="Erreur_FileNotFoundException_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="46f2fb7c-cbb5-3f4f-7fbb-54c6e13304f7" xmlns="AxError.Test">
+      <Execution id="44ed1491-e5d0-4a6e-8a1f-57aef8ad96c9" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_FileNotFoundException_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Poids_Est_Valide" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="29643fec-276c-0215-f794-e8f805cfc972" xmlns="AxError.Test">
+      <Execution id="69913104-83c9-4324-84fa-8e6f34dc95f6" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.ErrorInterfaceTest" name="Poids_Est_Valide" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_CanPassiveModeError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="d70d4846-e790-2791-a7f6-aea47d197ce3" xmlns="AxError.Test">
+      <Execution id="cc90e354-9f18-4392-af28-311fc2dc2994" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_CanPassiveModeError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_CanPdoLengthError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="16cba0ff-f17e-3157-2151-135da05c3b77" xmlns="AxError.Test">
+      <Execution id="037cd5bb-888a-4257-9602-54ba0b5d53bc" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_CanPdoLengthError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_CanRxQueueOverflowError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="4bc6e967-6d6d-55dc-5667-6491a42879ce" xmlns="AxError.Test">
+      <Execution id="a079ee45-a6aa-4c26-94eb-1d26ef80bf67" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_CanRxQueueOverflowError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Therapeute_Nom_Utilisateur_Obligatoire" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="d7da732c-fc15-83c6-835a-a08965ba8304" xmlns="AxData.Test">
+      <Execution id="52a93684-bab3-4f62-82f8-0d39b74a407a" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataTherapeuteTest" name="Therapeute_Nom_Utilisateur_Obligatoire" />
+    </UnitTest>
+    <UnitTest name="Erreur_SqlException_Autres_Num_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="93a6a4eb-88a4-190c-4984-549fd5627b92" xmlns="AxError.Test">
+      <Execution id="3fb8ed4a-2f65-48b6-b3e4-0b423c7fdaf0" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_SqlException_Autres_Num_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Therapeute_Mot_De_Passe_Obligatoire" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="0e500537-d2d9-f5ab-8260-b5ce8dde6259" xmlns="AxData.Test">
+      <Execution id="56e4c129-7d6f-48f8-9d6f-feb05115e1ce" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataTherapeuteTest" name="Therapeute_Mot_De_Passe_Obligatoire" />
+    </UnitTest>
+    <UnitTest name="Vitesse_Moyenne" storage="c:\users\axinesis\desktop\ihm_base\axanalyse.test\bin\debug\axanalyse.test.dll" id="d1e4e0aa-1b84-a4ad-c411-f5ed64c5a640" xmlns="AxAnalyse.Test">
+      <Execution id="696d4dcb-61d5-4449-a62d-ebe9e98eb4bd" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse.Test\bin\Debug\AxAnalyse.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxAnalyse.Test.AnalyseTest" name="Vitesse_Moyenne" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_InterpolatedPositionModeError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="10be6209-de22-6fa7-f60a-ee638c41144c" xmlns="AxError.Test">
+      <Execution id="9f7d01a5-0c6c-4bd6-ba4e-7213a32b6fe0" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_InterpolatedPositionModeError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Digit_Avant_Janvier_2000_Correct" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="4be11f3f-9c9b-c3c0-0181-9cf372e78a39" xmlns="AxError.Test">
+      <Execution id="e9dde253-c6c7-4d02-a37c-3d5926bce8d9" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.ErrorInterfaceTest" name="Digit_Avant_Janvier_2000_Correct" />
+    </UnitTest>
+    <UnitTest name="Patient_Sexe_Obligatoire" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="73ff9664-9e53-3c8b-c732-477aeaf16de3" xmlns="AxData.Test">
+      <Execution id="f6d1be15-6ef1-4302-a016-75f30a427f64" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataPatientTest" name="Patient_Sexe_Obligatoire" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_HallSensorNotFoundError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="eefbf66d-ed2c-e00b-7d18-b2f0db937ce7" xmlns="AxError.Test">
+      <Execution id="c4c92569-52d1-46a0-8f10-cd6c13c6e104" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_HallSensorNotFoundError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_CanTxQueueOverflowError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="5e7d6af5-64cc-1804-ddd0-8cb7d33a7c25" xmlns="AxError.Test">
+      <Execution id="b2105037-33d1-44f7-8a70-482f351ac231" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_CanTxQueueOverflowError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Patient_Nom_Obligatoire" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="5f4e818c-59f5-ec74-a477-f33dd5087204" xmlns="AxData.Test">
+      <Execution id="813e6140-a593-4507-a812-c2e1e918fccc" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataPatientTest" name="Patient_Nom_Obligatoire" />
+    </UnitTest>
+    <UnitTest name="Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Expert" storage="c:\users\axinesis\desktop\ihm_base\axexercicegenerator.test\bin\debug\axexercicegenerator.test.dll" id="9f809847-62e4-7ae9-163a-caf99776f5c1" xmlns="AxExerciceGenerator.Test">
+      <Execution id="8109c67b-abd4-49e2-8287-64412576bd8a" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\bin\Debug\AxExerciceGenerator.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxExerciceGenerator.Test.ExerciceGeneratorTest" name="Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Expert" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_CanOverrunErrorObjectsLost_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="b327e7c1-b25a-ea16-5827-7059ea867750" xmlns="AxError.Test">
+      <Execution id="5a6a481f-f6bd-4972-a8c7-1d6c1d26386c" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_CanOverrunErrorObjectsLost_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Taille_Est_Valide" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="a844c7b5-b6b2-c536-6130-0a3921ce9bd8" xmlns="AxError.Test">
+      <Execution id="04a1d143-ee96-4e77-b69b-b010da27e70e" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.ErrorInterfaceTest" name="Taille_Est_Valide" />
+    </UnitTest>
+    <UnitTest name="Exercice_Doit_Etre_Type_Carre_Sans_Theme" storage="c:\users\axinesis\desktop\ihm_base\axexercicegenerator.test\bin\debug\axexercicegenerator.test.dll" id="3be5bb77-d5a9-c355-1514-f9619c4abc76" xmlns="AxExerciceGenerator.Test">
+      <Execution id="30291812-85d3-47d9-98ff-7ff21805e5dd" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\bin\Debug\AxExerciceGenerator.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxExerciceGenerator.Test.ExerciceGeneratorTest" name="Exercice_Doit_Etre_Type_Carre_Sans_Theme" />
+    </UnitTest>
+    <UnitTest name="Therapeute_Nom_Valide" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="7a5257a4-6838-27e7-097e-fee1f1076112" xmlns="AxData.Test">
+      <Execution id="241ec4b4-f798-4399-aa03-2dd9fe0f182f" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataTherapeuteTest" name="Therapeute_Nom_Valide" />
+    </UnitTest>
+    <UnitTest name="Erreur_WrongSerialPortException_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="99f400bb-0ada-6022-1c6a-8a51a33a69ad" xmlns="AxError.Test">
+      <Execution id="89a61de1-f078-430a-a620-79ffe961fefd" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_WrongSerialPortException_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_FollowingError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="2e360870-3d74-91af-79e4-be8d529dd362" xmlns="AxError.Test">
+      <Execution id="9a57853e-df8c-4ecd-99d1-4aaf624e37f7" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_FollowingError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_AutoTuningIdentificationError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="e0898479-7725-95c5-c9c2-c8ebc6704474" xmlns="AxError.Test">
+      <Execution id="baa3701f-9da2-4c4f-9b62-c2f188dd2222" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_AutoTuningIdentificationError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Therapeute_Doit_Etre_Admin" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="8df30bf8-76cd-877b-8f7e-5c4d83da39af" xmlns="AxData.Test">
+      <Execution id="c114cc75-8bab-4f67-bee6-8ca998f6d0dd" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataTherapeuteTest" name="Therapeute_Doit_Etre_Admin" />
+    </UnitTest>
+    <UnitTest name="Exercice_Doit_Etre_Type_FreeAmpl_Avec_Theme" storage="c:\users\axinesis\desktop\ihm_base\axexercicegenerator.test\bin\debug\axexercicegenerator.test.dll" id="a1966c6a-89d2-337f-4636-dc1c68800169" xmlns="AxExerciceGenerator.Test">
+      <Execution id="0138134d-f4db-4be5-b87f-78d9a591a6c4" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\bin\Debug\AxExerciceGenerator.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxExerciceGenerator.Test.ExerciceGeneratorTest" name="Exercice_Doit_Etre_Type_FreeAmpl_Avec_Theme" />
+    </UnitTest>
+    <UnitTest name="Quitter_Exercice_En_Cours_Oui_Vers_HomeViewModel" storage="c:\users\axinesis\desktop\ihm_base\axnavigation.test\bin\debug\axnavigation.test.dll" id="432be06a-e2a8-0624-2aba-809b91f8a164" xmlns="AxNavigation.Test">
+      <Execution id="86b344e8-256a-4497-983f-5322bb95c013" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxNavigation.Test\bin\Debug\AxNavigation.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxNavigation.Test.NavigationVisualisationViewModelTest" name="Quitter_Exercice_En_Cours_Oui_Vers_HomeViewModel" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_EncoderResolutionError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="f6381e6b-e08a-f44f-1c2d-4a4e13a50dfd" xmlns="AxError.Test">
+      <Execution id="773a2980-a090-45f0-98ba-82a906282216" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_EncoderResolutionError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Therapeute_Prenom_Valide" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="35595230-5bd0-ff18-4c33-6a82b4105ca2" xmlns="AxData.Test">
+      <Execution id="8223d54b-b59e-4034-a847-b68fbbe2733d" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataTherapeuteTest" name="Therapeute_Prenom_Valide" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_SupplyVoltageOutputStageTooLow_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="0d760264-1fec-2999-c240-365c64ffbe15" xmlns="AxError.Test">
+      <Execution id="dee7c2cd-0bb3-474b-abd1-a32123bf183d" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_SupplyVoltageOutputStageTooLow_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Therapeute_Login_Mdp_Doivent_Etre_Rempli" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="354fc1a4-174b-33c4-c868-90f05d831a1a" xmlns="AxData.Test">
+      <Execution id="d475d5e9-c4ff-4e9b-9e08-779a4b553b7f" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataTherapeuteTest" name="Therapeute_Login_Mdp_Doivent_Etre_Rempli" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_OvercurrentError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="4ff74c24-6e9b-810e-a11a-0426b9c06e93" xmlns="AxError.Test">
+      <Execution id="6190a9e4-d850-4ef1-8c10-74c3931ca8ec" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_OvercurrentError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Patient_Prenom_Est_Valide" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="ee85c135-d168-c271-408c-240e4713e404" xmlns="AxError.Test">
+      <Execution id="a0b9eac4-2392-4418-948c-29cafefc3730" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.ErrorInterfaceTest" name="Patient_Prenom_Est_Valide" />
+    </UnitTest>
+    <UnitTest name="Distance_Entre_Plusieur_Points" storage="c:\users\axinesis\desktop\ihm_base\axanalyse.test\bin\debug\axanalyse.test.dll" id="c5df75b3-144c-2597-17e1-ed5cf6d153e4" xmlns="AxAnalyse.Test">
+      <Execution id="d158c10c-83c5-410c-af19-1cdc0b88088c" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse.Test\bin\Debug\AxAnalyse.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxAnalyse.Test.AnalyseTest" name="Distance_Entre_Plusieur_Points" />
+    </UnitTest>
+    <UnitTest name="Patient_ID2_Obligatoire" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="8ba1fb0e-b6e5-ffa6-335a-2d325b6a0e71" xmlns="AxData.Test">
+      <Execution id="0fa972dc-64f9-476f-bc1e-d7aa42cc09c7" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataPatientTest" name="Patient_ID2_Obligatoire" />
+    </UnitTest>
+    <UnitTest name="Patient_Bien_Supprime" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="2773513e-6b8c-7f26-cda7-ed323f58b406" xmlns="AxData.Test">
+      <Execution id="5cfbdd42-6152-4cfb-bed6-690ce6504036" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataPatientTest" name="Patient_Bien_Supprime" />
+    </UnitTest>
+    <UnitTest name="Bonne_Date_Patient_Trouve" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="9a9c9aca-748b-bfa8-d869-cf515d3be60d" xmlns="AxData.Test">
+      <Execution id="38fafae0-f3c8-4a5f-b135-c6c2b1bc9963" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataPatientTest" name="Bonne_Date_Patient_Trouve" />
+    </UnitTest>
+    <UnitTest name="Digit_Apres_Decembre_1999_Mauvais" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="801619e0-4c6a-c192-158c-5c744706c07f" xmlns="AxError.Test">
+      <Execution id="a8975e4b-228e-4a4c-84f4-27a81bb19c32" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.ErrorInterfaceTest" name="Digit_Apres_Decembre_1999_Mauvais" />
+    </UnitTest>
+    <UnitTest name="Erreur_SqlException_Num2_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="9675d6c5-a9f0-d1b1-dc83-f2159bbe4e61" xmlns="AxError.Test">
+      <Execution id="68d32641-555f-4bbc-b8b6-0663906c69e7" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_SqlException_Num2_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="DecoThérapeute_Oui_Vers_ConnexionTherapeuteViewModel" storage="c:\users\axinesis\desktop\ihm_base\axnavigation.test\bin\debug\axnavigation.test.dll" id="e2a9821c-c720-fc4f-49a9-2e55aa444d68" xmlns="AxNavigation.Test">
+      <Execution id="422da715-b53c-47ae-9889-bda06eaf7d14" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxNavigation.Test\bin\Debug\AxNavigation.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxNavigation.Test.NavigationHomeViewModelTest" name="DecoThérapeute_Oui_Vers_ConnexionTherapeuteViewModel" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_SoftwareParameterError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="0929b123-960f-6dfd-d048-b9956810fb4f" xmlns="AxError.Test">
+      <Execution id="76cf0845-82ec-4e9b-8cf6-d87bcef04d5e" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_SoftwareParameterError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Therapeute_Confirmation_Mot_De_Passe" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="a2846e84-e29a-ac6f-f43c-d07bf54453dd" xmlns="AxData.Test">
+      <Execution id="3db23a73-f163-47fa-b060-8887b7c86a65" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataTherapeuteTest" name="Therapeute_Confirmation_Mot_De_Passe" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_MainSensorDirectionError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="e1a4c390-c5f8-439f-c92b-f2ca8aad4a6c" xmlns="AxError.Test">
+      <Execution id="1ca6c237-b489-4637-93e3-21a74ef20275" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_MainSensorDirectionError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Bon_Nom_Patient_Trouve" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="caa48818-36b7-d70b-1070-130edd123aaf" xmlns="AxData.Test">
+      <Execution id="ccd0fd0a-9897-4895-a2a1-165cddf93b38" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataPatientTest" name="Bon_Nom_Patient_Trouve" />
+    </UnitTest>
+    <UnitTest name="Exercice_Doit_Etre_Type_Cercle_Avec_Theme" storage="c:\users\axinesis\desktop\ihm_base\axexercicegenerator.test\bin\debug\axexercicegenerator.test.dll" id="e58b710a-1d4f-3221-e978-e68b6b040c54" xmlns="AxExerciceGenerator.Test">
+      <Execution id="36e0aaea-b64b-4b27-8223-708ba8010345" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\bin\Debug\AxExerciceGenerator.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxExerciceGenerator.Test.ExerciceGeneratorTest" name="Exercice_Doit_Etre_Type_Cercle_Avec_Theme" />
+    </UnitTest>
+    <UnitTest name="Admin_Pas_Dans_La_Bd" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="c9cc9895-7dba-ba49-7119-f12ee348cb8e" xmlns="AxData.Test">
+      <Execution id="26791061-d43f-43dc-be8d-ab2550092a62" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataTherapeuteTest" name="Admin_Pas_Dans_La_Bd" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_IndexProcessingError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="6e7616cc-f5c3-4e0a-2f74-0b9986d66ed0" xmlns="AxError.Test">
+      <Execution id="f7b1a1bb-6489-4560-a062-a5577bfd8770" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_IndexProcessingError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Exercice_Doit_Etre_Type_Target_Sans_Theme" storage="c:\users\axinesis\desktop\ihm_base\axexercicegenerator.test\bin\debug\axexercicegenerator.test.dll" id="470df629-581f-d9c4-ed6e-8910f13ce6a2" xmlns="AxExerciceGenerator.Test">
+      <Execution id="adc617cb-fe02-479e-9795-b6e74ae50fe0" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\bin\Debug\AxExerciceGenerator.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxExerciceGenerator.Test.ExerciceGeneratorTest" name="Exercice_Doit_Etre_Type_Target_Sans_Theme" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_CanTransmitCobIdCollisionError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="92017067-14ad-573f-0247-6612b560f178" xmlns="AxError.Test">
+      <Execution id="3d263b6f-5169-41e4-b0ba-e359f72b83df" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_CanTransmitCobIdCollisionError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Distance_Entre_Deux_Points_Positive" storage="c:\users\axinesis\desktop\ihm_base\axanalyse.test\bin\debug\axanalyse.test.dll" id="c3232def-6f8e-d276-40a2-3789adf7a7e8" xmlns="AxAnalyse.Test">
+      <Execution id="a701c260-f549-4033-abb7-98cbfb4a2496" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse.Test\bin\Debug\AxAnalyse.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxAnalyse.Test.AnalyseTest" name="Distance_Entre_Deux_Points_Positive" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_AuxiliarySensorDirectionError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="dd92dc7b-d098-851b-826a-9944e389e494" xmlns="AxError.Test">
+      <Execution id="40c6139b-7b2e-4b3e-ac99-72c85e9ecd76" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_AuxiliarySensorDirectionError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Exercice_Doit_Etre_Type_FreeAmpl_Sans_Theme" storage="c:\users\axinesis\desktop\ihm_base\axexercicegenerator.test\bin\debug\axexercicegenerator.test.dll" id="7f94dfe3-332f-6ad8-2375-32e045760356" xmlns="AxExerciceGenerator.Test">
+      <Execution id="32eb7ec4-8be7-436d-8531-133eaa075d06" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\bin\Debug\AxExerciceGenerator.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxExerciceGenerator.Test.ExerciceGeneratorTest" name="Exercice_Doit_Etre_Type_FreeAmpl_Sans_Theme" />
+    </UnitTest>
+    <UnitTest name="Patient_Prenom_Obligatoire" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="bda8b925-f57b-a41e-b5e4-cfda8f09d069" xmlns="AxData.Test">
+      <Execution id="4ecd4252-02aa-4c35-85df-05a920dd2682" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataPatientTest" name="Patient_Prenom_Obligatoire" />
+    </UnitTest>
+    <UnitTest name="Exercice_Doit_Etre_Type_Cercle_Sans_Theme" storage="c:\users\axinesis\desktop\ihm_base\axexercicegenerator.test\bin\debug\axexercicegenerator.test.dll" id="e4cae4cc-8a84-0f9d-ab32-770e0b7739a5" xmlns="AxExerciceGenerator.Test">
+      <Execution id="184944dc-642d-4e85-8ffa-c7c5fddd1594" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\bin\Debug\AxExerciceGenerator.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxExerciceGenerator.Test.ExerciceGeneratorTest" name="Exercice_Doit_Etre_Type_Cercle_Sans_Theme" />
+    </UnitTest>
+    <UnitTest name="Therapeute_Ne_Doit_Pas_Etre_Admin" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="d0376b53-97ff-8f3e-a747-fb79ebf2a3da" xmlns="AxData.Test">
+      <Execution id="63bfea98-3962-4eb7-a784-2cba0b6b2263" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataTherapeuteTest" name="Therapeute_Ne_Doit_Pas_Etre_Admin" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_HallSensorError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="581c372c-5787-efa7-eb05-b82da31e13c9" xmlns="AxError.Test">
+      <Execution id="0dabdaaa-acaa-42f1-89af-df5a20bf8da5" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_HallSensorError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Therapeute_Nom_Utilisateur_Longeur_Valide" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="bbea477e-5527-ed14-9100-20bf91c8292e" xmlns="AxData.Test">
+      <Execution id="36784c72-1723-4fd1-a3bc-87cc034118d3" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataTherapeuteTest" name="Therapeute_Nom_Utilisateur_Longeur_Valide" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_HallAngleDetectionError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="a844de03-199c-2904-f987-af36e60b2367" xmlns="AxError.Test">
+      <Execution id="1dee9cf5-3f41-41ac-8f7c-bce8c728cfc9" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_HallAngleDetectionError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Exercice_Doit_Etre_Type_Target_Avec_Theme" storage="c:\users\axinesis\desktop\ihm_base\axexercicegenerator.test\bin\debug\axexercicegenerator.test.dll" id="41d929c7-83e1-d0ec-365b-6bff1ab9c1ef" xmlns="AxExerciceGenerator.Test">
+      <Execution id="bbb2b5eb-6b2c-4974-8b29-02dbc935b18c" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\bin\Debug\AxExerciceGenerator.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxExerciceGenerator.Test.ExerciceGeneratorTest" name="Exercice_Doit_Etre_Type_Target_Avec_Theme" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_UndervoltageError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="4c328412-8a84-cec3-b518-5abcecc770c8" xmlns="AxError.Test">
+      <Execution id="662d4468-01d9-476e-88ca-5c4174342335" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_UndervoltageError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Moyen" storage="c:\users\axinesis\desktop\ihm_base\axexercicegenerator.test\bin\debug\axexercicegenerator.test.dll" id="f00b5c2d-ca8b-087e-0e85-8f38ab6323e5" xmlns="AxExerciceGenerator.Test">
+      <Execution id="eb86e726-b995-419e-833c-258aec89b5c4" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\bin\Debug\AxExerciceGenerator.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxExerciceGenerator.Test.ExerciceGeneratorTest" name="Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Moyen" />
+    </UnitTest>
+    <UnitTest name="Nom_Avec_Chiffre_Non_Valdie" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="0ce6d8c4-d5f8-ce8a-decc-90cca63ec023" xmlns="AxError.Test">
+      <Execution id="0e2342ac-f553-4ca5-9bb0-4d1a31cc61f4" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.ErrorInterfaceTest" name="Nom_Avec_Chiffre_Non_Valdie" />
+    </UnitTest>
+    <UnitTest name="Therapeute_Prenom_Obligatoire" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="111b2230-432c-1643-3f22-8c807c7b6b0b" xmlns="AxData.Test">
+      <Execution id="41706dbf-772b-4df9-a1da-e705f4b3c580" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataTherapeuteTest" name="Therapeute_Prenom_Obligatoire" />
+    </UnitTest>
+    <UnitTest name="NavigateToHome_Vers_HomeViewModel" storage="c:\users\axinesis\desktop\ihm_base\axnavigation.test\bin\debug\axnavigation.test.dll" id="45e88d5d-f0bd-540d-1a6e-ca02f771c932" xmlns="AxNavigation.Test">
+      <Execution id="59d4ea4a-db51-4f16-8e0b-0d5c5025ecc2" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxNavigation.Test\bin\Debug\AxNavigation.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxNavigation.Test.NavigationEvaluationViewModelTest" name="NavigateToHome_Vers_HomeViewModel" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_SystemOverloadedError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="8c12cfd0-1498-5bdd-91ca-78d79b86f9eb" xmlns="AxError.Test">
+      <Execution id="a4fe9f21-cca0-4e15-89b1-9142987485aa" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_SystemOverloadedError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_PositionSensorError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="295107df-971f-3e27-197a-332cb8c3cc50" xmlns="AxError.Test">
+      <Execution id="693fcac7-1aca-49c2-9ce1-3ad3ff3f8768" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_PositionSensorError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Taille_Trop_Petite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="9fd9b1fa-6e42-0253-d530-aa3bc9535c48" xmlns="AxError.Test">
+      <Execution id="5330a1e9-2338-4766-878e-9394e9944519" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.ErrorInterfaceTest" name="Taille_Trop_Petite" />
+    </UnitTest>
+    <UnitTest name="Digit_Avant_Janvier_2000_Mauvais" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="0474de96-8b72-8261-8e45-366c15433b15" xmlns="AxError.Test">
+      <Execution id="03fcd490-4f57-4f65-add2-d99e2254e103" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.ErrorInterfaceTest" name="Digit_Avant_Janvier_2000_Mauvais" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_CanOverrunError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="de21bf2b-3c89-6540-e855-d73236ea78a8" xmlns="AxError.Test">
+      <Execution id="ac6cfc7d-b010-4bc1-a7e2-be7c027c0052" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_CanOverrunError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="DecoPatient_Oui_Vers_HomeViewModel" storage="c:\users\axinesis\desktop\ihm_base\axnavigation.test\bin\debug\axnavigation.test.dll" id="f12e1a8a-71af-23d0-a32f-22bbf6d801ac" xmlns="AxNavigation.Test">
+      <Execution id="cbbca5a9-dcb4-4fd5-8fd2-b70771ca9eb3" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxNavigation.Test\bin\Debug\AxNavigation.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxNavigation.Test.NavigationMainViewModelTest" name="DecoPatient_Oui_Vers_HomeViewModel" />
+    </UnitTest>
+    <UnitTest name="Erreur_AlreadyOpenSerialPortException_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="ed899626-e988-333c-7742-04cd720ec9a7" xmlns="AxError.Test">
+      <Execution id="d4bceb1c-641b-4516-b280-751b1bcfbe85" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_AlreadyOpenSerialPortException_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Erreur_SqlException_Num4060_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="42784824-7f1f-8f16-8a9c-72a03e7e4177" xmlns="AxError.Test">
+      <Execution id="17557fb2-bd72-4184-b589-b5a4191e69f8" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_SqlException_Num4060_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_OvervoltageError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="58267df6-27d7-de99-f3be-2ac90f317834" xmlns="AxError.Test">
+      <Execution id="3b8f90d4-1bc2-4836-b882-25428dbba422" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_OvervoltageError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Nom_Est_Valide" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="b8fd7e59-747c-17d3-c6d0-98a165828ac4" xmlns="AxError.Test">
+      <Execution id="ab573d38-cbe3-4b6b-8830-42563d0f801a" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.ErrorInterfaceTest" name="Nom_Est_Valide" />
+    </UnitTest>
+    <UnitTest name="Therapeute_Connection_Login_Bon_Mdp_Bon" storage="c:\users\axinesis\desktop\ihm_base\axdata.test\bin\debug\axdata.test.dll" id="6baf9aec-dbb5-4f84-ed05-5b1fdabda1f6" xmlns="AxData.Test">
+      <Execution id="2ff1c663-e71b-4471-b606-bc8649c8c354" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxData.Test\bin\Debug\AxData.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxData.Test.DataTherapeuteTest" name="Therapeute_Connection_Login_Bon_Mdp_Bon" />
+    </UnitTest>
+    <UnitTest name="Exercice_Doit_Avoir_Base_Config" storage="c:\users\axinesis\desktop\ihm_base\axexercicegenerator.test\bin\debug\axexercicegenerator.test.dll" id="f7916e99-2ca8-0ce5-1775-44086440dfca" xmlns="AxExerciceGenerator.Test">
+      <Execution id="426b2bf8-7c9c-416c-8b86-625721d47858" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxExerciceGenerator.Test\bin\Debug\AxExerciceGenerator.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxExerciceGenerator.Test.ExerciceGeneratorTest" name="Exercice_Doit_Avoir_Base_Config" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_ControllerGainError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="25ecd32e-c21d-11c1-5e00-2394c558cc02" xmlns="AxError.Test">
+      <Execution id="72e41944-fc60-4af4-8ae5-6d2d03193ef6" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_ControllerGainError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Distance_Entre_Deux_Points_Negative" storage="c:\users\axinesis\desktop\ihm_base\axanalyse.test\bin\debug\axanalyse.test.dll" id="ed5d1215-e582-5800-31ce-c5bd5d4ba85a" xmlns="AxAnalyse.Test">
+      <Execution id="f18634e8-0b6f-4ef3-badf-56f3b3e8c332" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse.Test\bin\Debug\AxAnalyse.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxAnalyse.Test.AnalyseTest" name="Distance_Entre_Deux_Points_Negative" />
+    </UnitTest>
+    <UnitTest name="Erreur_Robot_SoftwarePositionLimitError_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="f3282b9f-62b9-2180-8977-69bed228d06a" xmlns="AxError.Test">
+      <Execution id="3813d267-3a16-471c-ac06-5fd9609e14d9" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_Robot_SoftwarePositionLimitError_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Poids_Trop_Petit" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="b0e62a3f-dbda-5351-cdbf-e39911c0ab52" xmlns="AxError.Test">
+      <Execution id="d77dc73d-3fdf-48b1-a97c-66b7a8f57ead" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.ErrorInterfaceTest" name="Poids_Trop_Petit" />
+    </UnitTest>
+    <UnitTest name="Erreur_UnauthorizedAccessException_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="4a086426-1df2-c9f6-a07f-48cc5355b1cf" xmlns="AxError.Test">
+      <Execution id="eda24976-18ae-48fc-8c29-d14bdaade82f" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_UnauthorizedAccessException_Bien_Traite" />
+    </UnitTest>
+    <UnitTest name="Erreur_SqlException_Num18456_Bien_Traite" storage="c:\users\axinesis\desktop\ihm_base\axerror.test\bin\debug\axerror.test.dll" id="3e305784-9366-9cbf-b6a3-920a4315b63b" xmlns="AxError.Test">
+      <Execution id="ee371a3e-abdc-463d-818a-7cdab6120c19" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Debug\AxError.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxError.Test.GestionErreurTest" name="Erreur_SqlException_Num18456_Bien_Traite" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Les résultats ne figurent pas dans une liste" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Tous les résultats chargés" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="0474de96-8b72-8261-8e45-366c15433b15" executionId="03fcd490-4f57-4f65-add2-d99e2254e103" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0929b123-960f-6dfd-d048-b9956810fb4f" executionId="76cf0845-82ec-4e9b-8cf6-d87bcef04d5e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0ce6d8c4-d5f8-ce8a-decc-90cca63ec023" executionId="0e2342ac-f553-4ca5-9bb0-4d1a31cc61f4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0d760264-1fec-2999-c240-365c64ffbe15" executionId="dee7c2cd-0bb3-474b-abd1-a32123bf183d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0e500537-d2d9-f5ab-8260-b5ce8dde6259" executionId="56e4c129-7d6f-48f8-9d6f-feb05115e1ce" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="10be6209-de22-6fa7-f60a-ee638c41144c" executionId="9f7d01a5-0c6c-4bd6-ba4e-7213a32b6fe0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="111b2230-432c-1643-3f22-8c807c7b6b0b" executionId="41706dbf-772b-4df9-a1da-e705f4b3c580" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="16cba0ff-f17e-3157-2151-135da05c3b77" executionId="037cd5bb-888a-4257-9602-54ba0b5d53bc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1feb75d6-6075-769f-0ca5-c7a95c479767" executionId="6c3a8e14-165b-4c5d-a3e8-cdf4034b3e11" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="20b118dc-27e8-ed17-0ac4-d5df103752d3" executionId="8ce438f3-539b-42af-ba1f-ac4a1a79afdb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="23292fbe-adfa-993b-82f2-7c477d400857" executionId="103e56bb-8f9a-469d-b5a4-64dd951ba0f9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="25abb7b9-1485-9596-f399-1468ba684cfa" executionId="bfa73be4-e3c6-4100-b548-6f3dbd37ccf9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="25ecd32e-c21d-11c1-5e00-2394c558cc02" executionId="72e41944-fc60-4af4-8ae5-6d2d03193ef6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2773513e-6b8c-7f26-cda7-ed323f58b406" executionId="5cfbdd42-6152-4cfb-bed6-690ce6504036" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="295107df-971f-3e27-197a-332cb8c3cc50" executionId="693fcac7-1aca-49c2-9ce1-3ad3ff3f8768" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="29643fec-276c-0215-f794-e8f805cfc972" executionId="69913104-83c9-4324-84fa-8e6f34dc95f6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2e360870-3d74-91af-79e4-be8d529dd362" executionId="9a57853e-df8c-4ecd-99d1-4aaf624e37f7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="354fc1a4-174b-33c4-c868-90f05d831a1a" executionId="d475d5e9-c4ff-4e9b-9e08-779a4b553b7f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="35595230-5bd0-ff18-4c33-6a82b4105ca2" executionId="8223d54b-b59e-4034-a847-b68fbbe2733d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3be5bb77-d5a9-c355-1514-f9619c4abc76" executionId="30291812-85d3-47d9-98ff-7ff21805e5dd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3e305784-9366-9cbf-b6a3-920a4315b63b" executionId="ee371a3e-abdc-463d-818a-7cdab6120c19" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="41d929c7-83e1-d0ec-365b-6bff1ab9c1ef" executionId="bbb2b5eb-6b2c-4974-8b29-02dbc935b18c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="42784824-7f1f-8f16-8a9c-72a03e7e4177" executionId="17557fb2-bd72-4184-b589-b5a4191e69f8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="432be06a-e2a8-0624-2aba-809b91f8a164" executionId="86b344e8-256a-4497-983f-5322bb95c013" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="44ed4079-9453-ff0c-84c2-ac19b4af933d" executionId="1503ba7d-6499-47b8-94a5-a376507b8235" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="454cd542-f819-baab-5e5e-809ca9946cca" executionId="c2368192-3eef-4598-be7d-045e819f8248" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="45e88d5d-f0bd-540d-1a6e-ca02f771c932" executionId="59d4ea4a-db51-4f16-8e0b-0d5c5025ecc2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="46f2fb7c-cbb5-3f4f-7fbb-54c6e13304f7" executionId="44ed1491-e5d0-4a6e-8a1f-57aef8ad96c9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="470df629-581f-d9c4-ed6e-8910f13ce6a2" executionId="adc617cb-fe02-479e-9795-b6e74ae50fe0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4a086426-1df2-c9f6-a07f-48cc5355b1cf" executionId="eda24976-18ae-48fc-8c29-d14bdaade82f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4bc6e967-6d6d-55dc-5667-6491a42879ce" executionId="a079ee45-a6aa-4c26-94eb-1d26ef80bf67" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4be11f3f-9c9b-c3c0-0181-9cf372e78a39" executionId="e9dde253-c6c7-4d02-a37c-3d5926bce8d9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4c328412-8a84-cec3-b518-5abcecc770c8" executionId="662d4468-01d9-476e-88ca-5c4174342335" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4d48ca6b-511b-39ac-a68c-91352d15b1df" executionId="60d2ec52-5b12-4b4b-8dd7-8c49f7777b27" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4f482e75-1f13-6e68-c51e-899481bb394c" executionId="f251835f-e182-4634-9336-b39f9ef7cc07" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4ff74c24-6e9b-810e-a11a-0426b9c06e93" executionId="6190a9e4-d850-4ef1-8c10-74c3931ca8ec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5188289e-0f4c-4bba-4f87-aede2c765fd5" executionId="fed016bf-451c-4cf6-b307-2c639b11053a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="581c372c-5787-efa7-eb05-b82da31e13c9" executionId="0dabdaaa-acaa-42f1-89af-df5a20bf8da5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="58267df6-27d7-de99-f3be-2ac90f317834" executionId="3b8f90d4-1bc2-4836-b882-25428dbba422" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5e7d6af5-64cc-1804-ddd0-8cb7d33a7c25" executionId="b2105037-33d1-44f7-8a70-482f351ac231" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5f4e2034-866f-4eb1-0441-6555f1681d32" executionId="e0dfdac0-a7bc-4946-aaae-ba2aec5b99c4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5f4e818c-59f5-ec74-a477-f33dd5087204" executionId="813e6140-a593-4507-a812-c2e1e918fccc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="685bc9e4-6b9e-eafd-c8ef-4d24f897588d" executionId="58d273ab-8752-4c45-b87e-ca7e637e6b76" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6baf9aec-dbb5-4f84-ed05-5b1fdabda1f6" executionId="2ff1c663-e71b-4471-b606-bc8649c8c354" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6e7616cc-f5c3-4e0a-2f74-0b9986d66ed0" executionId="f7b1a1bb-6489-4560-a062-a5577bfd8770" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6e80c6e1-e5cc-e094-8690-e0b15e42b61e" executionId="3102193e-e9b5-4c40-9e58-b9c911dd9238" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="70c3bcd2-30f3-dc55-d57b-3305735ab2fe" executionId="61a8f057-4b17-4f3f-b1c0-fa4ae2b951c2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="70ebb40d-5861-d5c1-a3ef-791dade40bd9" executionId="de3d50f1-630e-4890-b8e4-82810ce6b23e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="73ff9664-9e53-3c8b-c732-477aeaf16de3" executionId="f6d1be15-6ef1-4302-a016-75f30a427f64" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="753937c8-a9eb-1241-f3c3-39b8d5bc3c92" executionId="95c54eb4-e683-4727-9c87-289bffb4af28" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="79e0f4ac-752d-6854-5869-d79798ecc5d8" executionId="6a5f8a66-ffe6-4330-a0e9-ba28edf60252" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7a5257a4-6838-27e7-097e-fee1f1076112" executionId="241ec4b4-f798-4399-aa03-2dd9fe0f182f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7a8c8ab2-cc1f-665a-6687-1b4694c99073" executionId="83b1d03e-aa48-4634-b1e6-6152f755f8e3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7d2a5c74-8b81-7def-78d9-19fc9e6c2ea4" executionId="820e7f9f-5523-4d77-8b59-6aa9792fd01d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7f94dfe3-332f-6ad8-2375-32e045760356" executionId="32eb7ec4-8be7-436d-8531-133eaa075d06" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="801619e0-4c6a-c192-158c-5c744706c07f" executionId="a8975e4b-228e-4a4c-84f4-27a81bb19c32" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="84265baa-a0fc-9eb4-5420-2fc493c758dd" executionId="f9e36063-68fd-4243-ac08-c02a9badb594" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8786509f-e646-d735-fbae-09bb7ea9968d" executionId="298065f8-3f06-4948-877c-bc47dc890f52" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8ba1fb0e-b6e5-ffa6-335a-2d325b6a0e71" executionId="0fa972dc-64f9-476f-bc1e-d7aa42cc09c7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8c12cfd0-1498-5bdd-91ca-78d79b86f9eb" executionId="a4fe9f21-cca0-4e15-89b1-9142987485aa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8df30bf8-76cd-877b-8f7e-5c4d83da39af" executionId="c114cc75-8bab-4f67-bee6-8ca998f6d0dd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="92017067-14ad-573f-0247-6612b560f178" executionId="3d263b6f-5169-41e4-b0ba-e359f72b83df" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="92fd36a1-ca75-7f92-7bd2-2dc408eedb40" executionId="9f5edaab-c2e1-45a8-b650-c2ed5801f4bd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="93a6a4eb-88a4-190c-4984-549fd5627b92" executionId="3fb8ed4a-2f65-48b6-b3e4-0b423c7fdaf0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9675d6c5-a9f0-d1b1-dc83-f2159bbe4e61" executionId="68d32641-555f-4bbc-b8b6-0663906c69e7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="99f400bb-0ada-6022-1c6a-8a51a33a69ad" executionId="89a61de1-f078-430a-a620-79ffe961fefd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9a9c9aca-748b-bfa8-d869-cf515d3be60d" executionId="38fafae0-f3c8-4a5f-b135-c6c2b1bc9963" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9ef9f365-076b-fb6f-67f0-e145ead2e579" executionId="d4a3dcaa-b3b6-4d4e-868f-d094abf74b60" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9f809847-62e4-7ae9-163a-caf99776f5c1" executionId="8109c67b-abd4-49e2-8287-64412576bd8a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9fd9b1fa-6e42-0253-d530-aa3bc9535c48" executionId="5330a1e9-2338-4766-878e-9394e9944519" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a1966c6a-89d2-337f-4636-dc1c68800169" executionId="0138134d-f4db-4be5-b87f-78d9a591a6c4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a2846e84-e29a-ac6f-f43c-d07bf54453dd" executionId="3db23a73-f163-47fa-b060-8887b7c86a65" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a7d2c1fe-6292-38c4-b190-463be3c8cf93" executionId="ff45194b-809c-4126-a271-d3c16165672b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a844c7b5-b6b2-c536-6130-0a3921ce9bd8" executionId="04a1d143-ee96-4e77-b69b-b010da27e70e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a844de03-199c-2904-f987-af36e60b2367" executionId="1dee9cf5-3f41-41ac-8f7c-bce8c728cfc9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ae8642d5-07bc-0f18-4b31-bcbab057a0d0" executionId="519aa0f0-8675-418e-83df-e06f79910f4d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b0e62a3f-dbda-5351-cdbf-e39911c0ab52" executionId="d77dc73d-3fdf-48b1-a97c-66b7a8f57ead" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b327e7c1-b25a-ea16-5827-7059ea867750" executionId="5a6a481f-f6bd-4972-a8c7-1d6c1d26386c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b7e43fdb-6e64-2c94-dcce-89d4bd434ec6" executionId="3a52c4cf-42e3-4dd8-ab74-5a4a74b8278a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b8fd7e59-747c-17d3-c6d0-98a165828ac4" executionId="ab573d38-cbe3-4b6b-8830-42563d0f801a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b97e58f3-cbc0-bcdd-6669-a43c0d325371" executionId="d9320274-54a4-48f5-a8c3-7a037381b712" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bbea477e-5527-ed14-9100-20bf91c8292e" executionId="36784c72-1723-4fd1-a3bc-87cc034118d3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bda8b925-f57b-a41e-b5e4-cfda8f09d069" executionId="4ecd4252-02aa-4c35-85df-05a920dd2682" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bf764ba8-8696-c92f-3f57-afea2c1bfe57" executionId="64436dfb-fc5e-4e44-9be4-b1fe3cc7e314" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c3232def-6f8e-d276-40a2-3789adf7a7e8" executionId="a701c260-f549-4033-abb7-98cbfb4a2496" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c49b8624-edd6-882f-a895-24bc1ddc98ef" executionId="9d40e628-fe38-4093-9262-35c16a492632" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c5df75b3-144c-2597-17e1-ed5cf6d153e4" executionId="d158c10c-83c5-410c-af19-1cdc0b88088c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c9cc9895-7dba-ba49-7119-f12ee348cb8e" executionId="26791061-d43f-43dc-be8d-ab2550092a62" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="caa48818-36b7-d70b-1070-130edd123aaf" executionId="ccd0fd0a-9897-4895-a2a1-165cddf93b38" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d0376b53-97ff-8f3e-a747-fb79ebf2a3da" executionId="63bfea98-3962-4eb7-a784-2cba0b6b2263" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d1d5bdee-95e1-826a-6e8c-92bd1b1d1870" executionId="28964ff6-7ec4-4d43-ae2b-66d1eed7aa16" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d1e4e0aa-1b84-a4ad-c411-f5ed64c5a640" executionId="696d4dcb-61d5-4449-a62d-ebe9e98eb4bd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d70d4846-e790-2791-a7f6-aea47d197ce3" executionId="cc90e354-9f18-4392-af28-311fc2dc2994" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d7da732c-fc15-83c6-835a-a08965ba8304" executionId="52a93684-bab3-4f62-82f8-0d39b74a407a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dc5d423e-851c-6658-b8be-e6a841de2fd1" executionId="bb7634f7-df28-4e77-b244-bafeb1ac76eb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dd92dc7b-d098-851b-826a-9944e389e494" executionId="40c6139b-7b2e-4b3e-ac99-72c85e9ecd76" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="de21bf2b-3c89-6540-e855-d73236ea78a8" executionId="ac6cfc7d-b010-4bc1-a7e2-be7c027c0052" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e0898479-7725-95c5-c9c2-c8ebc6704474" executionId="baa3701f-9da2-4c4f-9b62-c2f188dd2222" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e1a4c390-c5f8-439f-c92b-f2ca8aad4a6c" executionId="1ca6c237-b489-4637-93e3-21a74ef20275" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e2a9821c-c720-fc4f-49a9-2e55aa444d68" executionId="422da715-b53c-47ae-9889-bda06eaf7d14" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e4cae4cc-8a84-0f9d-ab32-770e0b7739a5" executionId="184944dc-642d-4e85-8ffa-c7c5fddd1594" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e58b710a-1d4f-3221-e978-e68b6b040c54" executionId="36e0aaea-b64b-4b27-8223-708ba8010345" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ea2c6b0a-c912-2fce-46c5-ac0346f15352" executionId="2e5b57fc-fdbe-4276-85c1-58a295253aa1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ed5d1215-e582-5800-31ce-c5bd5d4ba85a" executionId="f18634e8-0b6f-4ef3-badf-56f3b3e8c332" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ed899626-e988-333c-7742-04cd720ec9a7" executionId="d4bceb1c-641b-4516-b280-751b1bcfbe85" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ee85c135-d168-c271-408c-240e4713e404" executionId="a0b9eac4-2392-4418-948c-29cafefc3730" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ee9a69f6-cf44-b467-cc2a-1e750c89a07f" executionId="e93f051b-f78d-41d2-81a0-26fe72100b75" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eefbf66d-ed2c-e00b-7d18-b2f0db937ce7" executionId="c4c92569-52d1-46a0-8f10-cd6c13c6e104" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f00b5c2d-ca8b-087e-0e85-8f38ab6323e5" executionId="eb86e726-b995-419e-833c-258aec89b5c4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f12e1a8a-71af-23d0-a32f-22bbf6d801ac" executionId="cbbca5a9-dcb4-4fd5-8fd2-b70771ca9eb3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f3282b9f-62b9-2180-8977-69bed228d06a" executionId="3813d267-3a16-471c-ac06-5fd9609e14d9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f6381e6b-e08a-f44f-1c2d-4a4e13a50dfd" executionId="773a2980-a090-45f0-98ba-82a906282216" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f6827a5d-d000-6b57-1a5d-244c917c4e49" executionId="37a0f5b4-e2c2-47bb-abc6-69550315d56c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f7916e99-2ca8-0ce5-1775-44086440dfca" executionId="426b2bf8-7c9c-416c-8b86-625721d47858" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <TestResultAggregation executionId="03fcd490-4f57-4f65-add2-d99e2254e103" testId="0474de96-8b72-8261-8e45-366c15433b15" testName="Digit_Avant_Janvier_2000_Mauvais" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:33.1148384+02:00" endTime="2014-07-31T14:48:33.1148384+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="03fcd490-4f57-4f65-add2-d99e2254e103">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="76cf0845-82ec-4e9b-8cf6-d87bcef04d5e" testId="0929b123-960f-6dfd-d048-b9956810fb4f" testName="Erreur_Robot_SoftwareParameterError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.4430787+02:00" endTime="2014-07-31T14:48:35.4430787+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="76cf0845-82ec-4e9b-8cf6-d87bcef04d5e">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="0e2342ac-f553-4ca5-9bb0-4d1a31cc61f4" testId="0ce6d8c4-d5f8-ce8a-decc-90cca63ec023" testName="Nom_Avec_Chiffre_Non_Valdie" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:33.1148384+02:00" endTime="2014-07-31T14:48:33.1148384+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0e2342ac-f553-4ca5-9bb0-4d1a31cc61f4">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="dee7c2cd-0bb3-474b-abd1-a32123bf183d" testId="0d760264-1fec-2999-c240-365c64ffbe15" testName="Erreur_Robot_SupplyVoltageOutputStageTooLow_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.4587046+02:00" endTime="2014-07-31T14:48:35.4587046+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dee7c2cd-0bb3-474b-abd1-a32123bf183d">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="56e4c129-7d6f-48f8-9d6f-feb05115e1ce" testId="0e500537-d2d9-f5ab-8260-b5ce8dde6259" testName="Therapeute_Mot_De_Passe_Obligatoire" computerName="PC-AXINESIS-004" duration="00:00:00.0470000" startTime="2014-07-31T14:48:37.9274576+02:00" endTime="2014-07-31T14:48:37.9744576+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="56e4c129-7d6f-48f8-9d6f-feb05115e1ce">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="9f7d01a5-0c6c-4bd6-ba4e-7213a32b6fe0" testId="10be6209-de22-6fa7-f60a-ee638c41144c" testName="Erreur_Robot_InterpolatedPositionModeError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.4118277+02:00" endTime="2014-07-31T14:48:35.4118277+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9f7d01a5-0c6c-4bd6-ba4e-7213a32b6fe0">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="41706dbf-772b-4df9-a1da-e705f4b3c580" testId="111b2230-432c-1643-3f22-8c807c7b6b0b" testName="Therapeute_Prenom_Obligatoire" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:38.0057085+02:00" endTime="2014-07-31T14:48:38.0057085+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="41706dbf-772b-4df9-a1da-e705f4b3c580">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="037cd5bb-888a-4257-9602-54ba0b5d53bc" testId="16cba0ff-f17e-3157-2151-135da05c3b77" testName="Erreur_Robot_CanPdoLengthError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.3649521+02:00" endTime="2014-07-31T14:48:35.3649521+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="037cd5bb-888a-4257-9602-54ba0b5d53bc">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="6c3a8e14-165b-4c5d-a3e8-cdf4034b3e11" testId="1feb75d6-6075-769f-0ca5-c7a95c479767" testName="Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Difficile" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:38.5682335+02:00" endTime="2014-07-31T14:48:38.5682335+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6c3a8e14-165b-4c5d-a3e8-cdf4034b3e11">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="8ce438f3-539b-42af-ba1f-ac4a1a79afdb" testId="20b118dc-27e8-ed17-0ac4-d5df103752d3" testName="Patient_Poids_Obligatoire" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:39.6151623+02:00" endTime="2014-07-31T14:48:39.6151623+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8ce438f3-539b-42af-ba1f-ac4a1a79afdb">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="103e56bb-8f9a-469d-b5a4-64dd951ba0f9" testId="23292fbe-adfa-993b-82f2-7c477d400857" testName="CalcSommeAbs_retourne_positif_quand_reponse_negative" computerName="PC-AXINESIS-004" duration="00:00:00.0310000" startTime="2014-07-31T14:48:40.0216817+02:00" endTime="2014-07-31T14:48:40.0526817+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="103e56bb-8f9a-469d-b5a4-64dd951ba0f9">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="bfa73be4-e3c6-4100-b548-6f3dbd37ccf9" testId="25abb7b9-1485-9596-f399-1468ba684cfa" testName="Poids_Trop_Grand" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:33.1148384+02:00" endTime="2014-07-31T14:48:33.1148384+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bfa73be4-e3c6-4100-b548-6f3dbd37ccf9">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="72e41944-fc60-4af4-8ae5-6d2d03193ef6" testId="25ecd32e-c21d-11c1-5e00-2394c558cc02" testName="Erreur_Robot_ControllerGainError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.3805781+02:00" endTime="2014-07-31T14:48:35.3805781+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="72e41944-fc60-4af4-8ae5-6d2d03193ef6">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="5cfbdd42-6152-4cfb-bed6-690ce6504036" testId="2773513e-6b8c-7f26-cda7-ed323f58b406" testName="Patient_Bien_Supprime" computerName="PC-AXINESIS-004" duration="00:00:00.0470000" startTime="2014-07-31T14:48:39.5056589+02:00" endTime="2014-07-31T14:48:39.5526589+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5cfbdd42-6152-4cfb-bed6-690ce6504036">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="693fcac7-1aca-49c2-9ce1-3ad3ff3f8768" testId="295107df-971f-3e27-197a-332cb8c3cc50" testName="Erreur_Robot_PositionSensorError_Bien_Traite" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:35.4270787+02:00" endTime="2014-07-31T14:48:35.4430787+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="693fcac7-1aca-49c2-9ce1-3ad3ff3f8768">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="69913104-83c9-4324-84fa-8e6f34dc95f6" testId="29643fec-276c-0215-f794-e8f805cfc972" testName="Poids_Est_Valide" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:33.1148384+02:00" endTime="2014-07-31T14:48:33.1148384+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="69913104-83c9-4324-84fa-8e6f34dc95f6">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="9a57853e-df8c-4ecd-99d1-4aaf624e37f7" testId="2e360870-3d74-91af-79e4-be8d529dd362" testName="Erreur_Robot_FollowingError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.3805781+02:00" endTime="2014-07-31T14:48:35.3805781+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9a57853e-df8c-4ecd-99d1-4aaf624e37f7">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="d475d5e9-c4ff-4e9b-9e08-779a4b553b7f" testId="354fc1a4-174b-33c4-c868-90f05d831a1a" testName="Therapeute_Login_Mdp_Doivent_Etre_Rempli" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:37.9275804+02:00" endTime="2014-07-31T14:48:37.9275804+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d475d5e9-c4ff-4e9b-9e08-779a4b553b7f">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="8223d54b-b59e-4034-a847-b68fbbe2733d" testId="35595230-5bd0-ff18-4c33-6a82b4105ca2" testName="Therapeute_Prenom_Valide" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:38.0053332+02:00" endTime="2014-07-31T14:48:38.0213332+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8223d54b-b59e-4034-a847-b68fbbe2733d">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="30291812-85d3-47d9-98ff-7ff21805e5dd" testId="3be5bb77-d5a9-c355-1514-f9619c4abc76" testName="Exercice_Doit_Etre_Type_Carre_Sans_Theme" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:38.5057320+02:00" endTime="2014-07-31T14:48:38.5057320+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="30291812-85d3-47d9-98ff-7ff21805e5dd">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="ee371a3e-abdc-463d-818a-7cdab6120c19" testId="3e305784-9366-9cbf-b6a3-920a4315b63b" testName="Erreur_SqlException_Num18456_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.4743305+02:00" endTime="2014-07-31T14:48:35.4743305+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ee371a3e-abdc-463d-818a-7cdab6120c19">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="bbb2b5eb-6b2c-4974-8b29-02dbc935b18c" testId="41d929c7-83e1-d0ec-365b-6bff1ab9c1ef" testName="Exercice_Doit_Etre_Type_Target_Avec_Theme" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:38.5366088+02:00" endTime="2014-07-31T14:48:38.5526088+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bbb2b5eb-6b2c-4974-8b29-02dbc935b18c">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="17557fb2-bd72-4184-b589-b5a4191e69f8" testId="42784824-7f1f-8f16-8a9c-72a03e7e4177" testName="Erreur_SqlException_Num4060_Bien_Traite" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:35.4739577+02:00" endTime="2014-07-31T14:48:35.4899577+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="17557fb2-bd72-4184-b589-b5a4191e69f8">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="86b344e8-256a-4497-983f-5322bb95c013" testId="432be06a-e2a8-0624-2aba-809b91f8a164" testName="Quitter_Exercice_En_Cours_Oui_Vers_HomeViewModel" computerName="PC-AXINESIS-004" duration="00:00:00.8440000" startTime="2014-07-31T14:48:40.4118670+02:00" endTime="2014-07-31T14:48:41.2558670+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="86b344e8-256a-4497-983f-5322bb95c013">
+      <Output>
+        <TraceInfo>VisualisationViewModel OK
+
+</TraceInfo>
+      </Output>
+    </TestResultAggregation>
+    <TestResultAggregation executionId="1503ba7d-6499-47b8-94a5-a376507b8235" testId="44ed4079-9453-ff0c-84c2-ac19b4af933d" testName="Bon_Prenom_Patient_Trouve" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:39.4901536+02:00" endTime="2014-07-31T14:48:39.4901536+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1503ba7d-6499-47b8-94a5-a376507b8235">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="c2368192-3eef-4598-be7d-045e819f8248" testId="454cd542-f819-baab-5e5e-809ca9946cca" testName="Therapeute_Connection_Login_Faux_Mdp_Bon" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:37.9119548+02:00" endTime="2014-07-31T14:48:37.9119548+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c2368192-3eef-4598-be7d-045e819f8248">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="59d4ea4a-db51-4f16-8e0b-0d5c5025ecc2" testId="45e88d5d-f0bd-540d-1a6e-ca02f771c932" testName="NavigateToHome_Vers_HomeViewModel" computerName="PC-AXINESIS-004" duration="00:00:00.7500000" startTime="2014-07-31T14:48:41.6309258+02:00" endTime="2014-07-31T14:48:42.3809258+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="59d4ea4a-db51-4f16-8e0b-0d5c5025ecc2">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="44ed1491-e5d0-4a6e-8a1f-57aef8ad96c9" testId="46f2fb7c-cbb5-3f4f-7fbb-54c6e13304f7" testName="Erreur_FileNotFoundException_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.3337003+02:00" endTime="2014-07-31T14:48:35.3337003+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="44ed1491-e5d0-4a6e-8a1f-57aef8ad96c9">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="adc617cb-fe02-479e-9795-b6e74ae50fe0" testId="470df629-581f-d9c4-ed6e-8910f13ce6a2" testName="Exercice_Doit_Etre_Type_Target_Sans_Theme" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:38.5526088+02:00" endTime="2014-07-31T14:48:38.5526088+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="adc617cb-fe02-479e-9795-b6e74ae50fe0">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="eda24976-18ae-48fc-8c29-d14bdaade82f" testId="4a086426-1df2-c9f6-a07f-48cc5355b1cf" testName="Erreur_UnauthorizedAccessException_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.4899577+02:00" endTime="2014-07-31T14:48:35.4899577+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eda24976-18ae-48fc-8c29-d14bdaade82f">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="a079ee45-a6aa-4c26-94eb-1d26ef80bf67" testId="4bc6e967-6d6d-55dc-5667-6491a42879ce" testName="Erreur_Robot_CanRxQueueOverflowError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.3649521+02:00" endTime="2014-07-31T14:48:35.3649521+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a079ee45-a6aa-4c26-94eb-1d26ef80bf67">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="e9dde253-c6c7-4d02-a37c-3d5926bce8d9" testId="4be11f3f-9c9b-c3c0-0181-9cf372e78a39" testName="Digit_Avant_Janvier_2000_Correct" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:33.1148384+02:00" endTime="2014-07-31T14:48:33.1148384+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e9dde253-c6c7-4d02-a37c-3d5926bce8d9">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="662d4468-01d9-476e-88ca-5c4174342335" testId="4c328412-8a84-cec3-b518-5abcecc770c8" testName="Erreur_Robot_UndervoltageError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.4587046+02:00" endTime="2014-07-31T14:48:35.4587046+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="662d4468-01d9-476e-88ca-5c4174342335">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="60d2ec52-5b12-4b4b-8dd7-8c49f7777b27" testId="4d48ca6b-511b-39ac-a68c-91352d15b1df" testName="Erreur_SqlException_Num18452_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.4743305+02:00" endTime="2014-07-31T14:48:35.4743305+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="60d2ec52-5b12-4b4b-8dd7-8c49f7777b27">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="f251835f-e182-4634-9336-b39f9ef7cc07" testId="4f482e75-1f13-6e68-c51e-899481bb394c" testName="Erreur_Robot_LogicSupplyVoltageTooLowError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.4118277+02:00" endTime="2014-07-31T14:48:35.4118277+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f251835f-e182-4634-9336-b39f9ef7cc07">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="6190a9e4-d850-4ef1-8c10-74c3931ca8ec" testId="4ff74c24-6e9b-810e-a11a-0426b9c06e93" testName="Erreur_Robot_OvercurrentError_Bien_Traite" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:35.4114546+02:00" endTime="2014-07-31T14:48:35.4274546+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6190a9e4-d850-4ef1-8c10-74c3931ca8ec">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="fed016bf-451c-4cf6-b307-2c639b11053a" testId="5188289e-0f4c-4bba-4f87-aede2c765fd5" testName="Erreur_OutOfMemoryException_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.3337003+02:00" endTime="2014-07-31T14:48:35.3337003+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fed016bf-451c-4cf6-b307-2c639b11053a">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="0dabdaaa-acaa-42f1-89af-df5a20bf8da5" testId="581c372c-5787-efa7-eb05-b82da31e13c9" testName="Erreur_Robot_HallSensorError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.3962015+02:00" endTime="2014-07-31T14:48:35.3962015+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0dabdaaa-acaa-42f1-89af-df5a20bf8da5">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="3b8f90d4-1bc2-4836-b882-25428dbba422" testId="58267df6-27d7-de99-f3be-2ac90f317834" testName="Erreur_Robot_OvervoltageError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.4274546+02:00" endTime="2014-07-31T14:48:35.4274546+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3b8f90d4-1bc2-4836-b882-25428dbba422">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="b2105037-33d1-44f7-8a70-482f351ac231" testId="5e7d6af5-64cc-1804-ddd0-8cb7d33a7c25" testName="Erreur_Robot_CanTxQueueOverflowError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.3805781+02:00" endTime="2014-07-31T14:48:35.3805781+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b2105037-33d1-44f7-8a70-482f351ac231">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="e0dfdac0-a7bc-4946-aaae-ba2aec5b99c4" testId="5f4e2034-866f-4eb1-0441-6555f1681d32" testName="Erreur_Robot_GearScalingFactorError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.3805781+02:00" endTime="2014-07-31T14:48:35.3805781+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e0dfdac0-a7bc-4946-aaae-ba2aec5b99c4">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="813e6140-a593-4507-a812-c2e1e918fccc" testId="5f4e818c-59f5-ec74-a477-f33dd5087204" testName="Patient_Nom_Obligatoire" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:39.6151623+02:00" endTime="2014-07-31T14:48:39.6151623+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="813e6140-a593-4507-a812-c2e1e918fccc">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="58d273ab-8752-4c45-b87e-ca7e637e6b76" testId="685bc9e4-6b9e-eafd-c8ef-4d24f897588d" testName="Erreur_SqlException_Num10054_Bien_Traite" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:35.4583305+02:00" endTime="2014-07-31T14:48:35.4743305+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="58d273ab-8752-4c45-b87e-ca7e637e6b76">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="2ff1c663-e71b-4471-b606-bc8649c8c354" testId="6baf9aec-dbb5-4f84-ed05-5b1fdabda1f6" testName="Therapeute_Connection_Login_Bon_Mdp_Bon" computerName="PC-AXINESIS-004" duration="00:00:00.0630000" startTime="2014-07-31T14:48:37.8489548+02:00" endTime="2014-07-31T14:48:37.9119548+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2ff1c663-e71b-4471-b606-bc8649c8c354">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="f7b1a1bb-6489-4560-a062-a5577bfd8770" testId="6e7616cc-f5c3-4e0a-2f74-0b9986d66ed0" testName="Erreur_Robot_IndexProcessingError_Bien_Traite" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:35.3958277+02:00" endTime="2014-07-31T14:48:35.4118277+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f7b1a1bb-6489-4560-a062-a5577bfd8770">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="3102193e-e9b5-4c40-9e58-b9c911dd9238" testId="6e80c6e1-e5cc-e094-8690-e0b15e42b61e" testName="Exercice_Eval_Doit_Avoir_Big_Borne" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:38.5522335+02:00" endTime="2014-07-31T14:48:38.5682335+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3102193e-e9b5-4c40-9e58-b9c911dd9238">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="61a8f057-4b17-4f3f-b1c0-fa4ae2b951c2" testId="70c3bcd2-30f3-dc55-d57b-3305735ab2fe" testName="Therapeute_Nom_Obligatoire" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:37.9900819+02:00" endTime="2014-07-31T14:48:37.9900819+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="61a8f057-4b17-4f3f-b1c0-fa4ae2b951c2">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="de3d50f1-630e-4890-b8e4-82810ce6b23e" testId="70ebb40d-5861-d5c1-a3ef-791dade40bd9" testName="Therapeute_Confirmation_Mot_De_Passe_Valide" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:37.8494492+02:00" endTime="2014-07-31T14:48:37.8494492+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="de3d50f1-630e-4890-b8e4-82810ce6b23e">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="f6d1be15-6ef1-4302-a016-75f30a427f64" testId="73ff9664-9e53-3c8b-c732-477aeaf16de3" testName="Patient_Sexe_Obligatoire" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:39.6307885+02:00" endTime="2014-07-31T14:48:39.6307885+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f6d1be15-6ef1-4302-a016-75f30a427f64">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="95c54eb4-e683-4727-9c87-289bffb4af28" testId="753937c8-a9eb-1241-f3c3-39b8d5bc3c92" testName="Patient_Prenom_Avec_Chiffre_Non_Valdie" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:33.1148384+02:00" endTime="2014-07-31T14:48:33.1148384+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="95c54eb4-e683-4727-9c87-289bffb4af28">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="6a5f8a66-ffe6-4330-a0e9-ba28edf60252" testId="79e0f4ac-752d-6854-5869-d79798ecc5d8" testName="Digit_Apres_Decembre_1999_Correct" computerName="PC-AXINESIS-004" duration="00:00:00.0630000" startTime="2014-07-31T14:48:33.0362128+02:00" endTime="2014-07-31T14:48:33.0992128+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6a5f8a66-ffe6-4330-a0e9-ba28edf60252">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="241ec4b4-f798-4399-aa03-2dd9fe0f182f" testId="7a5257a4-6838-27e7-097e-fee1f1076112" testName="Therapeute_Nom_Valide" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:38.0057085+02:00" endTime="2014-07-31T14:48:38.0057085+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="241ec4b4-f798-4399-aa03-2dd9fe0f182f">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="83b1d03e-aa48-4634-b1e6-6152f755f8e3" testId="7a8c8ab2-cc1f-665a-6687-1b4694c99073" testName="Ecart_Type" computerName="PC-AXINESIS-004" duration="00:00:00.0310000" startTime="2014-07-31T14:48:42.8030711+02:00" endTime="2014-07-31T14:48:42.8340711+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="83b1d03e-aa48-4634-b1e6-6152f755f8e3">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="820e7f9f-5523-4d77-8b59-6aa9792fd01d" testId="7d2a5c74-8b81-7def-78d9-19fc9e6c2ea4" testName="Patient_DateNaissance_Obligatoire" computerName="PC-AXINESIS-004" duration="00:00:00.0470000" startTime="2014-07-31T14:48:39.5525370+02:00" endTime="2014-07-31T14:48:39.5995370+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="820e7f9f-5523-4d77-8b59-6aa9792fd01d">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="32eb7ec4-8be7-436d-8531-133eaa075d06" testId="7f94dfe3-332f-6ad8-2375-32e045760356" testName="Exercice_Doit_Etre_Type_FreeAmpl_Sans_Theme" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:38.5369816+02:00" endTime="2014-07-31T14:48:38.5369816+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="32eb7ec4-8be7-436d-8531-133eaa075d06">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="a8975e4b-228e-4a4c-84f4-27a81bb19c32" testId="801619e0-4c6a-c192-158c-5c744706c07f" testName="Digit_Apres_Decembre_1999_Mauvais" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:33.1148384+02:00" endTime="2014-07-31T14:48:33.1148384+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a8975e4b-228e-4a4c-84f4-27a81bb19c32">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="f9e36063-68fd-4243-ac08-c02a9badb594" testId="84265baa-a0fc-9eb4-5420-2fc493c758dd" testName="Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Facile" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:38.5834850+02:00" endTime="2014-07-31T14:48:38.5994850+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f9e36063-68fd-4243-ac08-c02a9badb594">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="298065f8-3f06-4948-877c-bc47dc890f52" testId="8786509f-e646-d735-fbae-09bb7ea9968d" testName="Deconnexion_Robot_Correcte" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:43.4278486+02:00" endTime="2014-07-31T14:48:43.4278486+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="298065f8-3f06-4948-877c-bc47dc890f52">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="0fa972dc-64f9-476f-bc1e-d7aa42cc09c7" testId="8ba1fb0e-b6e5-ffa6-335a-2d325b6a0e71" testName="Patient_ID2_Obligatoire" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:39.5991623+02:00" endTime="2014-07-31T14:48:39.6151623+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0fa972dc-64f9-476f-bc1e-d7aa42cc09c7">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="a4fe9f21-cca0-4e15-89b1-9142987485aa" testId="8c12cfd0-1498-5bdd-91ca-78d79b86f9eb" testName="Erreur_Robot_SystemOverloadedError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.4587046+02:00" endTime="2014-07-31T14:48:35.4587046+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a4fe9f21-cca0-4e15-89b1-9142987485aa">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="c114cc75-8bab-4f67-bee6-8ca998f6d0dd" testId="8df30bf8-76cd-877b-8f7e-5c4d83da39af" testName="Therapeute_Doit_Etre_Admin" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:37.9115804+02:00" endTime="2014-07-31T14:48:37.9275804+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c114cc75-8bab-4f67-bee6-8ca998f6d0dd">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="3d263b6f-5169-41e4-b0ba-e359f72b83df" testId="92017067-14ad-573f-0247-6612b560f178" testName="Erreur_Robot_CanTransmitCobIdCollisionError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.3649521+02:00" endTime="2014-07-31T14:48:35.3649521+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3d263b6f-5169-41e4-b0ba-e359f72b83df">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="9f5edaab-c2e1-45a8-b650-c2ed5801f4bd" testId="92fd36a1-ca75-7f92-7bd2-2dc408eedb40" testName="Erreur_Autres_Exception_Doit_Couper_Le_Programme" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:35.3177003+02:00" endTime="2014-07-31T14:48:35.3337003+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9f5edaab-c2e1-45a8-b650-c2ed5801f4bd">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="3fb8ed4a-2f65-48b6-b3e4-0b423c7fdaf0" testId="93a6a4eb-88a4-190c-4984-549fd5627b92" testName="Erreur_SqlException_Autres_Num_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.4587046+02:00" endTime="2014-07-31T14:48:35.4587046+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3fb8ed4a-2f65-48b6-b3e4-0b423c7fdaf0">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="68d32641-555f-4bbc-b8b6-0663906c69e7" testId="9675d6c5-a9f0-d1b1-dc83-f2159bbe4e61" testName="Erreur_SqlException_Num2_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.4743305+02:00" endTime="2014-07-31T14:48:35.4743305+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="68d32641-555f-4bbc-b8b6-0663906c69e7">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="89a61de1-f078-430a-a620-79ffe961fefd" testId="99f400bb-0ada-6022-1c6a-8a51a33a69ad" testName="Erreur_WrongSerialPortException_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.4899577+02:00" endTime="2014-07-31T14:48:35.4899577+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="89a61de1-f078-430a-a620-79ffe961fefd">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="38fafae0-f3c8-4a5f-b135-c6c2b1bc9963" testId="9a9c9aca-748b-bfa8-d869-cf515d3be60d" testName="Bonne_Date_Patient_Trouve" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:39.4897814+02:00" endTime="2014-07-31T14:48:39.5057814+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="38fafae0-f3c8-4a5f-b135-c6c2b1bc9963">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="d4a3dcaa-b3b6-4d4e-868f-d094abf74b60" testId="9ef9f365-076b-fb6f-67f0-e145ead2e579" testName="Inscription_Administrateur" computerName="PC-AXINESIS-004" duration="00:00:00.0310000" startTime="2014-07-31T14:48:37.8028230+02:00" endTime="2014-07-31T14:48:37.8338230+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d4a3dcaa-b3b6-4d4e-868f-d094abf74b60">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="8109c67b-abd4-49e2-8287-64412576bd8a" testId="9f809847-62e4-7ae9-163a-caf99776f5c1" testName="Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Expert" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:38.5678604+02:00" endTime="2014-07-31T14:48:38.5838604+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8109c67b-abd4-49e2-8287-64412576bd8a">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="5330a1e9-2338-4766-878e-9394e9944519" testId="9fd9b1fa-6e42-0253-d530-aa3bc9535c48" testName="Taille_Trop_Petite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:33.1148384+02:00" endTime="2014-07-31T14:48:33.1148384+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5330a1e9-2338-4766-878e-9394e9944519">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="0138134d-f4db-4be5-b87f-78d9a591a6c4" testId="a1966c6a-89d2-337f-4636-dc1c68800169" testName="Exercice_Doit_Etre_Type_FreeAmpl_Avec_Theme" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:38.5209816+02:00" endTime="2014-07-31T14:48:38.5369816+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0138134d-f4db-4be5-b87f-78d9a591a6c4">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="3db23a73-f163-47fa-b060-8887b7c86a65" testId="a2846e84-e29a-ac6f-f43c-d07bf54453dd" testName="Therapeute_Confirmation_Mot_De_Passe" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:37.8334492+02:00" endTime="2014-07-31T14:48:37.8494492+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3db23a73-f163-47fa-b060-8887b7c86a65">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="ff45194b-809c-4126-a271-d3c16165672b" testId="a7d2c1fe-6292-38c4-b190-463be3c8cf93" testName="Patient_Taille_Obligatoire" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:39.6307885+02:00" endTime="2014-07-31T14:48:39.6307885+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ff45194b-809c-4126-a271-d3c16165672b">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="04a1d143-ee96-4e77-b69b-b010da27e70e" testId="a844c7b5-b6b2-c536-6130-0a3921ce9bd8" testName="Taille_Est_Valide" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:33.1148384+02:00" endTime="2014-07-31T14:48:33.1148384+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="04a1d143-ee96-4e77-b69b-b010da27e70e">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="1dee9cf5-3f41-41ac-8f7c-bce8c728cfc9" testId="a844de03-199c-2904-f987-af36e60b2367" testName="Erreur_Robot_HallAngleDetectionError_Bien_Traite" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:35.3802015+02:00" endTime="2014-07-31T14:48:35.3962015+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1dee9cf5-3f41-41ac-8f7c-bce8c728cfc9">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="519aa0f0-8675-418e-83df-e06f79910f4d" testId="ae8642d5-07bc-0f18-4b31-bcbab057a0d0" testName="Connexion_Robot_Correcte" computerName="PC-AXINESIS-004" duration="00:00:00.2340000" startTime="2014-07-31T14:48:43.1938486+02:00" endTime="2014-07-31T14:48:43.4278486+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="519aa0f0-8675-418e-83df-e06f79910f4d">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="d77dc73d-3fdf-48b1-a97c-66b7a8f57ead" testId="b0e62a3f-dbda-5351-cdbf-e39911c0ab52" testName="Poids_Trop_Petit" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:33.1148384+02:00" endTime="2014-07-31T14:48:33.1148384+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d77dc73d-3fdf-48b1-a97c-66b7a8f57ead">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="5a6a481f-f6bd-4972-a8c7-1d6c1d26386c" testId="b327e7c1-b25a-ea16-5827-7059ea867750" testName="Erreur_Robot_CanOverrunErrorObjectsLost_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.3493240+02:00" endTime="2014-07-31T14:48:35.3493240+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5a6a481f-f6bd-4972-a8c7-1d6c1d26386c">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="3a52c4cf-42e3-4dd8-ab74-5a4a74b8278a" testId="b7e43fdb-6e64-2c94-dcce-89d4bd434ec6" testName="Therapeute_Mot_De_Passe_Longeur_Valide" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:37.9275804+02:00" endTime="2014-07-31T14:48:37.9275804+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3a52c4cf-42e3-4dd8-ab74-5a4a74b8278a">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="ab573d38-cbe3-4b6b-8830-42563d0f801a" testId="b8fd7e59-747c-17d3-c6d0-98a165828ac4" testName="Nom_Est_Valide" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:33.1148384+02:00" endTime="2014-07-31T14:48:33.1148384+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ab573d38-cbe3-4b6b-8830-42563d0f801a">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="d9320274-54a4-48f5-a8c3-7a037381b712" testId="b97e58f3-cbc0-bcdd-6669-a43c0d325371" testName="Erreur_Robot_InternalSoftwareError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.4118277+02:00" endTime="2014-07-31T14:48:35.4118277+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d9320274-54a4-48f5-a8c3-7a037381b712">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="36784c72-1723-4fd1-a3bc-87cc034118d3" testId="bbea477e-5527-ed14-9100-20bf91c8292e" testName="Therapeute_Nom_Utilisateur_Longeur_Valide" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:37.9897085+02:00" endTime="2014-07-31T14:48:38.0057085+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="36784c72-1723-4fd1-a3bc-87cc034118d3">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="4ecd4252-02aa-4c35-85df-05a920dd2682" testId="bda8b925-f57b-a41e-b5e4-cfda8f09d069" testName="Patient_Prenom_Obligatoire" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:39.6147885+02:00" endTime="2014-07-31T14:48:39.6307885+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4ecd4252-02aa-4c35-85df-05a920dd2682">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="64436dfb-fc5e-4e44-9be4-b1fe3cc7e314" testId="bf764ba8-8696-c92f-3f57-afea2c1bfe57" testName="Erreur_Robot_OvertemperatureError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.4274546+02:00" endTime="2014-07-31T14:48:35.4274546+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="64436dfb-fc5e-4e44-9be4-b1fe3cc7e314">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="a701c260-f549-4033-abb7-98cbfb4a2496" testId="c3232def-6f8e-d276-40a2-3789adf7a7e8" testName="Distance_Entre_Deux_Points_Positive" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:40.0526817+02:00" endTime="2014-07-31T14:48:40.0526817+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a701c260-f549-4033-abb7-98cbfb4a2496">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="9d40e628-fe38-4093-9262-35c16a492632" testId="c49b8624-edd6-882f-a895-24bc1ddc98ef" testName="Patient_ID1_Obligatoire" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:39.5995370+02:00" endTime="2014-07-31T14:48:39.5995370+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9d40e628-fe38-4093-9262-35c16a492632">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="d158c10c-83c5-410c-af19-1cdc0b88088c" testId="c5df75b3-144c-2597-17e1-ed5cf6d153e4" testName="Distance_Entre_Plusieur_Points" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:40.0526817+02:00" endTime="2014-07-31T14:48:40.0526817+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d158c10c-83c5-410c-af19-1cdc0b88088c">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="26791061-d43f-43dc-be8d-ab2550092a62" testId="c9cc9895-7dba-ba49-7119-f12ee348cb8e" testName="Admin_Pas_Dans_La_Bd" computerName="PC-AXINESIS-004" duration="00:00:00.0310000" startTime="2014-07-31T14:48:37.7715727+02:00" endTime="2014-07-31T14:48:37.8025727+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="26791061-d43f-43dc-be8d-ab2550092a62">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="ccd0fd0a-9897-4895-a2a1-165cddf93b38" testId="caa48818-36b7-d70b-1070-130edd123aaf" testName="Bon_Nom_Patient_Trouve" computerName="PC-AXINESIS-004" duration="00:00:00.4690000" startTime="2014-07-31T14:48:39.0211536+02:00" endTime="2014-07-31T14:48:39.4901536+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ccd0fd0a-9897-4895-a2a1-165cddf93b38">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="63bfea98-3962-4eb7-a784-2cba0b6b2263" testId="d0376b53-97ff-8f3e-a747-fb79ebf2a3da" testName="Therapeute_Ne_Doit_Pas_Etre_Admin" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:37.9740819+02:00" endTime="2014-07-31T14:48:37.9900819+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="63bfea98-3962-4eb7-a784-2cba0b6b2263">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="28964ff6-7ec4-4d43-ae2b-66d1eed7aa16" testId="d1d5bdee-95e1-826a-6e8c-92bd1b1d1870" testName="Taille_Trop_Grande" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:33.1148384+02:00" endTime="2014-07-31T14:48:33.1148384+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="28964ff6-7ec4-4d43-ae2b-66d1eed7aa16">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="696d4dcb-61d5-4449-a62d-ebe9e98eb4bd" testId="d1e4e0aa-1b84-a4ad-c411-f5ed64c5a640" testName="Vitesse_Moyenne" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:40.0526817+02:00" endTime="2014-07-31T14:48:40.0526817+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="696d4dcb-61d5-4449-a62d-ebe9e98eb4bd">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="cc90e354-9f18-4392-af28-311fc2dc2994" testId="d70d4846-e790-2791-a7f6-aea47d197ce3" testName="Erreur_Robot_CanPassiveModeError_Bien_Traite" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:35.3489521+02:00" endTime="2014-07-31T14:48:35.3649521+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cc90e354-9f18-4392-af28-311fc2dc2994">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="52a93684-bab3-4f62-82f8-0d39b74a407a" testId="d7da732c-fc15-83c6-835a-a08965ba8304" testName="Therapeute_Nom_Utilisateur_Obligatoire" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:38.0057085+02:00" endTime="2014-07-31T14:48:38.0057085+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="52a93684-bab3-4f62-82f8-0d39b74a407a">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="bb7634f7-df28-4e77-b244-bafeb1ac76eb" testId="dc5d423e-851c-6658-b8be-e6a841de2fd1" testName="CalcSommeAbs_retourne_positif_quand_reponse_positive" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:40.0526817+02:00" endTime="2014-07-31T14:48:40.0526817+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bb7634f7-df28-4e77-b244-bafeb1ac76eb">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="40c6139b-7b2e-4b3e-ac99-72c85e9ecd76" testId="dd92dc7b-d098-851b-826a-9944e389e494" testName="Erreur_Robot_AuxiliarySensorDirectionError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.3493240+02:00" endTime="2014-07-31T14:48:35.3493240+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="40c6139b-7b2e-4b3e-ac99-72c85e9ecd76">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="ac6cfc7d-b010-4bc1-a7e2-be7c027c0052" testId="de21bf2b-3c89-6540-e855-d73236ea78a8" testName="Erreur_Robot_CanOverrunError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.3493240+02:00" endTime="2014-07-31T14:48:35.3493240+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ac6cfc7d-b010-4bc1-a7e2-be7c027c0052">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="baa3701f-9da2-4c4f-9b62-c2f188dd2222" testId="e0898479-7725-95c5-c9c2-c8ebc6704474" testName="Erreur_Robot_AutoTuningIdentificationError_Bien_Traite" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:35.3333240+02:00" endTime="2014-07-31T14:48:35.3493240+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="baa3701f-9da2-4c4f-9b62-c2f188dd2222">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="1ca6c237-b489-4637-93e3-21a74ef20275" testId="e1a4c390-c5f8-439f-c92b-f2ca8aad4a6c" testName="Erreur_Robot_MainSensorDirectionError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.4118277+02:00" endTime="2014-07-31T14:48:35.4118277+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1ca6c237-b489-4637-93e3-21a74ef20275">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="422da715-b53c-47ae-9889-bda06eaf7d14" testId="e2a9821c-c720-fc4f-49a9-2e55aa444d68" testName="DecoThérapeute_Oui_Vers_ConnexionTherapeuteViewModel" computerName="PC-AXINESIS-004" duration="00:00:00.7660000" startTime="2014-07-31T14:48:43.8494080+02:00" endTime="2014-07-31T14:48:44.6154080+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="422da715-b53c-47ae-9889-bda06eaf7d14">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="184944dc-642d-4e85-8ffa-c7c5fddd1594" testId="e4cae4cc-8a84-0f9d-ab32-770e0b7739a5" testName="Exercice_Doit_Etre_Type_Cercle_Sans_Theme" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:38.5213563+02:00" endTime="2014-07-31T14:48:38.5213563+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="184944dc-642d-4e85-8ffa-c7c5fddd1594">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="36e0aaea-b64b-4b27-8223-708ba8010345" testId="e58b710a-1d4f-3221-e978-e68b6b040c54" testName="Exercice_Doit_Etre_Type_Cercle_Avec_Theme" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:38.5053563+02:00" endTime="2014-07-31T14:48:38.5213563+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="36e0aaea-b64b-4b27-8223-708ba8010345">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="2e5b57fc-fdbe-4276-85c1-58a295253aa1" testId="ea2c6b0a-c912-2fce-46c5-ac0346f15352" testName="Erreur_SqlException_Num53_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.4899577+02:00" endTime="2014-07-31T14:48:35.4899577+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2e5b57fc-fdbe-4276-85c1-58a295253aa1">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="f18634e8-0b6f-4ef3-badf-56f3b3e8c332" testId="ed5d1215-e582-5800-31ce-c5bd5d4ba85a" testName="Distance_Entre_Deux_Points_Negative" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:40.0526817+02:00" endTime="2014-07-31T14:48:40.0526817+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f18634e8-0b6f-4ef3-badf-56f3b3e8c332">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="d4bceb1c-641b-4516-b280-751b1bcfbe85" testId="ed899626-e988-333c-7742-04cd720ec9a7" testName="Erreur_AlreadyOpenSerialPortException_Bien_Traite" computerName="PC-AXINESIS-004" duration="00:00:01.7340000" startTime="2014-07-31T14:48:33.5840740+02:00" endTime="2014-07-31T14:48:35.3180740+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d4bceb1c-641b-4516-b280-751b1bcfbe85">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="a0b9eac4-2392-4418-948c-29cafefc3730" testId="ee85c135-d168-c271-408c-240e4713e404" testName="Patient_Prenom_Est_Valide" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:33.1148384+02:00" endTime="2014-07-31T14:48:33.1148384+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a0b9eac4-2392-4418-948c-29cafefc3730">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="e93f051b-f78d-41d2-81a0-26fe72100b75" testId="ee9a69f6-cf44-b467-cc2a-1e750c89a07f" testName="Admin_Dans_La_Bd" computerName="PC-AXINESIS-004" duration="00:00:01.8750000" startTime="2014-07-31T14:48:35.8963205+02:00" endTime="2014-07-31T14:48:37.7713205+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e93f051b-f78d-41d2-81a0-26fe72100b75">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="c4c92569-52d1-46a0-8f10-cd6c13c6e104" testId="eefbf66d-ed2c-e00b-7d18-b2f0db937ce7" testName="Erreur_Robot_HallSensorNotFoundError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:35.3962015+02:00" endTime="2014-07-31T14:48:35.3962015+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c4c92569-52d1-46a0-8f10-cd6c13c6e104">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="eb86e726-b995-419e-833c-258aec89b5c4" testId="f00b5c2d-ca8b-087e-0e85-8f38ab6323e5" testName="Jeu_Doit_Etre_Type_Jeu_Avec_Bon_Theme_Moyen" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:48:38.5991110+02:00" endTime="2014-07-31T14:48:38.6151110+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eb86e726-b995-419e-833c-258aec89b5c4">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="cbbca5a9-dcb4-4fd5-8fd2-b70771ca9eb3" testId="f12e1a8a-71af-23d0-a32f-22bbf6d801ac" testName="DecoPatient_Oui_Vers_HomeViewModel" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:48:44.6779108+02:00" endTime="2014-07-31T14:49:13.7965783+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cbbca5a9-dcb4-4fd5-8fd2-b70771ca9eb3">
+      <Output>
+        <ErrorInfo>
+          <Message>Le processus Agent s'est arrêté pendant l'exécution du test.</Message>
+        </ErrorInfo>
+      </Output>
+    </TestResultAggregation>
+    <TestResultAggregation executionId="3813d267-3a16-471c-ac06-5fd9609e14d9" testId="f3282b9f-62b9-2180-8977-69bed228d06a" testName="Erreur_Robot_SoftwarePositionLimitError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:49:15.5935433+02:00" endTime="2014-07-31T14:49:15.5935433+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3813d267-3a16-471c-ac06-5fd9609e14d9">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="773a2980-a090-45f0-98ba-82a906282216" testId="f6381e6b-e08a-f44f-1c2d-4a4e13a50dfd" testName="Erreur_Robot_EncoderResolutionError_Bien_Traite" computerName="PC-AXINESIS-004" startTime="2014-07-31T14:49:15.5310408+02:00" endTime="2014-07-31T14:49:15.5310408+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="773a2980-a090-45f0-98ba-82a906282216">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="37a0f5b4-e2c2-47bb-abc6-69550315d56c" testId="f6827a5d-d000-6b57-1a5d-244c917c4e49" testName="Exercice_Doit_Etre_Type_Carre_Avec_Theme" computerName="PC-AXINESIS-004" duration="00:00:00.0160000" startTime="2014-07-31T14:49:16.1400698+02:00" endTime="2014-07-31T14:49:16.1560698+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="37a0f5b4-e2c2-47bb-abc6-69550315d56c">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="426b2bf8-7c9c-416c-8b86-625721d47858" testId="f7916e99-2ca8-0ce5-1775-44086440dfca" testName="Exercice_Doit_Avoir_Base_Config" computerName="PC-AXINESIS-004" duration="00:00:00.1090000" startTime="2014-07-31T14:49:16.0314451+02:00" endTime="2014-07-31T14:49:16.1404451+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="426b2bf8-7c9c-416c-8b86-625721d47858">
+    </TestResultAggregation>
+  </Results>
+</TestRun>

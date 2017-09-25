@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>MARC-PC</Machine>
+    <WindowsUser>Marc</WindowsUser>
+    <SolutionConfiguration>Release|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>b3f72589-9016-4989-ae8f-dd03d907ca40</PackageIdentityName>
+    <RegisteredManifestChecksum>CC6AC60A7156561FB6C3A5E1262E405E57EC0412193161ABE9EA58FF8E5A792D</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>b3f72589-9016-4989-ae8f-dd03d907ca40_1.0.0.0_neutral__3kkjfjc6x76r0</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>b3f72589-9016-4989-ae8f-dd03d907ca40_3kkjfjc6x76r0!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>b3f72589-9016-4989-ae8f-dd03d907ca40</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=Marc</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="D:\_Projets\Navegar\_Sources\Exemples\Navegar.Win8.Exemple\bin\Release\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-10-26T17:51:02.332</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="D:\_Projets\Navegar\_Sources\Exemples\Navegar.Win8.Exemple\bin\Release\Navegar.Win8.Exemple.exe">
+      <PackagePath>Navegar.Win8.Exemple.exe</PackagePath>
+      <Modified>2013-10-26T17:51:01.639</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\_Projets\Navegar\_Sources\packages\MvvmLightLibs.4.2.30.0\lib\netcore45\GalaSoft.MvvmLight.Extras.Win8.dll">
+      <PackagePath>GalaSoft.MvvmLight.Extras.Win8.dll</PackagePath>
+      <Modified>2013-10-26T17:33:17.319</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\_Projets\Navegar\_Sources\packages\MvvmLightLibs.4.2.30.0\lib\netcore45\GalaSoft.MvvmLight.Win8.dll">
+      <PackagePath>GalaSoft.MvvmLight.Win8.dll</PackagePath>
+      <Modified>2013-10-26T17:33:19.071</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\_Projets\Navegar\_Sources\packages\MvvmLightLibs.4.2.30.0\lib\netcore45\Microsoft.Practices.ServiceLocation.dll">
+      <PackagePath>Microsoft.Practices.ServiceLocation.dll</PackagePath>
+      <Modified>2013-10-26T17:33:20.881</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\_Projets\Navegar\_Sources\NavegarLib\Navegar.Win8\bin\Release\Navegar.Win8.dll">
+      <PackagePath>Navegar.Win8.dll</PackagePath>
+      <Modified>2013-10-26T17:50:59.013</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\_Projets\Navegar\_Sources\Exemples\Navegar.Win8.Exemple\Assets\Logo.png">
+      <PackagePath>Assets\Logo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-10-09T20:06:31.070</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\_Projets\Navegar\_Sources\Exemples\Navegar.Win8.Exemple\Assets\SmallLogo.png">
+      <PackagePath>Assets\SmallLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-10-09T20:06:31.146</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\_Projets\Navegar\_Sources\Exemples\Navegar.Win8.Exemple\Assets\SplashScreen.png">
+      <PackagePath>Assets\SplashScreen.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-10-09T20:06:31.167</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\_Projets\Navegar\_Sources\Exemples\Navegar.Win8.Exemple\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-10-09T20:06:31.190</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\_Projets\Navegar\_Sources\Exemples\Navegar.Win8.Exemple\bin\Release\App.xaml">
+      <PackagePath>App.xaml</PackagePath>
+      <Modified>2013-10-26T17:42:19.769</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\_Projets\Navegar\_Sources\Exemples\Navegar.Win8.Exemple\bin\Release\Common\StandardStyles.xaml">
+      <PackagePath>Common\StandardStyles.xaml</PackagePath>
+      <Modified>2013-10-26T17:43:27.888</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\_Projets\Navegar\_Sources\Exemples\Navegar.Win8.Exemple\bin\Release\MainPage.xaml">
+      <PackagePath>MainPage.xaml</PackagePath>
+      <Modified>2013-10-09T20:06:30.769</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\_Projets\Navegar\_Sources\Exemples\Navegar.Win8.Exemple\bin\Release\Views\BlankPage1.xaml">
+      <PackagePath>Views\BlankPage1.xaml</PackagePath>
+      <Modified>2013-10-09T20:06:31.455</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\_Projets\Navegar\_Sources\Exemples\Navegar.Win8.Exemple\bin\Release\Views\BlankPage2.xaml">
+      <PackagePath>Views\BlankPage2.xaml</PackagePath>
+      <Modified>2013-10-09T20:06:31.464</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\_Projets\Navegar\_Sources\Exemples\Navegar.Win8.Exemple\bin\Release\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2013-10-26T17:51:02.063</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,142 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows;
+using GalaSoft.MvvmLight.Messaging;
+using System.Windows.Threading;
+using GalaSoft.MvvmLight.Ioc;
+using Navegar;
+using GalaSoft.MvvmLight.Command;
+using System.Collections.ObjectModel;
+using AxModelExercice;
+using AxConfiguration;
+
+namespace AxViewModel
+{
+    public class ZoomViewModel : BlankViewModelBase
+    {
+        #region fields
+
+        public ObservableCollection<ExerciceReeducation> Exercices { get; set; }
+        private string _imageZoom = "\\Resources\\Image\\Zoom\\Axi_FondEcran_NT_ZoomGrand.png";
+
+        #endregion
+
+
+        public ZoomViewModel()
+        {
+            typeZoom = "2";
+            CreateCommands();
+        }
+
+        public string ImageZoom
+        {
+            get
+            {
+                return _imageZoom;
+            }
+            set
+            {
+                _imageZoom = value;
+                RaisePropertyChanged("ImageZoom");
+            }
+        }
+
+        #region Methods
+
+        public void CreateCommands()
+        {
+            ZoomCommand = new RelayCommand<string>((p) => changeImageZoom(p));
+            ValiderReeducationCommand = new RelayCommand(ValidReeducation);
+            MainViewModelCommand = new RelayCommand(NavigateToHome);
+            PreviousViewModelCommand = new RelayCommand(GoBack, CanGoBack);
+        }
+
+        private bool CanGoBack()
+        {
+            return SimpleIoc.Default.GetInstance<INavigation>().CanGoBack();
+        }
+
+        //Permet de revenir sur le premier ViewModel
+        private void GoBack()
+        {
+            if (SimpleIoc.Default.GetInstance<INavigation>().GetTypeViewModelToBack() == typeof(HomeViewModel))
+            {
+                SimpleIoc.Default.GetInstance<INavigation>().GoBack("SetIsRetour", new object[] { true });
+            }
+            else
+            {
+                SimpleIoc.Default.GetInstance<INavigation>().GoBack();
+            }
+        }
+
+        private string typeZoom;
+        public void changeImageZoom(string p)
+        {
+            typeZoom = p;
+
+            if (p == "0")
+                ImageZoom = "\\Resources\\Image\\Zoom\\Axi_FondEcran_NT_ZoomPetit.png";
+            if (p == "1")
+                ImageZoom = "\\Resources\\Image\\Zoom\\Axi_FondEcran_NT_ZoomMoyen.png";
+            if (p == "2")
+                ImageZoom = "\\Resources\\Image\\Zoom\\Axi_FondEcran_NT_ZoomGrand.png";
+        }
+
+        public void LoadEx(ObservableCollection<ExerciceReeducation> exerc)
+        {
+            this.Exercices = exerc;
+
+
+        }
+
+        void ValidReeducation()
+        {
+            try
+            {
+                Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    
+                }), DispatcherPriority.Normal);
+                foreach (var item in Exercices)
+                {
+                    if (typeZoom == "0")
+                        item.BorneConfig = ExerciceConfig.GetSmallBorne();
+                    if (typeZoom == "1")
+                        item.BorneConfig = ExerciceConfig.GetMediumBorne();
+                    if (typeZoom == "2")
+                        item.BorneConfig = ExerciceConfig.GetBigBorne();
+                }
+<<<<<<< HEAD
+
+                SimpleIoc.Default.GetInstance<INavigation>().NavigateTo<VisualisationViewModel>(this, null, "Test", new object[] { this.Exercices }, false);
+=======
+                List<ExerciceGeneric> listExGen = new List<ExerciceGeneric>(Exercices);
+                SimpleIoc.Default.GetInstance<INavigation>().NavigateTo<VisualisationViewModel>(this, null, false);
+                Messenger.Default.Send(listExGen, "ReeducationKidWizardViewModel");
+>>>>>>> 55253cd12fb46f1fe36dec59a450248cc91feb8f
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur : " + ex.Message, "Erreur !", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public void NavigateToHome()
+        {
+            SimpleIoc.Default.GetInstance<INavigation>().NavigateTo<HomeViewModel>(false);
+        }
+
+        #endregion
+
+        #region Commands
+
+        public RelayCommand<string> ZoomCommand { get; set; }
+        public RelayCommand ValiderReeducationCommand { get; set; }
+        public RelayCommand MainViewModelCommand { get; set; }
+        public RelayCommand PreviousViewModelCommand { get; set; }
+
+        #endregion
+    }
+}

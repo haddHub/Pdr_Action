@@ -1,0 +1,17 @@
+﻿<Page
+    x:Class="Navegar.Win8.Exemple.Views.BlankPage1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding BlankPage1ViewModel, Source={StaticResource Locator}}">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Blank Page 1" FontSize="20" />
+            <TextBox Text="{Binding SendToPage, Mode=TwoWay}" />
+            <Button Content="Vers la Page 2" Command="{Binding GoToPage2Command}" />
+            <Button Content="Vers la Page 2 (Sans paramètres)" Command="{Binding GoToPage2WithoutParamCommand}" />
+        </StackPanel>    
+    </Grid>
+</Page>
+

@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="AxView.View.VisualisationEvaluation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             xmlns:conv="clr-namespace:AxView.Converters"
+             xmlns:my="clr-namespace:AxView.Resources.Elements"
+             xmlns:res="clr-namespace:AxLanguage;assembly=AxLanguage"
+             MinWidth="1228" MinHeight="550">
+    <UserControl.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/REAplan2Db;component/Resources/Template/NumberSlider.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*" />
+            <RowDefinition Height="0.3*" />
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Black" BorderThickness="0" Grid.RowSpan="4" Grid.ColumnSpan="2" Opacity="0.15"/>
+        <Border BorderBrush="Black" BorderThickness="0,0,1,0" Grid.Row="2">
+            <my:ForceControl x:Name="forceControl1" ForceX="{Binding CurrentForceX, Mode=OneWay}" ForceY="{Binding CurrentForceY, Mode=OneWay}" Margin="30,10" Height="113.467" />
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="0,1,1,0" Grid.Column="1" Grid.RowSpan="3">
+            <ContentControl Content="{Binding InternViewBoutons}" Focusable="False"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="0,0,1,1" Margin="1,-0.844,0,0" Grid.Row="1">
+            <Grid Margin="0" >
+                <ContentControl Content="{Binding InternViewParametres}" Focusable="False"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="0,1,1,1" Margin="1,0,0,0.844">
+            <ContentControl HorizontalAlignment="Stretch" Content="{Binding InternViewList}" Focusable="False"  VerticalAlignment="Top"/>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="0,1,0,0" Grid.ColumnSpan="2" Grid.Row="3" Margin="0">
+            <StackPanel Orientation="Horizontal" d:LayoutOverrides="Height" Margin="0" HorizontalAlignment="Right">
+                <Button Content="{x:Static res:Languages.REAplan_Precedent}" FontSize="20" Margin="10,0" Height="50" Width="150" Padding="0"  Command="{Binding PreviousViewModelCommand}"/>
+                <Button Content="{x:Static res:Languages.REAplan_Suivant}" Command="{Binding InternView.ConfigCommand}" FontSize="20" Margin="10,0" Height="50" Width="150" Padding="0" IsEnabled="False" />
+                <Button Content="{x:Static res:Languages.REAplan_Accueil}" FontSize="20" Margin="10,0" Height="50" Width="150" Padding="0"  Command="{Binding MainViewModelCommand}"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

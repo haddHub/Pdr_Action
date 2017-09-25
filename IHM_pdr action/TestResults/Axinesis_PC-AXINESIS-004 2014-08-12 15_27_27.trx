@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="6b10f093-4c68-4256-8e92-9df470d949a8" name="Axinesis@PC-AXINESIS-004 2014-08-12 15:27:27" runUser="PC-AXINESIS-004\Axinesis" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Paramètres de test par défaut" id="a101605b-7050-4ff9-8e37-1752b1ebebae">
+    <Deployment runDeploymentRoot="Axinesis_PC-AXINESIS-004 2014-08-12 15_27_27">
+      <DeploymentItem filename="C:\Program Files (x86)\NUnit 2.6.3\bin\framework\nunit.framework.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse\bin\Debug\AxAnalyse.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\MvvmLightLibs.4.4.32.1\lib\net40\System.Windows.Interactivity.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\MvvmLightLibs.4.4.32.1\lib\net40\GalaSoft.MvvmLight.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxModel\bin\Debug\AxModel.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\NUnit 2.6.3\bin\framework\nunit.mocks.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\MvvmLightLibs.4.4.32.1\lib\net40\GalaSoft.MvvmLight.Extras.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-08-12T15:27:27.3583286+02:00" queuing="2014-08-12T15:27:29.9911383+02:00" start="2014-08-12T15:27:30.0862017+02:00" finish="2014-08-12T15:29:12.1960279+02:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="7" executed="7" passed="7" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="CalcSommeAbs_retourne_positif_quand_reponse_positive" storage="c:\users\axinesis\desktop\ihm_base\axanalyse.test\bin\debug\axanalyse.test.dll" id="dc5d423e-851c-6658-b8be-e6a841de2fd1" xmlns="AxAnalyse.Test">
+      <Execution id="0b7279b6-9703-406d-abef-061a1c4920e5" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse.Test\bin\Debug\AxAnalyse.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxAnalyse.Test.AnalyseTest" name="CalcSommeAbs_retourne_positif_quand_reponse_positive" />
+    </UnitTest>
+    <UnitTest name="CalcSommeAbs_retourne_positif_quand_reponse_negative" storage="c:\users\axinesis\desktop\ihm_base\axanalyse.test\bin\debug\axanalyse.test.dll" id="23292fbe-adfa-993b-82f2-7c477d400857" xmlns="AxAnalyse.Test">
+      <Execution id="4361447f-9584-4238-9ba7-27f2952989e1" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse.Test\bin\Debug\AxAnalyse.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxAnalyse.Test.AnalyseTest" name="CalcSommeAbs_retourne_positif_quand_reponse_negative" />
+    </UnitTest>
+    <UnitTest name="Distance_Entre_Deux_Points_Negative" storage="c:\users\axinesis\desktop\ihm_base\axanalyse.test\bin\debug\axanalyse.test.dll" id="ed5d1215-e582-5800-31ce-c5bd5d4ba85a" xmlns="AxAnalyse.Test">
+      <Execution id="5b756d54-f6ab-4521-b028-c1124c5ad5bd" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse.Test\bin\Debug\AxAnalyse.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxAnalyse.Test.AnalyseTest" name="Distance_Entre_Deux_Points_Negative" />
+    </UnitTest>
+    <UnitTest name="Vitesse_Moyenne" storage="c:\users\axinesis\desktop\ihm_base\axanalyse.test\bin\debug\axanalyse.test.dll" id="d1e4e0aa-1b84-a4ad-c411-f5ed64c5a640" xmlns="AxAnalyse.Test">
+      <Execution id="0a97579a-a88f-415c-9cf5-2facd9addca5" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse.Test\bin\Debug\AxAnalyse.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxAnalyse.Test.AnalyseTest" name="Vitesse_Moyenne" />
+    </UnitTest>
+    <UnitTest name="Distance_Entre_Deux_Points_Positive" storage="c:\users\axinesis\desktop\ihm_base\axanalyse.test\bin\debug\axanalyse.test.dll" id="c3232def-6f8e-d276-40a2-3789adf7a7e8" xmlns="AxAnalyse.Test">
+      <Execution id="76f366cc-d1ba-4c59-abab-e8163326fab9" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse.Test\bin\Debug\AxAnalyse.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxAnalyse.Test.AnalyseTest" name="Distance_Entre_Deux_Points_Positive" />
+    </UnitTest>
+    <UnitTest name="Vitesse_Peak" storage="c:\users\axinesis\desktop\ihm_base\axanalyse.test\bin\debug\axanalyse.test.dll" id="b628823a-dabd-b674-c93a-e5940f53020d" xmlns="AxAnalyse.Test">
+      <Execution id="3f162f21-6d6d-46ae-8a36-bc34edd1c195" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse.Test\bin\Debug\AxAnalyse.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxAnalyse.Test.AnalyseTest" name="Vitesse_Peak" />
+    </UnitTest>
+    <UnitTest name="Distance_Entre_Plusieur_Points" storage="c:\users\axinesis\desktop\ihm_base\axanalyse.test\bin\debug\axanalyse.test.dll" id="c5df75b3-144c-2597-17e1-ed5cf6d153e4" xmlns="AxAnalyse.Test">
+      <Execution id="550c39c0-82ef-42de-9390-7c7aede7d024" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse.Test\bin\Debug\AxAnalyse.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxAnalyse.Test.AnalyseTest" name="Distance_Entre_Plusieur_Points" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Les résultats ne figurent pas dans une liste" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Tous les résultats chargés" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="d1e4e0aa-1b84-a4ad-c411-f5ed64c5a640" executionId="0a97579a-a88f-415c-9cf5-2facd9addca5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c5df75b3-144c-2597-17e1-ed5cf6d153e4" executionId="550c39c0-82ef-42de-9390-7c7aede7d024" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c3232def-6f8e-d276-40a2-3789adf7a7e8" executionId="76f366cc-d1ba-4c59-abab-e8163326fab9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ed5d1215-e582-5800-31ce-c5bd5d4ba85a" executionId="5b756d54-f6ab-4521-b028-c1124c5ad5bd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dc5d423e-851c-6658-b8be-e6a841de2fd1" executionId="0b7279b6-9703-406d-abef-061a1c4920e5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="23292fbe-adfa-993b-82f2-7c477d400857" executionId="4361447f-9584-4238-9ba7-27f2952989e1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b628823a-dabd-b674-c93a-e5940f53020d" executionId="3f162f21-6d6d-46ae-8a36-bc34edd1c195" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <TestResultAggregation executionId="0a97579a-a88f-415c-9cf5-2facd9addca5" testId="d1e4e0aa-1b84-a4ad-c411-f5ed64c5a640" testName="Vitesse_Moyenne" computerName="PC-AXINESIS-004" startTime="2014-08-12T15:29:11.9218325+02:00" endTime="2014-08-12T15:29:11.9218325+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0a97579a-a88f-415c-9cf5-2facd9addca5">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="550c39c0-82ef-42de-9390-7c7aede7d024" testId="c5df75b3-144c-2597-17e1-ed5cf6d153e4" testName="Distance_Entre_Plusieur_Points" computerName="PC-AXINESIS-004" startTime="2014-08-12T15:29:11.9208323+02:00" endTime="2014-08-12T15:29:11.9208323+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="550c39c0-82ef-42de-9390-7c7aede7d024">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="76f366cc-d1ba-4c59-abab-e8163326fab9" testId="c3232def-6f8e-d276-40a2-3789adf7a7e8" testName="Distance_Entre_Deux_Points_Positive" computerName="PC-AXINESIS-004" duration="00:01:40.5490000" startTime="2014-08-12T15:27:31.3718323+02:00" endTime="2014-08-12T15:29:11.9208323+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="76f366cc-d1ba-4c59-abab-e8163326fab9">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="5b756d54-f6ab-4521-b028-c1124c5ad5bd" testId="ed5d1215-e582-5800-31ce-c5bd5d4ba85a" testName="Distance_Entre_Deux_Points_Negative" computerName="PC-AXINESIS-004" duration="00:00:00.0110000" startTime="2014-08-12T15:27:31.3600690+02:00" endTime="2014-08-12T15:27:31.3710690+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5b756d54-f6ab-4521-b028-c1124c5ad5bd">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="0b7279b6-9703-406d-abef-061a1c4920e5" testId="dc5d423e-851c-6658-b8be-e6a841de2fd1" testName="CalcSommeAbs_retourne_positif_quand_reponse_positive" computerName="PC-AXINESIS-004" startTime="2014-08-12T15:27:31.3600621+02:00" endTime="2014-08-12T15:27:31.3600621+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0b7279b6-9703-406d-abef-061a1c4920e5">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="4361447f-9584-4238-9ba7-27f2952989e1" testId="23292fbe-adfa-993b-82f2-7c477d400857" testName="CalcSommeAbs_retourne_positif_quand_reponse_negative" computerName="PC-AXINESIS-004" duration="00:00:00.1010000" startTime="2014-08-12T15:27:31.2510565+02:00" endTime="2014-08-12T15:27:31.3520565+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4361447f-9584-4238-9ba7-27f2952989e1">
+    </TestResultAggregation>
+    <TestResultAggregation executionId="3f162f21-6d6d-46ae-8a36-bc34edd1c195" testId="b628823a-dabd-b674-c93a-e5940f53020d" testName="Vitesse_Peak" computerName="PC-AXINESIS-004" duration="00:00:00.0130000" startTime="2014-08-12T15:29:11.9268470+02:00" endTime="2014-08-12T15:29:11.9398470+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3f162f21-6d6d-46ae-8a36-bc34edd1c195">
+    </TestResultAggregation>
+  </Results>
+</TestRun>

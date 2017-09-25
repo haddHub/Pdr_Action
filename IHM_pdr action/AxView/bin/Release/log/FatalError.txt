@@ -1,0 +1,95 @@
+2014-08-11 12:54:23.0882 | FATAL | ArgumentOutOfRangeException | L'index était hors limites. Il ne doit pas être négatif et doit être inférieur à la taille de la collection.
+Nom du paramètre : index |   à System.Collections.Generic.List`1.get_Item(Int32 index)
+   à AxViewModel.MainViewModel.ChangeViewModel(String viewModel) dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\MainViewModel.cs:ligne 881
+2014-08-11 16:07:13.6863 | FATAL | NavigationException | La référence d'objet n'est pas définie à une instance d'un objet. |   à Navegar.Navigation.Navigate(Type viewModelToName, Type viewModelFromName, Object[] parametersViewModel, String functionToLoad, Object[] parametersFunction, Boolean newInstance) dans C:\Users\Axinesis\Desktop\ihm_base\AxNavigation\NavegarLib\Navegar\Navigation.cs:ligne 616
+   à Navegar.Navigation.NavigateTo[TTo](Object[] parametersViewModel) dans C:\Users\Axinesis\Desktop\ihm_base\AxNavigation\NavegarLib\Navegar\Navigation.cs:ligne 170
+   à AxViewModel.MainViewModel.LoadAccueil(Object sender, EventArgs e) dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\MainViewModel.cs:ligne 322
+   à System.Windows.Threading.DispatcherTimer.FireTick(Object unused)
+   à System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   à MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)
+   à System.Windows.Threading.DispatcherOperation.InvokeImpl()
+   à System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   à System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   à System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   à System.Windows.Threading.DispatcherOperation.Invoke()
+   à System.Windows.Threading.Dispatcher.ProcessQueue()
+   à System.Windows.Threading.Dispatcher.WndProcHook(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   à MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   à MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   à System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   à MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)
+   à System.Windows.Threading.Dispatcher.LegacyInvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Int32 numArgs)
+   à MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   à MS.Win32.UnsafeNativeMethods.MessageBox(HandleRef hWnd, String text, String caption, Int32 type)
+   à System.Windows.MessageBox.ShowCore(IntPtr owner, String messageBoxText, String caption, MessageBoxButton button, MessageBoxImage icon, MessageBoxResult defaultResult, MessageBoxOptions options)
+   à System.Windows.MessageBox.Show(String messageBoxText, String caption, MessageBoxButton button, MessageBoxImage icon)
+   à AxModel.MessageBoxService.ShowMessage(String message, String heading, CustomDialogIcons icon) dans C:\Users\Axinesis\Desktop\ihm_base\AxModel\MessageBoxService.cs:ligne 86
+   à AxModel.MessageBoxService.ShowError(String message) dans C:\Users\Axinesis\Desktop\ihm_base\AxModel\MessageBoxService.cs:ligne 22
+   à AxError.GestionErreur.AfficherErreurMessageBox(String msg) dans C:\Users\Axinesis\Desktop\ihm_base\AxError\GestionErreur.cs:ligne 131
+   à AxError.GestionErreur.GerrerErreur(Exception ex) dans C:\Users\Axinesis\Desktop\ihm_base\AxError\GestionErreur.cs:ligne 89
+2014-08-11 16:34:55.7594 | FATAL | NullReferenceException | La référence d'objet n'est pas définie à une instance d'un objet. |   à AxViewModel.MainViewModel.InitApp() dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\MainViewModel.cs:ligne 478
+   à AxViewModel.MainViewModel..ctor() dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\MainViewModel.cs:ligne 100
+2014-08-12 09:55:47.1355 | FATAL | NavigationException | La référence d'objet n'est pas définie à une instance d'un objet. |   à Navegar.Navigation.Navigate(Type viewModelToName, Type viewModelFromName, Object[] parametersViewModel, String functionToLoad, Object[] parametersFunction, Boolean newInstance) dans C:\Users\Axinesis\Desktop\ihm_base\AxNavigation\NavegarLib\Navegar\Navigation.cs:ligne 616
+   à Navegar.Navigation.NavigateTo[TTo](Object[] parametersViewModel) dans C:\Users\Axinesis\Desktop\ihm_base\AxNavigation\NavegarLib\Navegar\Navigation.cs:ligne 170
+   à AxViewModel.MainViewModel.LoadAccueil(Object sender, EventArgs e) dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\MainViewModel.cs:ligne 310
+   à System.Windows.Threading.DispatcherTimer.FireTick(Object unused)
+   à System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   à MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)
+   à System.Windows.Threading.DispatcherOperation.InvokeImpl()
+   à System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   à System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   à System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   à System.Windows.Threading.DispatcherOperation.Invoke()
+   à System.Windows.Threading.Dispatcher.ProcessQueue()
+   à System.Windows.Threading.Dispatcher.WndProcHook(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   à MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   à MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   à System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   à MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)
+   à System.Windows.Threading.Dispatcher.LegacyInvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Int32 numArgs)
+   à MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   à MS.Win32.UnsafeNativeMethods.MessageBox(HandleRef hWnd, String text, String caption, Int32 type)
+   à System.Windows.MessageBox.ShowCore(IntPtr owner, String messageBoxText, String caption, MessageBoxButton button, MessageBoxImage icon, MessageBoxResult defaultResult, MessageBoxOptions options)
+   à System.Windows.MessageBox.Show(String messageBoxText, String caption, MessageBoxButton button, MessageBoxImage icon)
+   à AxModel.MessageBoxService.ShowMessage(String message, String heading, CustomDialogIcons icon) dans C:\Users\Axinesis\Desktop\ihm_base\AxModel\MessageBoxService.cs:ligne 86
+   à AxModel.MessageBoxService.ShowError(String message) dans C:\Users\Axinesis\Desktop\ihm_base\AxModel\MessageBoxService.cs:ligne 22
+   à AxError.GestionErreur.AfficherErreurMessageBox(String msg) dans C:\Users\Axinesis\Desktop\ihm_base\AxError\GestionErreur.cs:ligne 131
+   à AxError.GestionErreur.GerrerErreur(Exception ex) dans C:\Users\Axinesis\Desktop\ihm_base\AxError\GestionErreur.cs:ligne 89
+2014-08-12 10:23:24.3961 | FATAL | NavigationException | La référence d'objet n'est pas définie à une instance d'un objet. |   à Navegar.Navigation.Navigate(Type viewModelToName, Type viewModelFromName, Object[] parametersViewModel, String functionToLoad, Object[] parametersFunction, Boolean newInstance) dans C:\Users\Axinesis\Desktop\ihm_base\AxNavigation\NavegarLib\Navegar\Navigation.cs:ligne 616
+   à Navegar.Navigation.NavigateTo[TTo](Object[] parametersViewModel) dans C:\Users\Axinesis\Desktop\ihm_base\AxNavigation\NavegarLib\Navegar\Navigation.cs:ligne 170
+   à AxViewModel.MainViewModel.LoadAccueil(Object sender, EventArgs e) dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\MainViewModel.cs:ligne 324
+   à System.Windows.Threading.DispatcherTimer.FireTick(Object unused)
+   à System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   à MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)
+   à System.Windows.Threading.DispatcherOperation.InvokeImpl()
+   à System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   à System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   à System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   à System.Windows.Threading.DispatcherOperation.Invoke()
+   à System.Windows.Threading.Dispatcher.ProcessQueue()
+   à System.Windows.Threading.Dispatcher.WndProcHook(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   à MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   à MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   à System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   à MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)
+   à System.Windows.Threading.Dispatcher.LegacyInvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Int32 numArgs)
+   à MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   à MS.Win32.UnsafeNativeMethods.MessageBox(HandleRef hWnd, String text, String caption, Int32 type)
+   à System.Windows.MessageBox.ShowCore(IntPtr owner, String messageBoxText, String caption, MessageBoxButton button, MessageBoxImage icon, MessageBoxResult defaultResult, MessageBoxOptions options)
+   à System.Windows.MessageBox.Show(String messageBoxText, String caption, MessageBoxButton button, MessageBoxImage icon)
+   à AxModel.MessageBoxService.ShowMessage(String message, String heading, CustomDialogIcons icon) dans C:\Users\Axinesis\Desktop\ihm_base\AxModel\MessageBoxService.cs:ligne 86
+   à AxModel.MessageBoxService.ShowError(String message) dans C:\Users\Axinesis\Desktop\ihm_base\AxModel\MessageBoxService.cs:ligne 22
+   à AxError.GestionErreur.AfficherErreurMessageBox(String msg) dans C:\Users\Axinesis\Desktop\ihm_base\AxError\GestionErreur.cs:ligne 131
+   à AxError.GestionErreur.GerrerErreur(Exception ex) dans C:\Users\Axinesis\Desktop\ihm_base\AxError\GestionErreur.cs:ligne 89
+2014-08-12 10:33:33.4055 | FATAL | CultureNotFoundException | La culture n'est pas prise en charge.
+Nom du paramètre : name
+Resources n'est pas un identificateur de culture valide. |   à System.Globalization.CultureInfo.GetCultureInfo(String name)
+   à AxViewModel.MainViewModel.ChargementConfig() dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\MainViewModel.cs:ligne 476
+   à AxViewModel.MainViewModel.InitApp() dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\MainViewModel.cs:ligne 432
+   à AxViewModel.MainViewModel..ctor() dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\MainViewModel.cs:ligne 103
+2014-08-12 10:43:25.0824 | FATAL | CultureNotFoundException | La culture n'est pas prise en charge.
+Nom du paramètre : name
+fe-BE n'est pas un identificateur de culture valide. |   à System.Globalization.CultureInfo.GetCultureInfo(String name)
+   à AxViewModel.MainViewModel.ChargementConfig() dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\MainViewModel.cs:ligne 480
+   à AxViewModel.MainViewModel.InitApp() dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\MainViewModel.cs:ligne 445
+   à AxViewModel.MainViewModel..ctor() dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\MainViewModel.cs:ligne 103

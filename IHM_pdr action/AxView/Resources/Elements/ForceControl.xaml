@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="AxView.Resources.Elements.ForceControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:res="clr-namespace:AxLanguage;assembly=AxLanguage"
+             xmlns:conv="clr-namespace:AxView.Converters"
+             mc:Ignorable="d" MinHeight="50" x:Name="root">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/REAplan2Db;component/Resources/Template/NumberSlider.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <conv:AbsoluteConverter x:Key="objAbsoluteConverter"/>
+            <FontFamily x:Key="7SegFontFamily">/REAplan2Db;Component/Resources/Fonts/#NI7Seg</FontFamily>
+            <Style x:Key="7SegmentsBox" TargetType="{x:Type Label}">
+                <Setter Property="FontFamily" Value="{DynamicResource 7SegFontFamily}"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="Foreground" Value="Red" />
+                <Setter Property="Background" Value="Black" />
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="BorderBrush" Value="#FF807C7C"/>
+                <Setter Property="VerticalContentAlignment" Value="Top"/>
+                <Setter Property="FontStyle" Value="Normal"/>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+        <Label Content="{x:Static res:Languages.REAplan_ForceX}" Height="40"  FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <ProgressBar Grid.Row="0" Grid.Column="1" Value="{Binding ElementName=root, Path=ForceX, Mode=OneWay, Converter={StaticResource objAbsoluteConverter}}" Height="42" Maximum="150" Margin="6" Name="ProBarX" Style="{DynamicResource ProgressBarStyle}" />
+        <Label Grid.Row="0" Grid.Column="2" Style="{DynamicResource 7SegmentsBox}" Height="42" FontSize="20"  Background="Transparent">
+            <TextBox Text="{Binding ElementName=root, Path=ForceX, Mode=OneWay, StringFormat=F1}" FontSize="18.667" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Focusable="False" Background="{x:Null}" BorderBrush="{x:Null}" IsHitTestVisible="False" FontFamily="Arial" Style="{DynamicResource TextBoxStyle}" />
+        </Label>
+        <Label Grid.Row="1" Grid.Column="0" Content="{x:Static res:Languages.REAplan_ForceY}" Height="40" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <ProgressBar Grid.Row="1" Grid.Column="1" Value="{Binding ElementName=root, Path=ForceY, Mode=OneWay, Converter={StaticResource objAbsoluteConverter}}" Height="42" Maximum="150" Margin="6" Name="ProBarY" Style="{DynamicResource ProgressBarStyle}" />
+        <Label Grid.Row="1" Grid.Column="2" Style="{DynamicResource 7SegmentsBox}" Height="42" FontSize="20" Margin="6" Background="Transparent">
+            <TextBox Text="{Binding ElementName=root, Path=ForceY, Mode=OneWay, StringFormat=F1}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Focusable="False" IsHitTestVisible="False" FontFamily="Arial" FontSize="18.667" Style="{DynamicResource TextBoxStyle}" />
+        </Label>
+    </Grid>
+</UserControl>

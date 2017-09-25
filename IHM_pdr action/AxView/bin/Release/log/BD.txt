@@ -1,0 +1,80 @@
+2014-08-11 09:14:41.0263 | Connexion de Michel Michel  Login : admin
+2014-08-11 09:14:46.4730 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-11 09:28:09.5841 | Connexion de Michel Michel  Login : admin
+2014-08-11 09:44:00.4061 | Connexion de Michel Michel  Login : admin
+2014-08-11 09:44:05.5455 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-11 10:11:24.2610 | Connexion de Michel Michel  Login : admin
+2014-08-11 10:14:16.5350 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-11 12:16:35.0297 | Connexion de Adrien Denis  Login : Admin
+2014-08-11 12:19:50.1507 | Connexion de Michel Michel  Login : admin
+2014-08-11 12:19:59.5930 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-11 12:23:56.8122 | Connexion de Michel Michel  Login : admin
+2014-08-11 12:30:01.2858 | Connexion de Michel Michel  Login : admin
+2014-08-11 12:50:42.5873 | Connexion de Michel Michel  Login : admin
+2014-08-11 12:50:47.3874 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-11 12:54:09.8794 | Connexion de Michel Michel  Login : admin
+2014-08-11 13:36:58.1508 | Connexion de Michel Michel  Login : admin
+2014-08-11 13:37:05.4770 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-11 13:43:48.6583 | Connexion de Michel Michel  Login : admin
+2014-08-11 13:55:39.8282 | Connexion de Michel Michel  Login : admin
+2014-08-11 14:05:07.6951 | Connexion de Michel Michel  Login : admin
+2014-08-11 14:05:11.9675 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-11 14:23:22.8563 | Connexion de Michel Michel  Login : admin
+2014-08-11 14:23:27.7293 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-11 14:25:34.8832 | Connexion de Michel Michel  Login : admin
+2014-08-11 14:25:39.2149 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-11 14:28:54.7635 | Connexion de Michel Michel  Login : admin
+2014-08-11 14:28:58.0239 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-11 14:31:13.7633 | Connexion de Michel Michel  Login : admin
+2014-08-11 14:31:17.3518 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-11 15:43:09.8096 | Connexion de Michel Michel  Login : admin
+2014-08-11 15:43:55.3234 | Connexion de Michel Michel  Login : admin
+2014-08-11 15:43:59.9308 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-11 15:50:56.5959 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:18:26.1260 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:19:06.2959 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:19:10.2665 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 10:23:22.3410 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:23:28.4873 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 10:28:21.1788 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:28:24.6028 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 10:29:24.0879 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:29:27.1023 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 10:30:55.1102 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:30:58.5793 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 10:32:52.7445 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:32:56.1049 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 10:39:35.1791 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:39:38.1996 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 10:40:46.8760 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:40:50.3678 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 10:41:54.4492 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:41:57.9790 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 10:42:47.5113 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:42:50.8000 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 10:44:04.1499 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:44:07.3247 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 10:45:10.9012 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:45:14.2323 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 10:46:09.1741 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:46:12.4748 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 10:46:53.5176 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:46:56.4990 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 10:47:51.8973 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:47:55.2022 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 10:48:34.6084 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:48:37.9683 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 10:51:03.5730 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:51:06.8638 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 10:51:56.6136 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:51:59.9334 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 10:52:38.9122 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:52:42.3683 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 10:59:46.3516 | Connexion de Michel Michel  Login : admin
+2014-08-14 10:59:49.5193 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 11:01:59.8262 | Connexion de Michel Michel  Login : admin
+2014-08-14 11:02:03.0719 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 11:03:18.5453 | Connexion de Michel Michel  Login : admin
+2014-08-14 11:03:21.5821 | Le patient Jo ROBIN a été connecté par : Michel Michel
+2014-08-14 11:05:12.5131 | Connexion de Michel Michel  Login : admin
+2014-08-14 11:05:17.7268 | Le patient Jo ROBIN a été connecté par : Michel Michel

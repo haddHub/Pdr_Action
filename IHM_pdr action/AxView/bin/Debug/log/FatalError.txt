@@ -1,0 +1,188 @@
+2014-08-13 11:29:09.8095 | FATAL | InvalidOperationException | La séquence ne contient aucun élément. |   à System.Linq.Enumerable.Max(IEnumerable`1 source)
+   à AxAnalyse.Ax_Vitesse.VitessePeak(Double[] tabVitesse) dans C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse\Ax_Vitesse.cs:ligne 135
+   à AxAnalyse.Ax_Vitesse.VitesseMoy(List`1 data, Double& peakV, Double temps) dans C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse\Ax_Vitesse.cs:ligne 43
+   à AxViewModel.VisualisationViewModel.EnregistrerDonneesBrute() dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\VisualisationViewModel.cs:ligne 1053
+   à AxViewModel.VisualisationViewModel.Onacq100HzSequenceEvent(Object source, ElapsedEventArgs e) dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\VisualisationViewModel.cs:ligne 1321
+2014-08-13 11:50:02.3845 | FATAL | DirectoryNotFoundException | Impossible de trouver une partie du chemin d'accès 'C:\Users\Axinesis\Desktop\ihm_base\AxView\bin\Debug\Files\Patients\ROBINJo22031991\Rééducation\Données brutes\Mouvements complexes\13_08_2014.txt'. |   à System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   à System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   à System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   à System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   à System.IO.File.Create(String path)
+   à AxModelExercice.ExerciceReeducation.SaveMouvement(String dossier) dans C:\Users\Axinesis\Desktop\ihm_base\AxModelExercice\ExerciceReeducation.cs:ligne 54
+   à AxViewModel.VisualisationViewModel.EnregistrerDonneesBrute() dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\VisualisationViewModel.cs:ligne 1056
+   à AxViewModel.VisualisationViewModel.Onacq100HzSequenceEvent(Object source, ElapsedEventArgs e) dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\VisualisationViewModel.cs:ligne 1324
+2014-08-13 11:53:24.4831 | FATAL | DirectoryNotFoundException | Impossible de trouver une partie du chemin d'accès 'C:\Users\Axinesis\Desktop\ihm_base\AxView\bin\Debug\Files\Patients\ROBINJo22031991\Rééducation\Données brutes\Mouvements complexes\13_08_2014.txt'. |   à System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   à System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   à System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   à System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   à System.IO.File.Create(String path)
+   à AxModelExercice.ExerciceReeducation.SaveMouvement(String dossier) dans C:\Users\Axinesis\Desktop\ihm_base\AxModelExercice\ExerciceReeducation.cs:ligne 54
+   à AxViewModel.VisualisationViewModel.EnregistrerDonneesBrute() dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\VisualisationViewModel.cs:ligne 1056
+   à AxViewModel.VisualisationViewModel.Onacq100HzSequenceEvent(Object source, ElapsedEventArgs e) dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\VisualisationViewModel.cs:ligne 1324
+2014-08-13 11:57:20.5236 | FATAL | DirectoryNotFoundException | Impossible de trouver une partie du chemin d'accès 'C:\Users\Axinesis\Desktop\ihm_base\AxView\bin\Debug\Files\Patients\ROBINJo22031991\Rééducation\Données brutes\Mouvements complexes\13_08_2014.txt'. |   à System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   à System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   à System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   à System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   à System.IO.File.Create(String path)
+   à AxModelExercice.ExerciceReeducation.SaveMouvement(String dossier) dans C:\Users\Axinesis\Desktop\ihm_base\AxModelExercice\ExerciceReeducation.cs:ligne 55
+   à AxViewModel.VisualisationViewModel.EnregistrerDonneesBrute() dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\VisualisationViewModel.cs:ligne 1056
+   à AxViewModel.VisualisationViewModel.Onacq100HzSequenceEvent(Object source, ElapsedEventArgs e) dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\VisualisationViewModel.cs:ligne 1324
+2014-08-13 12:02:23.8300 | FATAL | FormatException | L'index (de base zéro) doit être supérieur ou égal à zéro et inférieur à la taille de la liste des arguments. |   à System.Text.StringBuilder.AppendFormat(IFormatProvider provider, String format, Object[] args)
+   à System.String.Format(IFormatProvider provider, String format, Object[] args)
+   à AxModelExercice.ExerciceReeducation.DataItem() dans C:\Users\Axinesis\Desktop\ihm_base\AxModelExercice\ExerciceReeducation.cs:ligne 68
+   à AxModelExercice.ExerciceReeducation.SaveMouvement(String dossier) dans C:\Users\Axinesis\Desktop\ihm_base\AxModelExercice\ExerciceReeducation.cs:ligne 60
+   à AxViewModel.VisualisationViewModel.EnregistrerDonneesBrute() dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\VisualisationViewModel.cs:ligne 1056
+   à AxViewModel.VisualisationViewModel.Onacq100HzSequenceEvent(Object source, ElapsedEventArgs e) dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\VisualisationViewModel.cs:ligne 1324
+2014-08-13 12:04:41.4797 | FATAL | IOException | Le processus ne peut pas accéder au fichier 'C:\Users\Axinesis\Desktop\ihm_base\AxView\bin\Debug\Files\Patients\ROBINJo22031991\Rééducation\Données brutes\Mouvements complexes\13_08_2014.txt', car il est en cours d'utilisation par un autre processus. |   à System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   à System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   à System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   à System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)
+   à System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize)
+   à System.IO.StreamWriter..ctor(String path, Boolean append)
+   à AxModelExercice.ExerciceReeducation.SaveMouvement(String dossier) dans C:\Users\Axinesis\Desktop\ihm_base\AxModelExercice\ExerciceReeducation.cs:ligne 58
+   à AxViewModel.VisualisationViewModel.EnregistrerDonneesBrute() dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\VisualisationViewModel.cs:ligne 1056
+   à AxViewModel.VisualisationViewModel.Onacq100HzSequenceEvent(Object source, ElapsedEventArgs e) dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\VisualisationViewModel.cs:ligne 1324
+2014-08-13 12:08:10.3012 | FATAL | FormatException | L'index (de base zéro) doit être supérieur ou égal à zéro et inférieur à la taille de la liste des arguments. |   à System.Text.StringBuilder.AppendFormat(IFormatProvider provider, String format, Object[] args)
+   à System.String.Format(IFormatProvider provider, String format, Object[] args)
+   à AxModelExercice.ExerciceReeducation.DataItem() dans C:\Users\Axinesis\Desktop\ihm_base\AxModelExercice\ExerciceReeducation.cs:ligne 71
+   à AxModelExercice.ExerciceReeducation.SaveMouvement(String dossier) dans C:\Users\Axinesis\Desktop\ihm_base\AxModelExercice\ExerciceReeducation.cs:ligne 63
+   à AxViewModel.VisualisationViewModel.EnregistrerDonneesBrute() dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\VisualisationViewModel.cs:ligne 1056
+   à AxViewModel.VisualisationViewModel.Onacq100HzSequenceEvent(Object source, ElapsedEventArgs e) dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\VisualisationViewModel.cs:ligne 1324
+2014-08-13 15:04:06.2333 | FATAL | FormatException | Le format de la chaîne d'entrée est incorrect. |   à System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   à System.Double.Parse(String s, IFormatProvider provider)
+   à AxModelExercice.ExerciceReeducation.CalculerMoyenneEtCV(String dossier) dans C:\Users\Axinesis\Desktop\ihm_base\AxModelExercice\ExerciceReeducation.cs:ligne 101
+   à AxData.ExerciceJeuData.AjoutPartieDataBaseJeu(ExerciceBaseConfig config) dans C:\Users\Axinesis\Desktop\ihm_base\AxData\ExerciceJeuData.cs:ligne 18
+   à AxViewModel.VisualisationViewModel.UpdateStartStopMessage(Boolean s) dans C:\Users\Axinesis\Desktop\ihm_base\AxViewModel\VisualisationViewModel.cs:ligne 896
+2014-08-27 18:35:11.1528 | FATAL | NullReferenceException | La référence d'objet n'est pas définie à une instance d'un objet. |   à System.Data.Objects.ELinq.QueryParameterExpression.EvaluateParameter(Object[] arguments)
+   à System.Data.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   à System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   à System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   à System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   à System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   à AxData.ConfigData.LoadLastConfigPourExercice(String nomExo) dans C:\Users\denis\Desktop\ihm_base\AxData\ConfigData.cs:ligne 109
+   à AxConfiguration.ExerciceConfig.GetBaseConfigPourExercice(String nomJeu) dans C:\Users\denis\Desktop\ihm_base\AxExerciceConfig\ExerciceConfig.cs:ligne 52
+   à AxExerciceGenerator.ExerciceGenerator.GetExerciceJeu(ThemeModel themeJeu, String niveau) dans C:\Users\denis\Desktop\ihm_base\AxExerciceGeneric\ExerciceGenerator.cs:ligne 36
+   à AxViewModel.ExercicesReeducationMouvement.AdItem() dans C:\Users\denis\Desktop\ihm_base\AxViewModel\ExercicesReeducationMouvement.cs:ligne 211
+2014-09-03 09:12:09.9290 | FATAL | NavigationException | La référence d'objet n'est pas définie à une instance d'un objet. |   à Navegar.Navigation.Navigate(Type viewModelToName, Type viewModelFromName, Object[] parametersViewModel, String functionToLoad, Object[] parametersFunction, Boolean newInstance) dans C:\Users\denis\Desktop\ihm_base\AxNavigation\NavegarLib\Navegar\Navigation.cs:ligne 616
+   à Navegar.Navigation.NavigateTo[TTo](Object[] parametersViewModel) dans C:\Users\denis\Desktop\ihm_base\AxNavigation\NavegarLib\Navegar\Navigation.cs:ligne 170
+   à AxViewModel.MainViewModel.LoadAccueil(Object sender, EventArgs e) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxViewModel\MainViewModel.cs:ligne 329
+   à System.Windows.Threading.DispatcherTimer.FireTick(Object unused)
+   à System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   à MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)
+   à System.Windows.Threading.DispatcherOperation.InvokeImpl()
+   à System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   à System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   à System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   à System.Windows.Threading.DispatcherOperation.Invoke()
+   à System.Windows.Threading.Dispatcher.ProcessQueue()
+   à System.Windows.Threading.Dispatcher.WndProcHook(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   à MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   à MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   à System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   à MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)
+   à System.Windows.Threading.Dispatcher.LegacyInvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Int32 numArgs)
+   à MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   à MS.Win32.UnsafeNativeMethods.MessageBox(HandleRef hWnd, String text, String caption, Int32 type)
+   à System.Windows.MessageBox.ShowCore(IntPtr owner, String messageBoxText, String caption, MessageBoxButton button, MessageBoxImage icon, MessageBoxResult defaultResult, MessageBoxOptions options)
+   à System.Windows.MessageBox.Show(String messageBoxText, String caption, MessageBoxButton button, MessageBoxImage icon)
+   à AxModel.MessageBoxService.ShowQuestionWithButton(String message, CustomDialogIcons icon, CustomDialogButtons button) dans C:\Users\denis\Desktop\ihm_base\AxModel\MessageBoxService.cs:ligne 103
+   à AxModel.MessageBoxService.ShowYesNo(String message, CustomDialogIcons icon) dans C:\Users\denis\Desktop\ihm_base\AxModel\MessageBoxService.cs:ligne 50
+   à AxViewModel.MainViewModel..ctor() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxViewModel\MainViewModel.cs:ligne 113
+2014-09-05 09:30:22.6862 | FATAL | NullReferenceException | La référence d'objet n'est pas définie à une instance d'un objet. |   à System.Data.Objects.ELinq.QueryParameterExpression.EvaluateParameter(Object[] arguments)
+   à System.Data.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   à System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   à System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   à System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   à System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   à AxData.ConfigData.LoadLastConfigPourExercice(String nomExo) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxData\ConfigData.cs:ligne 109
+   à AxConfiguration.ExerciceConfig.GetBaseConfigPourExercice(String nomJeu) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxExerciceConfig\ExerciceConfig.cs:ligne 52
+   à AxExerciceGenerator.ExerciceGenerator.GetExerciceJeu(ThemeModel themeJeu, String niveau) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxExerciceGeneric\ExerciceGenerator.cs:ligne 36
+   à AxViewModel.ExercicesReeducationMouvement.AdItem() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxViewModel\ExercicesReeducationMouvement.cs:ligne 211
+2014-09-05 15:58:21.7843 | FATAL | OverflowException | Value was either too large or too small for a Decimal. |   at System.Decimal..ctor(Double value)
+   at System.Decimal.op_Explicit(Double value)
+   at AxData.ExerciceJeuData.AjoutPartieDataBaseJeu(ExerciceBaseConfig config) in C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxData\ExerciceJeuData.cs:line 116
+   at AxViewModel.VisualisationViewModel.UpdateStartStopMessage(Boolean s) in C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxViewModel\VisualisationViewModel.cs:line 898
+2014-09-05 16:01:50.8999 | FATAL | OverflowException | Value was either too large or too small for a Decimal. |   at System.Decimal..ctor(Double value)
+   at System.Decimal.op_Explicit(Double value)
+   at AxData.ExerciceJeuData.AjoutPartieDataBaseJeu(ExerciceBaseConfig config) in C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxData\ExerciceJeuData.cs:line 116
+   at AxViewModel.VisualisationViewModel.UpdateStartStopMessage(Boolean s) in C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxViewModel\VisualisationViewModel.cs:line 898
+2014-09-05 16:08:59.2500 | FATAL | NullReferenceException | Object reference not set to an instance of an object. |   at AxError.GestionErreur.TrouverSqlErreur(SqlException ex) in C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxError\GestionErreur.cs:line 138
+   at AxError.GestionErreur.GerrerErreur(Exception ex) in C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxError\GestionErreur.cs:line 71
+2014-09-05 16:10:25.0048 | FATAL | NullReferenceException | Object reference not set to an instance of an object. |   at AxError.GestionErreur.TrouverSqlErreur(SqlException ex) in C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxError\GestionErreur.cs:line 138
+   at AxError.GestionErreur.GerrerErreur(Exception ex) in C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxError\GestionErreur.cs:line 71
+2014-09-05 16:13:58.7587 | FATAL | ArgumentException | L'offset et la longueur étaient hors limites pour ce tableau ou bien le nombre est supérieur au nombre d'éléments de l'index à la fin de la collection source. |   à System.Collections.Generic.List`1.RemoveRange(Int32 index, Int32 count)
+   à AxModelExercice.ExerciceEvaluation.FiltreSurDonnees(List`1 exoEvalList, List`1 tempDataFilted, SingletonReeducation& ValeurReeducation, List`1& tempData) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxModelExercice\ExerciceEvaluation.cs:ligne 602
+   à AxModelExercice.ExerciceEvaluation.DataAfterEvaluation(List`1& exoEvalList, ExerciceEvaluation& exo, SingletonReeducation& ValeurReeducation, List`1& tempData) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxModelExercice\ExerciceEvaluation.cs:ligne 501
+   à AxViewModel.EvaluationViewModel.DuringEvaluation(PositionDataModel positions) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxViewModel\EvaluationViewModel.cs:ligne 1196
+   à AxViewModel.EvaluationViewModel.NewPosition(PositionDataModel positions) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxViewModel\EvaluationViewModel.cs:ligne 1168
+2014-09-05 16:58:26.7728 | FATAL | OverflowException | Value was either too large or too small for a Decimal. |   at System.Decimal..ctor(Double value)
+   at System.Decimal.op_Explicit(Double value)
+   at AxData.ExerciceJeuData.AjoutPartieDataBaseJeu(ExerciceBaseConfig config) in C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxData\ExerciceJeuData.cs:line 80
+   at AxViewModel.VisualisationViewModel.UpdateStartStopMessage(Boolean s) in C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxViewModel\VisualisationViewModel.cs:line 898
+2014-09-05 17:01:06.5955 | FATAL | NullReferenceException | Object reference not set to an instance of an object. |   at AxError.GestionErreur.TrouverSqlErreur(SqlException ex) in C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxError\GestionErreur.cs:line 138
+   at AxError.GestionErreur.GerrerErreur(Exception ex) in C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base\AxError\GestionErreur.cs:line 71
+2014-09-18 11:54:19.4008 | FATAL | NullReferenceException | La référence d'objet n'est pas définie à une instance d'un objet. |   à AxData.ExerciceJeuData.AjoutPartieDataBaseJeu(ExerciceBaseConfig config) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxData\ExerciceJeuData.cs:ligne 16
+   à AxViewModel.VisualisationViewModel.UpdateStartStopMessage(Boolean s) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\VisualisationViewModel.cs:ligne 860
+2014-09-23 10:22:52.7670 | FATAL | NullReferenceException | La référence d'objet n'est pas définie à une instance d'un objet. |   à AxViewModel.EvaluationViewModel.NextViewModel() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\EvaluationViewModel.cs:ligne 309
+2014-09-23 10:29:35.9949 | FATAL | NullReferenceException | La référence d'objet n'est pas définie à une instance d'un objet. |   à AxViewModel.EvaluationViewModel.NextViewModel() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\EvaluationViewModel.cs:ligne 309
+2014-09-23 11:03:37.8448 | FATAL | NullReferenceException | La référence d'objet n'est pas définie à une instance d'un objet. |   à AxViewModel.EvaluationViewModel.NextViewModel() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\EvaluationViewModel.cs:ligne 309
+2014-09-23 11:48:54.9471 | FATAL | NullReferenceException | La référence d'objet n'est pas définie à une instance d'un objet. |   à AxViewModel.EvaluationViewModel.NextViewModel() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\EvaluationViewModel.cs:ligne 309
+2014-09-23 13:15:40.9678 | FATAL | NullReferenceException | La référence d'objet n'est pas définie à une instance d'un objet. |   à AxViewModel.EvaluationViewModel.NextViewModel() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\EvaluationViewModel.cs:ligne 309
+2014-09-23 13:18:19.9603 | FATAL | NullReferenceException | La référence d'objet n'est pas définie à une instance d'un objet. |   à AxViewModel.EvaluationViewModel.NextViewModel() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\EvaluationViewModel.cs:ligne 309
+2014-09-23 15:33:16.3171 | FATAL | DirectoryNotFoundException | Impossible de trouver une partie du chemin d'accès 'C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxView\bin\Debug\Files\Patients\DENIS_Adrien_22_3_1991'. |   à System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   à System.IO.Directory.Delete(String fullPath, String userPath, Boolean recursive, Boolean checkHost)
+   à AxData.PatientData.SupPatient(String nom, String prenom, DateTime dateNaissance) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxData\PatientData.cs:ligne 29
+   à AxViewModel.FormulairePatientViewModel.SupPatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\FormulairePatientViewModel.cs:ligne 417
+2014-09-23 15:35:15.4035 | FATAL | NullReferenceException | La référence d'objet n'est pas définie à une instance d'un objet. |   à AxData.PatientData.SupPatient(String nom, String prenom, DateTime dateNaissance) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxData\PatientData.cs:ligne 28
+   à AxViewModel.FormulairePatientViewModel.SupPatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\FormulairePatientViewModel.cs:ligne 417
+2014-09-23 15:40:18.9238 | FATAL | NullReferenceException | La référence d'objet n'est pas définie à une instance d'un objet. |   à AxData.PatientData.SupPatient(String nom, String prenom, DateTime dateNaissance) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxData\PatientData.cs:ligne 28
+   à AxViewModel.FormulairePatientViewModel.SupPatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\FormulairePatientViewModel.cs:ligne 417
+2014-09-23 15:48:42.6962 | FATAL | DirectoryNotFoundException | Impossible de trouver une partie du chemin d'accès 'C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxView\bin\Debug\Files\Patients\DENISAdrien2231991'. |   à System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   à System.IO.Directory.InternalMove(String sourceDirName, String destDirName, Boolean checkHost)
+   à AxData.PatientData.ModificationPatient(Patient pat) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxData\PatientData.cs:ligne 197
+   à AxViewModel.FormulaireInscriptionPatientViewModel.SavePatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\FormulaireInscriptionPatientViewModel.cs:ligne 376
+2014-09-23 15:53:57.7701 | FATAL | DirectoryNotFoundException | Impossible de trouver une partie du chemin d'accès 'C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxView\bin\Debug\Files\Patients\DENISAdrien22031991'. |   à System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   à System.IO.Directory.InternalMove(String sourceDirName, String destDirName, Boolean checkHost)
+   à AxData.PatientData.ModificationPatient(Patient pat) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxData\PatientData.cs:ligne 197
+   à AxViewModel.FormulaireInscriptionPatientViewModel.SavePatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\FormulaireInscriptionPatientViewModel.cs:ligne 376
+2014-09-23 16:03:26.5081 | FATAL | DirectoryNotFoundException | Impossible de trouver une partie du chemin d'accès 'C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxView\bin\Debug\Files\Patients\AdrienAdrienp22031991'. |   à System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   à System.IO.Directory.InternalMove(String sourceDirName, String destDirName, Boolean checkHost)
+   à AxData.PatientData.ModificationPatient(Patient pat) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxData\PatientData.cs:ligne 197
+   à AxViewModel.FormulaireInscriptionPatientViewModel.SavePatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\FormulaireInscriptionPatientViewModel.cs:ligne 376
+2014-09-24 13:42:56.2302 | FATAL | NullReferenceException | La référence d'objet n'est pas définie à une instance d'un objet. |   à AxViewModel.EvaluationViewModel.NextViewModel() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\EvaluationViewModel.cs:ligne 313
+2014-09-24 14:06:23.9550 | FATAL | InvalidOperationException | The element cannot be added, it already belongs to a PlotModel. |   à OxyPlot.ElementCollection`1.Add(T item) dans c:\projects\oxyplot\Source\OxyPlot\Graphics\ElementCollection{T}.cs:ligne 114
+   à AxViewModel.VisualisationViewModel.InitGraphiquePlot() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\VisualisationViewModel.cs:ligne 683
+   à AxViewModel.VisualisationViewModel..ctor() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\VisualisationViewModel.cs:ligne 160
+2014-09-24 14:06:52.0828 | FATAL | InvalidOperationException | The element cannot be added, it already belongs to a PlotModel. |   à OxyPlot.ElementCollection`1.Add(T item) dans c:\projects\oxyplot\Source\OxyPlot\Graphics\ElementCollection{T}.cs:ligne 114
+   à AxViewModel.VisualisationViewModel.InitGraphiquePlot() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\VisualisationViewModel.cs:ligne 683
+   à AxViewModel.VisualisationViewModel..ctor() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\VisualisationViewModel.cs:ligne 160
+2014-09-24 14:07:12.6108 | FATAL | InvalidOperationException | The element cannot be added, it already belongs to a PlotModel. |   à OxyPlot.ElementCollection`1.Add(T item) dans c:\projects\oxyplot\Source\OxyPlot\Graphics\ElementCollection{T}.cs:ligne 114
+   à AxViewModel.VisualisationViewModel.InitGraphiquePlot() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\VisualisationViewModel.cs:ligne 683
+   à AxViewModel.VisualisationViewModel..ctor() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\VisualisationViewModel.cs:ligne 160
+2014-09-24 15:07:21.3680 | FATAL | NullReferenceException | La référence d'objet n'est pas définie à une instance d'un objet. |   à AxViewModel.EvaluationViewModel.NextViewModel() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\EvaluationViewModel.cs:ligne 315
+2014-09-30 11:09:15.9733 | FATAL | NullReferenceException | La référence d'objet n'est pas définie à une instance d'un objet. |   à AxViewModel.EvaluationViewModel.NextViewModel() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\EvaluationViewModel.cs:ligne 349
+2014-09-30 11:18:15.4375 | FATAL | DirectoryNotFoundException | Impossible de trouver une partie du chemin d'accès 'C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxView\bin\Debug\Files\Patients\MIGUELPedro30092011\infoPatient.xml'. |   à System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   à System.IO.File.InternalDelete(String path, Boolean checkHost)
+   à AxData.PatientData.SupPatient(String nom, String prenom, DateTime dateNaissance) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxData\PatientData.cs:ligne 28
+   à AxViewModel.FormulairePatientViewModel.SupPatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\FormulairePatientViewModel.cs:ligne 417
+2014-09-30 11:18:42.7743 | FATAL | DirectoryNotFoundException | Impossible de trouver une partie du chemin d'accès 'C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxView\bin\Debug\Files\Patients\MIGUELPedro30092011\infoPatient.xml'. |   à System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   à System.IO.File.InternalDelete(String path, Boolean checkHost)
+   à AxData.PatientData.SupPatient(String nom, String prenom, DateTime dateNaissance) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxData\PatientData.cs:ligne 28
+   à AxViewModel.FormulairePatientViewModel.SupPatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\FormulairePatientViewModel.cs:ligne 417
+2014-09-30 11:20:21.4268 | FATAL | NullReferenceException | La référence d'objet n'est pas définie à une instance d'un objet. |   à AxViewModel.FormulaireInscriptionPatientViewModel.SavePatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\FormulaireInscriptionPatientViewModel.cs:ligne 394
+2014-09-30 11:21:07.0673 | FATAL | DirectoryNotFoundException | Impossible de trouver une partie du chemin d'accès 'C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxView\bin\Debug\Files\Patients\MIGUELPedro30092011\infoPatient.xml'. |   à System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   à System.IO.File.InternalDelete(String path, Boolean checkHost)
+   à AxData.PatientData.SupPatient(String nom, String prenom, DateTime dateNaissance) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxData\PatientData.cs:ligne 28
+   à AxViewModel.FormulairePatientViewModel.SupPatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\FormulairePatientViewModel.cs:ligne 417
+2014-09-30 11:28:35.8527 | FATAL | NullReferenceException | La référence d'objet n'est pas définie à une instance d'un objet. |   à AxViewModel.FormulaireInscriptionPatientViewModel.SavePatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\FormulaireInscriptionPatientViewModel.cs:ligne 373
+2014-10-01 09:46:36.9850 | FATAL | DirectoryNotFoundException | Impossible de trouver une partie du chemin d'accès 'C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxView\bin\Debug\Files\Patients\MIGUELPedro30092011\infoPatient.xml'. |   à System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   à System.IO.File.InternalDelete(String path, Boolean checkHost)
+   à AxData.PatientData.SupPatient(String nom, String prenom, DateTime dateNaissance) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxData\PatientData.cs:ligne 28
+   à AxViewModel.FormulairePatientViewModel.SupPatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\FormulairePatientViewModel.cs:ligne 417
+2014-10-01 09:48:17.5884 | FATAL | DirectoryNotFoundException | Impossible de trouver une partie du chemin d'accès 'C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxView\bin\Debug\Files\Patients\MIGUELPedro30092011\infoPatient.xml'. |   à System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   à System.IO.File.InternalDelete(String path, Boolean checkHost)
+   à AxData.PatientData.SupPatient(String nom, String prenom, DateTime dateNaissance) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxData\PatientData.cs:ligne 28
+   à AxViewModel.FormulairePatientViewModel.SupPatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\FormulairePatientViewModel.cs:ligne 417
+2014-11-27 15:46:18.5228 | FATAL | NullReferenceException | La référence d'objet n'est pas définie à une instance d'un objet. |   à AxViewModel.EvaluationViewModel.CalculVitesse() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\EvaluationViewModel.cs:ligne 748
+   à AxViewModel.EvaluationViewModel.TraitementPosition(PositionDataModel newPosition) dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - REA2plan Poulies\AxViewModel\EvaluationViewModel.cs:ligne 646
+2016-01-11 12:14:49.3093 | FATAL | NullReferenceException | La référence d'objet n'est pas définie à une instance d'un objet. |   à AxViewModel.FormulaireInscriptionPatientViewModel.SavePatient() dans C:\Users\denis\Documents\Visual Studio 2010\Projects\ihm_base - Maze Circuit\AxViewModel\FormulaireInscriptionPatientViewModel.cs:ligne 373

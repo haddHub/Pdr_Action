@@ -1,0 +1,1452 @@
+﻿using GalaSoft.MvvmLight;
+using AxModel;
+using GalaSoft.MvvmLight.Command;
+using System.Collections.Generic;
+using System;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using GalaSoft.MvvmLight.Messaging;
+using System.Windows;
+using System.Windows.Threading;
+using AxModel.Helpers;
+using System.Timers;
+using AxCommunication;
+using AxAction;
+using AxError;
+using AxModelExercice;
+using AxError.Exceptions;
+using AxModel.Message;
+using AxData;
+using AxConfiguration;
+using Navegar;
+using GalaSoft.MvvmLight.Ioc;
+using System.IO;
+namespace AxViewModel
+{
+    /// <summary>
+    /// This class contains properties that the main View can data bind to.
+    /// <para>
+    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
+    /// </para>
+    /// <para>
+    /// See http://www.galasoft.ch/mvvm/getstarted
+    /// </para>
+    /// </summary>
+    public class MainViewModel : ViewModelBase
+    {
+        #region Fields
+
+        private string _visibility = "hidden";
+        private readonly DispatcherTimer _timerLoadAccueil;
+        public IMessageBoxService _messageBoxService;
+        public ActionRobot _axrobot;
+        public INavigation _nav;
+        private bool allowWindowToClose = true; // Should we let our window close?
+        private List<IPageViewModel> _pageViewModels;   // Liste de page pour la navigation dans l'application
+        private IPageViewModel _currentPageViewModel;   // La vue courante (affichée)
+
+        private bool _isBusy;
+        private string _isBusyString;
+
+        private int _startingSequence;
+        private bool _startingSequenceActivated;
+        private bool _pause = false;
+        private static System.Timers.Timer _startingSequenceTimer;
+
+        private bool _isInEvaluation;
+        private bool infoSTOP = true;
+
+        private bool _up, _down;
+
+        private List<ExerciceGeneric> _currentExercice;
+        private List<ExerciceEvaluation> _exoEvalList;
+        private List<ExerciceReeducation> _exoReeList;
+        SingletonReeducation ValReed;
+
+        #endregion
+
+        #region Constructors
+        /// <summary>
+        /// Initializes a new instance of the MainViewModel class.
+        /// </summary>
+        public MainViewModel()
+        {
+            try
+            {
+                if(IsInDesignMode == false)
+                    ExerciceConfig.InitConfigurationProgramme(); 
+                _up = true;
+                _down = true;
+                SingletonReeducation.RecupValeur();
+                ValReed = SingletonReeducation.getInstance();
+                _axrobot = SimpleIoc.Default.GetInstance<ActionRobot>();
+                _messageBoxService = SimpleIoc.Default.GetInstance<IMessageBoxService>();
+                _nav = SimpleIoc.Default.GetInstance<INavigation>();
+                CreateCommands();       // création des commandes de la page
+                CreateMessengers();     // création des messages
+                InitApp();
+                //Permet d'éviter l'appel à la navigation pendant le chargement du viewmodel principal. Sans ceci le chargement du MainViewModel
+                //ne se passe pas correctement puisque le chargement du viewmodel n'est pas possible
+                _timerLoadAccueil = new DispatcherTimer
+                {
+                    Interval = new TimeSpan(0, 0, 0, 0, 500)
+                };
+                _timerLoadAccueil.Tick += LoadAccueil;
+                _timerLoadAccueil.Start();
+
+                Debug.Print("MainViewModel OK");
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        #endregion
+
+        #region Properties
+
+        private string _labelPatient;
+        public string LabelPatient
+        {
+            get { return _labelPatient; }
+            set
+            {
+                if (_labelPatient != value)
+                {
+                    _labelPatient = value;
+                    RaisePropertyChanged("LabelPatient");
+                }
+            }
+        }
+
+        public string Visibility
+        {
+            get { return _visibility; }
+            set
+            {
+                if (_visibility != value)
+                {
+                    _visibility = value;
+                    RaisePropertyChanged("Visibility");
+                }
+            }
+        }
+        /// <summary>
+        /// Permet de contrôler la propriété CurrentView
+        /// </summary>
+        private ViewModelBase _currentView;
+
+        /// <summary>
+        /// L'attribut CurrentViewNavigation permet de définir automatiquement, quelle propriété du viewmodel
+        /// devra être utilisé pour charger le viewmodel vers lequel la navigation va s'effectuer
+        /// </summary>
+        [CurrentViewNavigation]
+        public ViewModelBase CurrentView
+        {
+            get { return _currentView; }
+            set
+            {
+                _currentView = value;
+                RaisePropertyChanged("CurrentView");
+            }
+        }
+        /// <summary>
+        /// Récupération de la liste des pages
+        /// </summary>
+        public List<IPageViewModel> PageViewModels
+        {
+            get
+            {
+                if (_pageViewModels == null)
+                    _pageViewModels = new List<IPageViewModel>();
+
+                return _pageViewModels;
+            }
+        }
+
+        /// <summary>
+        /// Page courante (affichée)
+        /// </summary>
+        public IPageViewModel CurrentPageViewModel
+        {
+            get
+            {
+                return _currentPageViewModel;
+            }
+            set
+            {
+                if (_currentPageViewModel != value)
+                {
+                    _currentPageViewModel = value;
+                    RaisePropertyChanged("CurrentPageViewModel");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Liste de port serie
+        /// </summary>
+        public ObservableCollection<string> PortName
+        {
+            get { return this._axrobot.GetPortNameCollection(); }
+        }
+
+        /// <summary>
+        /// port serie selectionné
+        /// </summary>
+        public string SelectedPortName 
+        {
+            get
+            {
+                return _axrobot.Pss.SelectedPortName;
+            }
+            set
+            {
+                _axrobot.Pss.SelectedPortName = value;
+                RaisePropertyChanged("SelectedPortName");
+            }
+        }
+
+        public bool IsBusy
+        {
+            get
+            {
+                return _isBusy;
+            }
+            set
+            {
+                _isBusy = value;
+                RaisePropertyChanged("IsBusy");
+            }
+        }
+
+        public string IsBusyString
+        {
+            get
+            {
+                return _isBusyString;
+            }
+            set
+            {
+                _isBusyString = value;
+                RaisePropertyChanged("IsBusyString");
+            }
+        }
+
+        public bool StartingSequenceActivated
+        {
+            get
+            {
+                return _startingSequenceActivated;
+            }
+            set
+            {
+                _startingSequenceActivated = value;
+                RaisePropertyChanged("StartingSequenceActivated");
+            }
+        }
+
+        public int StartingSequence
+        {
+            get
+            {
+                return _startingSequence;
+            }
+            set
+            {
+                _startingSequence = value;
+                RaisePropertyChanged("StartingSequence");
+            }
+        }
+
+        #endregion
+
+        #region Methods
+        private void OnConnected(Singleton obj)
+        {
+            Visibility = "Visible";
+            LabelPatient = "" + obj.PatientSingleton.Nom + " " + obj.PatientSingleton.Prenom;
+        }
+        /// <summary>
+        /// Navigation vers le premier viewmodel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LoadAccueil(object sender, EventArgs e)
+        {
+            _timerLoadAccueil.Stop();
+            _nav.NavigateTo<ConnexionTherapeuteViewModel>();
+        }
+        /// <summary>
+        /// Initialisation des commandes de la page
+        /// </summary>
+        private void CreateCommands()
+        {
+            AboutCommand = new RelayCommand(() => About());
+            ExitCommand = new RelayCommand(() => Exit());
+            ChangePageCommand = new RelayCommand<string>((p) => ChangeViewModel(p));
+            HomeComCommand = new RelayCommand(Home, Home_CanExecute);
+            HomeExComCommand = new RelayCommand(HomeEx, HomeEx_CanExecute);
+            HomingComCommand = new RelayCommand(Homing, Homing_CanExecute);
+            LibreComCommand = new RelayCommand(Libre, Libre_CanExecute);
+            OpenComCommand = new RelayCommand(OpenCom, OpenCom_CanExecute);
+            CloseComCommand = new RelayCommand(CloseCom, CloseCom_CanExecute);
+            StopComCommand = new RelayCommand(() => Stop());
+            EnvoyerComCommand = new RelayCommand(() => EnvoyerComPort(), BouttonCanExecute);
+            EnvoyerNextComCommand = new RelayCommand(() => EnvoyerNextComPort(), BouttonCanExecute);
+            StopNVComCommand = new RelayCommand(() => StopNv(), BouttonCanExecute);
+            Go_DebutCommand = new RelayCommand(() => go_Debut(), BouttonCanExecute);
+            PauseCommand = new RelayCommand(() => Pause(), BouttonCanExecute);
+            UpComCommand = new RelayCommand(UpCommand, UpCommand_CanExecute);
+            DownComCommand = new RelayCommand(DownCommand, DownCommand_CanExecute);
+            DecoCommand = new RelayCommand(Deconnexion);
+            this.CloseCommand = new RelayCommand(() => Close(), () => this.Close_CanExecute());
+            TestErreurCommand = new RelayCommand(() => TestErreurRobot());
+        }
+
+        private void Deconnexion2(bool y)
+        {
+            Singleton.logOffPatient();
+            LabelPatient = null;
+            Visibility = "Hidden";
+
+            SimpleIoc.Default.GetInstance<INavigation>().NavigateTo<HomeViewModel>(true);
+        }
+
+        /// <summary>
+        /// Initialisation des messages de la page
+        /// </summary>
+        private void CreateMessengers()
+        {
+            Messenger.Default.Register<List<ExerciceGeneric>>(this, "ReeducationKidWizardViewModel", TraitementExercice);   // abonnement aux messages envoyé par ReeducationKidWizard pour envoyer au µc
+            Messenger.Default.Register<List<ExerciceGeneric>>(this, "EvaluationViewModel", TraitementExercice);               // abonnement aux messages envoyé par Evaluation pour envoyer au µc
+            Messenger.Default.Register<FrameConfigDataModel>(this, "VisualisationViewModel", TraitementConfigExercice); // message de LudiqueViewModel
+            Messenger.Default.Register<CommandCodes>(this, "MessageCommand", TraitementCommande);
+            Messenger.Default.Register<FrameExerciceDataModel>(this, "MainPViewModel", TraitementPositionGameExercice); // message de MainPViewModel
+            Messenger.Default.Register<FrameExerciceDataModel>(this, "MainPViewModelDyn", TraitementPositionGameExerciceDyn); // message de MainPViewModel
+            Messenger.Default.Register<String>(this, "InscriptionViewModel", ChangeViewModel);
+            Messenger.Default.Register<Singleton>(this, "Singleton", OnConnected);
+            Messenger.Default.Register<bool>(this, "StartCible", StartCible);
+            Messenger.Default.Register<bool>(this, "DecoUtilisateur", Deconnexion2);
+            Messenger.Default.Register<string>(this,"StopRobot", StopByHome);
+            Messenger.Default.Register<string>(this, "ResetCurentListExercice", ResetCurrentList);
+        }
+        private bool BouttonCanExecute()
+        {
+            return !Singleton.GetRobotError();
+        }
+        private void StartCible(bool yu)
+        {
+            try
+            {
+                EnvoyerComPort();
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private void InitApp()
+        {
+            _currentExercice = new List<ExerciceGeneric>();
+            _isBusy = false;
+            _isBusyString = string.Empty;
+
+            _isInEvaluation = false;
+
+            _startingSequence = 0;                  // Var pour le démarrage d'un exercice
+            _startingSequenceActivated = false;     // Var pour l'affichage du démarrage de l'exercice
+            _startingSequenceTimer = new System.Timers.Timer(1000); // Create a timer with a ten second interval.
+            _startingSequenceTimer.Elapsed += new ElapsedEventHandler(OnStartingSequenceEvent);    // Hook up the Elapsed event for the timer.
+            _startingSequenceTimer.Enabled = false;
+            
+           // _portSerie = new PortSerieModel(); // object port série
+            _axrobot.Pss.aXdataReceived += new onaXdataReceived(_portSerieModel_aXdataReceived);  // abonnement aux evennements du port serie
+            _axrobot.Pss.CoupleDataReceived += new onCoupleDataReceived(_portSerieModel_CoupleDataReceived);
+            _axrobot.Pss.PositionDataReceived += new onPositionDataReceived(_portSerieModel_PositionDataReceived);
+            _axrobot.Pss.ForceDataReceived += new onForceDataReceived(_portSerieModel_ForceDataReceived);
+            _axrobot.Pss.ACKDataReceived += new onACKDataReceived(_portSerieModel_ACKDataReceived);
+            _axrobot.Pss.FrameConfigDataReceived += new onFrameConfigDataReceived(_portSerieModel_FrameConfigDataReceived);
+            _axrobot.Pss.ErrorDataReceived += new onErrorDataReceived(_portSerieService_ErrorDataReceived);
+            if (PortName.Count != 0)
+            {
+                SelectedPortName = PortName[0];
+            }
+        }
+
+        private void Deconnexion()
+        {
+            Singleton.logOffPatient();
+            LabelPatient = null;
+            Visibility = "Hidden";
+
+            SimpleIoc.Default.GetInstance<INavigation>().NavigateTo<HomeViewModel>(true);
+        }
+
+        private void TraitementExercice(List<ExerciceGeneric> listExercice)
+        {
+            try
+            {
+                if (listExercice != null)
+                {
+                    _currentExercice = listExercice;
+                    FrameExerciceDataModel _exerciceFrame = new FrameExerciceDataModel();
+                    FrameConfigDataModel _configFrame = new FrameConfigDataModel();
+                    if (listExercice[0].TypeExercice == ExerciceTypes.Evaluation)
+                    {
+                        _isInEvaluation = true;
+                        _exoEvalList = new List<ExerciceEvaluation>();
+                        foreach (var exo in listExercice)
+                        {
+                            _exoEvalList.Add((ExerciceEvaluation)exo);
+                        }
+                        _exerciceFrame = ExerciceToFrame.ExercicesEvaluationToFrameExercice(_exoEvalList[0], 0);
+                        _axrobot.SendExerciceFrame(_exerciceFrame);
+                        if (_exerciceFrame.Data1 != 0x05)
+                        {
+                            System.Threading.Thread.Sleep(15);
+                            _exoEvalList[0].BaseConfig.RaideurLong = 2;
+                            _configFrame = ExerciceToFrame.RlatRlongToFrame(_exoEvalList[0].BaseConfig);
+                            _axrobot.SendConfigFrame(_configFrame);
+                            System.Threading.Thread.Sleep(15);
+                            _configFrame = ExerciceToFrame.VitesseNbrRepToFrame(_exoEvalList[0].BaseConfig);
+                            _axrobot.SendConfigFrame(_configFrame);
+                            System.Threading.Thread.Sleep(15);
+                        }
+                        else
+                        {   // TONUS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                            System.Threading.Thread.Sleep(15);
+                            _exoEvalList[0].BaseConfig.RaideurLong = 100;
+                            _exoEvalList[0].BaseConfig.RaideurLat = 100;
+                            _configFrame = ExerciceToFrame.RlatRlongToFrame(_exoEvalList[0].BaseConfig);
+                            _axrobot.SendConfigFrame(_configFrame);
+                            System.Threading.Thread.Sleep(15);
+                            _exoEvalList[0].BaseConfig.Vitesse = 4;
+                            _configFrame = ExerciceToFrame.VitesseNbrRepToFrame(_exoEvalList[0].BaseConfig);
+                            _axrobot.SendConfigFrame(_configFrame);
+                            System.Threading.Thread.Sleep(15);
+                        }
+                    }
+                    else
+                    {
+                        ExerciceJeu temps;
+                        _isInEvaluation = false;
+                        _exoReeList = new List<ExerciceReeducation>();
+                        foreach (var exo in listExercice)
+                        {
+                            _exoReeList.Add((ExerciceReeducation)exo);
+                        }
+                        _exerciceFrame.Address = ConfigAddresses.Jeux;
+                        temps = (ExerciceJeu)_exoReeList[0];
+                        _exerciceFrame.Data1 = temps.TabPosDebut[0];  // position debut
+                        _exerciceFrame.Data2 = temps.TabPosDebut[1];
+                        _axrobot.SendExerciceFrame(_exerciceFrame);
+                        System.Threading.Thread.Sleep(15);
+                        // TODO : ack !
+                        if (_exoReeList[0].BaseConfig.Init != 0)
+                        {
+                            FrameConfigDataModel _configFrame1 = new FrameConfigDataModel();
+                            _configFrame1.Address = ConfigAddresses.KlatClong;
+                            _configFrame1.Data1_2 = 0;
+                            _configFrame1.Data3_4 = 10;
+                            _axrobot.SendConfigFrame(_configFrame1);
+                            System.Threading.Thread.Sleep(15);
+
+                            FrameConfigDataModel _configFrame2 = new FrameConfigDataModel();
+                            _configFrame2.Address = ConfigAddresses.VitesseNbrsrep;
+                            _configFrame2.Data1_2 = 0;  // 0
+                            _configFrame2.Data3_4 = _exoReeList[0].BaseConfig.NbrRep;
+                            _axrobot.SendConfigFrame(_configFrame2);
+                            System.Threading.Thread.Sleep(15);
+                        }
+                        else
+                        {
+                            FrameConfigDataModel _configFrame3 = new FrameConfigDataModel();
+                            FrameConfigDataModel newConfig = new FrameConfigDataModel();
+                            _configFrame3.Address = ConfigAddresses.KlatClong;
+                            _configFrame3.Data1_2 = _exoReeList[0].BaseConfig.RaideurLat;
+                            _configFrame3.Data3_4 = _exoReeList[0].BaseConfig.RaideurLong;
+                            //_configFrame3 = ExerciceToFrame.RlatRlongToFrame(exo.ExerciceConfig);
+                            _axrobot.SendConfigFrame(_configFrame3);
+                            System.Threading.Thread.Sleep(15);
+
+                            FrameConfigDataModel _configFrame4 = new FrameConfigDataModel();
+                            _configFrame4 = ExerciceToFrame.VitesseNbrRepToFrame(_exoReeList[0].BaseConfig);
+                            _axrobot.SendConfigFrame(_configFrame4);
+                            System.Threading.Thread.Sleep(15);
+                        }
+                        _exerciceFrame = ExerciceToFrame.BorneToFrame(_exoReeList[0].BorneConfig);
+                        _axrobot.SendExerciceFrame(_exerciceFrame);
+                        System.Threading.Thread.Sleep(15);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private void TraitementConfigExercice(FrameConfigDataModel newConfigExercice)
+        {
+            try
+            {
+                _axrobot.SendConfigFrame(newConfigExercice);
+                System.Threading.Thread.Sleep(10);
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private void TraitementCommande(CommandCodes newCmdExercice)
+        {
+            try
+            {
+                switch (newCmdExercice)
+                {
+                    case CommandCodes.mod_init_traj: _axrobot.SendCommandFrame(CommandCodes.mod_init_traj);
+                        //System.Threading.Thread.Sleep(10);
+                        break;
+                    case CommandCodes.mod_suiv_traj: _axrobot.SendCommandFrame(CommandCodes.mod_suiv_traj);
+                        //System.Threading.Thread.Sleep(10);
+                        break;
+                    case CommandCodes.STOPnv: _axrobot.SendCommandFrame(CommandCodes.STOPnv);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        /// <summary>
+        /// Envoyer nouvelle position au µc en mode jeu
+        /// </summary>
+        /// <param name="newPositionGameExercice"></param>
+        private void TraitementPositionGameExercice(FrameExerciceDataModel newPositionGameExercice)
+        {
+            newPositionGameExercice.Address = ConfigAddresses.mod_game_position;
+            try
+            {
+                _axrobot.SendExerciceGameFrame(newPositionGameExercice);
+                System.Threading.Thread.Sleep(10);
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        /// <summary>
+        /// Envoyer nouvelle position au µc en mode jeu
+        /// </summary>
+        /// <param name="newPositionGameExercice"></param>
+        private void TraitementPositionGameExerciceDyn(FrameExerciceDataModel newPositionGameExercice)
+        {
+            newPositionGameExercice.Address = ConfigAddresses.mod_game_position_dyn;
+            try
+            {
+                _axrobot.SendExerciceGameFrame(newPositionGameExercice);
+                System.Threading.Thread.Sleep(10);
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+        private void Close()
+        {
+            // arret du jeu
+            try
+            {
+                PauseCommand.RaiseCanExecuteChanged();
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+            // TODO : do close window work !
+        }
+
+        private bool Close_CanExecute()
+        {
+            if (this._messageBoxService.ShowYesNo("Do you want to close?", CustomDialogIcons.Question) == CustomDialogResults.Yes)
+            {
+                return allowWindowToClose == true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
+
+        #region RelayCommands
+
+        public RelayCommand DecoCommand
+        {
+            get;
+            private set;
+        }
+        /// <summary>
+        /// Gets the close command.
+        /// </summary>
+        /// <value>The close command.</value>
+        public RelayCommand CloseCommand
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets the close failed command.
+        /// </summary>
+        /// <value>The close command.</value>
+        public RelayCommand CloseFailCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand AboutCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand ExitCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand<string> ChangePageCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand HomeComCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand HomeExComCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand LibreComCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand HomingComCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand OpenComCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand CloseComCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand StopComCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand EnvoyerComCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand EnvoyerNextComCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand StopNVComCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand Go_DebutCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand PauseCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand UpComCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand DownComCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand TestErreurCommand
+        {
+            get;
+            private set;
+        }
+
+        #endregion
+
+        #region Actions
+
+        private void About()
+        {
+            // TODO : trouver une solution pour show et show dialog
+        }
+
+        /// <summary>
+        /// Appelé par ExitCommand, ferme l'application
+        /// </summary>
+        private void Exit()
+        {
+            try
+            {
+                Application.Current.MainWindow.Close();
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            } //  Shutdown
+            //System.Windows.Application.Current.Shutdown();
+        }
+
+        /// <summary>
+        /// Appelé par ChangePageCommand, change la page courante (affichée)
+        /// </summary>
+        /// <param name="viewModel"></param>
+        /// 
+
+        private void ChangeViewModel(string viewModel)
+        {
+            try
+            {
+                if (viewModel == "0")
+                {
+                    //PageViewModels[0] = new HomeViewModel(0);
+                    //PageViewModels[1] = new HomeViewModel(1);
+                    //PageViewModels[2] = new HomeViewModel(2);
+                    GC.Collect();   // TODO : perf issue ne pas utiliser, utilisé ici pour corriger un bug de messenger !
+                    CurrentPageViewModel = PageViewModels[Convert.ToInt32(viewModel, 10)];
+                }
+                else
+                {
+                    if (viewModel == "3")
+                    {
+                        Messenger.Default.Send(false, "MainViewModel");//permettre a accueil de cloturer l'exercice en cours
+                        PageViewModels[6] = new ReeducationKidWizardViewModel();
+                        PageViewModels[8] = new EvaluationViewModel();
+                        GC.Collect();       // TODO : perf issue ne pas utiliser, utilisé ici pour corriger un bug de messenger !
+                        CurrentPageViewModel = PageViewModels[Convert.ToInt32(viewModel, 10)];
+                    }
+                    else
+                    {
+                        CurrentPageViewModel = PageViewModels[Convert.ToInt32(viewModel, 10)];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        /// <summary>
+        /// Appelé par HomeComCommand,
+        /// </summary>
+        private void Home()
+        {
+            try
+            {
+                _axrobot.SendCommandFrame(CommandCodes.mod_home);
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        /// <summary>
+        /// Appelé par HomeComCommand,
+        /// </summary>
+        /// <returns></returns>
+        private bool Home_CanExecute()
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// Appelé par HomeExComCommand,
+        /// </summary>
+        private void HomeEx()
+        {
+            // Home
+            try
+            {
+                _axrobot.SendCommandFrame(CommandCodes.mod_init_traj);
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        /// <summary>
+        /// Appelé par HomeExComCommand,
+        /// </summary>
+        /// <returns></returns>
+        private bool HomeEx_CanExecute()
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// Appelé par HomingComCommand,
+        /// </summary>
+        private void Homing()
+        {
+            if (_isInEvaluation == true)
+            {
+                Messenger.Default.Send(false, "MainViewModel");     // arrêter l'evaluation
+            }
+            else
+            {
+
+            }
+            // Home Calibration
+            try
+            {
+                _axrobot.SendCommandFrame(CommandCodes.mod_homing);
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        /// <summary>
+        /// Appelé par HomingComCommand,
+        /// </summary>
+        /// <returns></returns>
+        private bool Homing_CanExecute()
+        {
+            return _axrobot.IsOpen();
+        }
+
+        /// <summary>
+        /// Appelé par LibreComCommand,
+        /// </summary>
+        private void Libre()
+        {
+            MessageBoxResult result = MessageBox.Show("Êtes-vous sur de vouloir lancer le mode libre ?", "Attention !", MessageBoxButton.YesNoCancel, MessageBoxImage.Question, MessageBoxResult.Cancel);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    // Libre
+                    try
+                    {
+                        _axrobot.SendCommandFrame(CommandCodes.mode_libre);
+                    }
+                    catch (Exception ex)
+                    {
+                        GestionErreur.GerrerErreur(ex);
+                    }
+                    break;
+                case MessageBoxResult.No:
+                    break;
+                case MessageBoxResult.Cancel:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Appelé par LibreComCommand,
+        /// </summary>
+        /// <returns></returns>
+        private bool Libre_CanExecute()
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// Appelé par OpenComCommand, ouvre le port série
+        /// </summary>
+        private void OpenCom()
+        {
+            try
+            {
+                _axrobot.Open();
+            }
+            catch (IOException)
+            {//obligé de refaie un  y catch pour throw la nouvelle exception et pour que sont stacktrace soit garni
+                try
+                {
+                    throw new WrongSerialPortException();
+                }
+                catch (Exception ex)
+                { GestionErreur.GerrerErreur(ex); }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                try
+                {
+                    throw new WrongSerialPortException();
+                }
+                catch (Exception ex)
+                { GestionErreur.GerrerErreur(ex); }
+            }
+            catch (InvalidOperationException)
+            {
+                try
+                {
+                    throw new AlreadyOpenSerialPortException();
+                }
+                catch (Exception ex)
+                { GestionErreur.GerrerErreur(ex); }
+            }
+            finally
+            {
+                CloseComCommand.RaiseCanExecuteChanged();
+                OpenComCommand.RaiseCanExecuteChanged();
+                HomingComCommand.RaiseCanExecuteChanged();
+            }
+        }
+
+        /// <summary>
+        /// Appelé par OpenComCommand, vérifie si le port est ouvert
+        /// </summary>
+        /// <returns></returns>
+        private bool OpenCom_CanExecute()
+        {
+            return !_axrobot.IsOpen();
+        }
+
+        /// <summary>
+        /// Appelé par CloseComCommand, ferme le port série
+        /// </summary>
+        private void CloseCom()
+        {
+            try
+            {
+                _axrobot.Close();
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+            finally
+            {
+                CloseComCommand.RaiseCanExecuteChanged();
+                OpenComCommand.RaiseCanExecuteChanged();
+                HomingComCommand.RaiseCanExecuteChanged();
+            }
+        }
+
+        /// <summary>
+        /// Appelé par CloseComCommand, vérifie si le port est fermé
+        /// </summary>
+        /// <returns></returns>
+        private bool CloseCom_CanExecute()
+        {
+             return _axrobot.IsOpen();
+        }
+
+        private void Stop()
+        {
+            if (_isInEvaluation == true)
+            {
+                Messenger.Default.Send(false, "MainViewModel");     // arrêter l'evaluation
+                try
+                {
+                    _axrobot.SendCommandFrame(CommandCodes.STOP);
+                }
+                catch (Exception ex)
+                {
+                    GestionErreur.GerrerErreur(ex);
+                }
+            }
+            else
+            {
+                Messenger.Default.Send<bool>(false, "StartStopGame"); // arrêter de reeducation jeu
+                try
+                {
+                    _axrobot.SendCommandFrame(CommandCodes.STOP);
+                }
+                catch (Exception ex)
+                {
+                    GestionErreur.GerrerErreur(ex);
+                }
+                // arrêter reeducation jeu
+            }
+        }
+
+        private void EnvoyerComPort()
+        {
+            try
+            {
+                StartingSequence = 3;
+                StartingSequenceActivated = true;
+                _startingSequenceTimer.Start();
+                infoSTOP = false;   // correction bug +5 long 
+                Messenger.Default.Send(false, "GamePauseGui");
+                Messenger.Default.Send(false, "VisualisationCanPrecedent");
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private void EnvoyerNextComPort()
+        {
+            try
+            {
+                if (_currentExercice.Count != 0)
+                {
+                    _currentExercice.RemoveAt(0);
+                    if (_currentExercice.Count != 0)
+                    {
+                        TraitementExercice(_currentExercice);
+                        Messenger.Default.Send(_currentExercice, "NextExercice");
+                        Messenger.Default.Send(false, "VisualisationCanPrecedent");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erreur : Exercice vide !", "Erreur !", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Erreur : Exercice vide !", "Erreur !", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private void StopNv()
+        {
+            try
+            {
+                infoSTOP = true;    // correction bug +5 long
+                if (_isInEvaluation == true)
+                {
+                    Messenger.Default.Send(false, "MainViewModel");     // arrêter l'evaluation
+                    ValReed.StartStop = false;
+                    _axrobot.SendCommandFrame(CommandCodes.STOPnv);
+                }
+                else
+                {
+                    Messenger.Default.Send<bool>(false, "StartStopGame"); // arrêter de reeducation jeu
+                    ValReed.StartStop = false;
+                    _axrobot.SendCommandFrame(CommandCodes.STOPnv);
+                    // arrêter reeducation jeu
+                } 
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+            // Reinit Robot
+        }
+
+        private void StopByHome(string s)
+        {
+            StopNv();
+        }
+
+        private void ResetCurrentList(string s)
+        {
+            _currentExercice.Clear();
+        }
+        /// <summary>
+        /// Méthode qui met le robot au debut de l'exercice
+        /// </summary>
+        private void go_Debut()
+        {
+            if (_isInEvaluation == true)
+            {
+                _axrobot.SendCommandFrame(CommandCodes.mod_init_traj);    // En evaluation
+                System.Threading.Thread.Sleep(10);
+            }
+            else
+            {
+                _axrobot.SendCommandFrame(CommandCodes.mod_init_traj);    // En Reeducation jeu
+                System.Threading.Thread.Sleep(10);
+            }
+        }
+        private void TestErreurRobot()
+        {
+            RobotErrorMessage e = new RobotErrorMessage();
+            Messenger.Default.Send<RobotErrorMessage>(e, "NewRobotError");
+            Singleton.ChangeErrorStatu(true);
+        }
+        private void Pause()
+        {
+            try
+            {
+                //_pause = !_pause;
+                //if (_isInEvaluation == false)
+                //{
+                //    if (_pause == true)
+                //    {
+                //        Messenger.Default.Send(_pause, "GamePause");
+                //    }
+                //    if (_pause == true)
+                //    {
+                //        _axrobot.SendCommandFrame(CommandCodes.STOPnv);
+                //    }
+                //    else
+                //    {
+                //        EnvoyerComPort();
+                //    }
+                //}
+                RobotErrorMessage e = new RobotErrorMessage();
+                Messenger.Default.Send<RobotErrorMessage>(e, "NewRobotError");
+                Singleton.ChangeErrorStatu(true);
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void UpCommand()
+        {
+            _up = true;
+            _down = false;
+            UpComCommand.RaiseCanExecuteChanged();
+            DownComCommand.RaiseCanExecuteChanged();
+            _axrobot.SendCommandFrame(CommandCodes.deviceDate);
+            //Debug.Print("up");
+            _up = true;
+            _down = true;
+            UpComCommand.RaiseCanExecuteChanged();
+            DownComCommand.RaiseCanExecuteChanged();
+        }
+
+        private bool UpCommand_CanExecute()
+        {
+            return _up;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void DownCommand()
+        {
+            _up = true;
+            _down = false;
+            UpComCommand.RaiseCanExecuteChanged();
+            DownComCommand.RaiseCanExecuteChanged();
+            _axrobot.SendCommandFrame(CommandCodes.deviceSerialNumber);
+            //Debug.Print("down");
+            _up = true;
+            _down = true;
+            UpComCommand.RaiseCanExecuteChanged();
+            DownComCommand.RaiseCanExecuteChanged();
+        }
+
+        private bool DownCommand_CanExecute()
+        {
+            return _down;
+        }
+
+        void _portSerieModel_ForceDataReceived(object sender, ForceDataModel e)
+        {
+            // TODO : binder les receptions
+            Messenger.Default.Send(e, "NewForce");      // Message Force
+        }
+
+        void _portSerieModel_PositionDataReceived(object sender, PositionDataModel e)
+        {
+            //Debug.Print("X: " + (e.PositionX / 100.0).ToString() + " Y: " + (e.PositionY / 100.0).ToString());
+            if (infoSTOP == false)
+            {
+                Messenger.Default.Send(e, "NewPosition");   // Message Position
+            }
+        }
+
+        void _portSerieModel_CoupleDataReceived(object sender, CoupleDataModel e)
+        {
+        }
+
+        void _portSerieModel_ACKDataReceived(object sender, ACKDataModel e)
+        {
+            if (e != null)
+            {
+                switch (e.Donnee[2])
+                {
+                    case ((byte)FrameHeaders.ACK_Stop):
+                        //_portSerie.ACK_ok();
+                        //Etat = this.etats.Statuts[5];
+                        break;
+                    case ((byte)FrameHeaders.ACK_mod_suiv_traj):
+                       // _portSerie.ACK_ok();
+                        break;
+                    case ((byte)FrameHeaders.ACK_mode_libre):
+                        //_portSerie.ACK_ok();
+                        //Etat = this.etats.Statuts[1];
+                        break;
+                    case ((byte)FrameHeaders.ACK_mod_traj):
+                        //_portSerie.ACK_ok();
+                        //Etat = this.etats.Statuts[0];
+                        IsBusyString = "Positionnement...";
+                        IsBusy = true;
+                        break;
+                    case ((byte)FrameHeaders.ACK_mod_homing):
+                        //_portSerie.ACK_ok();
+                        if (IsBusy == false)
+                        {
+                            //Etat = this.etats.Statuts[0];
+                            IsBusyString = "Calibration...";
+                            IsBusy = true;
+                        }
+                        else
+                        {
+                            //Etat = this.etats.Statuts[4];
+                            IsBusy = false;
+                            if (Singleton.GetRobotError())
+                            {
+<<<<<<< HEAD
+                                Singleton.ChangeErrorStatu(false);
+                                if (_currentExercice.Count >0)
+                                {
+                                    Application.Current.Dispatcher.BeginInvoke(new Action(() =>{
+                                        Messenger.Default.Send(_currentExercice, "NextExercice");
+                                    }), DispatcherPriority.DataBind);
+                                    TraitementExercice(_currentExercice);
+                                }
+=======
+                                Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                                {
+                                    Singleton.ChangeErrorStatu(false);//indique qu'il n'y a plus d'erreur
+                                    RetablissementExerciceApresRobotErreur();
+                                    Messenger.Default.Send("", "RaiseCanExecuteHomeVM");
+                                }), DispatcherPriority.DataBind);
+>>>>>>> dc834691afafda63a407212031cd6478e4e34d4c
+                            }
+                        }
+                        break;
+                    case ((byte)FrameHeaders.ACK_mod_init_traj):
+                        if (IsBusy == false)
+                        {
+                            //Etat = this.etats.Statuts[0];
+                            IsBusyString = "Positionnement...";
+                            IsBusy = true;
+                        }
+                        else
+                        {
+                            Messenger.Default.Send(true, "Init_Traj");
+                            // _portSerie.ACK_ok();
+                            //Etat = this.etats.Statuts[4];
+                            IsBusy = false;
+                        }
+                        break;
+                    case ((byte)FrameHeaders.ACK_mod_home):
+                        if (IsBusy == false)
+                        {
+                          //  _portSerie.ACK_ok();
+                            //Etat = this.etats.Statuts[0];
+                            IsBusyString = "Homing...";
+                            IsBusy = true;
+                        }
+                        else
+                        {
+                            //Etat = this.etats.Statuts[4];
+                            IsBusy = false;
+                        }
+                        break;
+                    case ((byte)FrameHeaders.ACK_mod_game):// _portSerie.ACK_ok();
+                        break;
+                    case ((byte)FrameHeaders.ACK_Cibles):// _portSerie.ACK_ok();
+                        break;
+                    case ((byte)FrameHeaders.ACK_Formes):// _portSerie.ACK_ok();
+                        break;
+                    case ((byte)FrameHeaders.ACK_Mouvements): //_portSerie.ACK_ok();
+                        break;
+                    case ((byte)FrameHeaders.ACK_Xdent): //_portSerieModel.ACK_ok(); 
+                        Messenger.Default.Send(e, "ACK_X_Dent");
+                        break;
+                    case ((byte)FrameHeaders.ACK_StopNv):
+                        MessageBox.Show("Robot : ", "Arrêté", MessageBoxButton.OK, MessageBoxImage.Information);
+                        break;
+                }
+            }
+        }
+
+        void _portSerieModel_FrameConfigDataReceived(object sender, FrameConfigDataModel e)
+        {
+            Messenger.Default.Send(e, "NewUcConfig");
+        }
+
+        void _portSerieModel_aXdataReceived(object sender, aXdataModel e)
+        {
+
+        }
+
+       public void _portSerieService_ErrorDataReceived(object sender, ErrorDataModel e)
+        {
+            //if (e != null)
+            //{
+            //    switch (e.Address)
+            //    {
+            //        case FrameHeaders.Error_HB:
+            //        case FrameHeaders.Error_Emcy:
+            //        case FrameHeaders.Error_SDO:
+            //            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+            //            {
+            //                Messenger.Default.Send(e.GetMessage(),"AddNotif");     // arrêter l'evaluation
+            //            }), DispatcherPriority.Background);
+            //            break;
+            //        case FrameHeaders.ACK_Recovery:
+            //            this._messageBoxService.ShowError("Recovery !");
+            //            break;
+            //        default:
+            //            break;
+            //    }
+            //}
+            //this._messageBoxService.ShowError(e.GetMessage());
+            if (e != null)
+            {
+                switch (e.Address)
+                {
+                    case FrameHeaders.Hardware: GestionErreur.GerrerErreur(new RobotHardwareException(e.NodeId, e.Address, e.ErrorCode, e.GetMessage()));
+                        break;
+                    case FrameHeaders.Software: GestionErreur.GerrerErreur(new RobotSoftwareException(e.NodeId, e.Address, e.ErrorCode, e.GetMessage()));
+                        break;
+                    default :
+                        break;
+                }
+                Messenger.Default.Send<RobotErrorMessage>(new RobotErrorMessage { ErrorData = e}, "NewRobotError");
+                OnRobotError(e);
+            }
+        }
+
+        private void OnRobotError(ErrorDataModel e)
+        {
+            _startingSequenceTimer.Stop();
+            StopNv();
+            Singleton.ChangeErrorStatu(true);
+        }
+
+        /// <summary>
+        /// Si on est toujours sur la visualisation restar l'exercice depuis le debut
+        /// Dégrise les boutons
+        /// </summary>
+        private void RetablissementExerciceApresRobotErreur()
+        {
+            if (_currentExercice.Count > 0)
+            {
+                Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    Messenger.Default.Send(_currentExercice, "NextExercice");
+                    TraitementExercice(_currentExercice);
+                    EnvoyerComCommand.RaiseCanExecuteChanged();
+                    EnvoyerNextComCommand.RaiseCanExecuteChanged();
+                    StopNVComCommand.RaiseCanExecuteChanged();
+                    PauseCommand.RaiseCanExecuteChanged();
+                }), DispatcherPriority.DataBind);
+            }
+        }
+
+        private void StartEx()
+        {
+            try
+            {
+                _startingSequenceTimer.Stop();
+                StartingSequenceActivated = false;
+                if (_isInEvaluation == true)
+                {
+                    Messenger.Default.Send(true, "MainViewModel");  // message démarrage de l'exercice
+                    _axrobot.SendCommandFrame(CommandCodes.mod_suiv_traj);
+                }
+                else
+                {
+                    if (_pause == false)
+                    {
+                        Messenger.Default.Send(_pause, "GamePause");
+                    }
+                    Messenger.Default.Send<bool>(true, "StartStopGame"); // message démarrage de l'exercice
+                    Messenger.Default.Send(false, "MainViewModel");  // message démarrage de l'exercice
+                    _axrobot.SendCommandFrame(CommandCodes.mod_game); // message démarrage de l'exercice jeu + demmarrer assistance
+                    System.Threading.Thread.Sleep(15);
+                }
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        // Specify what you want to happen when the Elapsed event is raised.
+        private void OnStartingSequenceEvent(object source, ElapsedEventArgs e)
+        {
+            StartingSequence--;
+            if (StartingSequence <= 0)
+            {
+                ValReed.StartStop = true;
+                StartEx();
+            }
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Cleans up all the resources.
+        /// </summary>
+        public override void Cleanup()
+        {
+            // Clean up if needed
+            base.Cleanup();
+            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                _axrobot.Dispose();  // kill les Threads !!!
+            }), DispatcherPriority.Normal);
+        }
+    }
+}

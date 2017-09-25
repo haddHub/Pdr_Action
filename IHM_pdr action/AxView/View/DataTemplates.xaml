@@ -1,0 +1,110 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:View="clr-namespace:AxView.View"
+                    xmlns:ViewModel="clr-namespace:AxViewModel;assembly=AxViewModel"
+                    >
+
+    <DataTemplate DataType="{x:Type ViewModel:ConnexionTherapeuteViewModel}">
+        <View:ConnexionTherapeute/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:FormulaireTherapeuteViewModel}">
+        <View:FormulaireTherapeute/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:FormulaireInscriptionTherapeuteViewModel}">
+        <View:FormulaireInscriptionTherapeute/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type ViewModel:FormulaireInscriptionAdministrateurViewModel}">
+        <View:FormulaireInscriptionAdministrateur/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type ViewModel:HomeViewModel}">
+        <View:HomeView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:FormulairePatientViewModel}">
+        <View:FormulairePatient/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:FormulaireInscriptionPatientViewModel}">
+        <View:FormulaireInscriptionPatient/>
+    </DataTemplate>
+
+    <!--<DataTemplate DataType="{x:Type ViewModel:ExercicesEvaluationCinematiqueViewModel}">
+        <View:ExercicesEvaluationCinematique/>
+    </DataTemplate>-->
+    
+    <DataTemplate DataType="{x:Type ViewModel:ThemesExercicesEvaluationCinematiqueViewModel}">
+        <View:ThemesExercicesEvaluationCinematique/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:EvoEvalViewModel}">
+        <View:EvoEval />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:EvolutionReeducationViewModel}">
+        <View:EvolutionReeducation />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:ReeducationViewViewModel}">
+        <View:ReeducationView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:ExercicesReeducationMouvement}">
+        <View:ExercicesReeducationMouvement />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:ThemesReeducationMouvement}">
+        <View:ThemesReeducationMouvement />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:ZoomViewModel}">
+        <View:Zoom />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:ListeVisualisationReeducation}">
+        <View:ListeVisualisationReeducation />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:ListeVisualisationEvaluationViewModel}">
+        <View:ListeVisualisationEvaluation />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:BoutonsVisualisationEvaluationViewModel}">
+        <View:BoutonsVisualisationEvaluation />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:BoutonsVisualisationReeducationViewModel}">
+        <View:BoutonsVisualisationReeducation />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:ParametresVisualisationEvaluationViewModel}">
+        <View:ParametresVisualisationEvaluation />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:ParametresVisualisationReeducationViewModel}">
+        <View:ParametresVisualisationReeducation />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:CalibrationActionViewModel}">
+        <View:CalibrationActionView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:ModifActionOptionViewModel}">
+        <View:ModifActionOptionView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:ModifPerceptionOptionViewModel}">
+        <View:ModifPerceptionOptionView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:ModifActionZoomViewModel}">
+        <View:ModifActionZoomView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:ModifActionVisualisationViewModel}">
+        <View:ModifActionVisualisation />
+    </DataTemplate>
+</ResourceDictionary>

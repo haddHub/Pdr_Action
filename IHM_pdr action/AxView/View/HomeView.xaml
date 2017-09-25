@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="AxView.View.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:res="clr-namespace:AxLanguage;assembly=AxLanguage"
+             xmlns:elem="clr-namespace:AxView.Resources.Elements"
+             xmlns:ViewModel="clr-namespace:AxViewModel;assembly=AxViewModel"
+             xmlns:View="clr-namespace:AxView.View"
+             mc:Ignorable="d" 
+             MinWidth="1228" MinHeight="550"
+             >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="78"/>
+            <RowDefinition Height="0.912*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="10" VerticalAlignment="Center" d:LayoutOverrides="Width" HorizontalAlignment="Right">
+            <Label Content="{Binding LabelUtilisateur}" FontSize="18" FontFamily="Arial Rounded MT" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" VerticalAlignment="Center" />
+            <Button x:Name="buttondeco" Command="{Binding DecoAdminCommand }" Margin="12" Background="{x:Null}" BorderThickness="0" ToolTip="{x:Static res:Languages.REAplan_Unconnect}" IsEnabled="{Binding }">
+                <Canvas Height="32" Width="32">
+                    <Image Height="32" Source="/REAplan2Db;component/Resources/Image/Menu/Users.png" Stretch="Fill" Width="32"/>
+                    <Image Height="16" Source="/REAplan2Db;component/Resources/Image/32x32/cancel.png" Stretch="Fill" Width="16" Canvas.Top="16"/>
+                </Canvas>
+            </Button>
+        </StackPanel>
+        <Border Grid.Column="1" BorderThickness="1,0,0,0" BorderBrush="Black" Grid.RowSpan="2">
+            <ContentControl Content="{Binding InternView}" Focusable="False"  VerticalAlignment="Top"/>
+        </Border>
+        <StackPanel Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="2">
+            <Button Command="{Binding MoveToEvalCommand}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="500" Height="100" Content="Calibration" Margin="0,0,0,10"/>
+            <Button Command="{Binding MoveToReeducCommand}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="500" Height="100" Content="Modification Action" Margin="0,0,0,10"/>
+            <Button Command="{Binding MoveToEvoEvalCommand}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="500" Height="100" Content="Modification Perception"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Release\AxError.Test.dll" total="43" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2014-08-11" time="14:07:36">
+  <environment nunit-version="2.5.1.9189" clr-version="4.0.30319.34014" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Users\Axinesis\Desktop\ihm_base\TestResults\Axinesis_PC-AXINESIS-004 2014-08-11 14_07_28\Out" machine-name="PC-AXINESIS-004" user="Axinesis" user-domain="PC-AXINESIS-004" />
+  <culture-info current-culture="fr-FR" current-uiculture="fr-FR" />
+  <test-suite name="C:\Users\Axinesis\Desktop\ihm_base\AxError.Test\bin\Release\AxError.Test.dll" executed="True" success="True" time="1.891" asserts="0">
+    <results>
+      <test-suite name="AxError" executed="True" success="True" time="1.891" asserts="0">
+        <results>
+          <test-suite name="Test" executed="True" success="True" time="1.875" asserts="0">
+            <results>
+              <test-suite name="GestionErreurTest" executed="True" success="True" time="1.875" asserts="0">
+                <results>
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_AlreadyOpenSerialPortException_Bien_Traite" executed="True" success="True" time="1.625" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Autres_Exception_Doit_Couper_Le_Programme" executed="True" success="True" time="0.016" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_FileNotFoundException_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_OutOfMemoryException_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_AutoTuningIdentificationError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_AuxiliarySensorDirectionError_Bien_Traite" executed="True" success="True" time="0.016" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_CanOverrunError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_CanOverrunErrorObjectsLost_Bien_Traite" executed="True" success="True" time="0.016" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_CanPassiveModeError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_CanPdoLengthError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_CanRxQueueOverflowError_Bien_Traite" executed="True" success="True" time="0.016" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_CanTransmitCobIdCollisionError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_CanTxQueueOverflowError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_ControllerGainError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_EncoderResolutionError_Bien_Traite" executed="True" success="True" time="0.016" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_FollowingError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_GearScalingFactorError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_HallAngleDetectionError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_HallSensorError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_HallSensorNotFoundError_Bien_Traite" executed="True" success="True" time="0.016" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_IndexProcessingError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_InternalSoftwareError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_InterpolatedPositionModeError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_LogicSupplyVoltageTooLowError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_MainSensorDirectionError_Bien_Traite" executed="True" success="True" time="0.016" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_OvercurrentError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_OvertemperatureError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_OvervoltageError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_PositionSensorError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_SoftwareParameterError_Bien_Traite" executed="True" success="True" time="0.016" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_SoftwarePositionLimitError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_SupplyVoltageOutputStageTooLow_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_SystemOverloadedError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_Robot_UndervoltageError_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_SqlException_Autres_Num_Bien_Traite" executed="True" success="True" time="0.063" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_SqlException_Num10054_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_SqlException_Num18452_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_SqlException_Num18456_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_SqlException_Num2_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_SqlException_Num4060_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_SqlException_Num53_Bien_Traite" executed="True" success="True" time="0.016" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_UnauthorizedAccessException_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                  <test-case name="AxError.Test.GestionErreurTest.Erreur_WrongSerialPortException_Bien_Traite" executed="True" success="True" time="0.000" asserts="0" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

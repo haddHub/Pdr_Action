@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse.Test\bin\Release\AxAnalyse.Test.dll" total="6" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2014-08-11" time="14:07:41">
+  <environment nunit-version="2.5.1.9189" clr-version="4.0.30319.34014" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Users\Axinesis\Desktop\ihm_base\TestResults\Axinesis_PC-AXINESIS-004 2014-08-11 14_07_28\Out" machine-name="PC-AXINESIS-004" user="Axinesis" user-domain="PC-AXINESIS-004" />
+  <culture-info current-culture="fr-FR" current-uiculture="fr-FR" />
+  <test-suite name="C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse.Test\bin\Release\AxAnalyse.Test.dll" executed="True" success="True" time="0.047" asserts="0">
+    <results>
+      <test-suite name="AxAnalyse" executed="True" success="True" time="0.047" asserts="0">
+        <results>
+          <test-suite name="Test" executed="True" success="True" time="0.047" asserts="0">
+            <results>
+              <test-suite name="AnalyseTest" executed="True" success="True" time="0.047" asserts="0">
+                <results>
+                  <test-case name="AxAnalyse.Test.AnalyseTest.CalcSommeAbs_retourne_positif_quand_reponse_negative" executed="True" success="True" time="0.031" asserts="1" />
+                  <test-case name="AxAnalyse.Test.AnalyseTest.CalcSommeAbs_retourne_positif_quand_reponse_positive" executed="True" success="True" time="0.000" asserts="1" />
+                  <test-case name="AxAnalyse.Test.AnalyseTest.Distance_Entre_Deux_Points_Negative" executed="True" success="True" time="0.016" asserts="1" />
+                  <test-case name="AxAnalyse.Test.AnalyseTest.Distance_Entre_Deux_Points_Positive" executed="True" success="True" time="0.000" asserts="1" />
+                  <test-case name="AxAnalyse.Test.AnalyseTest.Distance_Entre_Plusieur_Points" executed="True" success="True" time="0.000" asserts="1" />
+                  <test-case name="AxAnalyse.Test.AnalyseTest.Vitesse_Moyenne" executed="True" success="True" time="0.000" asserts="1" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

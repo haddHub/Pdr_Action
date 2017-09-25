@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Base>
+  <Masse>10</Masse>
+  <Viscosite>50</Viscosite>
+  <RaideurLat>0</RaideurLat>
+  <RaideurLong>0</RaideurLong>
+  <Vitesse>0</Vitesse>
+  <NbrRep>100</NbrRep>
+  <Init>0</Init>
+  <Auto>false</Auto>
+</Base>

@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="AxView.View.ParametresVisualisationReeducation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:res="clr-namespace:AxLanguage;assembly=AxLanguage"
+             d:DesignHeight="287" d:DesignWidth="738">
+    <Grid Margin="0" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel x:Name="stackPanelConfig" Margin="25,10,0,10" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="0">
+                <Label Content="{x:Static res:Languages.REAplan_R_Lat}" FontSize="20" Height="42" x:Name="raideurLat" Width="140" />
+                <Slider Value="{Binding DataContext.CurrentConfig.RaideurLat, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}, AncestorLevel=2}}" Height="30" x:Name="sliderRaideurLat" Width="200" Minimum="0" Maximum="100" Style="{DynamicResource SliderStyle}" />
+                <Label Content="{Binding DataContext.CurrentConfig.RaideurLat, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}, AncestorLevel=2}}" Height="42" FontSize="24" Width="75" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label Content="{x:Static res:Languages.REAplan_R_Long}" Height="42" x:Name="raideurLong" FontSize="20" Width="140" />
+                <Slider Value="{Binding DataContext.CurrentConfig.RaideurLong, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}, AncestorLevel=2}}" Height="30" x:Name="liderRaideurLong" Width="200" Maximum="100" Style="{DynamicResource SliderStyle}" />
+                <Label Content="{Binding DataContext.CurrentConfig.RaideurLong, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}, AncestorLevel=2}}" Height="42" FontSize="24" Width="75" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label Content="{x:Static res:Languages.REAplan_Vitesse}" Height="42" x:Name="vitesse" FontSize="20" Width="140" />
+                <Slider Value="{Binding DataContext.CurrentConfig.Vitesse, Mode=TwoWay,  RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}, AncestorLevel=2}}" Height="30" x:Name="sliderVitesse" Width="200" Maximum="49" Style="{DynamicResource SliderStyle}" />
+                <Label Content="{Binding DataContext.CurrentConfig.Vitesse, Mode=OneWay,  RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}, AncestorLevel=2}}" Height="42" FontSize="24" Width="75" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label Content="{x:Static res:Languages.REAplan_Init}" FontSize="20" Width="140" />
+                <Slider Value="{Binding DataContext.CurrentConfig.Init, Mode=TwoWay,  RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}, AncestorLevel=2}}" Height="30" x:Name="sliderInit" Width="200" Maximum="50" Style="{DynamicResource SliderStyle}" />
+                <Label Content="{Binding DataContext.CurrentConfig.Init, Mode=OneWay,  RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}, AncestorLevel=2}}" FontSize="24" Width="75"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,15,0,0" HorizontalAlignment="Center">
+                <Button Command="{Binding DataContext.EnvoyerConfigCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}, AncestorLevel=2}}" Content="{x:Static res:Languages.REAplan_Changer_Config}" Height="43" Width="191">
+                    
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0"/>
+        </StackPanel>
+        <StackPanel  Margin="70,10,10,10" Grid.Column="1">
+           
+                <Grid  VerticalAlignment="Center" HorizontalAlignment="Center" Height="262">
+                    <TextBox HorizontalAlignment="Left" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Text="{Binding DataContext.CountCycle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}, AncestorLevel=2}}" IsReadOnly="True" FontSize="120" FontFamily="Arial" Style="{DynamicResource ComboBoxEditableTextBoxStyle}" Margin="-22,23.502,0,85" Foreground="#FF3399FF" Width="174"  />
+                    <TextBox HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  IsReadOnly="True" FontSize="70" FontFamily="Arial" Style="{DynamicResource ComboBoxEditableTextBoxStyle}" Margin="143,38,106,48" Text="/" d:LayoutOverrides="Height" VerticalAlignment="Center" HorizontalAlignment="Center" Height="176" Width="35" />
+                <TextBox HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" IsReadOnly="True" FontSize="50" FontFamily="Arial" Style="{DynamicResource ComboBoxEditableTextBoxStyle}" Margin="0,24,6,98" HorizontalAlignment="Right" d:LayoutOverrides="HorizontalAlignment, Height" Text="{Binding DataContext.ScoreMax, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}, AncestorLevel=2}}" Width="111" />
+                </Grid>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,64 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using AxModel;
+using AxConfiguration;
+using AxTheme;
+using AxModelExercice;
+namespace AxExerciceGenerator
+{
+    public static class ExerciceGenerator
+    {
+        public static ExerciceEvaluation GetExerciceEvaluation(string type,ThemeEvaluationModel themeEnfant)
+        {
+            ExerciceEvaluation exo;
+            switch (type)
+            {
+                case "carre": exo = new Square(ExerciceConfig.GetBaseConfig(), ExerciceConfig.GetSmallBorne(), themeEnfant);
+                    break;
+                case "cercle": exo = new Circle(ExerciceConfig.GetBaseConfig(), ExerciceConfig.GetSmallBorne(), themeEnfant);
+                    break;
+                case "target": exo = new Target(ExerciceConfig.GetBaseConfig(), ExerciceConfig.GetSmallBorne(), themeEnfant);
+                    break;
+                case "freeAmpl": exo = new FreeAmplitude(ExerciceConfig.GetBaseConfig(), ExerciceConfig.GetSmallBorne(), themeEnfant);
+                    break;
+                case "tonus": exo = new Tonus(ExerciceConfig.GetBaseConfig(), ExerciceConfig.GetSmallBorne(), themeEnfant);
+                    break;
+                default: exo = new ExerciceEvaluation(ExerciceConfig.GetBaseConfig(), ExerciceConfig.GetSmallBorne(), null);
+                    break;
+            }
+            return exo;
+        }
+
+        public static ExerciceJeu GetExerciceJeu(ThemeModel themeJeu, string niveau)
+        {
+            ExerciceJeu exo = new ExerciceJeu(ExerciceConfig.GetBaseConfig(), ExerciceConfig.GetSmallBorne(),themeJeu);
+<<<<<<< HEAD
+            
+=======
+            exo.Niveau = GetNiveauByte(niveau);
+>>>>>>> 8a1c5d2ba8081555af5402b4e595482b6cab7e50
+            return exo;
+        }
+
+        private static byte GetNiveauByte(string s)
+        {
+            byte difficulte;
+            switch (s)
+            {
+                case "Facile": difficulte = 1;
+                    break;
+                case "Moyen": difficulte = 2;
+                    break;
+                case "Difficile": difficulte = 3;
+                    break;
+                case "Expert": difficulte = 4;
+                    break;
+                default: difficulte = 1;
+                    break;
+            }
+            return difficulte;
+        }
+    }
+}

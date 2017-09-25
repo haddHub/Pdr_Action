@@ -1,0 +1,330 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using GalaSoft.MvvmLight;
+using System.Diagnostics;
+using GalaSoft.MvvmLight.Command;
+using System.Windows;
+using GalaSoft.MvvmLight.Messaging;
+using AxModel;
+using GalaSoft.MvvmLight.Ioc;
+using Navegar;
+using AxModelExercice;
+using AxData;
+using AxError;
+
+namespace AxViewModel
+{
+    /// <summary>
+    /// This class contains properties that a View can data bind to.
+    /// <para>
+    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
+    /// </para>
+    /// <para>
+    /// You can also use Blend to data bind with the tool's support.
+    /// </para>
+    /// <para>
+    /// See http://www.galasoft.ch/mvvm/getstarted
+    /// </para>
+    /// </summary>
+    public class HomeViewModel : BlankViewModelBase
+    {
+        #region Fields
+
+        private bool _isEnabled = false;
+        public INavigation _nav;
+
+        private List<ViewModelBase> _pagesInternes;
+
+        #endregion
+
+        #region Constructors
+        /// <summary>
+        /// Initializes a new instance of the HomeViewModel class.
+        /// </summary>
+        public HomeViewModel()
+        {
+            try
+            {
+                _nav = SimpleIoc.Default.GetInstance<INavigation>();
+                Singleton single = Singleton.getInstance();
+                LabelUtilisateur = single.Admin.ToString();
+                Debug.Print("HomeViewModel OK");
+                CreateCommands();
+                InitNavigation();
+                CreateMessengers();
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex); 
+            }
+        }
+
+        #endregion
+
+        #region Properties
+
+        private string _labelUtilisateur;
+
+        public string LabelUtilisateur
+        {
+            get { return _labelUtilisateur; }
+            set
+            {
+                if (_labelUtilisateur != value)
+                {
+                    _labelUtilisateur = value;
+                    RaisePropertyChanged("LabelUtilisateur");
+                }
+            }
+        }
+
+        private ViewModelBase _internView;
+        public ViewModelBase InternView
+        {
+            get { return _internView; }
+            set
+            {
+                if (_internView != value)
+                {
+                    _internView = value;
+                    RaisePropertyChanged("InternView");
+                }
+            }
+        }
+
+        public bool IsEnabled
+        {
+            get { return _isEnabled; }
+            set
+            {
+                if (_isEnabled != value)
+                {
+                    _isEnabled = value;
+                    RaisePropertyChanged("IsEnabled");
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Possibilitée de cliquer sur le bouton connexion 
+        /// </summary>
+        ///
+
+        public List<ViewModelBase> PagesInternes
+        {
+            get
+            {
+                if (_pagesInternes == null)
+                    _pagesInternes = new List<ViewModelBase>();
+
+                return _pagesInternes;
+            }
+        }
+
+
+        #endregion
+
+        #region Methods
+
+        private void CreateCommands()
+        {
+            ChangeInternNavigation = new RelayCommand<string>((p) => changeInternView(p));
+            MoveToEvalCommand = new RelayCommand(MoveToEval, ExerciceCommandCanExecute);
+            MoveToReeducCommand = new RelayCommand(MoveToReeduc, ExerciceCommandCanExecute);
+            MoveToEvoEvalCommand = new RelayCommand(MoveToEvoEval);
+            MoveToEvoReeducCommand = new RelayCommand(MoveToEvoReeduc);
+            DecoAdminCommand = new RelayCommand(DeconnexionAdmin);
+            TestCommand = new RelayCommand(testCommand);
+        }
+
+        private bool ExerciceCommandCanExecute()
+        {
+<<<<<<< HEAD
+            if (IsEnabled == true && Singleton.GetRobotError() == false )
+               //&& Singleton.IsCalibre == true
+=======
+            if (IsEnabled == true && Singleton.GetRobotError() == false)//&& Singleton.IsCalibre == true
+>>>>>>> f4e23d7d7345d1ec517f98b1d374eabb7cf8c43b
+                return true;
+            else
+                return false;
+        }
+
+        private void InitNavigation()
+        {
+            PagesInternes.Add(new FormulairePatientViewModel());
+            PagesInternes.Add(new FormulaireInscriptionPatientViewModel("1"));
+            PagesInternes.Add(new FormulaireInscriptionPatientViewModel("2"));
+
+            InternView = PagesInternes[0];
+        }
+
+        public void CreateMessengers()
+        {
+            Messenger.Default.Register<Singleton>(this, "Singleton", OnConnected);
+            Messenger.Default.Register<string>(this, "RaiseCanExecuteHomeVM", RaiseCanExecute);
+        }
+
+        private void RaiseCanExecute(string s)
+        {
+            MoveToEvalCommand.RaiseCanExecuteChanged();
+            MoveToEvoReeducCommand.RaiseCanExecuteChanged();
+        }
+
+        private void OnConnected(Singleton obj)
+        {
+            IsEnabled = true;
+        }
+
+        private void PostTraitementSupression()
+        {
+            Messenger.Default.Send(false, "ConnSupp");
+            InternView = PagesInternes[0];
+        }
+
+        private void ToLoad()
+        {
+            try
+            {
+                Messenger.Default.Send(false, "ConnInsc");
+                IsEnabled = true;
+                InternView = PagesInternes[0];
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private void changeInternView(string p)
+        {
+            try
+            {
+                InternView = PagesInternes[Convert.ToInt32(p, 10)];
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+
+        }
+
+        private void DeconnexionAdmin()
+        {
+            try
+            {
+                Messenger.Default.Send(false, "DecoUtilisateur");
+                Singleton.logOff();
+                SimpleIoc.Default.GetInstance<INavigation>().NavigateTo<ConnexionTherapeuteViewModel>(true);
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private void MoveToEval()
+        {
+            try
+            {
+                _nav.NavigateTo<EvaluationViewModel>(this, null, false);
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private void MoveToEvoEval()
+        {
+            try
+            {
+                _nav.NavigateTo<EvoEvalViewModel>(this, null, true);
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private void MoveToReeduc()
+        {
+            try
+            {
+                SimpleIoc.Default.GetInstance<INavigation>().NavigateTo<ReeducationViewViewModel>(this, null, true);
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        private void MoveToEvoReeduc()
+        {
+            try
+            {
+                _nav.NavigateTo<EvolutionReeducationViewModel>(this, null, true);
+            }
+            catch (Exception ex)
+            {
+                GestionErreur.GerrerErreur(ex);
+            }
+        }
+
+        public void testCommand()
+        {
+            Singleton singleton = Singleton.getInstance();
+            List<DataPosition> t = new List<DataPosition>();
+            DataPosition test = new DataPosition(42.6, 54.8);
+            DataPosition test1 = new DataPosition(48.6, 74.0);
+            DataPosition test2 = new DataPosition(22.6, 64.9);
+            DataPosition test3 = new DataPosition(12.6, 54.1);
+            t.Add(test);
+            t.Add(test1);
+            t.Add(test2);
+            t.Add(test3);
+
+            //string dossier = singleton.PatientSingleton.NomPatient + "_" + singleton.PatientSingleton.PrenomPatient + "_" + singleton.PatientSingleton.DateNaiss.Day + "_" + singleton.PatientSingleton.DateNaiss.Month + "_" + singleton.PatientSingleton.DateNaiss.Year;
+            //Circle exo = new Circle(400.760888155759, 0, 35.3392428495057, 0, 80.6225774829855, 0, 0.438329360742203, 0, 16.410630165859, 0);
+            //exo.ajoutPartie(dossier, t);
+            //ExerciceEvaluationData.AjoutPartieDataBase(exo);
+            //Square exo2 = new Square(100,0,28.1985866524267,0,70.7106781186548,0,0.398788236836148,0,11.9835337907903,0);
+            //exo2.ajoutPartie(dossier, t);
+            //ExerciceEvaluationData.AjoutPartieDataBase(exo2);
+            //exo2.ajoutPartieDataBase(exo2);
+            FreeAmplitude exo3 = new FreeAmplitude(5181, 1.2, 1.07540447672979, 1.2, 70.4801055481744, 1.2, 150.332963783729, 1.2, 0.468826688267571, 1.2, 8.16047100787601, 1.2);
+            //exo3.ajoutPartie(dossier, t);
+            ExerciceEvaluationData.AjoutPartieDataBase(exo3);
+            //exo3.ajoutPartieDataBase(exo3);
+            //Target exo4 = new Target(5480.55991665085, 0, 1.00961297416389, 0, 23.5828227437764, 0, 90, 0, 0.262031363819738, 0, 8.29433476199774, 0);
+            //ExerciceEvaluationData.AjoutPartieDataBase(exo4);
+            //exo4.ajoutPartieDataBase(exo4);
+            //ExerciceMouvement ej = new ExerciceMouvement();
+            //ej.ajoutExo(dossier, t);
+
+            MessageBox.Show("Ex ajoutés");
+        }
+
+        #endregion
+
+        #region RelayCommand
+
+        public RelayCommand<string> ChangeInternNavigation { get; set; }
+        public RelayCommand MoveToEvalCommand { get; set; }
+        public RelayCommand MoveToReeducCommand { get; set; }
+        public RelayCommand MoveToEvoReeducCommand { get; set; }
+        public RelayCommand MoveToEvoEvalCommand { get; set; }
+        public RelayCommand DecoCommand { get; set; }
+        public RelayCommand DecoAdminCommand { get; set; }
+        public RelayCommand TestCommand { get; set; }
+
+        #endregion
+
+        #region Actions
+
+        #endregion
+    }
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Themes>
+  <Theme>
+    <Nom>Cercle</Nom>
+  </Theme>
+  <Theme>
+    <Nom>Cible</Nom>
+  </Theme>
+  <Theme>
+    <Nom>Carre</Nom>
+  </Theme>
+  <Theme>
+    <Nom>Droite</Nom>
+  </Theme>
+  <Theme>
+    <Nom>Tonus</Nom>
+  </Theme>
+  <Theme>
+    <Nom>Defaut</Nom>
+  </Theme>
+</Themes>

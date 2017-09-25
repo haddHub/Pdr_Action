@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\Axinesis\Desktop\ihm_base\AxModel.Test\bin\Debug\AxModel.Test.dll" total="1" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2014-08-12" time="15:36:55">
+  <environment nunit-version="2.5.1.9189" clr-version="4.0.30319.34014" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Users\Axinesis\Desktop\ihm_base\TestResults\Axinesis_PC-AXINESIS-004 2014-08-12 15_36_42\Out" machine-name="PC-AXINESIS-004" user="Axinesis" user-domain="PC-AXINESIS-004" />
+  <culture-info current-culture="fr-FR" current-uiculture="fr-FR" />
+  <test-suite name="C:\Users\Axinesis\Desktop\ihm_base\AxModel.Test\bin\Debug\AxModel.Test.dll" executed="True" success="True" time="0.039" asserts="0">
+    <results>
+      <test-suite name="AxModel" executed="True" success="True" time="0.037" asserts="0">
+        <results>
+          <test-suite name="Test" executed="True" success="True" time="0.037" asserts="0">
+            <results>
+              <test-suite name="ModelTest" executed="True" success="True" time="0.037" asserts="0">
+                <results>
+                  <test-case name="AxModel.Test.ModelTest.Ecart_Type" executed="True" success="True" time="0.033" asserts="1" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="b4a80b60-59c3-412d-af7d-d0532d093b76" name="Axinesis@PC-AXINESIS-004 2014-08-12 13:58:22" runUser="PC-AXINESIS-004\Axinesis" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Paramètres de test par défaut" id="87ccd279-3aed-46db-a81d-a24e7fccb215">
+    <Deployment runDeploymentRoot="Axinesis_PC-AXINESIS-004 2014-08-12 13_58_22">
+      <DeploymentItem filename="C:\Program Files (x86)\NUnit 2.6.3\bin\framework\nunit.framework.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse\bin\Debug\AxAnalyse.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\MvvmLightLibs.4.4.32.1\lib\net40\System.Windows.Interactivity.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\MvvmLightLibs.4.4.32.1\lib\net40\GalaSoft.MvvmLight.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\AxModel\bin\Debug\AxModel.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\NUnit 2.6.3\bin\framework\nunit.mocks.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll" />
+      <DeploymentItem filename="C:\Users\Axinesis\Desktop\ihm_base\packages\MvvmLightLibs.4.4.32.1\lib\net40\GalaSoft.MvvmLight.Extras.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-08-12T13:58:22.9997378+02:00" queuing="2014-08-12T13:58:25.0154648+02:00" start="2014-08-12T13:58:25.1560988+02:00" finish="2014-08-12T13:58:25.9373836+02:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Vitesse_Peak" storage="c:\users\axinesis\desktop\ihm_base\axanalyse.test\bin\debug\axanalyse.test.dll" id="b628823a-dabd-b674-c93a-e5940f53020d" xmlns="AxAnalyse.Test">
+      <Execution id="13531ef6-d38b-41fa-abfd-cdb7f34cc5c6" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" />
+      <TestMethod codeBase="C:\Users\Axinesis\Desktop\ihm_base\AxAnalyse.Test\bin\Debug\AxAnalyse.Test.dll" adapterTypeName="NUnitForVSTS.NUnitTest.NUnitTestAdapter, NUnitForVSTS.NUnitTest, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null" className="AxAnalyse.Test.AnalyseTest" name="Vitesse_Peak" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Les résultats ne figurent pas dans une liste" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Tous les résultats chargés" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="b628823a-dabd-b674-c93a-e5940f53020d" executionId="13531ef6-d38b-41fa-abfd-cdb7f34cc5c6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <TestResultAggregation executionId="13531ef6-d38b-41fa-abfd-cdb7f34cc5c6" testId="b628823a-dabd-b674-c93a-e5940f53020d" testName="Vitesse_Peak" computerName="PC-AXINESIS-004" duration="00:00:00.0630000" startTime="2014-08-12T13:58:25.6399980+02:00" endTime="2014-08-12T13:58:25.7029980+02:00" testType="d6af2cae-ad69-4f6b-94e9-14e2609e2389" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="13531ef6-d38b-41fa-abfd-cdb7f34cc5c6">
+    </TestResultAggregation>
+  </Results>
+</TestRun>
